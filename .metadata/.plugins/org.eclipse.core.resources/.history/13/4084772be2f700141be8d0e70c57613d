@@ -1,0 +1,23 @@
+/**************************************
+* Module: counterEnable_tb
+* Date:2015-05-11  
+* Author: saul     
+*
+* Description: 
+***************************************/
+module  counterEnable_tb(
+);
+
+//Nets to drive
+input CountEnable;
+input Clk;
+input Resetn;
+
+//Output wires
+output wire P1,P2,P3,P4,P5; //Control signals for the DAC
+output wire IP,IN; // in-phase (I) reference clock
+output wire QP,QN; // quadrature (Q) reference clock
+
+
+endmodule
+

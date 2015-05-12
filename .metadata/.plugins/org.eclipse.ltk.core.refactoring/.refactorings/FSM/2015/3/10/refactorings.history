@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;FSM/make_fsm&apos; to &apos;make_fsm.sh&apos;" description="Rename resource &apos;make_fsm&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="make_fsm" name="make_fsm.sh" stamp="1425758629245" updateReferences="true"/>
+</session>

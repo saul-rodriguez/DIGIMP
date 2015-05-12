@@ -1,0 +1,47 @@
+/**************************************
+* Module: counterEnable
+* Date:2015-05-11  
+* Author: saul     
+*
+* Description: state machine that controls the DAC and I/Q generation
+***************************************/
+module  counterEnable(
+CountEnable,
+Clk,
+Resetn,
+P1,
+P2,
+P3,
+P4,
+P5,
+IP,
+IN,
+QP,
+QN
+);
+
+//Inputs
+input CountEnable;
+input Clk;
+input Resetn;
+
+//Outputs
+output wire P1,P2,P3,P4,P5; //Control signals for the DAC
+output wire IP,IN; // in-phase (I) reference clock
+output wire QP,QN; // quadrature (Q) reference clock
+
+reg [2:0] count;
+
+always @(posedge Clk, negedge Resetn)
+begin
+    if (Resetn == 0) begin
+        count <= 0;
+    end else begin
+        count <= count + 1;    
+    end    
+end
+
+assign P1 = count[1] & count[0];
+assign P2 = (~count[2]) & (~count[0]);  
+endmodule
+

@@ -1,0 +1,83 @@
+/**************************************
+* Module: spc1_tb
+* Date:2015-05-02  
+* Author: saul     
+*
+* Description: test bench for spc2
+***************************************/
+module  spc2_tb(
+);
+
+//Lines to drive
+//reg Clk, Resetn, Cfg_in, Strobe;
+reg Clk, Resetn, Cfg_in;
+
+
+//Output signals
+wire [3:0] F;
+wire IQ;
+wire [2:0] G;
+wire CE;
+wire [1:0] GCP;
+
+parameter [10:0] confWord = 11'b10101100001;
+parameter [10:0] confWord2 = 11'b11001010111;
+reg [10:0] conf;
+reg [10:0] conf2;
+
+
+initial begin
+    $dumpfile("spc2.vcd");
+    $dumpvars(0,my_spc2);
+    
+    conf = confWord;
+    conf2 = confWord2;
+    
+    Clk = 0;
+    Resetn = 1;
+    Cfg_in = 0;
+//    Strobe = 0;
+    
+    #1 Resetn = 0;
+    #2 Resetn = 1;
+    #1 Cfg_in = conf[0];
+    #10 Cfg_in = conf[1];
+    #10 Cfg_in = conf[2];
+    #10 Cfg_in = conf[3];
+    #10 Cfg_in = conf[4];
+    #10 Cfg_in = conf[5];
+    #10 Cfg_in = conf[6];
+    #10 Cfg_in = conf[7];
+    #10 Cfg_in = conf[8];
+    #10 Cfg_in = conf[9];
+    #10 Cfg_in = conf[10];
+    
+    //Second word
+    #15 Resetn = 0;
+    #2 Resetn = 1;
+    #1 Cfg_in = conf2[0];
+    #10 Cfg_in = conf2[1];
+    #10 Cfg_in = conf2[2];
+    #10 Cfg_in = conf2[3];
+    #10 Cfg_in = conf2[4];
+    #10 Cfg_in = conf2[5];
+    #10 Cfg_in = conf2[6];
+    #10 Cfg_in = conf2[7];
+    #10 Cfg_in = conf2[8];
+    #10 Cfg_in = conf2[9];
+    #10 Cfg_in = conf2[10];
+    
+  //  #5 Strobe = 1;
+    #50 $finish;    
+    
+end
+
+always begin
+    #5 Clk = ~Clk;
+end
+
+spc2 my_spc2(Cfg_in,Clk,Resetn,F,IQ,G,CE,GCP);
+
+
+endmodule
+

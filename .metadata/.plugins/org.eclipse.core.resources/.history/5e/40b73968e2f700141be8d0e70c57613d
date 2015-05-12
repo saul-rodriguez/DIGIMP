@@ -1,0 +1,36 @@
+/**************************************
+* Module: counterEnable_tb
+* Date:2015-05-11  
+* Author: saul     
+*
+* Description: 
+***************************************/
+module  counterEnable_tb(
+);
+
+//Nets to drive
+reg CountEnable;
+reg Clk;
+reg Resetn;
+
+//Output wires
+wire P1,P2,P3,P4,P5; //Control signals for the DAC
+wire IP,IN; // in-phase (I) reference clock
+wire QP,QN; // quadrature (Q) reference clock
+
+initial begin
+    $dumpfile("counterEnable.vcd");
+    $dumpvars(0,my_counterEnable);
+    Clk = 0;
+    
+    #2 Fsel = sel1;
+       Resetn = 0;
+    #4 Resetn = 1;
+    #100 Fsel = sel2;    
+    #2000 Fsel = sel3;
+    #60000 $finish;
+    
+end
+
+endmodule
+
