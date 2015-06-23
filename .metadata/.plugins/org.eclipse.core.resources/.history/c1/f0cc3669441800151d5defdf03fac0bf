@@ -1,0 +1,16 @@
+/**************************************
+* Module: I2C_tb
+* Date:2015-06-21  
+* Author: saul     
+*
+* Description: 
+***************************************/
+module  I2C_tb(
+);
+
+//Nets to drive
+
+//Output wires
+
+endmodule
+

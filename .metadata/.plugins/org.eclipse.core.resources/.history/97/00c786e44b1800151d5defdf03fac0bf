@@ -1,0 +1,63 @@
+/**************************************
+* Module: I2C
+* Date:2015-06-21  
+* Author: saul     
+*
+* Description: I2C slave
+***************************************/
+module  I2C(
+SDA,
+SCL,
+RST
+);
+
+input SDA;
+input SCL;
+input RST; 
+
+
+//Start Detection
+reg  start_detect;
+reg  start_resetter;
+wire start_rst = RST | start_resetter;
+
+always @ (posedge start_rst or negedge SDA)
+begin
+        if (start_rst)
+                start_detect <= 1'b0;
+        else
+                start_detect <= SCL;
+end
+
+always @ (posedge RST or posedge SCL)
+begin
+        if (RST)
+                start_resetter <= 1'b0;
+        else
+                start_resetter <= start_detect;
+end
+
+//Stop Detection
+reg             stop_detect;
+reg             stop_resetter;
+wire            stop_rst = RST | stop_resetter;
+
+always @ (posedge stop_rst or posedge SDA)
+begin   
+        if (stop_rst)
+                stop_detect <= 1'b0;
+        else
+                stop_detect <= SCL;
+end
+
+always @ (posedge RST or posedge SCL)
+begin   
+        if (RST)
+                stop_resetter <= 1'b0;
+        else
+                stop_resetter <= stop_detect;
+end
+
+
+endmodule
+

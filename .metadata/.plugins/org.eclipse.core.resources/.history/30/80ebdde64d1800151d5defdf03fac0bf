@@ -1,0 +1,90 @@
+/**************************************
+* Module: I2C
+* Date:2015-06-21  
+* Author: saul     
+*
+* Description: I2C slave
+***************************************/
+module  I2C(
+SDA,
+SCL,
+RST
+);
+
+input SDA;
+input SCL;
+input RST; 
+
+
+//Start Detection
+reg  start_detect;
+reg  start_resetter;
+wire start_rst = RST | start_resetter;
+
+always @ (posedge start_rst or negedge SDA)
+begin
+        if (start_rst)
+                start_detect <= 1'b0;
+        else
+                start_detect <= SCL;
+end
+
+always @ (posedge RST or posedge SCL)
+begin
+        if (RST)
+                start_resetter <= 1'b0;
+        else
+                start_resetter <= start_detect;
+end
+
+//Stop Detection
+reg             stop_detect;
+reg             stop_resetter;
+wire            stop_rst = RST | stop_resetter;
+
+always @ (posedge stop_rst or posedge SDA)
+begin   
+        if (stop_rst)
+                stop_detect <= 1'b0;
+        else
+                stop_detect <= SCL;
+end
+
+always @ (posedge RST or posedge SCL)
+begin   
+        if (RST)
+                stop_resetter <= 1'b0;
+        else
+                stop_resetter <= stop_detect;
+end
+
+// Counter
+reg [3:0] bit_counter;
+
+wire  lsb_bit = (bit_counter == 4'h7) && !start_detect;
+wire  ack_bit = (bit_counter == 4'h8) && !start_detect; // 8 bits + ack
+
+always @ (negedge SCL)
+begin
+        if (ack_bit || start_detect)
+                bit_counter <= 4'h0;
+        else
+                bit_counter <= bit_counter + 4'h1;
+end
+
+// Latching the data
+/* 
+ 
+ 
+reg [7:0]       input_shift;
+
+parameter [6:0] device_address = 7'h55; // Here you hardcode the I2C address
+wire            address_detect = (input_shift[7:1] == device_address);
+wire            read_write_bit = input_shift[0];
+
+always @ (posedge RST or posedge SCL)
+        if (!ack_bit)
+*/
+
+endmodule
+
