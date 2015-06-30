@@ -30,21 +30,21 @@ wire F_PFD; // Reference for the PFD Div-by-32
 assign F_PFD = divider[4];
 
 //Divider by two code {F14:F0}{Fin}
-Divby2 div1(Fin,divider[0],Resetn); //16MHz
-Divby2 div2(divider[0],divider[1],Resetn); //8MHz
-Divby2 div3(divider[1],divider[2],Resetn); //4MHz
-Divby2 div4(divider[2],divider[3],Resetn); //2MHz
-Divby2 div5(divider[3],divider[4],Resetn); //1MHz
-Divby2 div6(divider[4],divider[5],Resetn); //500kHz
-Divby2 div7(divider[5],divider[6],Resetn); //250kHz
-Divby2 div8(divider[6],divider[7],Resetn); //125KHz
-Divby2 div9(divider[7],divider[8],Resetn); //62.5kHz
-Divby2 div10(divider[8],divider[9],Resetn); //31.25 kHz
-Divby2 div11(divider[9],divider[10],Resetn); //15.625 kHz
-Divby2 div12(divider[10],divider[11],Resetn); //7.8125 kHz
-Divby2 div13(divider[11],divider[12],Resetn); //3.90625 kHz 
-Divby2 div14(divider[12],divider[13],Resetn); //1.953125 kHz
-Divby2 div15(divider[13],divider[14],Resetn); //0.9765625 kHz
+Divby2 div1(Fin,divider[0],Resetn);
+Divby2 div2(divider[0],divider[1],Resetn);
+Divby2 div3(divider[1],divider[2],Resetn);
+Divby2 div4(divider[2],divider[3],Resetn);
+Divby2 div5(divider[3],divider[4],Resetn);
+Divby2 div6(divider[4],divider[5],Resetn);
+Divby2 div7(divider[5],divider[6],Resetn);
+Divby2 div8(divider[6],divider[7],Resetn);
+Divby2 div9(divider[7],divider[8],Resetn);
+Divby2 div10(divider[8],divider[9],Resetn);
+Divby2 div11(divider[9],divider[10],Resetn);
+Divby2 div12(divider[10],divider[11],Resetn);
+Divby2 div13(divider[11],divider[12],Resetn);
+Divby2 div14(divider[12],divider[13],Resetn);
+Divby2 div15(divider[13],divider[14],Resetn);
 
 // MUX 16:1
 always @(Fsel,divider,Fin)

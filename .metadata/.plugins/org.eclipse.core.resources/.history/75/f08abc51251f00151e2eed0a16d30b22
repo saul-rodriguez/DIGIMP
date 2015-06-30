@@ -41,7 +41,7 @@ always begin
     #5 Fin = ~Fin;
 end
 
-FreqDiv my_FreqDiv(Fin,Fsel,Resetn,Fout,F_PFD);
+FreqDiv my_FreqDiv(Fin,Fsel,Resetn,Fout,FPFD);
 
 
 endmodule
