@@ -1,0 +1,100 @@
+   
+    #2 RST = 1;
+    #2 RST = 0;
+    #6 SDA = 0; // START    
+    
+    // ADDRESS
+    #10 SCL = 0; SDA = 1;
+    #10 SCL = 1;
+    #10 SCL = 0; SDA = 0;
+    #10 SCL = 1;
+    #10 SCL = 0; SDA = 1;
+    #10 SCL = 1;
+    #10 SCL = 0; SDA = 0;
+    #10 SCL = 1;
+    #10 SCL = 0; SDA = 1;
+    #10 SCL = 1;
+    #10 SCL = 0; SDA = 0;
+    #10 SCL = 1;
+    #10 SCL = 0; SDA = 1;
+    #10 SCL = 1;
+    
+    // R/W#
+    #10 SCL = 0; SDA = 0;
+    #10 SCL = 1;
+    
+    #10 SCL = 0; 
+    #10 SCL = 1; // ACK SAMPLED
+    
+     //REGISTER ID 
+    #10 SCL = 0; SDA = 0;
+    #10 SCL = 1; 
+    #10 SCL = 0; SDA = 0;
+    #10 SCL = 1; 
+    #10 SCL = 0; SDA = 0;
+    #10 SCL = 1; 
+    #10 SCL = 0; SDA = 0;
+    #10 SCL = 1;
+    #10 SCL = 0; SDA = 0;
+    #10 SCL = 1; 
+    #10 SCL = 0; SDA = 0;
+    #10 SCL = 1; 
+    #10 SCL = 0; SDA = 0;
+    #10 SCL = 1; 
+    #10 SCL = 0; SDA = 1;
+    #10 SCL = 1; 
+    
+    #10 SCL = 0; 
+    #10 SCL = 1; // ACK SAMPLED
+    
+    //DATA 0 0xCA
+    #10 SCL = 0; SDA = 1;
+    #10 SCL = 1; 
+    #10 SCL = 0; SDA = 1;
+    #10 SCL = 1; 
+    #10 SCL = 0; SDA = 0;
+    #10 SCL = 1; 
+    #10 SCL = 0; SDA = 0;
+    #10 SCL = 1;
+    #10 SCL = 0; SDA = 1;
+    #10 SCL = 1; 
+    #10 SCL = 0; SDA = 0;
+    #10 SCL = 1; 
+    #10 SCL = 0; SDA = 1;
+    #10 SCL = 1; 
+    #10 SCL = 0; SDA = 0;
+    #10 SCL = 1; 
+    
+    #10 SCL = 0; 
+    #10 SCL = 1; // ACK SAMPLED
+    
+     //DATA 1 0x35
+    #10 SCL = 0; SDA = 0;
+    #10 SCL = 1; 
+    #10 SCL = 0; SDA = 0;
+    #10 SCL = 1; 
+    #10 SCL = 0; SDA = 1;
+    #10 SCL = 1; 
+    #10 SCL = 0; SDA = 1;
+    #10 SCL = 1;
+    #10 SCL = 0; SDA = 0;
+    #10 SCL = 1; 
+    #10 SCL = 0; SDA = 1;
+    #10 SCL = 1; 
+    #10 SCL = 0; SDA = 0;
+    #10 SCL = 1; 
+    #10 SCL = 0; SDA = 1;
+    #10 SCL = 1; 
+    
+    #10 SCL = 0; 
+    #10 SCL = 1; // ACK SAMPLED
+    
+    
+    #10 SCL = 0;
+    
+    #40 SCL = 1; // STOP
+    #4 SDA = 1;
+    #10;
+    
+ 
+ 

@@ -4,6 +4,9 @@
 * Author: saul     
 *
 * Description: 
+
+ 
+
 ***************************************/
 module  I2C_tb(
 );
@@ -33,106 +36,23 @@ initial begin
     
     #2 RST = 1;
     #2 RST = 0;
-    #6 SDA = 0; // START    
+    #40;
     
-    // ADDRESS
-    #10 SCL = 0; SDA = 1;
-    #10 SCL = 1;
-    #10 SCL = 0; SDA = 0;
-    #10 SCL = 1;
-    #10 SCL = 0; SDA = 1;
-    #10 SCL = 1;
-    #10 SCL = 0; SDA = 0;
-    #10 SCL = 1;
-    #10 SCL = 0; SDA = 1;
-    #10 SCL = 1;
-    #10 SCL = 0; SDA = 0;
-    #10 SCL = 1;
-    #10 SCL = 0; SDA = 1;
-    #10 SCL = 1;
-    
-    // R/W#
-    #10 SCL = 0; SDA = 0;
-    #10 SCL = 1;
-    
-    #10 SCL = 0; 
-    #10 SCL = 1; // ACK SAMPLED
-    
-     //REGISTER ID 
-    #10 SCL = 0; SDA = 0;
-    #10 SCL = 1; 
-    #10 SCL = 0; SDA = 0;
-    #10 SCL = 1; 
-    #10 SCL = 0; SDA = 0;
-    #10 SCL = 1; 
-    #10 SCL = 0; SDA = 0;
-    #10 SCL = 1;
-    #10 SCL = 0; SDA = 0;
-    #10 SCL = 1; 
-    #10 SCL = 0; SDA = 0;
-    #10 SCL = 1; 
-    #10 SCL = 0; SDA = 0;
-    #10 SCL = 1; 
-    #10 SCL = 0; SDA = 1;
-    #10 SCL = 1; 
-    
-    #10 SCL = 0; 
-    #10 SCL = 1; // ACK SAMPLED
-    
-    //DATA 0 0xCA
-    #10 SCL = 0; SDA = 1;
-    #10 SCL = 1; 
-    #10 SCL = 0; SDA = 1;
-    #10 SCL = 1; 
-    #10 SCL = 0; SDA = 0;
-    #10 SCL = 1; 
-    #10 SCL = 0; SDA = 0;
-    #10 SCL = 1;
-    #10 SCL = 0; SDA = 1;
-    #10 SCL = 1; 
-    #10 SCL = 0; SDA = 0;
-    #10 SCL = 1; 
-    #10 SCL = 0; SDA = 1;
-    #10 SCL = 1; 
-    #10 SCL = 0; SDA = 0;
-    #10 SCL = 1; 
-    
-    #10 SCL = 0; 
-    #10 SCL = 1; // ACK SAMPLED
-    
-     //DATA 1 0x35
-    #10 SCL = 0; SDA = 0;
-    #10 SCL = 1; 
-    #10 SCL = 0; SDA = 0;
-    #10 SCL = 1; 
-    #10 SCL = 0; SDA = 1;
-    #10 SCL = 1; 
-    #10 SCL = 0; SDA = 1;
-    #10 SCL = 1;
-    #10 SCL = 0; SDA = 0;
-    #10 SCL = 1; 
-    #10 SCL = 0; SDA = 1;
-    #10 SCL = 1; 
-    #10 SCL = 0; SDA = 0;
-    #10 SCL = 1; 
-    #10 SCL = 0; SDA = 1;
-    #10 SCL = 1; 
-    
-    #10 SCL = 0; 
-    #10 SCL = 1; // ACK SAMPLED
-    
-    
-    #10 SCL = 0;
-    
-    #40 SCL = 1; // STOP
-    #4 SDA = 1;
-    
+    `include "write_i2c.inc"
+    #40;
+    `include "write_i2c_2.inc"
+    #40;
+    `include "read_i2c.inc"
+   
+   
+   /*
     #6 SDA = 0; // START
     #10 SCL = 0;
     #10 SCL = 1;
     #10 SCL = 0;
     #40 SCL = 1;
     #4 SDA = 1;
+    */
     
     #50 $finish;
 end

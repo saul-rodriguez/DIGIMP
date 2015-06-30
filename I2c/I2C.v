@@ -206,7 +206,7 @@ begin
                 8'h00: output_shift <= reg_00;
                 8'h01: output_shift <= reg_01;
                 8'h02: output_shift <= reg_02;
-                8'h03: output_shift <= reg_02;
+                8'h03: output_shift <= reg_03;
                 // ... and so on ...
 
                 endcase

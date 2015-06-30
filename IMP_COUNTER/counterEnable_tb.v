@@ -24,7 +24,7 @@ initial begin
     Clk = 0;
     CountEnable = 0;
     Resetn = 1;
-    
+       
     #2 Resetn = 0;
     #2 Resetn = 1;
     #50 CountEnable = 1;    
