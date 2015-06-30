@@ -45,7 +45,7 @@ begin
     if(res == 0) begin
         QB <= 0;        
     end else begin        
-        QB <= 1;    
+        QAN <= 1;    
     end
 end
 

@@ -18,7 +18,7 @@
 				</dictionary>
 				<dictionary>
 					<key>net.sourceforge.veditor.simulateBuilder.00000000Default.command</key>
-					<value>echo &apos;No Build Configuration Specified&apos;</value>
+					<value>sh make_pfd.sh</value>
 				</dictionary>
 				<dictionary>
 					<key>net.sourceforge.veditor.simulateBuilder.00000000Default.enable</key>
@@ -30,7 +30,7 @@
 				</dictionary>
 				<dictionary>
 					<key>net.sourceforge.veditor.simulateBuilder.00000000Default.parser</key>
-					<value></value>
+					<value>Icarus Verilog</value>
 				</dictionary>
 				<dictionary>
 					<key>net.sourceforge.veditor.simulateBuilder.00000000Default.workFolder</key>
