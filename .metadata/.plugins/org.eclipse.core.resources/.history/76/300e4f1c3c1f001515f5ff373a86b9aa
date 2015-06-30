@@ -1,0 +1,38 @@
+/**************************************
+* Module: PFD
+* Date:2015-06-30  
+* Author: saul     
+*
+* Description: 
+***************************************/
+module  PFD(
+A,
+B,
+Resetn,
+QAN,
+QB
+);
+
+//inputs
+input A;
+input B;
+input Resetn;
+
+//outputs
+output QAN;
+output QB;
+
+reg QA;
+reg QB;
+
+wire QA;
+wire res;
+
+assign res = 
+
+
+
+
+
+endmodule
+

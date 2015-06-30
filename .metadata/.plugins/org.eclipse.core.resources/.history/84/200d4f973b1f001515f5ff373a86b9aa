@@ -1,0 +1,18 @@
+/**************************************
+* Module: PFD
+* Date:2015-06-30  
+* Author: saul     
+*
+* Description: 
+***************************************/
+module  PFD(
+A,
+B,
+Resetn,
+QAN,
+QB
+);
+
+
+endmodule
+
