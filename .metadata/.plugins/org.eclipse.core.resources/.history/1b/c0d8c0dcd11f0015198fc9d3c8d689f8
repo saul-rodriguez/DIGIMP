@@ -4,12 +4,7 @@
 * Author: saul     
 *
 * Description: test bench for spc2
-*
-* Configuation word: F3,F2,F1,      F0,IQ,G2,G1,    G0,CE,CCP1,CCP0
-*
 ***************************************/
-
-
 module  spc2_tb(
 );
 

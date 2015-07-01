@@ -4,7 +4,7 @@
 * Author: saul     
 *
 * Description: Serial to Parallel converter used for configuring BIO IC V1
-* This block uses 4 control lines: Cfg_in, Clk, Strobe, and Resetn 
+* This block uses 3 control lines: Cfg_in, Clk, and Resetn 
 ***************************************/
 module  spc2(
 Cfg_in,
