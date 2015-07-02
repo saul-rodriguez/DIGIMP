@@ -1,4 +1,4 @@
-/**********************************************************************
+/**************************************
 * Module: spc1_tb
 * Date:2015-05-02  
 * Author: saul     
@@ -6,8 +6,8 @@
 * Description: test bench for spc2
 *
 * Configuation word: F3,F2,F1,      F0,IQ,G2,G1,    G0,CE,CCP1,CCP0
-* F<3:0> IQ G<2:0> CE GCP<1:0>
-***********************************************************************/
+*
+***************************************/
 
 
 module  spc2_tb(
@@ -25,7 +25,7 @@ wire [2:0] G;
 wire CE;
 wire [1:0] GCP;
 
-parameter [10:0] confWord  = 11'b10101100001; //0x561
+parameter [10:0] confWord = 11'b10101100001; //0x561
 parameter [10:0] confWord2 = 11'b11001010111; //0x657
 reg [10:0] conf;
 reg [10:0] conf2;

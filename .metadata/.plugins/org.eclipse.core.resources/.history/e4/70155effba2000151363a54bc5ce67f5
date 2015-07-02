@@ -1,0 +1,13 @@
+/**************************************
+* Module: SPC_config
+* Date:2015-07-02  
+* Author: saul     
+*
+* Description: 
+***************************************/
+module  SPC_config(
+);
+
+
+endmodule
+
