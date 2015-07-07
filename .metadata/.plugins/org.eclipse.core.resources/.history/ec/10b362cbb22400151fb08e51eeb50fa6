@@ -61,7 +61,6 @@ assign strobe = (!count) & (~Clk);
 /*
 * Output registers with strobe
 */
-/*
 always @(posedge strobe)
 begin
         F[3:0] <= out[10:7];
@@ -70,12 +69,12 @@ begin
         CE <= out[2];
         GCP[1:0] <= out[1:0];
 end
-*/
+
 /*
 * Output registers with async. reset
 */
-
-always @(posedge strobe, negedge Resetn)
+/*
+always @(posedge Strobe, negedge Resetn)
 begin
     if (Resetn == 0) begin
         F[3:0] <= 0;
@@ -91,7 +90,7 @@ begin
         GCP[1:0] <= out[1:0];
     end
 end
-
+*/
 endmodule
 
 

@@ -58,7 +58,7 @@ initial begin
     #10 Cfg_in = conf[10];
     
     //Second word
-    #50 Resetn = 0;
+    #15 Resetn = 0;
     #2 Resetn = 1;
     #1 Cfg_in = conf2[0];
     #10 Cfg_in = conf2[1];
