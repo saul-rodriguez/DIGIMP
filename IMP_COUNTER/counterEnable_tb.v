@@ -28,7 +28,7 @@ initial begin
     #2 Resetn = 0;
     #2 Resetn = 1;
     #50 CountEnable = 1;    
-    #250 CountEnable = 0;
+    #450 CountEnable = 0;
     #50 $finish;
     
 end

@@ -1,0 +1,21 @@
+/**************************************
+* Module: DacCtrl
+* Date:2015-09-25  
+* Author: saul     
+*
+* Description: 
+***************************************/
+module  DacCtrl(
+CountEnable,
+Clk,
+Resetn,
+P,
+IP,
+IN,
+QP,
+QN
+);
+
+
+endmodule
+
