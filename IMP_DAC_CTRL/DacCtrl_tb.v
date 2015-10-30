@@ -30,8 +30,8 @@ initial begin
        StepNum = 0; // 32 steps 
     #20 Resetn = 1;
     #30 CountEnable = 1; 
-    #450 StepNum = 1; // 16 steps   
-    #450 CountEnable = 0;
+    #500 StepNum = 1; // 16 steps   
+    #500 CountEnable = 0;
     #50 $finish;
     
 end

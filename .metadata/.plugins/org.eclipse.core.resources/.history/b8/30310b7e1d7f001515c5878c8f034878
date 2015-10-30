@@ -54,17 +54,15 @@ input StepNum;
 //Outputs
 //output wire P1,P2,P3,P4,P5; //Control signals for the DAC
 output reg [16:0] P; //Control signals for the DAC
-output reg IP; // in-phase (I) reference clock
+output reg IP,IN; // in-phase (I) reference clock
 output reg QP; // quadrature (Q) reference clock
 //output wire QP; // quadrature (Q) reference clock
-output wire IN,QN; 
+output wire QN; 
 
 reg [16:0] S32;
 reg [16:0] S16;
 
 reg [4:0] count;
-
-reg aux_Q;
 
 // 5bit counter state machine
 always @(posedge Clk, negedge Resetn)
@@ -160,7 +158,26 @@ begin
             29: S16 = 17'b0_0100_0000_0000_0000;
             30: S16 = 17'b0_0001_0000_0000_0000;
             31: S16 = 17'b0_0000_0100_0000_0000;
-                 
+           
+           /*            
+           
+            16: S16 = 17'b0_0000_0000_0000_0001;// 0V
+            17: S16 = 17'b0_0000_0000_0000_0001; 
+            18: S16 = 17'b0_0000_0100_0000_0000;
+            19: S16 = 17'b0_0000_0100_0000_0000;
+            20: S16 = 17'b0_0001_0000_0000_0000;
+            21: S16 = 17'b0_0001_0000_0000_0000;
+            22: S16 = 17'b0_0100_0000_0000_0000;
+            23: S16 = 17'b0_0100_0000_0000_0000;            
+            24: S16 = 17'b1_0000_0000_0000_0000; //16 -1V
+            25: S16 = 17'b1_0000_0000_0000_0000;
+            26: S16 = 17'b0_0100_0000_0000_0000;
+            27: S16 = 17'b0_0100_0000_0000_0000;
+            28: S16 = 17'b0_0001_0000_0000_0000;
+            29: S16 = 17'b0_0001_0000_0000_0000;
+            30: S16 = 17'b0_0000_0100_0000_0000;
+            31: S16 = 17'b0_0000_0100_0000_0000;
+           */
            
             default: S16 = 17'b0_0000_0000_0000_0001; //0 0V
          endcase   
@@ -186,28 +203,16 @@ always @(StepNum,count)
 begin
     if(StepNum == 0) begin // 32 Steps
         IP <= ~count[4];
-       
     end else begin // 16 steps
-        IP <= ~count[3];
-      
+    
     end
 end
 
+assign IP = ~count[4];
 assign IN = ~IP;
 
 
-//Q is created by sampling I exactly in the middle of the high pulse. 
-//Aux_Q is the clock used to sample I;
-always @(StepNum,count)
-begin
-    if(StepNum == 0) begin //32 steps
-        aux_Q = count[3];
-    end else begin //16 steps
-        aux_Q = count[2];
-    end
-end
-
-always @(posedge aux_Q, negedge Resetn)
+always @(posedge count[3], negedge Resetn)
 begin
     if (Resetn == 0) begin
         QP <= 0;         
