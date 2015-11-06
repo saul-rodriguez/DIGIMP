@@ -1,0 +1,11 @@
+*****************************************************************************
+Tool:		oa2lefCDS           05.00.011
+*****************************************************************************
+Running: oa2lefCDS -logFile oa2lef.log -lib CORELIB_HV -lef .oa2lef22045/CORELIB_HV.lef -views "abstract" -ver 5.8 -noTech
+Started: Fri Nov  6 14:52:19 2015 (Hostname: localhost.localdomain)
+Finished:	oa2lefCDS
+Time elapsed:	0.79 seconds
+CPU Time:	0.364944 seconds
+System Time:	0.107983 seconds
+Peak VM:	31399936 bytes
+Messages:	0 errors, 0 warnings
