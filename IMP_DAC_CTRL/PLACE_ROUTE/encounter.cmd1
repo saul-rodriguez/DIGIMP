@@ -1,0 +1,383 @@
+#######################################################
+#                                                     
+#  Encounter Command Logging File                     
+#  Created on Sun Nov  8 18:13:06 2015                
+#                                                     
+#######################################################
+
+#@(#)CDS: Encounter v14.25-s034_1 (64bit) 05/28/2015 13:06 (Linux 2.6.18-194.el5)
+#@(#)CDS: NanoRoute v14.25-s018 NR150520-1502/14_25-UB (database version 2.30, 267.6.1) {superthreading v1.25}
+#@(#)CDS: CeltIC v14.25-s023_1 (64bit) 05/28/2015 02:11:28 (Linux 2.6.18-194.el5)
+#@(#)CDS: AAE 14.25-s009 (64bit) 05/28/2015 (Linux 2.6.18-194.el5)
+#@(#)CDS: CTE 14.25-s022_1 (64bit) May 28 2015 00:14:16 (Linux 2.6.18-194.el5)
+#@(#)CDS: CPE v14.25-s029
+#@(#)CDS: IQRC/TQRC 14.2.2-s217 (64bit) Wed Apr 15 23:10:24 PDT 2015 (Linux 2.6.18-194.el5)
+
+setCheckMode -tapeOut true
+set defHierChar /
+set init_oa_ref_lib {TECH_H18A6  CORELIB_HV  }
+set init_verilog VERILOG/DacCtrl_synth.v
+set init_top_cell DacCtrl
+set init_pwr_net {vdd!  }
+set init_gnd_net {gnd! subc!  }
+set init_mmmc_file h18_DacCtrl_mmmc.view
+set conf_gen_footprint 1
+set fp_core_to_left 50.000000
+set fp_core_to_right 50.000000
+set fp_core_to_top 50.000000
+set fp_core_to_bottom 50.000000
+set lsgOCPGainMult 1.000000
+set conf_ioOri R0
+set fp_core_util 0.800
+set init_assign_buffer 0
+set conf_in_tran_delay 0.1ps
+set init_import_mode { -keepEmptyModule 1 -treatUndefinedCellAsBbox 0}
+set init_layout_view layout
+set init_abstract_view abstract
+print {---# TCL Script amsSetup.tcl loaded}
+print {---# Additional ams TCL Procedures loaded}
+getVersion
+getVersion
+print {### austriamicrosystems HitKit-Utilities Menu added}
+set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+suppressMessage ENCEXT-2799
+win
+print {---# TCL Script amsSetup.tcl loaded}
+init_design
+fit
+setDrawView ameba
+setDrawView place
+setPreference ConstraintUserXGrid 0.01
+setPreference ConstraintUserXOffset 0.01
+setPreference ConstraintUserYGrid 0.01
+setPreference ConstraintUserYOffset 0.01
+setPreference SnapAllCorners 1
+setPreference BlockSnapRule 2
+snapFPlanIO -usergrid
+clearGlobalNets
+globalNetConnect vdd! -type pgpin -pin vdd! -inst * -module {}
+print {---# GlobalConnect all vdd! pins to net vdd!}
+globalNetConnect gnd! -type pgpin -pin gnd! -inst * -module {}
+print {---# GlobalConnect all gnd! pins to net gnd!}
+setCTSMode -traceDPinAsLeaf false -traceIoPinAsLeaf false -routeClkNet true -routeGuide true -routeTopPreferredLayer MT -routeBottomPreferredLayer M1 -routeNonDefaultRule {} -routeLeafTopPreferredLayer MT -routeLeafBottomPreferredLayer M1 -routeLeafNonDefaultRule {} -useLefACLimit false -routePreferredExtraSpace 1 -routeLeafPreferredExtraSpace 1 -opt true -optAddBuffer false -moveGate true -useHVRC true -fixLeafInst true -fixNonLeafInst true -verbose false -reportHTML false -addClockRootProp false -nameSingleDelim false -honorFence false -useLibMaxFanout false -useLibMaxCap false
+setEndCapMode -reset
+setEndCapMode -boundary_tap false
+setNanoRouteMode -quiet -droutePostRouteWidenWireRule VSRDefaultSetup
+saveDesign DacCtrl_loaded.enc
+getIoFlowFlag
+setIoFlowFlag 0
+floorPlan -site ams018hvSite -r 0.811034482759 0.5 25 25 25 25
+uiSetTool select
+getIoFlowFlag
+fit
+set sprCreateIeRingNets {}
+set sprCreateIeRingLayers {}
+set sprCreateIeRingWidth 1.0
+set sprCreateIeRingSpacing 1.0
+set sprCreateIeRingOffset 1.0
+set sprCreateIeRingThreshold 1.0
+set sprCreateIeRingJogDistance 1.0
+addRing -skip_via_on_wire_shape Noshape -skip_via_on_pin Standardcell -stacked_via_top_layer AM -type core_rings -jog_distance 4.9 -threshold 4.9 -follow core -stacked_via_bottom_layer M1 -layer {bottom M1 top M1 right M2 left M2} -width 3 -spacing {bottom 0.36 top 0.36 right 0.4 left 0.4} -offset 12
+addRing -skip_via_on_wire_shape Noshape -skip_via_on_pin Standardcell -stacked_via_top_layer AM -type core_rings -jog_distance 4.9 -threshold 4.9 -nets {gnd! vdd!} -follow core -stacked_via_bottom_layer M1 -layer {bottom M1 top M1 right M2 left M2} -width 3 -spacing {bottom 0.36 top 0.36 right 0.4 left 0.4} -offset 12
+undo
+addRing -skip_via_on_wire_shape Noshape -skip_via_on_pin Standardcell -stacked_via_top_layer AM -type core_rings -jog_distance 4.9 -threshold 4.9 -nets {gnd! vdd!} -follow core -stacked_via_bottom_layer M1 -layer {bottom M1 top M1 right M2 left M2} -width 4 -spacing {bottom 0.36 top 0.36 right 0.4 left 0.4} -offset 12
+undo
+addRing -skip_via_on_wire_shape Noshape -skip_via_on_pin Standardcell -stacked_via_top_layer AM -type core_rings -jog_distance 4.9 -threshold 4.9 -nets {gnd! vdd!} -follow core -stacked_via_bottom_layer M1 -layer {bottom M1 top M1 right M2 left M2} -width 5 -spacing {bottom 0.6 top 0.6 right 0.4 left 0.4} -offset 12
+set sprCreateIeStripeNets {}
+set sprCreateIeStripeLayers {}
+set sprCreateIeStripeWidth 10.0
+set sprCreateIeStripeSpacing 2.0
+set sprCreateIeStripeThreshold 1.0
+addStripe -skip_via_on_wire_shape Noshape -block_ring_top_layer_limit M3 -max_same_layer_jog_length 4 -padcore_ring_bottom_layer_limit M1 -number_of_sets 2 -skip_via_on_pin Standardcell -stacked_via_top_layer AM -padcore_ring_top_layer_limit M3 -spacing 2.8 -xleft_offset 10 -xright_offset 10 -merge_stripes_value 4.9 -layer M2 -block_ring_bottom_layer_limit M1 -width 3 -nets {gnd! vdd!} -stacked_via_bottom_layer M1
+undo
+addStripe -skip_via_on_wire_shape Noshape -block_ring_top_layer_limit M3 -max_same_layer_jog_length 4 -padcore_ring_bottom_layer_limit M1 -number_of_sets 2 -skip_via_on_pin Standardcell -stacked_via_top_layer AM -padcore_ring_top_layer_limit M3 -spacing 0.4 -xleft_offset 10 -xright_offset 10 -merge_stripes_value 4.9 -layer M2 -block_ring_bottom_layer_limit M1 -width 3 -nets {gnd! vdd!} -stacked_via_bottom_layer M1
+undo
+addStripe -skip_via_on_wire_shape Noshape -block_ring_top_layer_limit M3 -max_same_layer_jog_length 4 -padcore_ring_bottom_layer_limit M1 -number_of_sets 1 -skip_via_on_pin Standardcell -stacked_via_top_layer AM -padcore_ring_top_layer_limit M3 -spacing 0.4 -xleft_offset 10 -xright_offset {} -merge_stripes_value 4.9 -layer M2 -block_ring_bottom_layer_limit M1 -width 3 -nets {gnd! vdd!} -stacked_via_bottom_layer M1
+addStripe -skip_via_on_wire_shape Noshape -block_ring_top_layer_limit M3 -max_same_layer_jog_length 4 -padcore_ring_bottom_layer_limit M1 -number_of_sets 1 -skip_via_on_pin Standardcell -stacked_via_top_layer AM -padcore_ring_top_layer_limit M3 -start_from right -spacing 0.4 -xleft_offset {} -xright_offset 10 -merge_stripes_value 4.9 -layer M2 -block_ring_bottom_layer_limit M1 -width 3 -nets {gnd! vdd!} -stacked_via_bottom_layer M1
+undo
+undo
+undo
+selectWire 38.6000 2.6000 41.6000 88.1200 2 vdd!
+deleteSelectedFromFPlan
+selectWire 35.2000 8.2000 38.2000 82.5200 2 gnd!
+deleteSelectedFromFPlan
+addStripe -skip_via_on_wire_shape Noshape -block_ring_top_layer_limit M3 -max_same_layer_jog_length 4 -padcore_ring_bottom_layer_limit M1 -number_of_sets 1 -skip_via_on_pin Standardcell -stacked_via_top_layer AM -padcore_ring_top_layer_limit M3 -start_from right -spacing 0.4 -xleft_offset 10 -xright_offset 10 -merge_stripes_value 4.9 -layer M2 -block_ring_bottom_layer_limit M1 -width 3 -nets {gnd! vdd!} -stacked_via_bottom_layer M1
+undo
+addStripe -skip_via_on_wire_shape Noshape -block_ring_top_layer_limit M3 -max_same_layer_jog_length 4 -padcore_ring_bottom_layer_limit M1 -number_of_sets 2 -skip_via_on_pin Standardcell -stacked_via_top_layer AM -padcore_ring_top_layer_limit M3 -start_from right -spacing 0.4 -xleft_offset 10 -xright_offset 10 -merge_stripes_value 4.9 -layer M2 -block_ring_bottom_layer_limit M1 -width 3 -nets {gnd! vdd!} -stacked_via_bottom_layer M1
+sroute -connect { blockPin padPin padRing corePin floatingStripe } -layerChangeRange { M1 AM } -blockPinTarget { nearestTarget } -padPinPortConnect { allPort oneGeom } -padPinTarget { nearestTarget } -corePinTarget { none } -floatingStripeTarget { blockring padring ring stripe ringpin blockpin followpin } -allowJogging 1 -crossoverViaLayerRange { M1 AM } -nets { gnd! vdd! } -allowLayerChange 1 -blockPin useLef -targetViaLayerRange { M1 AM }
+dbGet top.fPlan.corebox
+print {---# Corebox: 25.2 25.2 86.1 65.52
+}
+createRouteBlk -box 15.0 14.2 25.0 76.52 -layer 1
+createRouteBlk -box 25.0 66.52 86.3 76.52 -layer 1
+createRouteBlk -box 25.0 14.2 86.3 24.2 -layer 1
+createRouteBlk -box 86.3 14.2 96.3 76.52 -layer 1
+setDrawView ameba
+setDrawView place
+getMultiCpuUsage -localCpu
+verify_drc -report DacCtrl.drc.rpt -limit 1000
+saveDesign DacCtrl_power.enc
+getPinAssignMode -pinEditInBatch -quiet
+setPinAssignMode -pinEditInBatch true
+editPin -fixOverlap 1 -unit MICRON -spreadDirection clockwise -side Top -layer 3 -spreadType start -spacing 0.56 -start 0.0 0.0 -pin {Clk CountEnable Resetn StepNum}
+setPinAssignMode -pinEditInBatch true
+editPin -pinWidth 0.28 -pinDepth 1.12 -fixOverlap 1 -unit MICRON -spreadDirection clockwise -side Top -layer 3 -spreadType center -spacing 0.56 -pin {Clk CountEnable Resetn StepNum}
+setPinAssignMode -pinEditInBatch true
+editPin -pinWidth 0.28 -pinDepth 1.12 -fixOverlap 1 -unit MICRON -spreadDirection clockwise -side Top -layer 3 -spreadType center -spacing 1 -pin {Clk CountEnable Resetn StepNum}
+setPinAssignMode -pinEditInBatch true
+editPin -fixOverlap 1 -unit MICRON -spreadDirection clockwise -side Bottom -layer 3 -spreadType center -spacing 0.56 -pin {{P[0]} {P[1]} {P[2]} {P[3]} {P[4]} {P[5]} {P[6]} {P[7]} {P[8]} {P[9]} {P[10]} {P[11]} {P[12]} {P[13]} {P[14]} {P[15]} {P[16]}}
+setPinAssignMode -pinEditInBatch true
+editPin -pinWidth 0.28 -pinDepth 1.12 -fixOverlap 1 -unit MICRON -spreadDirection clockwise -side Bottom -layer 3 -spreadType center -spacing 1 -pin {{P[0]} {P[1]} {P[2]} {P[3]} {P[4]} {P[5]} {P[6]} {P[7]} {P[8]} {P[9]} {P[10]} {P[11]} {P[12]} {P[13]} {P[14]} {P[15]} {P[16]}}
+zoomBox 43.692 -2.335 70.810 5.168
+fit
+zoomBox 41.729 8.215 77.666 -6.791
+fit
+setPinAssignMode -pinEditInBatch true
+editPin -fixOverlap 1 -unit MICRON -spreadDirection clockwise -side Right -layer 3 -spreadType center -spacing 0.56 -pin {IP IN QP QN}
+zoomBox 106.783 49.279 123.503 34.810
+fit
+setPinAssignMode -pinEditInBatch true
+editPin -pinWidth 0.28 -pinDepth 1.12 -fixOverlap 1 -unit MICRON -spreadDirection clockwise -side Bottom -layer 3 -spreadType center -spacing -1.12 -pin {{P[0]} {P[1]} {P[2]} {P[3]} {P[4]} {P[5]} {P[6]} {P[7]} {P[8]} {P[9]} {P[10]} {P[11]} {P[12]} {P[13]} {P[14]} {P[15]} {P[16]}}
+setPinAssignMode -pinEditInBatch false
+saveDesign DacCtrl_pin.enc
+print {---# Setup MMMC
+---#}
+create_rc_corner -name ams_rc_corner_typ  -cap_table {/pkg/AMS411/cds/HK_H18/LEF/h18a6/h18a6.capTable}  -preRoute_res {1.0}  -postRoute_res {1.0}  -preRoute_cap {1.0}  -postRoute_cap {1.0}  -postRoute_xcap {1.0}  -qx_tech_file {/pkg/AMS411/assura/h18a6/h18a6/QRC/qrcTechFile}
+print {---#   rc_corner        : ams_rc_corner_typ}
+create_library_set -name libs_min -timing {  /pkg/AMS411/liberty/h18_1.8V/h18_CORELIB_HV_BC.lib  }
+create_library_set -name libs_max -timing {  /pkg/AMS411/liberty/h18_1.8V/h18_CORELIB_HV_WC.lib  }
+create_library_set -name libs_typ -timing {  /pkg/AMS411/liberty/h18_1.8V/h18_CORELIB_HV_TYP.lib  }
+print {---#   lib-sets         : libs_min, libs_max, libs_typ}
+create_constraint_mode -name $cons -sdc_files $filename
+create_constraint_mode -name $cons -sdc_files $filename
+print {---#   constraint-modes : func test}
+create_delay_corner -name corner_min -library_set {libs_min} -opcond_library {h18_CORELIB_HV_BC} -opcond {best} -rc_corner {ams_rc_corner_typ}
+create_delay_corner -name corner_max -library_set {libs_max} -opcond_library {h18_CORELIB_HV_WC} -opcond {worst} -rc_corner {ams_rc_corner_typ}
+create_delay_corner -name corner_typ -library_set {libs_typ} -opcond_library {h18_CORELIB_HV_TYP} -opcond {typical} -rc_corner {ams_rc_corner_typ}
+print {---#   delay-corners    : corner_min, corner_max, corner_typ}
+print {---#   analysis-views   : }
+print {---#
+---# use following command to show analysis view definitions
+         report_analysis_view 
+}
+set_analysis_view -setup $maxviewList -hold $minviewList
+setDrawView ameba
+setDrawView place
+setDrawView fplan
+setDrawView ameba
+setDrawView place
+timeDesign -prePlace -expandedViews
+setEndCapMode -reset
+setEndCapMode -boundary_tap false
+setPlaceMode -reset
+setPlaceMode -congEffort auto -timingDriven 1 -modulePlan 1 -clkGateAware 1 -powerDriven 0 -ignoreScan 1 -reorderScan 1 -ignoreSpare 0 -placeIOPins 0 -moduleAwareSpare 0 -preserveRouting 0 -rmAffectedRouting 0 -checkRoute 0 -swapEEQ 0
+setPlaceMode -fp false
+placeDesign
+createClockTreeSpec -bufferList {BUFX12_HV BUFX16_HV BUFX24_HV BUFX2_HV BUFX32_HV BUFX3_HV BUFX4_HV BUFX6_HV BUFX8_HV CLKBUFX10_HV CLKBUFX12_HV CLKBUFX16_HV CLKBUFX24_HV CLKBUFX2_HV CLKBUFX32_HV CLKBUFX3_HV CLKBUFX4_HV CLKBUFX6_HV CLKBUFX8_HV CLKINVX10_HV CLKINVX12_HV CLKINVX16_HV CLKINVX1_HV CLKINVX24_HV CLKINVX2_HV CLKINVX32_HV CLKINVX3_HV CLKINVX4_HV CLKINVX6_HV CLKINVX8_HV DLY1X1_HV DLY2X1_HV DLY3X1_HV DLY4X1_HV INVX12_HV INVX16_HV INVX1_HV INVX24_HV INVX2_HV INVX32_HV INVX3_HV INVX4_HV INVX6_HV INVX8_HV INVXL_HV} -file Clock.ctstch
+clockDesign -specFile Clock.ctstch -outDir clock_report -fixedInstBeforeCTS
+setLayerPreference net -isVisible 0
+setLayerPreference power -isVisible 0
+setLayerPreference pgPower -isVisible 0
+setLayerPreference pgGround -isVisible 0
+setLayerPreference shield -isVisible 0
+setLayerPreference metalFill -isVisible 0
+setLayerPreference clock -isVisible 0
+clearClockDisplay
+displayClockTree -skew -allLevel -preRoute
+displayClockTree -skew -allLevel -preRoute
+changeClockStatus -all -noFixedNetWires
+get_propagated_clock -clock Clk
+get_propagated_clock 
+set_propagated_clock
+set_propagated_clock -help
+set_propagated_clock Clk
+get_propagated_clock -clock Clk
+timeDesign -postCTS -expandedViews
+changeClockStatus -all -noFixedNetWires
+print {---# Setup MMMC
+---#}
+create_rc_corner -name ams_rc_corner_typ  -cap_table {/pkg/AMS411/cds/HK_H18/LEF/h18a6/h18a6.capTable}  -preRoute_res {1.0}  -postRoute_res {1.0}  -preRoute_cap {1.0}  -postRoute_cap {1.0}  -postRoute_xcap {1.0}  -qx_tech_file {/pkg/AMS411/assura/h18a6/h18a6/QRC/qrcTechFile}
+print {---#   rc_corner        : ams_rc_corner_typ}
+create_library_set -name libs_min -timing {  /pkg/AMS411/liberty/h18_1.8V/h18_CORELIB_HV_BC.lib  }
+create_library_set -name libs_max -timing {  /pkg/AMS411/liberty/h18_1.8V/h18_CORELIB_HV_WC.lib  }
+create_library_set -name libs_typ -timing {  /pkg/AMS411/liberty/h18_1.8V/h18_CORELIB_HV_TYP.lib  }
+print {---#   lib-sets         : libs_min, libs_max, libs_typ}
+create_constraint_mode -name $cons -sdc_files $filename
+create_constraint_mode -name $cons -sdc_files $filename
+print {---#   constraint-modes : func test}
+create_delay_corner -name corner_min -library_set {libs_min} -opcond_library {h18_CORELIB_HV_BC} -opcond {best} -rc_corner {ams_rc_corner_typ}
+create_delay_corner -name corner_max -library_set {libs_max} -opcond_library {h18_CORELIB_HV_WC} -opcond {worst} -rc_corner {ams_rc_corner_typ}
+create_delay_corner -name corner_typ -library_set {libs_typ} -opcond_library {h18_CORELIB_HV_TYP} -opcond {typical} -rc_corner {ams_rc_corner_typ}
+print {---#   delay-corners    : corner_min, corner_max, corner_typ}
+print {---#   analysis-views   : }
+print {---#
+---# use following command to show analysis view definitions
+         report_analysis_view 
+}
+set_analysis_view -setup $maxviewList -hold $minviewList
+timeDesign -prePlace -expandedViews
+get_propagated_clock -clock Clk
+setPlaceMode -fp false
+placeDesign
+changeClockStatus -all -noFixedNetWires
+get_propagated_clock -clock Clk
+timeDesign -postCTS -expandedViews
+timeDesign -postCTS -hold -expandedViews
+setLayerPreference net -isVisible 1
+setLayerPreference power -isVisible 1
+setLayerPreference pgPower -isVisible 1
+setLayerPreference pgGround -isVisible 1
+setLayerPreference shield -isVisible 1
+setLayerPreference metalFill -isVisible 1
+setLayerPreference clock -isVisible 1
+optDesign -postCTS -hold
+optDesign -postCTS
+optDesign -postCTS -hold
+wroute
+addFiller -cell FILLCAPX32_HV FILLCAPX16_HV FILLCAPX8_HV FILLCAPX4_HV -prefix FILLERCAP
+addFiller -cell FILLCAPX32_HV FILLCAPX16_HV FILLCAPX8_HV FILLCAPX4_HV -prefix FILLERCAP
+addFiller -cell FILLCELLX32_HV FILLCELLX16_HV FILLCELLX8_HV FILLCELLX4_HV FILLCELLX2_HV FILLCELLX1_HV -prefix FILLER
+setDelayCalMode -engine aae -SIAware false
+timeDesign -postRoute -expandedViews
+timeDesign -postRoute -expandedViews -hold
+verify_drc -report DacCtrl.drc.rpt -limit 1000
+zoomBox 39.044 7.478 83.846 -4.526
+zoomBox 46.430 2.271 52.415 -1.341
+fit
+zoomBox 50.191 92.902 66.054 86.257
+zoomBox 52.606 91.302 60.012 88.258
+selectMarker 56.8400 89.7400 57.5400 90.0200 3 1 25
+deselectAll
+selectMarker 53.4800 89.7400 54.1800 90.0200 3 1 25
+deselectAll
+selectPhyPin 53.3400 89.4000 53.6200 90.5200 3 Clk
+fit
+zoomBox 43.010 -2.168 75.486 13.909
+zoomBox 47.426 1.464 49.712 -0.353
+deselectAll
+selectMarker 47.8800 0.7000 48.5800 0.9800 3 1 25
+deselectAll
+selectMarker 47.8800 0.7000 48.5800 0.9800 3 1 25
+deselectAll
+selectMarker 47.8800 0.7000 48.5800 0.9800 3 1 25
+deselectAll
+selectMarker 47.8800 0.7000 48.5800 0.9800 3 1 25
+fit
+deselectAll
+zoomBox 51.477 92.581 62.410 86.364
+selectMarker 53.4800 89.7400 54.1800 90.0200 3 1 25
+deselectAll
+selectMarker 53.4800 89.7400 54.1800 90.0200 3 1 25
+deselectAll
+selectMarker 53.4800 89.7400 54.1800 90.0200 3 1 25
+windowSelect 53.825 89.824 53.744 90.005
+windowSelect 53.610 90.011 53.979 89.670
+selectMarker 53.4800 89.7400 54.1800 90.0200 3 1 25
+setLayerPreference violation -isVisible 1
+violationBrowser -all -no_display_false
+zoomBox 52.98 89.24 54.68 90.52
+zoomBox 52.98 89.24 54.68 90.52
+deselectAll
+selectMarker 53.4800 89.7400 54.1800 90.0200 3 1 25
+fit
+encMessage warning 0
+encMessage debug 0
+encMessage info 0
+restoreDesign -cellview {FEOADesignlib DacCtrl DacCtrl_pin}
+setDrawView fplan
+encMessage warning 1
+encMessage debug 0
+encMessage info 1
+verify_drc -report DacCtrl.drc.rpt -limit 1000
+verify_drc -report DacCtrl.drc.rpt -limit 1000
+print {---# Setup MMMC
+---#}
+create_rc_corner -name ams_rc_corner_typ  -cap_table {/pkg/AMS411/cds/HK_H18/LEF/h18a6/h18a6.capTable}  -preRoute_res {1.0}  -postRoute_res {1.0}  -preRoute_cap {1.0}  -postRoute_cap {1.0}  -postRoute_xcap {1.0}  -qx_tech_file {/pkg/AMS411/assura/h18a6/h18a6/QRC/qrcTechFile}
+print {---#   rc_corner        : ams_rc_corner_typ}
+create_library_set -name libs_min -timing {  /pkg/AMS411/liberty/h18_1.8V/h18_CORELIB_HV_BC.lib  }
+create_library_set -name libs_max -timing {  /pkg/AMS411/liberty/h18_1.8V/h18_CORELIB_HV_WC.lib  }
+create_library_set -name libs_typ -timing {  /pkg/AMS411/liberty/h18_1.8V/h18_CORELIB_HV_TYP.lib  }
+print {---#   lib-sets         : libs_min, libs_max, libs_typ}
+create_constraint_mode -name $cons -sdc_files $filename
+create_constraint_mode -name $cons -sdc_files $filename
+print {---#   constraint-modes : func test}
+create_delay_corner -name corner_min -library_set {libs_min} -opcond_library {h18_CORELIB_HV_BC} -opcond {best} -rc_corner {ams_rc_corner_typ}
+create_delay_corner -name corner_max -library_set {libs_max} -opcond_library {h18_CORELIB_HV_WC} -opcond {worst} -rc_corner {ams_rc_corner_typ}
+create_delay_corner -name corner_typ -library_set {libs_typ} -opcond_library {h18_CORELIB_HV_TYP} -opcond {typical} -rc_corner {ams_rc_corner_typ}
+print {---#   delay-corners    : corner_min, corner_max, corner_typ}
+print {---#   analysis-views   : }
+print {---#
+---# use following command to show analysis view definitions
+         report_analysis_view 
+}
+set_analysis_view -setup $maxviewList -hold $minviewList
+timeDesign -prePlace -expandedViews
+setMultiCpuUsage -localCpu 2 -cpuPerRemoteHost 1 -remoteHost 0 -keepLicense true
+setDistributeHost -local
+setMultiCpuUsage -localCpu 2 -cpuPerRemoteHost 1 -remoteHost 0 -keepLicense true
+setDistributeHost -local
+setEndCapMode -reset
+setEndCapMode -boundary_tap false
+setPlaceMode -reset
+setPlaceMode -congEffort auto -timingDriven 1 -modulePlan 1 -clkGateAware 1 -powerDriven 0 -ignoreScan 1 -reorderScan 1 -ignoreSpare 0 -placeIOPins 0 -moduleAwareSpare 0 -preserveRouting 0 -rmAffectedRouting 0 -checkRoute 0 -swapEEQ 0
+setEndCapMode -reset
+setEndCapMode -boundary_tap false
+setPlaceMode -fp false
+placeDesign
+setDrawView place
+createClockTreeSpec -bufferList {BUFX12_HV BUFX16_HV BUFX24_HV BUFX2_HV BUFX32_HV BUFX3_HV BUFX4_HV BUFX6_HV BUFX8_HV CLKBUFX10_HV CLKBUFX12_HV CLKBUFX16_HV CLKBUFX24_HV CLKBUFX2_HV CLKBUFX32_HV CLKBUFX3_HV CLKBUFX4_HV CLKBUFX6_HV CLKBUFX8_HV CLKINVX10_HV CLKINVX12_HV CLKINVX16_HV CLKINVX1_HV CLKINVX24_HV CLKINVX2_HV CLKINVX32_HV CLKINVX3_HV CLKINVX4_HV CLKINVX6_HV CLKINVX8_HV DLY1X1_HV DLY2X1_HV DLY3X1_HV DLY4X1_HV INVX12_HV INVX16_HV INVX1_HV INVX24_HV INVX2_HV INVX32_HV INVX3_HV INVX4_HV INVX6_HV INVX8_HV INVXL_HV} -file Clock.ctstch
+clockDesign -specFile Clock.ctstch -outDir clock_report -fixedInstBeforeCTS
+changeClockStatus -all -noFixedNetWires
+get_propagated_clock -clock Clk
+timeDesign -postCTS -expandedViews
+timeDesign -postCTS -hold -expandedViews
+wroute
+verify_drc -report DacCtrl.drc.rpt -limit 1000
+addFiller -cell FILLCAPX32_HV FILLCAPX16_HV FILLCAPX8_HV FILLCAPX4_HV -prefix FILLERCAP
+addFiller -cell FILLCAPX32_HV FILLCAPX16_HV FILLCAPX8_HV FILLCAPX4_HV -prefix FILLERCAP
+addFiller -cell FILLCELLX32_HV FILLCELLX16_HV FILLCELLX8_HV FILLCELLX4_HV FILLCELLX2_HV FILLCELLX1_HV -prefix FILLER
+setDelayCalMode -engine aae -SIAware false
+timeDesign -postRoute -expandedViews
+timeDesign -postRoute -expandedViews -hold
+timeDesign -signoff -expandedViews
+timeDesign -signoff -expandedViews -hold
+set_analysis_view -setup $viewList -hold $viewList
+timeDesign -signoff -expandedViews
+timeDesign -signoff -expandedViews -hold
+print {---# Analysis View: func_min
+}
+write_sdf -version 3.0 -prec 3 -edges check_edge  -force_calculation -average_typ_delays  -view $view $filename
+print {---# Created SDF: SDF/DacCtrl_func_min.sdf
+}
+print {---# Analysis View: test_min
+}
+write_sdf -version 3.0 -prec 3 -edges check_edge  -force_calculation -average_typ_delays  -view $view $filename
+print {---# Created SDF: SDF/DacCtrl_test_min.sdf
+}
+set_analysis_view -setup $viewList -hold $viewList
+timeDesign -signoff -expandedViews
+timeDesign -signoff -expandedViews -hold
+print {---# Analysis View: func_max
+}
+write_sdf -version 3.0 -prec 3 -edges check_edge  -force_calculation -average_typ_delays  -view $view $filename
+print {---# Created SDF: SDF/DacCtrl_func_max.sdf
+}
+print {---# Analysis View: test_max
+}
+write_sdf -version 3.0 -prec 3 -edges check_edge  -force_calculation -average_typ_delays  -view $view $filename
+print {---# Created SDF: SDF/DacCtrl_test_max.sdf
+}
+set_analysis_view -setup $viewList -hold $viewList
+timeDesign -signoff -expandedViews
+timeDesign -signoff -expandedViews -hold
+print {---# Analysis View: func_typ
+}
+write_sdf -version 3.0 -prec 3 -edges check_edge  -force_calculation -average_typ_delays  -view $view $filename
+print {---# Created SDF: SDF/DacCtrl_func_typ.sdf
+}
+print {---# Analysis View: test_typ
+}
+write_sdf -version 3.0 -prec 3 -edges check_edge  -force_calculation -average_typ_delays  -view $view $filename
+print {---# Created SDF: SDF/DacCtrl_test_typ.sdf
+}
+saveDesign DacCtrl_tested.enc

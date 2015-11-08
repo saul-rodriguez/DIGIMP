@@ -1,0 +1,99 @@
+[11/06 21:01:10     0s] Checking out Encounter license ...
+[11/06 21:01:11     0s] 	edsxl		CHECKED OUT:	"Encounter_Digital_Impl_Sys_XL"
+[11/06 21:01:11     0s] Encounter_Digital_Impl_Sys_XL 14.2 license checkout succeeded.
+[11/06 21:01:11     0s] You can run 2 CPU jobs with the base license that is currently checked out.
+[11/06 21:01:11     0s] If required, use the setMultiCpuUsage command to enable multi-CPU processing.
+[11/06 21:01:19     2s] *******************************************************************
+*   Copyright (c)  Cadence Design Systems, Inc.  1996 - 2014.     *
+*                     All rights reserved.                        *
+*                                                                 *
+*                                                                 *
+*                                                                 *
+* This program contains confidential and trade secret information *
+* of Cadence Design Systems, Inc. and is protected by copyright   *
+* law and international treaties.  Any reproduction, use,         *
+* distribution or disclosure of this program or any portion of it,*
+* or any attempt to obtain a human-readable version of this       *
+* program, without the express, prior written consent of          *
+* Cadence Design Systems, Inc., is strictly prohibited.           *
+*                                                                 *
+*                 Cadence Design Systems, Inc.                    *
+*                    2655 Seely Avenue                            *
+*                   San Jose, CA 95134,  USA                      *
+*                                                                 *
+*                                                                 *
+*******************************************************************
+
+[11/06 21:01:19     2s] @(#)CDS: Encounter v14.25-s034_1 (64bit) 05/28/2015 13:06 (Linux 2.6.18-194.el5)
+[11/06 21:01:19     2s] @(#)CDS: NanoRoute v14.25-s018 NR150520-1502/14_25-UB (database version 2.30, 267.6.1) {superthreading v1.25}
+[11/06 21:01:19     2s] @(#)CDS: CeltIC v14.25-s023_1 (64bit) 05/28/2015 02:11:28 (Linux 2.6.18-194.el5)
+[11/06 21:01:19     2s] @(#)CDS: AAE 14.25-s009 (64bit) 05/28/2015 (Linux 2.6.18-194.el5)
+[11/06 21:01:19     2s] @(#)CDS: CTE 14.25-s022_1 (64bit) May 28 2015 00:14:16 (Linux 2.6.18-194.el5)
+[11/06 21:01:19     2s] @(#)CDS: CPE v14.25-s029
+[11/06 21:01:19     2s] @(#)CDS: IQRC/TQRC 14.2.2-s217 (64bit) Wed Apr 15 23:10:24 PDT 2015 (Linux 2.6.18-194.el5)
+[11/06 21:01:19     2s] @(#)CDS: OA 22.50-p011 Tue Nov 11 03:24:55 2014
+[11/06 21:01:19     2s] @(#)CDS: SGN 10.10-p124 (19-Aug-2014) (64 bit executable)
+[11/06 21:01:19     2s] @(#)CDS: RCDB 11.5
+[11/06 21:01:19     2s] --- Starting "Encounter v14.25-s034_1" on Fri Nov  6 21:01:19 2015 (mem=96.0M) ---
+[11/06 21:01:19     2s] --- Running on localhost.localdomain (x86_64 w/Linux 2.6.18-406.el5) ---
+[11/06 21:01:19     2s] This version was compiled on Thu May 28 13:06:39 PDT 2015.
+[11/06 21:01:19     2s] Set DBUPerIGU to 1000.
+[11/06 21:01:19     2s] Set net toggle Scale Factor to 1.00
+[11/06 21:01:19     2s] Set Shrink Factor to 1.00000
+[11/06 21:01:20     2s] Sourcing ./enc.tcl
+[11/06 21:01:20     2s] Sourcing tcl/tk file "./enc.tcl" ...
+[11/06 21:01:20     2s] <CMD> setCheckMode -tapeOut true
+[11/06 21:01:20     2s] <CMD> set defHierChar /
+[11/06 21:01:20     2s] <CMD> set init_oa_ref_lib {TECH_H18A6  CORELIB_HV  }
+[11/06 21:01:20     2s] <CMD> set init_verilog VERILOG/FreqDiv_synth.v
+[11/06 21:01:20     2s] <CMD> set init_top_cell FreqDiv
+[11/06 21:01:20     2s] <CMD> set init_pwr_net {vdd!  }
+[11/06 21:01:20     2s] <CMD> set init_gnd_net {gnd! subc!  }
+[11/06 21:01:20     2s] <CMD> set init_mmmc_file h18_FreqDiv_mmmc.view
+[11/06 21:01:20     2s] <CMD> set conf_gen_footprint 1
+[11/06 21:01:20     2s] <CMD> set fp_core_to_left 50.000000
+[11/06 21:01:20     2s] <CMD> set fp_core_to_right 50.000000
+[11/06 21:01:20     2s] <CMD> set fp_core_to_top 50.000000
+[11/06 21:01:20     2s] <CMD> set fp_core_to_bottom 50.000000
+[11/06 21:01:20     2s] <CMD> set lsgOCPGainMult 1.000000
+[11/06 21:01:20     2s] <CMD> set conf_ioOri R0
+[11/06 21:01:20     2s] <CMD> set fp_core_util 0.800
+[11/06 21:01:20     2s] <CMD> set init_assign_buffer 0
+[11/06 21:01:20     2s] <CMD> set conf_in_tran_delay 0.1ps
+[11/06 21:01:20     2s] <CMD> set init_import_mode { -keepEmptyModule 1 -treatUndefinedCellAsBbox 0}
+[11/06 21:01:20     2s] <CMD> set init_layout_view layout
+[11/06 21:01:20     2s] <CMD> set init_abstract_view abstract
+[11/06 21:01:20     2s] <CMD_INTERNAL> print {---# TCL Script amsSetup.tcl loaded}
+[11/06 21:01:20     2s] ---# TCL Script amsSetup.tcl loaded
+[11/06 21:01:20     2s] <CMD_INTERNAL> print {---# Additional ams TCL Procedures loaded}
+[11/06 21:01:20     2s] ---# Additional ams TCL Procedures loaded
+[11/06 21:01:20     2s] <CMD> getVersion
+[11/06 21:01:20     2s] <CMD> getVersion
+[11/06 21:01:20     2s] <CMD_INTERNAL> print {### austriamicrosystems HitKit-Utilities Menu added}
+[11/06 21:01:20     2s] ### austriamicrosystems HitKit-Utilities Menu added
+[11/06 21:01:20     2s] 
+[11/06 21:01:20     2s] **INFO:  MMMC transition support version v31-84 
+[11/06 21:01:20     2s] 
+[11/06 21:01:20     2s] <CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+[11/06 21:01:20     2s] <CMD> suppressMessage ENCEXT-2799
+[11/06 21:01:20     2s] <CMD> win
+[11/06 21:01:50     3s] <CMD> encMessage warning 0
+[11/06 21:01:50     3s] Suppress "**WARN ..." messages.
+[11/06 21:01:50     3s] <CMD> encMessage debug 0
+[11/06 21:01:50     3s] <CMD> encMessage info 0
+[11/06 21:01:51     3s] Loading global variable file /home/saul/projects/DIGIMP/IMP_PLL_COUNT/PLACE_ROUTE/FEOADesignlib/FreqDiv/FreqDiv_ring_stripe_pin_routed_tested/FreqDiv.globals ...
+[11/06 21:01:51     3s] **ERROR: (TCLCMD-995):	Can not open file '/pkg/AMS411/liberty/h18_1.8V/h18_CORELIB_HV_TYP.lib' for library set
+[11/06 21:01:51     3s] 
+[11/06 21:01:51     3s] 
+[11/06 21:01:51     3s] ERROR: 
+[11/06 21:01:51     3s] 
+[11/06 21:01:51     3s] 
+[11/06 21:01:51     3s]     while executing
+[11/06 21:01:51     3s] "error $catchMsg "
+[11/06 21:01:51     3s]     (procedure "restoreDesign" line 14)
+[11/06 21:01:51     3s] 
+[11/06 21:02:22     3s] 
+[11/06 21:02:22     3s] *** Memory Usage v#1 (Current mem = 376.484M, initial mem = 95.977M) ***
+[11/06 21:02:22     3s] *** Message Summary: 0 warning(s), 0 error(s)
+[11/06 21:02:22     3s] 
+[11/06 21:02:22     3s] --- Ending "Encounter" (totcpu=0:00:03.6, real=0:01:12, mem=376.5M) ---

@@ -1,0 +1,283 @@
+[11/07 17:45:20     0s] Checking out Encounter license ...
+[11/07 17:45:20     0s] 	edsxl		CHECKED OUT:	"Encounter_Digital_Impl_Sys_XL"
+[11/07 17:45:20     0s] Encounter_Digital_Impl_Sys_XL 14.2 license checkout succeeded.
+[11/07 17:45:20     0s] You can run 2 CPU jobs with the base license that is currently checked out.
+[11/07 17:45:20     0s] If required, use the setMultiCpuUsage command to enable multi-CPU processing.
+[11/07 17:45:26     2s] *******************************************************************
+*   Copyright (c)  Cadence Design Systems, Inc.  1996 - 2014.     *
+*                     All rights reserved.                        *
+*                                                                 *
+*                                                                 *
+*                                                                 *
+* This program contains confidential and trade secret information *
+* of Cadence Design Systems, Inc. and is protected by copyright   *
+* law and international treaties.  Any reproduction, use,         *
+* distribution or disclosure of this program or any portion of it,*
+* or any attempt to obtain a human-readable version of this       *
+* program, without the express, prior written consent of          *
+* Cadence Design Systems, Inc., is strictly prohibited.           *
+*                                                                 *
+*                 Cadence Design Systems, Inc.                    *
+*                    2655 Seely Avenue                            *
+*                   San Jose, CA 95134,  USA                      *
+*                                                                 *
+*                                                                 *
+*******************************************************************
+
+[11/07 17:45:26     2s] @(#)CDS: Encounter v14.25-s034_1 (64bit) 05/28/2015 13:06 (Linux 2.6.18-194.el5)
+[11/07 17:45:26     2s] @(#)CDS: NanoRoute v14.25-s018 NR150520-1502/14_25-UB (database version 2.30, 267.6.1) {superthreading v1.25}
+[11/07 17:45:26     2s] @(#)CDS: CeltIC v14.25-s023_1 (64bit) 05/28/2015 02:11:28 (Linux 2.6.18-194.el5)
+[11/07 17:45:26     2s] @(#)CDS: AAE 14.25-s009 (64bit) 05/28/2015 (Linux 2.6.18-194.el5)
+[11/07 17:45:26     2s] @(#)CDS: CTE 14.25-s022_1 (64bit) May 28 2015 00:14:16 (Linux 2.6.18-194.el5)
+[11/07 17:45:26     2s] @(#)CDS: CPE v14.25-s029
+[11/07 17:45:26     2s] @(#)CDS: IQRC/TQRC 14.2.2-s217 (64bit) Wed Apr 15 23:10:24 PDT 2015 (Linux 2.6.18-194.el5)
+[11/07 17:45:26     2s] @(#)CDS: OA 22.50-p011 Tue Nov 11 03:24:55 2014
+[11/07 17:45:26     2s] @(#)CDS: SGN 10.10-p124 (19-Aug-2014) (64 bit executable)
+[11/07 17:45:26     2s] @(#)CDS: RCDB 11.5
+[11/07 17:45:26     2s] --- Starting "Encounter v14.25-s034_1" on Sat Nov  7 17:45:26 2015 (mem=96.0M) ---
+[11/07 17:45:26     2s] --- Running on localhost.localdomain (x86_64 w/Linux 2.6.18-406.el5) ---
+[11/07 17:45:26     2s] This version was compiled on Thu May 28 13:06:39 PDT 2015.
+[11/07 17:45:26     2s] Set DBUPerIGU to 1000.
+[11/07 17:45:26     2s] Set net toggle Scale Factor to 1.00
+[11/07 17:45:26     2s] Set Shrink Factor to 1.00000
+[11/07 17:45:26     2s] Sourcing ./enc.tcl
+[11/07 17:45:26     2s] Sourcing tcl/tk file "./enc.tcl" ...
+[11/07 17:45:26     2s] <CMD> setCheckMode -tapeOut true
+[11/07 17:45:26     2s] <CMD> set defHierChar /
+[11/07 17:45:26     2s] <CMD> set init_oa_ref_lib {TECH_H18A6  CORELIB_HV  }
+[11/07 17:45:26     2s] <CMD> set init_verilog VERILOG/FreqDiv_synth.v
+[11/07 17:45:26     2s] <CMD> set init_top_cell FreqDiv
+[11/07 17:45:26     2s] <CMD> set init_pwr_net {vdd!  }
+[11/07 17:45:26     2s] <CMD> set init_gnd_net {gnd! subc!  }
+[11/07 17:45:26     2s] <CMD> set init_mmmc_file h18_FreqDiv_mmmc.view
+[11/07 17:45:26     2s] <CMD> set conf_gen_footprint 1
+[11/07 17:45:26     2s] <CMD> set fp_core_to_left 50.000000
+[11/07 17:45:26     2s] <CMD> set fp_core_to_right 50.000000
+[11/07 17:45:26     2s] <CMD> set fp_core_to_top 50.000000
+[11/07 17:45:26     2s] <CMD> set fp_core_to_bottom 50.000000
+[11/07 17:45:26     2s] <CMD> set lsgOCPGainMult 1.000000
+[11/07 17:45:26     2s] <CMD> set conf_ioOri R0
+[11/07 17:45:26     2s] <CMD> set fp_core_util 0.800
+[11/07 17:45:26     2s] <CMD> set init_assign_buffer 0
+[11/07 17:45:26     2s] <CMD> set conf_in_tran_delay 0.1ps
+[11/07 17:45:26     2s] <CMD> set init_import_mode { -keepEmptyModule 1 -treatUndefinedCellAsBbox 0}
+[11/07 17:45:26     2s] <CMD> set init_layout_view layout
+[11/07 17:45:26     2s] <CMD> set init_abstract_view abstract
+[11/07 17:45:26     2s] <CMD_INTERNAL> print {---# TCL Script amsSetup.tcl loaded}
+[11/07 17:45:26     2s] ---# TCL Script amsSetup.tcl loaded
+[11/07 17:45:26     2s] <CMD_INTERNAL> print {---# Additional ams TCL Procedures loaded}
+[11/07 17:45:26     2s] ---# Additional ams TCL Procedures loaded
+[11/07 17:45:26     2s] <CMD> getVersion
+[11/07 17:45:26     2s] <CMD> getVersion
+[11/07 17:45:26     2s] <CMD_INTERNAL> print {### austriamicrosystems HitKit-Utilities Menu added}
+[11/07 17:45:26     2s] ### austriamicrosystems HitKit-Utilities Menu added
+[11/07 17:45:26     2s] 
+[11/07 17:45:26     2s] **INFO:  MMMC transition support version v31-84 
+[11/07 17:45:26     2s] 
+[11/07 17:45:26     2s] <CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+[11/07 17:45:26     2s] <CMD> suppressMessage ENCEXT-2799
+[11/07 17:45:26     2s] <CMD> win
+[11/07 17:59:19     3s] <CMD> encMessage warning 0
+[11/07 17:59:19     3s] Suppress "**WARN ..." messages.
+[11/07 17:59:19     3s] <CMD> encMessage debug 0
+[11/07 17:59:19     3s] <CMD> encMessage info 0
+[11/07 17:59:19     3s] Loading global variable file /home/saul/projects/DIGIMP/IMP_PLL_COUNT/PLACE_ROUTE/FEOADesignlib/FreqDiv/FreqDiv_ring_stripe_pin_routed_tested/FreqDiv.globals ...
+[11/07 17:59:20     3s] **WARN: (ENCOAX-738):	Non-Default Rule 'VSRDefaultSetup' has already been defined in Encounter. Its contents will be skipped.
+[11/07 17:59:20     3s] **WARN: (ENCOAX-741):	Site 'ams018Site' has already been defined in Encounter, the contents will be skipped.
+[11/07 17:59:20     3s] **WARN: (ENCOAX-741):	Site 'ams018hvSite' has already been defined in Encounter, the contents will be skipped.
+[11/07 17:59:20     3s] **WARN: (ENCOAX-741):	Site 'ams018SiteSHVT' has already been defined in Encounter, the contents will be skipped.
+[11/07 17:59:20     3s] **WARN: (ENCOAX-741):	Site 'ams018twSite' has already been defined in Encounter, the contents will be skipped.
+[11/07 17:59:20     3s] **WARN: (ENCOAX-741):	Site 'amsIoSite' has already been defined in Encounter, the contents will be skipped.
+[11/07 17:59:20     3s] **WARN: (ENCOAX-741):	Site 'amsIoSiteHV' has already been defined in Encounter, the contents will be skipped.
+[11/07 17:59:20     3s] **WARN: (ENCOAX-741):	Site 'amsCornerSite' has already been defined in Encounter, the contents will be skipped.
+[11/07 17:59:20     3s] **WARN: (ENCOAX-741):	Site 'amsCornerSiteHV' has already been defined in Encounter, the contents will be skipped.
+[11/07 17:59:20     3s] **WARN: (ENCPP-547):	Cut 'CA' does not fit in viaRule 'RX_M1'.
+[11/07 17:59:20     3s] **WARN: (ENCPP-547):	Cut 'CA' does not fit in viaRule 'RX_M1_min'.
+[11/07 17:59:20     3s] **WARN: (ENCPP-547):	Cut 'CA' does not fit in viaRule 'DRX_M1'.
+[11/07 17:59:20     3s] Loading view definition file from /home/saul/projects/DIGIMP/IMP_PLL_COUNT/PLACE_ROUTE/FEOADesignlib/FreqDiv/FreqDiv_ring_stripe_pin_routed_tested/viewDefinition.tcl
+[11/07 17:59:20     3s] **WARN: (TECHLIB-359):	(/pkg/AMS/liberty/h18_1.8V/h18_CORELIB_HV_WC.lib, line 98) Duplicate definition for attribute (slew_lower_threshold_pct_fall) encountered. The last definition will be retained.
+[11/07 17:59:20     3s] **WARN: (TECHLIB-359):	(/pkg/AMS/liberty/h18_1.8V/h18_CORELIB_HV_WC.lib, line 99) Duplicate definition for attribute (slew_lower_threshold_pct_rise) encountered. The last definition will be retained.
+[11/07 17:59:20     3s] **WARN: (TECHLIB-359):	(/pkg/AMS/liberty/h18_1.8V/h18_CORELIB_HV_WC.lib, line 100) Duplicate definition for attribute (slew_upper_threshold_pct_fall) encountered. The last definition will be retained.
+[11/07 17:59:20     3s] **WARN: (TECHLIB-359):	(/pkg/AMS/liberty/h18_1.8V/h18_CORELIB_HV_WC.lib, line 101) Duplicate definition for attribute (slew_upper_threshold_pct_rise) encountered. The last definition will be retained.
+[11/07 17:59:20     3s] **WARN: (TECHLIB-359):	(/pkg/AMS/liberty/h18_1.8V/h18_CORELIB_HV_WC.lib, line 102) Duplicate definition for attribute (slew_derate_from_library) encountered. The last definition will be retained.
+[11/07 17:59:20     3s] **WARN: (TECHLIB-359):	(/pkg/AMS/liberty/h18_1.8V/h18_CORELIB_HV_WC.lib, line 103) Duplicate definition for attribute (input_threshold_pct_fall) encountered. The last definition will be retained.
+[11/07 17:59:20     3s] **WARN: (TECHLIB-359):	(/pkg/AMS/liberty/h18_1.8V/h18_CORELIB_HV_WC.lib, line 104) Duplicate definition for attribute (input_threshold_pct_rise) encountered. The last definition will be retained.
+[11/07 17:59:20     3s] **WARN: (TECHLIB-359):	(/pkg/AMS/liberty/h18_1.8V/h18_CORELIB_HV_WC.lib, line 105) Duplicate definition for attribute (output_threshold_pct_fall) encountered. The last definition will be retained.
+[11/07 17:59:20     3s] **WARN: (TECHLIB-359):	(/pkg/AMS/liberty/h18_1.8V/h18_CORELIB_HV_WC.lib, line 106) Duplicate definition for attribute (output_threshold_pct_rise) encountered. The last definition will be retained.
+[11/07 17:59:20     3s] **WARN: (TECHLIB-359):	(/pkg/AMS/liberty/h18_1.8V/h18_CORELIB_HV_WC.lib, line 107) Duplicate definition for attribute (default_leakage_power_density) encountered. The last definition will be retained.
+[11/07 17:59:20     3s] **WARN: (TECHLIB-359):	(/pkg/AMS/liberty/h18_1.8V/h18_CORELIB_HV_WC.lib, line 108) Duplicate definition for attribute (default_cell_leakage_power) encountered. The last definition will be retained.
+[11/07 17:59:20     3s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND2X1_HV' is not defined in the library.
+[11/07 17:59:20     3s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND2X2_HV' is not defined in the library.
+[11/07 17:59:20     3s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND2X3_HV' is not defined in the library.
+[11/07 17:59:20     3s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND2X4_HV' is not defined in the library.
+[11/07 17:59:20     3s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND2X6_HV' is not defined in the library.
+[11/07 17:59:20     3s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND2X8_HV' is not defined in the library.
+[11/07 17:59:20     3s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND3X1_HV' is not defined in the library.
+[11/07 17:59:20     3s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND3X2_HV' is not defined in the library.
+[11/07 17:59:20     3s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND3X3_HV' is not defined in the library.
+[11/07 17:59:20     3s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND3X4_HV' is not defined in the library.
+[11/07 17:59:20     3s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND3X6_HV' is not defined in the library.
+[11/07 17:59:20     3s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND3X8_HV' is not defined in the library.
+[11/07 17:59:20     3s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AOI21X1_HV' is not defined in the library.
+[11/07 17:59:20     3s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AOI21X2_HV' is not defined in the library.
+[11/07 17:59:20     3s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AOI21X3_HV' is not defined in the library.
+[11/07 17:59:20     3s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AOI21X4_HV' is not defined in the library.
+[11/07 17:59:20     3s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AOI21X6_HV' is not defined in the library.
+[11/07 17:59:20     3s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AOI21X8_HV' is not defined in the library.
+[11/07 17:59:20     3s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AOI22X1_HV' is not defined in the library.
+[11/07 17:59:20     3s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AOI22X2_HV' is not defined in the library.
+[11/07 17:59:22     5s] *** End library_loading (cpu=0.00min, mem=0.0M, fe_cpu=0.09min, fe_real=14.03min, fe_mem=500.0M) ***
+[11/07 17:59:22     5s] **WARN: (ENCFP-3961):	The techSite 'amsCornerSiteHV' has no related cells in LEF library. Cannot make calculations for this site type unless cell models of this type exist in the LEF library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF to avoid this message.
+[11/07 17:59:22     5s] **WARN: (ENCFP-3961):	The techSite 'amsCornerSite' has no related cells in LEF library. Cannot make calculations for this site type unless cell models of this type exist in the LEF library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF to avoid this message.
+[11/07 17:59:22     5s] **WARN: (ENCFP-3961):	The techSite 'amsIoSiteHV' has no related cells in LEF library. Cannot make calculations for this site type unless cell models of this type exist in the LEF library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF to avoid this message.
+[11/07 17:59:22     5s] **WARN: (ENCFP-3961):	The techSite 'amsIoSite' has no related cells in LEF library. Cannot make calculations for this site type unless cell models of this type exist in the LEF library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF to avoid this message.
+[11/07 17:59:22     5s] **WARN: (ENCFP-3961):	The techSite 'ams018twSite' has no related cells in LEF library. Cannot make calculations for this site type unless cell models of this type exist in the LEF library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF to avoid this message.
+[11/07 17:59:22     5s] **WARN: (ENCFP-3961):	The techSite 'ams018SiteSHVT' has no related cells in LEF library. Cannot make calculations for this site type unless cell models of this type exist in the LEF library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF to avoid this message.
+[11/07 17:59:22     5s] **WARN: (ENCFP-3961):	The techSite 'ams018Site' has no related cells in LEF library. Cannot make calculations for this site type unless cell models of this type exist in the LEF library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF to avoid this message.
+[11/07 17:59:22     5s] Loading preference file /home/saul/projects/DIGIMP/IMP_PLL_COUNT/PLACE_ROUTE/FEOADesignlib/FreqDiv/FreqDiv_ring_stripe_pin_routed_tested/enc.pref.tcl ...
+[11/07 17:59:22     5s] Loading mode file /home/saul/projects/DIGIMP/IMP_PLL_COUNT/PLACE_ROUTE/FEOADesignlib/FreqDiv/FreqDiv_ring_stripe_pin_routed_tested/FreqDiv.mode ...
+[11/07 17:59:22     5s] **WARN: (ENCEXT-6202):	In addition to the technology file, capacitance table file is specified for all RC corners. If the technology file for all RC corners is already specified, the capacitance table file is not required for preRoute and postRoute extraction. In a new session, the capacitance table files can be removed from the create_rc_corner command. In this case, the technology file will be used for preRoute extraction and effort level medium/high/signoff of postRoute extraction.
+[11/07 17:59:23     5s] **WARN: (TCLNL-330):	set_input_delay on clock root 'Fin' is not supported. You should use the -source option to set_clock_latency to provide this offset. You can also use the global timing_allow_input_delay_on_clock_source to allow set_input_delay assertion to have an effect on clock source paths beginning at this clock root. (File CONSTRAINTS/FreqDiv_func.sdc, Line 19).
+[11/07 17:59:23     5s] 
+[11/07 17:59:23     5s] **WARN: (ENCCTE-290):	Could not locate cell NAND2X1_HV in any library for view func_min.
+[11/07 17:59:23     5s] **WARN: (ENCCTE-290):	Could not locate cell NAND2X1_HV in any library for view func_min.
+[11/07 17:59:23     5s] **WARN: (ENCCTE-290):	Could not locate cell NAND2X1_HV in any library for view func_min.
+[11/07 17:59:23     5s] **WARN: (ENCCTE-290):	Could not locate cell NAND2X1_HV in any library for view func_min.
+[11/07 17:59:23     5s] **WARN: (ENCCTE-290):	Could not locate cell NAND2X1_HV in any library for view func_min.
+[11/07 17:59:23     5s] **WARN: (ENCCTE-290):	Could not locate cell NAND2X1_HV in any library for view func_min.
+[11/07 17:59:23     5s] **WARN: (ENCCTE-290):	Could not locate cell NAND2X1_HV in any library for view func_min.
+[11/07 17:59:23     5s] **WARN: (ENCCTE-290):	Could not locate cell NAND2X1_HV in any library for view func_min.
+[11/07 17:59:23     5s] **WARN: (ENCCTE-290):	Could not locate cell NAND2X1_HV in any library for view func_min.
+[11/07 17:59:23     5s] **WARN: (ENCCTE-290):	Could not locate cell NAND2X1_HV in any library for view func_min.
+[11/07 17:59:23     5s] **WARN: (ENCCTE-290):	Could not locate cell NAND2X1_HV in any library for view func_min.
+[11/07 17:59:23     5s] **WARN: (ENCCTE-290):	Could not locate cell NAND2X1_HV in any library for view func_min.
+[11/07 17:59:23     5s] **WARN: (ENCCTE-290):	Could not locate cell NAND2X1_HV in any library for view func_min.
+[11/07 17:59:23     5s] **WARN: (ENCCTE-290):	Could not locate cell NAND2X1_HV in any library for view func_min.
+[11/07 17:59:23     5s] **WARN: (ENCCTE-290):	Could not locate cell NAND2X1_HV in any library for view func_min.
+[11/07 17:59:23     5s] **WARN: (ENCCTE-290):	Could not locate cell NAND2X1_HV in any library for view func_min.
+[11/07 17:59:23     5s] **WARN: (ENCCTE-290):	Could not locate cell NAND2X1_HV in any library for view func_min.
+[11/07 17:59:23     5s] **WARN: (ENCCTE-290):	Could not locate cell NAND2X1_HV in any library for view func_min.
+[11/07 17:59:23     5s] **WARN: (ENCCTE-290):	Could not locate cell NAND2X1_HV in any library for view func_min.
+[11/07 17:59:23     5s] **WARN: (ENCCTE-290):	Could not locate cell NAND2X1_HV in any library for view func_min.
+[11/07 17:59:23     5s] **WARN: (EMS-63):	Message <ENCCTE-290> has exceeded the default message display limit of 20.
+[11/07 17:59:23     5s] To avoid this warning, increase the display limit per unique message by
+[11/07 17:59:23     5s] using the set_message -limit <number> command.
+[11/07 17:59:23     5s] The message limit can be removed by using the set_message -no_limit command.
+[11/07 17:59:23     5s] Note that setting a very large number using the set_message -limit command
+[11/07 17:59:23     5s] or removing the message limit using the set_message -no_limit command can
+[11/07 17:59:23     5s] significantly increase the log file size.
+[11/07 17:59:23     5s] To suppress a message, use the set_message -suppress command.
+[11/07 17:59:23     5s] **WARN: (TCLNL-330):	set_input_delay on clock root 'Fin' is not supported. You should use the -source option to set_clock_latency to provide this offset. You can also use the global timing_allow_input_delay_on_clock_source to allow set_input_delay assertion to have an effect on clock source paths beginning at this clock root. (File CONSTRAINTS/FreqDiv_test.sdc, Line 19).
+[11/07 17:59:23     5s] 
+[11/07 17:59:23     5s] **WARN: (ENCOAX-571):	Property 'lxInternal' from OA is a hierarchical property which is not supported in Encounter. This property is not translated and it will be lost in round trip unless updateMode is enabled.
+[11/07 17:59:28     6s] <CMD> fit
+[11/07 17:59:31     6s] <CMD> setDrawView place
+[11/07 18:00:10     6s] <CMD> getMultiCpuUsage -localCpu
+[11/07 18:00:12     6s] <CMD> verify_drc -report FreqDiv.drc.rpt -limit 1000
+[11/07 18:00:12     6s]  *** Starting Verify DRC (MEM: 654.1) ***
+[11/07 18:00:12     6s] 
+[11/07 18:00:12     6s] ### nrEnv::init -minimal called
+[11/07 18:00:12     6s] ### Ignoring a total of 5 master slice layers:
+[11/07 18:00:12     6s] ###  NW DN SN DP SP
+[11/07 18:00:12     6s] #WARNING (NRDB-728) PIN Q in CELL_VIEW LOGIC1_HV does not have antenna diff area.
+[11/07 18:00:12     6s] #WARNING (NRDB-728) PIN Q in CELL_VIEW LOGIC0_HV does not have antenna diff area.
+[11/07 18:00:12     6s] ### nrEnv::init completed with status success.
+[11/07 18:00:12     6s] #WARNING (NRDB-2077) The below via enclosure for LAYER M1 is not specified for width 0.240.
+[11/07 18:00:12     6s] #WARNING (NRDB-2078) The above via enclosure for LAYER M2 is not specified for width 0.280.
+[11/07 18:00:12     6s] #WARNING (NRDB-2077) The below via enclosure for LAYER M1 is not specified for width 0.240.
+[11/07 18:00:12     6s] #WARNING (NRDB-2078) The above via enclosure for LAYER M2 is not specified for width 0.280.
+[11/07 18:00:12     6s] #WARNING (NRDB-2077) The below via enclosure for LAYER M2 is not specified for width 0.280.
+[11/07 18:00:12     6s] #WARNING (NRDB-2078) The above via enclosure for LAYER M3 is not specified for width 0.280.
+[11/07 18:00:12     6s] #WARNING (NRDB-2077) The below via enclosure for LAYER M2 is not specified for width 0.280.
+[11/07 18:00:12     6s] #WARNING (NRDB-2078) The above via enclosure for LAYER M3 is not specified for width 0.280.
+[11/07 18:00:12     6s] #WARNING (NRDB-2077) The below via enclosure for LAYER M3 is not specified for width 0.280.
+[11/07 18:00:12     6s] #WARNING (NRDB-2078) The above via enclosure for LAYER M4 is not specified for width 0.280.
+[11/07 18:00:12     6s] #WARNING (NRDB-2077) The below via enclosure for LAYER M3 is not specified for width 0.280.
+[11/07 18:00:12     6s] #WARNING (NRDB-2078) The above via enclosure for LAYER M4 is not specified for width 0.280.
+[11/07 18:00:12     6s] #WARNING (NRDB-2077) The below via enclosure for LAYER M4 is not specified for width 0.280.
+[11/07 18:00:12     6s] #WARNING (NRDB-2078) The above via enclosure for LAYER MT is not specified for width 0.280.
+[11/07 18:00:12     6s] #WARNING (NRDB-2077) The below via enclosure for LAYER M4 is not specified for width 0.280.
+[11/07 18:00:12     6s] #WARNING (NRDB-2078) The above via enclosure for LAYER MT is not specified for width 0.280.
+[11/07 18:00:12     6s] #WARNING (NRDB-2077) The below via enclosure for LAYER MT is not specified for width 0.280.
+[11/07 18:00:12     6s] #WARNING (NRDB-2078) The above via enclosure for LAYER AM is not specified for width 2.000.
+[11/07 18:00:12     6s] #WARNING (NRDB-2077) The below via enclosure for LAYER MT is not specified for width 0.280.
+[11/07 18:00:12     6s] #WARNING (NRDB-2078) The above via enclosure for LAYER AM is not specified for width 2.000.
+[11/07 18:00:12     6s] #WARNING (NRDB-2040) Rule LEF_DEFAULT doesn't specify any vias that satisfy all of the area rules for layer M2 M3 M4 
+[11/07 18:00:12     6s] #WARNING (NRDB-778) No multicut vias which meet all area rules for LAYER M1 are defined in RULE LEF_DEFAULT. When a LEF MINIMUMCUT rule is defined for a layer, you must define multicut vias for the layer in the LEF file. Edit your LEF file and read it in again.
+[11/07 18:00:12     6s] #WARNING (NRDB-778) No multicut vias which meet all area rules for LAYER M2 are defined in RULE LEF_DEFAULT. When a LEF MINIMUMCUT rule is defined for a layer, you must define multicut vias for the layer in the LEF file. Edit your LEF file and read it in again.
+[11/07 18:00:12     6s] #WARNING (NRDB-778) No multicut vias which meet all area rules for LAYER M3 are defined in RULE LEF_DEFAULT. When a LEF MINIMUMCUT rule is defined for a layer, you must define multicut vias for the layer in the LEF file. Edit your LEF file and read it in again.
+[11/07 18:00:12     6s] #WARNING (NRDB-778) No multicut vias which meet all area rules for LAYER M4 are defined in RULE LEF_DEFAULT. When a LEF MINIMUMCUT rule is defined for a layer, you must define multicut vias for the layer in the LEF file. Edit your LEF file and read it in again.
+[11/07 18:00:12     6s] #WARNING (NRDB-778) No multicut vias which meet all area rules for LAYER MT are defined in RULE LEF_DEFAULT. When a LEF MINIMUMCUT rule is defined for a layer, you must define multicut vias for the layer in the LEF file. Edit your LEF file and read it in again.
+[11/07 18:00:12     6s] #WARNING (NRDB-2077) The below via enclosure for LAYER M1 is not specified for width 0.240.
+[11/07 18:00:12     6s] #WARNING (NRDB-2078) The above via enclosure for LAYER M2 is not specified for width 0.280.
+[11/07 18:00:12     6s] #WARNING (NRDB-2077) The below via enclosure for LAYER M1 is not specified for width 0.240.
+[11/07 18:00:12     6s] #WARNING (NRDB-2078) The above via enclosure for LAYER M2 is not specified for width 0.280.
+[11/07 18:00:12     6s] #WARNING (NRDB-2077) The below via enclosure for LAYER M2 is not specified for width 0.280.
+[11/07 18:00:12     6s] #WARNING (NRDB-2078) The above via enclosure for LAYER M3 is not specified for width 0.280.
+[11/07 18:00:12     6s] #WARNING (NRDB-2077) The below via enclosure for LAYER M2 is not specified for width 0.280.
+[11/07 18:00:12     6s] #WARNING (NRDB-2078) The above via enclosure for LAYER M3 is not specified for width 0.280.
+[11/07 18:00:12     6s] #WARNING (NRDB-2077) The below via enclosure for LAYER M3 is not specified for width 0.280.
+[11/07 18:00:12     6s] #WARNING (NRDB-2078) The above via enclosure for LAYER M4 is not specified for width 0.280.
+[11/07 18:00:12     6s] #WARNING (NRDB-2077) The below via enclosure for LAYER M3 is not specified for width 0.280.
+[11/07 18:00:12     6s] #WARNING (NRDB-2078) The above via enclosure for LAYER M4 is not specified for width 0.280.
+[11/07 18:00:12     6s] #WARNING (NRDB-2077) The below via enclosure for LAYER M4 is not specified for width 0.280.
+[11/07 18:00:12     6s] #WARNING (NRDB-2078) The above via enclosure for LAYER MT is not specified for width 0.280.
+[11/07 18:00:12     6s] #WARNING (NRDB-2077) The below via enclosure for LAYER M4 is not specified for width 0.280.
+[11/07 18:00:12     6s] #WARNING (NRDB-2078) The above via enclosure for LAYER MT is not specified for width 0.280.
+[11/07 18:00:12     6s] #WARNING (NRDB-2077) The below via enclosure for LAYER MT is not specified for width 0.280.
+[11/07 18:00:12     6s] #WARNING (NRDB-2078) The above via enclosure for LAYER AM is not specified for width 2.000.
+[11/07 18:00:12     6s] #WARNING (NRDB-2077) The below via enclosure for LAYER MT is not specified for width 0.280.
+[11/07 18:00:12     6s] #WARNING (NRDB-2078) The above via enclosure for LAYER AM is not specified for width 2.000.
+[11/07 18:00:12     6s]   VERIFY DRC ...... Starting Verification
+[11/07 18:00:12     6s]   VERIFY DRC ...... Initializing
+[11/07 18:00:12     6s]   VERIFY DRC ...... Deleting Existing Violations
+[11/07 18:00:12     6s]   VERIFY DRC ...... Creating Sub-Areas
+[11/07 18:00:12     6s]   VERIFY DRC ...... Using new threading
+[11/07 18:00:12     6s]   VERIFY DRC ...... Sub-Area : 1 of 1
+[11/07 18:00:12     6s]   VERIFY DRC ...... Sub-Area : 1 complete 0 Viols.
+[11/07 18:00:12     6s] 
+[11/07 18:00:12     6s]   Verification Complete : 0 Viols.
+[11/07 18:00:12     6s] 
+[11/07 18:00:12     6s]  *** End Verify DRC (CPU: 0:00:00.1  ELAPSED TIME: 0.00  MEM: 18.9M) ***
+[11/07 18:00:12     6s] 
+[11/07 18:01:09     6s] <CMD> saveDesign -cellview {IMP_DIG_DIV FreqDiv routed}
+[11/07 18:01:09     6s] Redoing specifyClockTree ...
+[11/07 18:01:09     6s] Checking spec file integrity...
+[11/07 18:01:09     6s] ----- oaOut ---------------------------
+[11/07 18:01:09     6s] Saving OA database: Lib: IMP_DIG_DIV, Cell: FreqDiv, View: routed
+[11/07 18:01:09     6s] **WARN: (ENCOAX-1313):	The library 'IMP_DIG_DIV' has its data compression level set to '0', while the compression level for this encounter session is 1. Any new data being saved into this library will be saved with its compression settings, irrespective of the global value.
+[11/07 18:01:09     6s] Type 'man ENCOAX-1313' for more detail.
+[11/07 18:01:09     6s] FE units: 0.001 microns/dbu, OA units: 0.001 microns/dbu, Conversion factor: 1
+[11/07 18:01:09     6s] Special routes: 24 strips and 40 vias are crated in OA database.
+[11/07 18:01:09     6s] Created 138 insts; 276 instTerms; 87 nets; 191 routes.
+[11/07 18:01:09     6s] TIMER: Write OA to disk: 0h 0m  0.00s cpu {0h 0m 0s elapsed} Memory = 0.0
+[11/07 18:01:09     6s] TIMER: Purge OA from memory: 0h 0m  0.01s cpu {0h 0m 0s elapsed} Memory = 0.0
+[11/07 18:01:09     6s] TIMER: oaOut total process: 0h 0m  0.03s cpu {0h 0m 0s elapsed} Memory = 0.0
+[11/07 18:01:09     6s] Saving AAE Data ...
+[11/07 18:01:09     6s] Saving clock tree spec file '/home/saul/projects/IMPLANTABLE_AMS/version1/saul/IMP_DIG_DIV/FreqDiv/routed/FreqDiv.ctstch' ...
+[11/07 18:01:09     6s] Saving configuration ...
+[11/07 18:01:09     6s] Saving preference file /home/saul/projects/IMPLANTABLE_AMS/version1/saul/IMP_DIG_DIV/FreqDiv/routed/enc.pref.tcl ...
+[11/07 18:01:09     6s] Saving sdp information ...
+[11/07 18:01:09     6s] Saving thumbnail file...
+[11/07 18:01:10     6s] 
+[11/07 18:01:10     6s] *** Summary of all messages that are not suppressed in this session:
+[11/07 18:01:10     6s] Severity  ID               Count  Summary                                  
+[11/07 18:01:10     6s] WARNING   ENCOAX-1313          1  The library '%s' has its data compressio...
+[11/07 18:01:10     6s] *** Message Summary: 1 warning(s), 0 error(s)
+[11/07 18:01:10     6s] 
+[11/07 18:01:31     7s] 
+[11/07 18:01:31     7s] *** Memory Usage v#1 (Current mem = 670.539M, initial mem = 95.977M) ***
+[11/07 18:01:31     7s] 
+[11/07 18:01:31     7s] *** Summary of all messages that are not suppressed in this session:
+[11/07 18:01:31     7s] Severity  ID               Count  Summary                                  
+[11/07 18:01:31     7s] WARNING   ENCFP-3961           7  The techSite '%s' has no related cells i...
+[11/07 18:01:31     7s] WARNING   ENCEXT-6202          1  In addition to the technology file, capa...
+[11/07 18:01:31     7s] WARNING   ENCPP-547            3  Cut '%s' does not fit in viaRule '%s'.   
+[11/07 18:01:31     7s] WARNING   ENCOAX-571           1  Property '%s' from OA is a hierarchical ...
+[11/07 18:01:31     7s] WARNING   ENCOAX-738           1  Non-Default Rule '%s' has already been d...
+[11/07 18:01:31     7s] WARNING   ENCOAX-741           8  Site '%s' has already been defined in %s...
+[11/07 18:01:31     7s] WARNING   ENCOAX-1313          1  The library '%s' has its data compressio...
+[11/07 18:01:31     7s] WARNING   ENCCTE-290          48  Could not locate cell %s in any library ...
+[11/07 18:01:31     7s] *** Message Summary: 70 warning(s), 0 error(s)
+[11/07 18:01:31     7s] 
+[11/07 18:01:31     7s] --- Ending "Encounter" (totcpu=0:00:07.1, real=0:16:11, mem=670.5M) ---

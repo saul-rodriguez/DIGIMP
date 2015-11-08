@@ -1,0 +1,17 @@
+ncsim(64): 14.20-s012: (c) Copyright 1995-2015 Cadence Design Systems, Inc.
+
+-------------------------------------
+Relinquished control to SimVision...
+ncsim> 
+ncsim> source /pkg/Cadence/installs/INCISIVE142/tools/inca/files/ncsimrc
+ncsim> database -open waves -into waves.shm -default
+Created default SHM database waves
+ncsim> probe -create -shm DacCtrl_tb.Clk DacCtrl_tb.CountEnable DacCtrl_tb.IN DacCtrl_tb.IP DacCtrl_tb.P DacCtrl_tb.QN DacCtrl_tb.QP DacCtrl_tb.Resetn DacCtrl_tb.StepNum
+Created probe 1
+ncsim> run
+Simulation complete via $finish(1) at time 1102 NS + 0
+./DacCtrl_tb.v:35     #50 $finish;
+ncsim> ^C
+ncsim> exit
+ncsim: Memory Usage - 35.5M program + 100.3M data = 135.8M total
+ncsim: CPU Usage - 0.0s system + 0.0s user = 0.0s total (115.7s, 0.0% cpu)
