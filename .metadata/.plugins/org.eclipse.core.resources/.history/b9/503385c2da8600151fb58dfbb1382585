@@ -37,8 +37,8 @@ wire CE;
 wire NS;
 wire [2:0] GD;
 
-parameter [13:0] confWord  = 14'b1010_1_1011_0_1_001; //0x561
-parameter [13:0] confWord2 = 14'b0101_0_0100_1_0_110; //0x657
+parameter [13:0] confWord  = 11'b1010_1_1011_01_001; //0x561
+parameter [13:0] confWord2 = 11'b0101_1_0100_10_110; //0x657
 
 reg [13:0] conf;
 reg [13:0] conf2;

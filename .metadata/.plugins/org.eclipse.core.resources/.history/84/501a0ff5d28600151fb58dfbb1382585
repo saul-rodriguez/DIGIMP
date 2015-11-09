@@ -5,16 +5,15 @@
 *
 * Description: Serial to Parallel converter used for configuring BIO IC V1
 * This block uses 3 control lines: Cfg_in, Clk, and Resetn 
-* Cfg_in is sampled at rising edge of Clk. After 14 bits, the data is latched to the paralell outputs
 * 
 * 
-* Configuation word: F3,F2,F1,F0,    IQ,   GS3,GS2,GS1,GS0,  CE,   NS,    GD2,GD1,GD0
+* Configuation word: F3,F2,F1,F0,    IQ,   GS3,GS2,GS1,GS0,  CE, NS, GD2,GD1,GD0
 * F<3:0>    Frequency selection 0 - 15  (0 highest frequency (VCO freq), 15 lowest frequency)
 * IQ        I = 0, Q = 1
 * GS<3:0>   Signal Generator Gain [0000, 0001, 0011, 0111, 1111]
 * CE        Signal Generator enable 
 * NS        Signal Generator number of steps NS = 0 (32 steps), NS = 1 (16 steps)
-* GD<2:0>   Demodulator Gain [100, 101, 111, 011] (NOTE: G[2] is active low logic!)
+* GD<2:0>   Demodulator Gain [100, 101, 111, 011] (NOTE: G[2] is active low logig!)
 * 
 ***************************************/
 module  spc2(
@@ -54,18 +53,18 @@ begin
     end else begin
         //Shift the data
         out[13] <= Cfg_in;
-        out[12] <= out[13];
-        out[11] <= out[12];
-        out[10] <= out[11];
-        out[9] <= out[10];
-        out[8] <= out[9];
-        out[7] <= out[8];
-        out[6] <= out[7];
-        out[5] <= out[6];
-        out[4] <= out[5];
-        out[3] <= out[4];
-        out[2] <= out[3];
-        out[1] <= out[2];
+        out[12] <= out[10];
+        out[11] <= out[9];
+        out[10] <= out[8];
+        out[9] <= out[7];
+        out[8] <= out[6];
+        out[7] <= out[5];
+        out[6] <= out[4];
+        out[5] <= out[3];
+        out[4] <= out[2];
+        out[3] <= out[1];
+        out[2] <= out[1];
+        out[1] <= out[1];
         out[0] <= out[1];
         
         //Decrement the counter
@@ -75,22 +74,37 @@ end
 
 assign strobe = (!count) & (~Clk);
 
+/*
+* Output registers with strobe
+*/
+/*
+always @(posedge strobe)
+begin
+        F[3:0] <= out[10:7];
+        IQ <= out[6];
+        G[2:0] <= out[5:3];
+        CE <= out[2];
+        GCP[1:0] <= out[1:0];
+end
+*/
+/*
+* Output registers with async. reset
+*/
+
 always @(posedge strobe, negedge Resetn)
 begin
     if (Resetn == 0) begin
         F[3:0] <= 0;
         IQ <= 0;
-        GS[3:0] <= 0;
+        G[2:0] <= 0;
         CE <= 0;
-        NS <= 0;
-        GD[2:0] <= 0;
+        GCP[1:0] <= 0;
     end else begin
-        F[3:0] <= out[13:10];
-        IQ <= out[9];
-        GS[3:0] <= out[8:5];
-        CE <= out[4];
-        NS <= out[3];
-        GD[2:0] <= out[2:0];
+        F[3:0] <= out[10:7];
+        IQ <= out[6];
+        G[2:0] <= out[5:3];
+        CE <= out[2];
+        GCP[1:0] <= out[1:0];
     end
 end
 

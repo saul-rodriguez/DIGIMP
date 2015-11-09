@@ -5,10 +5,9 @@
 *
 * Description: Serial to Parallel converter used for configuring BIO IC V1
 * This block uses 3 control lines: Cfg_in, Clk, and Resetn 
-* Cfg_in is sampled at rising edge of Clk. After 14 bits, the data is latched to the paralell outputs
 * 
 * 
-* Configuation word: F3,F2,F1,F0,    IQ,   GS3,GS2,GS1,GS0,  CE,   NS,    GD2,GD1,GD0
+* Configuation word: F3,F2,F1,F0,    IQ,   GS3,GS2,GS1,GS0,  CE, NS, GD2,GD1,GD0
 * F<3:0>    Frequency selection 0 - 15  (0 highest frequency (VCO freq), 15 lowest frequency)
 * IQ        I = 0, Q = 1
 * GS<3:0>   Signal Generator Gain [0000, 0001, 0011, 0111, 1111]
