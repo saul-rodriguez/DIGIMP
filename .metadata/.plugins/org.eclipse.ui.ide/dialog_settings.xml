@@ -11,15 +11,15 @@
 	<section name="ResourceListSelectionDialogSettings">
 		<item value="412" key="DIALOG_WIDTH"/>
 		<item value="-13" key="DIALOG_Y_ORIGIN"/>
-		<item value="16" key="DIALOG_X_ORIGIN"/>
 		<item value="648" key="DIALOG_HEIGHT"/>
+		<item value="16" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="SaveAsDialogSettings">
 		<item value="633" key="DIALOG_WIDTH"/>
 		<item value="150" key="DIALOG_Y_ORIGIN"/>
-		<item value="654" key="DIALOG_X_ORIGIN"/>
 		<item value="644" key="DIALOG_HEIGHT"/>
+		<item value="654" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="NewWizardAction">

@@ -41,11 +41,11 @@ wire [2:0] GD;
 wire FS;
 wire RE;
 
-parameter [15:0] confWord  = 16'b1010_1_1011_0_1_001_0_1; //0x561
-parameter [15:0] confWord2 = 16'b0101_0_0100_1_0_110_1_0; //0x657
+parameter [15:0] confWord  = 14'b1010_1_1011_0_1_001; //0x561
+parameter [15:0] confWord2 = 14'b0101_0_0100_1_0_110; //0x657
 
-reg [15:0] conf;
-reg [15:0] conf2;
+reg [13:0] conf;
+reg [13:0] conf2;
 
 
 initial begin
@@ -76,8 +76,6 @@ initial begin
     #10 Cfg_in = conf[11];
     #10 Cfg_in = conf[12];
     #10 Cfg_in = conf[13];    
-    #10 Cfg_in = conf[14];
-    #10 Cfg_in = conf[15];
     //Second word
     
     #60 Resetn = 0;
@@ -96,8 +94,6 @@ initial begin
     #10 Cfg_in = conf2[11];
     #10 Cfg_in = conf2[12];
     #10 Cfg_in = conf2[13];
-    #10 Cfg_in = conf2[14];
-    #10 Cfg_in = conf2[15];
     
   //  #5 Strobe = 1;
     #50 $finish;    
@@ -108,7 +104,7 @@ always begin
     #5 Clk = ~Clk;
 end
 
-spc2 my_spc2(Cfg_in,Clk,Resetn,F,IQ,GS,CE,NS,GD,FS,RE);
+spc2 my_spc2(Cfg_in,Clk,Resetn,F,IQ,GS,CE,NS,GD);
 
 
 endmodule

@@ -102,7 +102,7 @@ begin
         NS <= out[5];
         GD[2:0] <= out[4:2];
         FS <= out[1];
-        RE <= out[0];
+        RE <= our[0];
     end
 end
 

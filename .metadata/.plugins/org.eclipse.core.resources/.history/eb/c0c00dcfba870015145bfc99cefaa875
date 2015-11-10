@@ -108,7 +108,7 @@ always begin
     #5 Clk = ~Clk;
 end
 
-spc2 my_spc2(Cfg_in,Clk,Resetn,F,IQ,GS,CE,NS,GD,FS,RE);
+spc2 my_spc2(Cfg_in,Clk,Resetn,F,IQ,GS,CE,NS,GD);
 
 
 endmodule
