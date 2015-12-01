@@ -1,0 +1,71 @@
+catch { setAnalysisMode -analysisType bcwc }
+catch { setAnalysisMode -checkType setup }
+catch { setAnalysisMode -clkSrcPath true }
+catch { setAnalysisMode -clockPropagation sdcControl }
+catch { setAnalysisMode -skew true }
+catch { setAnalysisMode -virtualIPO false }
+setExtractRCMode  -effortLevel signoff -engine postRoute -coupled false
+catch { setCTSMode -addClockRootProp false }
+catch { setCTSMode -fixLeafInst true }
+catch { setCTSMode -fixNonLeafInst true }
+catch { setCTSMode -honorFence false }
+catch { setCTSMode -moveGate true }
+catch { setCTSMode -moveGateLimit 25 }
+catch { setCTSMode -nameSingleDelim false }
+catch { setCTSMode -opt true }
+catch { setCTSMode -optAddBuffer false }
+catch { setCTSMode -reportHTML false }
+catch { setCTSMode -routeBottomPreferredLayer M1 }
+catch { setCTSMode -routeClkNet true }
+catch { setCTSMode -routeGuide true }
+catch { setCTSMode -routeLeafBottomPreferredLayer M1 }
+catch { setCTSMode -routeLeafPreferredExtraSpace 1 }
+catch { setCTSMode -routeLeafTopPreferredLayer MT }
+catch { setCTSMode -routePreferredExtraSpace 1 }
+catch { setCTSMode -routeTopPreferredLayer MT }
+catch { setCTSMode -traceDPinAsLeaf false }
+catch { setCTSMode -traceIoPinAsLeaf false }
+catch { setCTSMode -useHVRC true }
+catch { setCTSMode -useLefACLimit false }
+catch { setCTSMode -useLibMaxCap false }
+catch { setCTSMode -useLibMaxFanout false }
+catch { setCTSMode -verbose false }
+catch {setNanoRouteMode -quiet -droutePostRouteWidenWireRule "VSRDefaultSetup"}
+catch {setNanoRouteMode -quiet -drouteUseMinSpacingForBlockage auto}
+catch {setNanoRouteMode -quiet -routeStrictlyHonorNonDefaultRule "false"}
+catch {setNanoRouteMode -quiet -routeTopRoutingLayer 5}
+
+catch { setPlaceMode -checkRoute false }
+catch { setPlaceMode -clkGateAware true }
+catch { setPlaceMode -congEffort auto }
+catch { setPlaceMode -fp false }
+catch { setPlaceMode -ignoreScan true }
+catch { setPlaceMode -ignoreSpare false }
+catch { setPlaceMode -moduleAwareSpare false }
+catch { setPlaceMode -modulePlan true }
+catch { setPlaceMode -placeIoPins false }
+catch { setPlaceMode -powerDriven false }
+catch { setPlaceMode -preserveRouting false }
+catch { setPlaceMode -reorderScan true }
+catch { setPlaceMode -rmAffectedRouting false }
+catch { setPlaceMode -swapEEQ false }
+catch { setPlaceMode -timingDriven true }
+catch { setIlmMode -keepHighFanoutPorts true -loopBack false -keepFlatten true }
+catch { setDelayCalMode -enable_high_fanout true }
+catch { setDelayCalMode -engine aae }
+catch { setDelayCalMode -ignore_clock_idealness false }
+catch { setDelayCalMode -ignoreNetLoad false }
+catch { setDelayCalMode -SIAware false }
+catch { setDelayCalMode -signOff true }
+catch { setDelayCalMode -siMode signoff }
+catch { setPinAssignMode -maxLayer 5 }
+catch { setPinAssignMode -pinEditInBatch false }
+catch { setTrialRouteMode -maxRouteLayer 5 }
+catch { setCheckMode -tapeOut true }
+catch { setImportMode -config true }
+catch { setImportMode -keepEmptyModule true }
+catch { setImportMode -treatUndefinedCellAsBbox false }
+catch { setSIMode -analysisType aae }
+catch { setSIMode -enable_glitch_report false }
+catch { setSIMode -usePrevCeltICRunDir {} }
+catch { setEndCapMode -boundary_tap false }
