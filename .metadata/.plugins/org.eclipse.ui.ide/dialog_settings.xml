@@ -4,6 +4,8 @@
 		<item value="316" key="DIALOG_Y_ORIGIN"/>
 		<item value="645" key="DIALOG_X_ORIGIN"/>
 	</section>
+	<section name="ExternalProjectImportWizard">
+	</section>
 	<section name="ResourceNavigator">
 		<item value="Aggregate for window 1424809220410" key="ResourceWorkingSetFilter.STORE_WORKING_SET"/>
 		<item value="1" key="ResourceViewer.STORE_SORT_TYPE"/>
