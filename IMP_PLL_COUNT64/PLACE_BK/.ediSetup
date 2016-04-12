@@ -1,0 +1,6 @@
+#### austriamicrosystems Encounter Setup Creation
+#--- hitkit: /pkg/AMS411
+#--- 
+#--- Using Encounter Version: EDI13.1ISR4 
+source /programs/cds/EDI13.1ISR4/.edi131isr4rc 
+

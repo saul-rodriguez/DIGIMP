@@ -1,0 +1,1 @@
+../../SYNTHESIS/FreqDiv64_synth.v

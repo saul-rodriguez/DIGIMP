@@ -1,0 +1,56 @@
+# Version:1.0 MMMC View Definition File
+# Do Not Remove Above Line
+#  Version:           03-Oct-2013
+#  Generated on:      mån apr 11 14:11:33 CEST 2016
+
+proc amsSetMMMC {} {
+    global topcellname
+    global consList
+
+    print "---# Setup MMMC\n---#"
+    create_rc_corner -name ams_rc_corner_typ \
+            -cap_table {/pkg/AMS411/cds/HK_H18/LEF/h18a6/h18a6.capTable} \
+            -preRoute_res {1.0} \
+            -postRoute_res {1.0} \
+            -preRoute_cap {1.0} \
+            -postRoute_cap {1.0} \
+            -postRoute_xcap {1.0} \
+            -qx_tech_file {/pkg/AMS411/assura/h18a6/h18a6/QRC/qrcTechFile}
+    print "---#   rc_corner        : ams_rc_corner_typ"
+    create_library_set -name libs_min -timing { \
+               /pkg/AMS411/liberty/h18_1.8V/h18_CORELIB_HV_BC.lib \
+    }
+    create_library_set -name libs_max -timing { \
+               /pkg/AMS411/liberty/h18_1.8V/h18_CORELIB_HV_WC.lib \
+    }
+    create_library_set -name libs_typ -timing { \
+               /pkg/AMS411/liberty/h18_1.8V/h18_CORELIB_HV_TYP.lib \
+   }
+   print "---#   lib-sets         : libs_min, libs_max, libs_typ"
+
+   foreach cons $consList {
+      set filename [format "CONSTRAINTS/%s_%s.sdc" $topcellname $cons]
+      create_constraint_mode -name $cons -sdc_files $filename
+   }
+   print "---#   constraint-modes : $consList"
+
+   create_delay_corner -name corner_min -library_set {libs_min} -opcond_library {h18_CORELIB_HV_BC} -opcond {best} -rc_corner {ams_rc_corner_typ}
+   create_delay_corner -name corner_max -library_set {libs_max} -opcond_library {h18_CORELIB_HV_WC} -opcond {worst} -rc_corner {ams_rc_corner_typ}
+   create_delay_corner -name corner_typ -library_set {libs_typ} -opcond_library {h18_CORELIB_HV_TYP} -opcond {typical} -rc_corner {ams_rc_corner_typ}
+    print "---#   delay-corners    : corner_min, corner_max, corner_typ"
+
+    print "---#   analysis-views   : "
+    foreach cons $consList {
+      foreach corner {"min" "max" "typ"} {
+        set avname [format "%s_%s" $cons $corner]
+        set cname [format "corner_%s" $corner]
+        create_analysis_view -name $avname -constraint_mode $cons -delay_corner $cname 
+	print "---#          #  Name: $avname  # Constraint-Mode: $cons # Corner: $cname"
+      }
+    }
+
+    print "---#\n---# use following command to show analysis view definitions\n         report_analysis_view \n"
+}
+
+amsSetMMMC
+amsSetAnalysisView minmax $consList

@@ -1,0 +1,21 @@
+WROUTE version 3.1.61 (64 bit) db version 1.01
+WROUTE compiled on 06/30/2009 00:01 (icmopt07)
+Date   : Mon Apr 11 15:43:22 2016
+Machine: s2424.it.kth.se (Linux 2.6.18-407.el5 Xeon 1.20Ghz)
+Version: 5.8, Unit: 1000, Final routed design
+Sbox 4 out of 4 (not accurate in multi-thread mode)
+1st or 2nd search repair pass, 0th search repair sbox
+21 layers, 6 routing layers, 1 overlap layer
+1 nondefault rule, 0 used
+479 macros, 15 used
+50 components
+  50 core components: 0 unplaced, 50 placed, 0 fixed
+8 physical pins
+  8 physical pins: 0 unplaced, 8 placed, 0 fixed
+1 blockages 
+84 nets, 70 routed
+3 special nets, 2 routed
+317 terminals
+1530 gcells for 6 layers
+260 real and virtual terminals
+0 violation, 0 process antenna violation
