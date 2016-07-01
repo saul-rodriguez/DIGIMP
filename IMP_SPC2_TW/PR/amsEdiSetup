@@ -1,0 +1,25 @@
+#### austriamicrosystems Encounter Setup Creation
+#--- hitkit: /pkg/AMS411
+#--- 
+#--- Corelib-Timing: CORELIB_HV
+#---          Best : _1.8V + 10% => 1.98V
+#---           Typ : _1.8V
+#---         Worst : _1.8V - 10% => 1.62V
+#--- Iolib-Timing  : None
+#---          Best : None
+#---           Typ : None
+#---         Worst : None
+
+$AMS_DIR/cds/bin/ams_edis -tech h18 \
+              -metlay 6AM \
+              -corelib CORELIB_HV \
+              -corevolt _1.8V \
+              -corevolt_wc _1.8V \
+              -corevolt_bc _1.8V \
+              -iolib None \
+              -iovolt None \
+              -iovolt_wc None \
+              -iovolt_bc None \
+              -vn spc2_synth.v \
+              -vt spc2 \
+              -ediver EDI13.1ISR4

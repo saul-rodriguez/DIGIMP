@@ -1,0 +1,220 @@
+# PPCMD 1 
+# sroute -connect { blockPin padPin padRing corePin floatingStripe } -layerChangeRange { M1 AM } -blockPinTarget { nearestTarget } -padPinPortConnect { allPort oneGeom } -padPinTarget { nearestTarget } -corePinTarget { none } -floatingStripeTarget { blockring padring ring stripe ringpin blockpin followpin } -allowJogging 1 -crossoverViaLayerRange { M1 AM } -nets { gnd! vdd! } -allowLayerChange 1 -blockPin useLef -targetViaLayerRange { M1 AM }
+# 10 
+# 16 
+# 0 
+# 0 
+# 0 
+# 0 
+# BOX_LIST 
+# END_BOX_LIST 
+# NET_INFO_LIST 
+# END_NET_INFO_LIST 
+# END_PPCMD 1 
+
+# PPCMD 2 
+# addStripe -skip_via_on_wire_shape Noshape -block_ring_top_layer_limit M3 -max_same_layer_jog_length 4 -padcore_ring_bottom_layer_limit M1 -number_of_sets 1 -skip_via_on_pin Standardcell -stacked_via_top_layer AM -padcore_ring_top_layer_limit M3 -start_from right -spacing 0.4 -xleft_offset {} -xright_offset 20 -merge_stripes_value 4.9 -layer M2 -block_ring_bottom_layer_limit M1 -width 3 -nets {vdd! gnd!} -stacked_via_bottom_layer M1
+# 9 
+# 2 
+# 1 
+# 0 
+# 0 
+# 2 
+# BOX_LIST 
+# 3680 3720 127840 100920 0 
+# 8080 8080 123440 96560 0 
+# END_BOX_LIST 
+# NET_INFO_LIST 
+# gnd! 3000 2 0 88420 22580 0 0 0 
+# vdd! 3000 2 0 91820 22580 0 0 0 
+# END_NET_INFO_LIST 
+# END_PPCMD 2 
+
+# PPCMD 3 
+# addStripe -skip_via_on_wire_shape Noshape -block_ring_top_layer_limit M3 -max_same_layer_jog_length 4 -padcore_ring_bottom_layer_limit M1 -number_of_sets 1 -skip_via_on_pin Standardcell -stacked_via_top_layer AM -padcore_ring_top_layer_limit M3 -spacing 0.4 -xleft_offset {} -xright_offset 20 -merge_stripes_value 4.9 -layer M2 -block_ring_bottom_layer_limit M1 -width 3 -nets {vdd! gnd!} -stacked_via_bottom_layer M1
+# 8 
+# 2 
+# 1 
+# 0 
+# 0 
+# 2 
+# BOX_LIST 
+# 3680 3720 127840 100920 0 
+# 8080 8080 123440 96560 0 
+# END_BOX_LIST 
+# NET_INFO_LIST 
+# gnd! 3000 2 0 27480 93320 0 0 0 
+# vdd! 3000 2 0 24080 93320 0 0 0 
+# END_NET_INFO_LIST 
+# END_PPCMD 3 
+
+# PPCMD 4 
+# addStripe -skip_via_on_wire_shape Noshape -block_ring_top_layer_limit M3 -max_same_layer_jog_length 4 -padcore_ring_bottom_layer_limit M1 -number_of_sets 1 -skip_via_on_pin Standardcell -stacked_via_top_layer AM -padcore_ring_top_layer_limit M3 -spacing 0.4 -xleft_offset 20 -merge_stripes_value 4.9 -layer M2 -block_ring_bottom_layer_limit M1 -width 3 -nets {vdd! gnd!} -stacked_via_bottom_layer M1
+# 7 
+# 2 
+# 1 
+# 0 
+# 0 
+# 2 
+# BOX_LIST 
+# 3680 3720 127840 100920 0 
+# 8080 8080 123440 96560 0 
+# END_BOX_LIST 
+# NET_INFO_LIST 
+# gnd! 3000 2 0 47480 113320 0 0 0 
+# vdd! 3000 2 0 44080 113320 0 0 0 
+# END_NET_INFO_LIST 
+# END_PPCMD 4 
+
+# PPCMD 5 
+# addStripe -skip_via_on_wire_shape Noshape -block_ring_top_layer_limit M3 -max_same_layer_jog_length 4 -padcore_ring_bottom_layer_limit M1 -number_of_sets 1 -skip_via_on_pin Standardcell -stacked_via_top_layer AM -padcore_ring_top_layer_limit M3 -spacing 0.4 -merge_stripes_value 4.9 -layer M2 -block_ring_bottom_layer_limit M1 -width 3 -nets {vdd! gnd!} -stacked_via_bottom_layer M1
+# 6 
+# 2 
+# 1 
+# 0 
+# 0 
+# 2 
+# BOX_LIST 
+# 3680 3720 127840 100920 0 
+# 8080 8080 123440 96560 0 
+# END_BOX_LIST 
+# NET_INFO_LIST 
+# gnd! 3000 2 0 27480 113320 0 0 0 
+# vdd! 3000 2 0 24080 113320 0 0 0 
+# END_NET_INFO_LIST 
+# END_PPCMD 5 
+
+# PPCMD 6 
+# addRing -skip_via_on_wire_shape Noshape -spacing_bottom 0.36 -width_left 4 -width_bottom 4 -width_top 4 -spacing_top 0.36 -skip_via_on_pin Standardcell -layer_bottom M1 -stacked_via_top_layer AM -width_right 4 -type core_rings -jog_distance 4.9 -offset_bottom 12 -layer_top M1 -threshold 4.9 -offset_left 12 -spacing_right 0.4 -spacing_left 0.4 -offset_right 12 -offset_top 12 -layer_right M2 -nets {vdd! gnd!} -follow core -stacked_via_bottom_layer M1 -layer_left M2
+# 5 
+# 32 
+# 1 
+# 0 
+# 0 
+# 0 
+# BOX_LIST 
+# END_BOX_LIST 
+# NET_INFO_LIST 
+# gnd! 4000 1 1 0 0 0 0 0 
+# RING_PT_INFO_LIST 
+# 67760 5720 67760 102920 
+# END_RING_PT_INFO_LIST 
+# gnd! 4000 2 1 0 0 0 0 0 
+# RING_PT_INFO_LIST 
+# 5680 54320 129840 54320 
+# END_RING_PT_INFO_LIST 
+# vdd! 4000 1 1 0 0 0 0 0 
+# RING_PT_INFO_LIST 
+# 67760 10080 67760 98560 
+# END_RING_PT_INFO_LIST 
+# vdd! 4000 2 1 0 0 0 0 0 
+# RING_PT_INFO_LIST 
+# 10080 54320 125440 54320 
+# END_RING_PT_INFO_LIST 
+# END_NET_INFO_LIST 
+# END_PPCMD 6 
+
+# PPCMD 7 
+# addRing -skip_via_on_wire_shape Noshape -spacing_bottom 0.36 -width_left 4 -width_bottom 4 -width_top 4 -spacing_top 0.36 -skip_via_on_pin Standardcell -layer_bottom M1 -stacked_via_top_layer AM -width_right 4 -type core_rings -jog_distance 4.9 -offset_bottom 12 -layer_top M1 -threshold 4.9 -offset_left 12 -spacing_right 0.4 -spacing_left 0.4 -offset_right 12 -offset_top 12 -layer_right M2 -nets {vdd! gnd!} -follow core -stacked_via_bottom_layer M1 -layer_left M2
+# 4 
+# 32 
+# 1 
+# 0 
+# 0 
+# 0 
+# BOX_LIST 
+# END_BOX_LIST 
+# NET_INFO_LIST 
+# gnd! 4000 1 1 0 0 0 0 0 
+# RING_PT_INFO_LIST 
+# 68880 6840 68880 104040 
+# END_RING_PT_INFO_LIST 
+# gnd! 4000 2 1 0 0 0 0 0 
+# RING_PT_INFO_LIST 
+# 6800 55440 130960 55440 
+# END_RING_PT_INFO_LIST 
+# vdd! 4000 1 1 0 0 0 0 0 
+# RING_PT_INFO_LIST 
+# 68880 11200 68880 99680 
+# END_RING_PT_INFO_LIST 
+# vdd! 4000 2 1 0 0 0 0 0 
+# RING_PT_INFO_LIST 
+# 11200 55440 126560 55440 
+# END_RING_PT_INFO_LIST 
+# END_NET_INFO_LIST 
+# END_PPCMD 7 
+
+# PPCMD 8 
+# addRing -skip_via_on_wire_shape Noshape -spacing_bottom 0.36 -width_left 4 -width_bottom 4 -width_top 4 -spacing_top 0.36 -skip_via_on_pin Standardcell -layer_bottom M1 -stacked_via_top_layer AM -width_right 4 -type core_rings -jog_distance 4.9 -offset_bottom 12 -layer_top M1 -threshold 4.9 -offset_left 12 -spacing_right 0.4 -spacing_left 0.4 -offset_right 12 -offset_top 12 -layer_right M2 -nets {vdd! gnd!} -follow core -stacked_via_bottom_layer M1 -layer_left M2
+# 3 
+# 32 
+# 1 
+# 0 
+# 0 
+# 0 
+# BOX_LIST 
+# END_BOX_LIST 
+# NET_INFO_LIST 
+# gnd! 4000 1 1 0 0 0 0 0 
+# RING_PT_INFO_LIST 
+# 57960 6840 57960 93960 
+# END_RING_PT_INFO_LIST 
+# gnd! 4000 2 1 0 0 0 0 0 
+# RING_PT_INFO_LIST 
+# 6800 50400 109120 50400 
+# END_RING_PT_INFO_LIST 
+# vdd! 4000 1 1 0 0 0 0 0 
+# RING_PT_INFO_LIST 
+# 57960 11200 57960 89600 
+# END_RING_PT_INFO_LIST 
+# vdd! 4000 2 1 0 0 0 0 0 
+# RING_PT_INFO_LIST 
+# 11200 50400 104720 50400 
+# END_RING_PT_INFO_LIST 
+# END_NET_INFO_LIST 
+# END_PPCMD 8 
+
+# PPCMD 9 
+# addRing -skip_via_on_wire_shape Noshape -spacing_bottom 0.36 -width_left 3 -width_bottom 3 -width_top 3 -spacing_top 0.36 -skip_via_on_pin Standardcell -layer_bottom M1 -stacked_via_top_layer AM -width_right 3 -type core_rings -jog_distance 4.9 -offset_bottom 12 -layer_top M1 -threshold 4.9 -offset_left 12 -spacing_right 0.4 -spacing_left 0.4 -offset_right 12 -offset_top 12 -layer_right M2 -nets {vdd! gnd!} -follow core -stacked_via_bottom_layer M1 -layer_left M2
+# 2 
+# 32 
+# 1 
+# 0 
+# 0 
+# 0 
+# BOX_LIST 
+# END_BOX_LIST 
+# NET_INFO_LIST 
+# gnd! 3000 1 1 0 0 0 0 0 
+# RING_PT_INFO_LIST 
+# 57960 8340 57960 92460 
+# END_RING_PT_INFO_LIST 
+# gnd! 3000 2 1 0 0 0 0 0 
+# RING_PT_INFO_LIST 
+# 8300 50400 107620 50400 
+# END_RING_PT_INFO_LIST 
+# vdd! 3000 1 1 0 0 0 0 0 
+# RING_PT_INFO_LIST 
+# 57960 11700 57960 89100 
+# END_RING_PT_INFO_LIST 
+# vdd! 3000 2 1 0 0 0 0 0 
+# RING_PT_INFO_LIST 
+# 11700 50400 104220 50400 
+# END_RING_PT_INFO_LIST 
+# END_NET_INFO_LIST 
+# END_PPCMD 9 
+
+# PPCMD 10 
+# addRing -skip_via_on_wire_shape Noshape -spacing_bottom 0.36 -width_left 3 -width_bottom 3 -width_top 3 -spacing_top 0.36 -skip_via_on_pin Standardcell -layer_bottom M1 -stacked_via_top_layer AM -width_right 3 -type core_rings -jog_distance 4.9 -offset_bottom 12 -layer_top M1 -threshold 4.9 -offset_left 12 -spacing_right 0.4 -spacing_left 0.4 -offset_right 12 -offset_top 12 -layer_right M2 -follow core -stacked_via_bottom_layer M1 -layer_left M2
+# 1 
+# 32 
+# 0 
+# 0 
+# 0 
+# 0 
+# BOX_LIST 
+# END_BOX_LIST 
+# NET_INFO_LIST 
+# END_NET_INFO_LIST 
+# END_PPCMD 10 
+
