@@ -1,0 +1,166 @@
+/**************************************
+* Module: vin_spc
+* Date:2016-07-29  
+* Author: Saul and Raul     
+*
+* Description: Serial to Parallel converter used for configuring BIO IC V1
+* This block uses 3 control lines: Cfg_in, Clk, and Resetn 
+* Cfg_in is sampled at rising edge of Clk. After 14 bits, the data is latched to the paralell outputs
+* 
+* 
+* Configuation word: F3,F2,F1,F0,    IQ,   GS3,GS2,GS1,GS0,  CE,   NS,    GD2,GD1,GD0
+* F<3:0>    Frequency selection 0 - 15  (0 highest frequency (VCO freq), 15 lowest frequency)
+* IQ        I = 0, Q = 1
+* GS<3:0>   Signal Generator Gain [0000, 0001, 0011, 0111, 1111]
+* CE        Signal Generator enable 
+* NS        Signal Generator number of steps NS = 0 (32 steps), NS = 1 (16 steps)
+* GD<2:0>   Demodulator Gain [100, 101, 111, 011] (NOTE: G[2] is active low logic!)
+* FS        Filter Selection FS = 0 (fast), FS = 1 (slow)
+* RE        Reserve pin
+* 
+***************************************/
+module  vin_spc(
+Cfg_in,
+Clk,
+Resetn,
+F,
+IQ,
+GS,
+CE,
+NS,
+GD,
+FS,
+RE,
+EnLF,
+EnMF,
+EnHF,
+DN,
+DP,
+EnRdeg,
+EnRdegHF,
+CcompSel,
+CapSel
+);
+
+input Cfg_in, Clk, Resetn;
+
+output reg[3:0] F;
+output reg IQ;
+output reg [3:0] GS;
+output reg CE;
+output reg NS;
+output reg [2:0] GD;
+output reg FS;
+output reg RE;
+
+//Filter control
+output reg EnLF;
+output reg EnMF;
+output reg EnHF;
+output reg [1:0] DN;
+output reg [2:0] DP;
+output reg EnRdeg;
+output reg [1:0] EnRdegHF;
+output reg [1:0] CcompSel;
+output reg [3:0] CapSel;
+
+reg [32:0] out; 
+reg [5:0] count;
+
+wire strobe;
+
+/*
+* Right Shift register with async. reset  
+*/
+always @(posedge Clk, negedge Resetn)
+begin
+    if (Resetn == 0) begin
+        out <= 0;
+        count <= 33;
+    end else begin
+        //Shift the data
+        out[32] <= Cfg_in;        
+        out[31] <= out[32];
+        out[30] <= out[31];
+        out[29] <= out[30];
+        out[28] <= out[29];
+        out[27] <= out[28];
+        out[26] <= out[27];
+        out[25] <= out[26];
+        out[24] <= out[25];
+        out[23] <= out[24];
+        out[22] <= out[23];
+        out[21] <= out[22];
+        out[20] <= out[21];
+        out[19] <= out[20];
+        out[18] <= out[19];
+        out[17] <= out[18];
+        out[16] <= out[17];
+        out[15] <= out[16];
+        out[14] <= out[15];
+        out[13] <= out[14];
+        out[12] <= out[13];
+        out[11] <= out[12];
+        out[10] <= out[11];
+        out[9] <= out[10];
+        out[8] <= out[9];
+        out[7] <= out[8];
+        out[6] <= out[7];
+        out[5] <= out[6];
+        out[4] <= out[5];
+        out[3] <= out[4];
+        out[2] <= out[3];
+        out[1] <= out[2];
+        out[0] <= out[1];
+        
+        //Decrement the counter
+        count <= count - 1;
+    end    
+end
+
+assign strobe = (!count) & (~Clk);
+
+always @(posedge strobe, negedge Resetn)
+begin
+    if (Resetn == 0) begin
+        F[3:0] <= 0;
+        IQ <= 0;
+        GS[3:0] <= 0;
+        CE <= 0;
+        NS <= 0;
+        GD[2:0] <= 0;
+        FS <= 0;
+        RE <= 0;
+        
+        //Filter
+        EnLF <= 0;
+        EnMF <= 0;
+        EnHF <= 0;
+        DN[1:0] <= 0;
+        DP[2:0] <= 0;
+        EnRdeg <= 0;
+        EnRdegHF[1:0] <= 0; 
+        CcompSel[1:0] <= 0;
+        CapSel[3:0] <= 0;
+        
+    end else begin
+        F[3:0] <= out[15:12];
+        IQ <= out[11];
+        GS[3:0] <= out[10:7];
+        CE <= out[6];
+        NS <= out[5];
+        GD[2:0] <= out[4:2];
+        FS <= out[1];
+        RE <= out[0];
+    end
+end
+
+endmodule
+
+
+
+
+
+
+
+
