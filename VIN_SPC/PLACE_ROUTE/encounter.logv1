@@ -1,0 +1,565 @@
+[08/02 11:39:41     0s] Checking out Encounter license ...
+[08/02 11:39:41     0s] 	edsxl		CHECKED OUT:	"Encounter_Digital_Impl_Sys_XL"
+[08/02 11:39:41     0s] Encounter_Digital_Impl_Sys_XL 14.2 license checkout succeeded.
+[08/02 11:39:41     0s] You can run 2 CPU jobs with the base license that is currently checked out.
+[08/02 11:39:41     0s] If required, use the setMultiCpuUsage command to enable multi-CPU processing.
+[08/02 11:39:46     4s] *******************************************************************
+*   Copyright (c)  Cadence Design Systems, Inc.  1996 - 2014.     *
+*                     All rights reserved.                        *
+*                                                                 *
+*                                                                 *
+*                                                                 *
+* This program contains confidential and trade secret information *
+* of Cadence Design Systems, Inc. and is protected by copyright   *
+* law and international treaties.  Any reproduction, use,         *
+* distribution or disclosure of this program or any portion of it,*
+* or any attempt to obtain a human-readable version of this       *
+* program, without the express, prior written consent of          *
+* Cadence Design Systems, Inc., is strictly prohibited.           *
+*                                                                 *
+*                 Cadence Design Systems, Inc.                    *
+*                    2655 Seely Avenue                            *
+*                   San Jose, CA 95134,  USA                      *
+*                                                                 *
+*                                                                 *
+*******************************************************************
+
+[08/02 11:39:46     4s] @(#)CDS: Encounter v14.27-s035_1 (64bit) 10/07/2015 12:46 (Linux 2.6.18-194.el5)
+[08/02 11:39:46     4s] @(#)CDS: NanoRoute v14.27-s012 NR150928-2308/14_27-UB (database version 2.30, 267.6.1) {superthreading v1.25}
+[08/02 11:39:46     4s] @(#)CDS: CeltIC v14.27-s018_1 (64bit) 10/06/2015 22:57:34 (Linux 2.6.18-194.el5)
+[08/02 11:39:46     4s] @(#)CDS: AAE 14.27-s003 (64bit) 10/07/2015 (Linux 2.6.18-194.el5)
+[08/02 11:39:46     4s] @(#)CDS: CTE 14.27-s022_1 (64bit) Oct  6 2015 07:33:36 (Linux 2.6.18-194.el5)
+[08/02 11:39:46     4s] @(#)CDS: CPE v14.27-s021
+[08/02 11:39:46     4s] @(#)CDS: IQRC/TQRC 14.2.2-s217 (64bit) Wed Apr 15 23:10:24 PDT 2015 (Linux 2.6.18-194.el5)
+[08/02 11:39:46     4s] @(#)CDS: OA 22.50-p011 Tue Nov 11 03:24:55 2014
+[08/02 11:39:46     4s] @(#)CDS: SGN 10.10-p124 (19-Aug-2014) (64 bit executable)
+[08/02 11:39:46     4s] @(#)CDS: RCDB 11.5
+[08/02 11:39:46     4s] --- Starting "Encounter v14.27-s035_1" on Tue Aug  2 11:39:46 2016 (mem=96.0M) ---
+[08/02 11:39:46     4s] --- Running on s2424.it.kth.se (x86_64 w/Linux 2.6.18-407.el5) ---
+[08/02 11:39:46     4s] This version was compiled on Wed Oct 7 12:46:58 PDT 2015.
+[08/02 11:39:46     4s] Set DBUPerIGU to 1000.
+[08/02 11:39:46     4s] Set net toggle Scale Factor to 1.00
+[08/02 11:39:46     4s] Set Shrink Factor to 1.00000
+[08/02 11:39:47     4s] Sourcing ./enc.tcl
+[08/02 11:39:47     4s] Sourcing tcl/tk file "./enc.tcl" ...
+[08/02 11:39:47     4s] <CMD> setCheckMode -tapeOut true
+[08/02 11:39:47     4s] <CMD> set defHierChar /
+[08/02 11:39:47     4s] <CMD> set init_oa_ref_lib {TECH_H18A6  CORELIB_HV  }
+[08/02 11:39:47     4s] <CMD> set init_verilog VERILOG/vin_spc_synth.v
+[08/02 11:39:47     4s] <CMD> set init_top_cell vin_spc
+[08/02 11:39:47     4s] <CMD> set init_pwr_net {vdd!  }
+[08/02 11:39:47     4s] <CMD> set init_gnd_net {gnd! subc!  }
+[08/02 11:39:47     4s] <CMD> set init_mmmc_file h18_vin_spc_mmmc.view
+[08/02 11:39:47     4s] <CMD> set conf_gen_footprint 1
+[08/02 11:39:47     4s] <CMD> set fp_core_to_left 50.000000
+[08/02 11:39:47     4s] <CMD> set fp_core_to_right 50.000000
+[08/02 11:39:47     4s] <CMD> set fp_core_to_top 50.000000
+[08/02 11:39:47     4s] <CMD> set fp_core_to_bottom 50.000000
+[08/02 11:39:47     4s] <CMD> set lsgOCPGainMult 1.000000
+[08/02 11:39:47     4s] <CMD> set conf_ioOri R0
+[08/02 11:39:47     4s] <CMD> set fp_core_util 0.800
+[08/02 11:39:47     4s] <CMD> set init_assign_buffer 0
+[08/02 11:39:47     4s] <CMD> set conf_in_tran_delay 0.1ps
+[08/02 11:39:47     4s] <CMD> set init_import_mode { -keepEmptyModule 1 -treatUndefinedCellAsBbox 0}
+[08/02 11:39:47     4s] <CMD> set init_layout_view layout
+[08/02 11:39:47     4s] <CMD> set init_abstract_view abstract
+[08/02 11:39:47     4s] <CMD_INTERNAL> print {---# TCL Script amsSetup.tcl loaded}
+[08/02 11:39:47     4s] ---# TCL Script amsSetup.tcl loaded
+[08/02 11:39:47     4s] <CMD_INTERNAL> print {---# Additional ams TCL Procedures loaded}
+[08/02 11:39:47     4s] ---# Additional ams TCL Procedures loaded
+[08/02 11:39:47     4s] <CMD> getVersion
+[08/02 11:39:47     4s] <CMD> getVersion
+[08/02 11:39:47     4s] <CMD_INTERNAL> print {### austriamicrosystems HitKit-Utilities Menu added}
+[08/02 11:39:47     4s] ### austriamicrosystems HitKit-Utilities Menu added
+[08/02 11:39:47     4s] 
+[08/02 11:39:47     4s] **INFO:  MMMC transition support version v31-84 
+[08/02 11:39:47     4s] 
+[08/02 11:39:47     4s] <CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+[08/02 11:39:47     4s] <CMD> suppressMessage ENCEXT-2799
+[08/02 11:39:47     4s] <CMD> win
+[08/02 11:39:54     5s] <CMD> fit
+[08/02 11:40:38     7s] <CMD> encMessage warning 0
+[08/02 11:40:38     7s] Suppress "**WARN ..." messages.
+[08/02 11:40:38     7s] <CMD> encMessage debug 0
+[08/02 11:40:38     7s] <CMD> encMessage info 0
+[08/02 11:40:38     7s] Loading global variable file /home/saul/projects/DIGIMP/VIN_SPC/PLACE_ROUTE/FEOADesignlib/vin_spc/vin_spc_loaded_power_pins_placed_routed_filled/vin_spc.globals ...
+[08/02 11:40:39     7s] **WARN: (ENCOAX-738):	Non-Default Rule 'VSRDefaultSetup' has already been defined in Encounter. Its contents will be skipped.
+[08/02 11:40:39     7s] **WARN: (ENCOAX-741):	Site 'ams018Site' has already been defined in Encounter, the contents will be skipped.
+[08/02 11:40:39     7s] **WARN: (ENCOAX-741):	Site 'ams018hvSite' has already been defined in Encounter, the contents will be skipped.
+[08/02 11:40:39     7s] **WARN: (ENCOAX-741):	Site 'ams018SiteSHVT' has already been defined in Encounter, the contents will be skipped.
+[08/02 11:40:39     7s] **WARN: (ENCOAX-741):	Site 'ams018twSite' has already been defined in Encounter, the contents will be skipped.
+[08/02 11:40:39     7s] **WARN: (ENCOAX-741):	Site 'amsIoSite' has already been defined in Encounter, the contents will be skipped.
+[08/02 11:40:39     7s] **WARN: (ENCOAX-741):	Site 'amsIoSiteHV' has already been defined in Encounter, the contents will be skipped.
+[08/02 11:40:39     7s] **WARN: (ENCOAX-741):	Site 'amsCornerSite' has already been defined in Encounter, the contents will be skipped.
+[08/02 11:40:39     7s] **WARN: (ENCOAX-741):	Site 'amsCornerSiteHV' has already been defined in Encounter, the contents will be skipped.
+[08/02 11:40:39     7s] Loading view definition file from /home/saul/projects/DIGIMP/VIN_SPC/PLACE_ROUTE/FEOADesignlib/vin_spc/vin_spc_loaded_power_pins_placed_routed_filled/viewDefinition.tcl
+[08/02 11:40:39     7s] **WARN: (TECHLIB-359):	(/pkg/AMS411/liberty/h18_1.8V/h18_CORELIB_HV_WC.lib, line 98) Duplicate definition for attribute (slew_lower_threshold_pct_fall) encountered. The last definition will be retained.
+[08/02 11:40:39     7s] **WARN: (TECHLIB-359):	(/pkg/AMS411/liberty/h18_1.8V/h18_CORELIB_HV_WC.lib, line 99) Duplicate definition for attribute (slew_lower_threshold_pct_rise) encountered. The last definition will be retained.
+[08/02 11:40:39     7s] **WARN: (TECHLIB-359):	(/pkg/AMS411/liberty/h18_1.8V/h18_CORELIB_HV_WC.lib, line 100) Duplicate definition for attribute (slew_upper_threshold_pct_fall) encountered. The last definition will be retained.
+[08/02 11:40:39     7s] **WARN: (TECHLIB-359):	(/pkg/AMS411/liberty/h18_1.8V/h18_CORELIB_HV_WC.lib, line 101) Duplicate definition for attribute (slew_upper_threshold_pct_rise) encountered. The last definition will be retained.
+[08/02 11:40:39     7s] **WARN: (TECHLIB-359):	(/pkg/AMS411/liberty/h18_1.8V/h18_CORELIB_HV_WC.lib, line 102) Duplicate definition for attribute (slew_derate_from_library) encountered. The last definition will be retained.
+[08/02 11:40:39     7s] **WARN: (TECHLIB-359):	(/pkg/AMS411/liberty/h18_1.8V/h18_CORELIB_HV_WC.lib, line 103) Duplicate definition for attribute (input_threshold_pct_fall) encountered. The last definition will be retained.
+[08/02 11:40:39     7s] **WARN: (TECHLIB-359):	(/pkg/AMS411/liberty/h18_1.8V/h18_CORELIB_HV_WC.lib, line 104) Duplicate definition for attribute (input_threshold_pct_rise) encountered. The last definition will be retained.
+[08/02 11:40:39     7s] **WARN: (TECHLIB-359):	(/pkg/AMS411/liberty/h18_1.8V/h18_CORELIB_HV_WC.lib, line 105) Duplicate definition for attribute (output_threshold_pct_fall) encountered. The last definition will be retained.
+[08/02 11:40:39     7s] **WARN: (TECHLIB-359):	(/pkg/AMS411/liberty/h18_1.8V/h18_CORELIB_HV_WC.lib, line 106) Duplicate definition for attribute (output_threshold_pct_rise) encountered. The last definition will be retained.
+[08/02 11:40:39     7s] **WARN: (TECHLIB-359):	(/pkg/AMS411/liberty/h18_1.8V/h18_CORELIB_HV_WC.lib, line 107) Duplicate definition for attribute (default_leakage_power_density) encountered. The last definition will be retained.
+[08/02 11:40:39     7s] **WARN: (TECHLIB-359):	(/pkg/AMS411/liberty/h18_1.8V/h18_CORELIB_HV_WC.lib, line 108) Duplicate definition for attribute (default_cell_leakage_power) encountered. The last definition will be retained.
+[08/02 11:40:39     7s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND2X1_HV' is not defined in the library.
+[08/02 11:40:39     7s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND2X2_HV' is not defined in the library.
+[08/02 11:40:39     7s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND2X3_HV' is not defined in the library.
+[08/02 11:40:39     7s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND2X4_HV' is not defined in the library.
+[08/02 11:40:39     7s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND2X6_HV' is not defined in the library.
+[08/02 11:40:39     7s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND2X8_HV' is not defined in the library.
+[08/02 11:40:39     7s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND3X1_HV' is not defined in the library.
+[08/02 11:40:39     7s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND3X2_HV' is not defined in the library.
+[08/02 11:40:39     7s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND3X3_HV' is not defined in the library.
+[08/02 11:40:39     7s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND3X4_HV' is not defined in the library.
+[08/02 11:40:39     7s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND3X6_HV' is not defined in the library.
+[08/02 11:40:39     7s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND3X8_HV' is not defined in the library.
+[08/02 11:40:39     7s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AOI21X1_HV' is not defined in the library.
+[08/02 11:40:39     7s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AOI21X2_HV' is not defined in the library.
+[08/02 11:40:39     7s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AOI21X3_HV' is not defined in the library.
+[08/02 11:40:39     7s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AOI21X4_HV' is not defined in the library.
+[08/02 11:40:39     7s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AOI21X6_HV' is not defined in the library.
+[08/02 11:40:39     7s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AOI21X8_HV' is not defined in the library.
+[08/02 11:40:39     7s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AOI22X1_HV' is not defined in the library.
+[08/02 11:40:39     7s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AOI22X2_HV' is not defined in the library.
+[08/02 11:40:41    10s] *** End library_loading (cpu=0.00min, mem=0.0M, fe_cpu=0.17min, fe_real=1.00min, fe_mem=491.3M) ***
+[08/02 11:40:41    10s] **WARN: (ENCFP-3961):	The techSite 'amsCornerSiteHV' has no related cells in LEF library. Cannot make calculations for this site type unless cell models of this type exist in the LEF library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF to avoid this message.
+[08/02 11:40:41    10s] **WARN: (ENCFP-3961):	The techSite 'amsCornerSite' has no related cells in LEF library. Cannot make calculations for this site type unless cell models of this type exist in the LEF library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF to avoid this message.
+[08/02 11:40:41    10s] **WARN: (ENCFP-3961):	The techSite 'amsIoSiteHV' has no related cells in LEF library. Cannot make calculations for this site type unless cell models of this type exist in the LEF library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF to avoid this message.
+[08/02 11:40:41    10s] **WARN: (ENCFP-3961):	The techSite 'amsIoSite' has no related cells in LEF library. Cannot make calculations for this site type unless cell models of this type exist in the LEF library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF to avoid this message.
+[08/02 11:40:41    10s] **WARN: (ENCFP-3961):	The techSite 'ams018twSite' has no related cells in LEF library. Cannot make calculations for this site type unless cell models of this type exist in the LEF library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF to avoid this message.
+[08/02 11:40:41    10s] **WARN: (ENCFP-3961):	The techSite 'ams018SiteSHVT' has no related cells in LEF library. Cannot make calculations for this site type unless cell models of this type exist in the LEF library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF to avoid this message.
+[08/02 11:40:41    10s] **WARN: (ENCFP-3961):	The techSite 'ams018Site' has no related cells in LEF library. Cannot make calculations for this site type unless cell models of this type exist in the LEF library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF to avoid this message.
+[08/02 11:40:42    10s] Loading preference file /home/saul/projects/DIGIMP/VIN_SPC/PLACE_ROUTE/FEOADesignlib/vin_spc/vin_spc_loaded_power_pins_placed_routed_filled/enc.pref.tcl ...
+[08/02 11:40:42    10s] Loading mode file /home/saul/projects/DIGIMP/VIN_SPC/PLACE_ROUTE/FEOADesignlib/vin_spc/vin_spc_loaded_power_pins_placed_routed_filled/vin_spc.mode ...
+[08/02 11:40:42    10s] **WARN: (ENCEXT-6202):	In addition to the technology file, capacitance table file is specified for all RC corners. If the technology file for all RC corners is already specified, the capacitance table file is not required for preRoute and postRoute extraction. In a new session, the capacitance table files can be removed from the create_rc_corner command. In this case, the technology file will be used for preRoute extraction and effort level medium/high/signoff of postRoute extraction.
+[08/02 11:40:42    10s] **WARN: (TCLNL-330):	set_input_delay on clock root 'Clk' is not supported. You should use the -source option to set_clock_latency to provide this offset. You can also use the global timing_allow_input_delay_on_clock_source to allow set_input_delay assertion to have an effect on clock source paths beginning at this clock root. (File CONSTRAINTS/vin_spc_test.sdc, Line 51).
+[08/02 11:40:42    10s] 
+[08/02 11:40:42    11s] **WARN: (TCLNL-330):	set_input_delay on clock root 'Clk' is not supported. You should use the -source option to set_clock_latency to provide this offset. You can also use the global timing_allow_input_delay_on_clock_source to allow set_input_delay assertion to have an effect on clock source paths beginning at this clock root. (File CONSTRAINTS/vin_spc_func.sdc, Line 51).
+[08/02 11:40:42    11s] 
+[08/02 11:40:42    11s] **WARN: (ENCOAX-571):	Property 'lxInternal' from OA is a hierarchical property which is not supported in Encounter. This property is not translated and it will be lost in round trip unless updateMode is enabled.
+[08/02 11:40:58    11s] <CMD> setDrawView place
+[08/02 11:41:39    13s] <CMD> saveDesign -cellview {VIN_SPC vin_spc routed}
+[08/02 11:41:39    13s] Redoing specifyClockTree ...
+[08/02 11:41:39    13s] Checking spec file integrity...
+[08/02 11:41:39    13s] ----- oaOut ---------------------------
+[08/02 11:41:39    13s] Saving OA database: Lib: VIN_SPC, Cell: vin_spc, View: routed
+[08/02 11:41:39    13s] **WARN: (ENCOAX-1313):	The library 'VIN_SPC' has its data compression level set to '0', while the compression level for this encounter session is 1. Any new data being saved into this library will be saved with its compression settings, irrespective of the global value.
+[08/02 11:41:39    13s] Type 'man ENCOAX-1313' for more detail.
+[08/02 11:41:39    13s] FE units: 0.001 microns/dbu, OA units: 0.001 microns/dbu, Conversion factor: 1
+[08/02 11:41:39    13s] Special routes: 33 strips and 58 vias are crated in OA database.
+[08/02 11:41:39    13s] Created 307 insts; 614 instTerms; 163 nets; 456 routes.
+[08/02 11:41:39    13s] Created 11 markers.
+[08/02 11:41:39    13s] TIMER: Write OA to disk: 0h 0m  0.01s cpu {0h 0m 0s elapsed} Memory = 0.0
+[08/02 11:41:39    13s] TIMER: Purge OA from memory: 0h 0m  0.00s cpu {0h 0m 0s elapsed} Memory = 0.0
+[08/02 11:41:39    13s] TIMER: oaOut total process: 0h 0m  0.05s cpu {0h 0m 0s elapsed} Memory = 0.0
+[08/02 11:41:39    13s] Saving AAE Data ...
+[08/02 11:41:39    13s] Saving clock tree spec file '/home/saul/projects/IMPLANTABLE_AMS/version1/saul/VIN_SPC/vin_spc/routed/vin_spc.ctstch' ...
+[08/02 11:41:39    13s] Saving configuration ...
+[08/02 11:41:39    13s] Saving preference file /home/saul/projects/IMPLANTABLE_AMS/version1/saul/VIN_SPC/vin_spc/routed/enc.pref.tcl ...
+[08/02 11:41:40    13s] Saving sdp information ...
+[08/02 11:41:40    13s] Saving thumbnail file...
+[08/02 11:41:40    13s] 
+[08/02 11:41:40    13s] *** Summary of all messages that are not suppressed in this session:
+[08/02 11:41:40    13s] Severity  ID               Count  Summary                                  
+[08/02 11:41:40    13s] WARNING   ENCOAX-1313          1  The library '%s' has its data compressio...
+[08/02 11:41:40    13s] *** Message Summary: 1 warning(s), 0 error(s)
+[08/02 11:41:40    13s] 
+[08/02 11:42:41    14s] <CMD> saveNetlist vin_spc_fe.v
+[08/02 11:42:41    14s] Writing Netlist "vin_spc_fe.v" ...
+[08/02 11:43:24    17s] <CMD> global dbgLefDefOutVersion
+[08/02 11:43:24    17s] <CMD> set dbgLefDefOutVersion 5.8
+[08/02 11:43:24    17s] <CMD> defOut -floorplan -netlist -routing vin_spc.def
+[08/02 11:43:24    17s] Writing DEF file 'vin_spc.def', current time is Tue Aug  2 11:43:24 2016 ...
+[08/02 11:43:24    17s] unitPerMicron=1000, dbgMicronPerDBU=0.001000, unitPerDBU=1.000000
+[08/02 11:43:24    17s] DEF file 'vin_spc.def' is written, current time is Tue Aug  2 11:43:24 2016 ...
+[08/02 11:43:24    17s] <CMD> set dbgLefDefOutVersion 5.8
+[08/02 11:43:55    18s] <CMD_INTERNAL> print {---# Write PinList to File: vin_spc.ports}
+[08/02 11:43:55    18s] ---# Write PinList to File: vin_spc.ports
+[08/02 11:43:55    18s] <CMD> deselectAll
+[08/02 11:43:55    18s] <CMD> selectIOPin *
+[08/02 11:43:55    18s] <CMD> reportSelect
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s]              Object Type : IO Pin
+[08/02 11:43:55    18s]                     Name : RE
+[08/02 11:43:55    18s]                    Layer : M3
+[08/02 11:43:55    18s]                 Location : 94.92 0.0
+[08/02 11:43:55    18s]                    Width : 0.28
+[08/02 11:43:55    18s]                    Depth : 1.12
+[08/02 11:43:55    18s]                   Status : PLACED
+[08/02 11:43:55    18s]                      USE : SIGNAL
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s]              Object Type : IO Pin
+[08/02 11:43:55    18s]                     Name : FS
+[08/02 11:43:55    18s]                    Layer : M3
+[08/02 11:43:55    18s]                 Location : 93.8 0.0
+[08/02 11:43:55    18s]                    Width : 0.28
+[08/02 11:43:55    18s]                    Depth : 1.12
+[08/02 11:43:55    18s]                   Status : PLACED
+[08/02 11:43:55    18s]                      USE : SIGNAL
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s]              Object Type : IO Pin
+[08/02 11:43:55    18s]                     Name : GD[0]
+[08/02 11:43:55    18s]                    Layer : M3
+[08/02 11:43:55    18s]                 Location : 92.68 0.0
+[08/02 11:43:55    18s]                    Width : 0.28
+[08/02 11:43:55    18s]                    Depth : 1.12
+[08/02 11:43:55    18s]                   Status : PLACED
+[08/02 11:43:55    18s]                      USE : SIGNAL
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s]              Object Type : IO Pin
+[08/02 11:43:55    18s]                     Name : GD[1]
+[08/02 11:43:55    18s]                    Layer : M3
+[08/02 11:43:55    18s]                 Location : 91.56 0.0
+[08/02 11:43:55    18s]                    Width : 0.28
+[08/02 11:43:55    18s]                    Depth : 1.12
+[08/02 11:43:55    18s]                   Status : PLACED
+[08/02 11:43:55    18s]                      USE : SIGNAL
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s]              Object Type : IO Pin
+[08/02 11:43:55    18s]                     Name : GD[2]
+[08/02 11:43:55    18s]                    Layer : M3
+[08/02 11:43:55    18s]                 Location : 90.44 0.0
+[08/02 11:43:55    18s]                    Width : 0.28
+[08/02 11:43:55    18s]                    Depth : 1.12
+[08/02 11:43:55    18s]                   Status : PLACED
+[08/02 11:43:55    18s]                      USE : SIGNAL
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s]              Object Type : IO Pin
+[08/02 11:43:55    18s]                     Name : NS
+[08/02 11:43:55    18s]                    Layer : M3
+[08/02 11:43:55    18s]                 Location : 89.32 0.0
+[08/02 11:43:55    18s]                    Width : 0.28
+[08/02 11:43:55    18s]                    Depth : 1.12
+[08/02 11:43:55    18s]                   Status : PLACED
+[08/02 11:43:55    18s]                      USE : SIGNAL
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s]              Object Type : IO Pin
+[08/02 11:43:55    18s]                     Name : CE
+[08/02 11:43:55    18s]                    Layer : M3
+[08/02 11:43:55    18s]                 Location : 88.2 0.0
+[08/02 11:43:55    18s]                    Width : 0.28
+[08/02 11:43:55    18s]                    Depth : 1.12
+[08/02 11:43:55    18s]                   Status : PLACED
+[08/02 11:43:55    18s]                      USE : SIGNAL
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s]              Object Type : IO Pin
+[08/02 11:43:55    18s]                     Name : GS[0]
+[08/02 11:43:55    18s]                    Layer : M3
+[08/02 11:43:55    18s]                 Location : 87.08 0.0
+[08/02 11:43:55    18s]                    Width : 0.28
+[08/02 11:43:55    18s]                    Depth : 1.12
+[08/02 11:43:55    18s]                   Status : PLACED
+[08/02 11:43:55    18s]                      USE : SIGNAL
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s]              Object Type : IO Pin
+[08/02 11:43:55    18s]                     Name : GS[1]
+[08/02 11:43:55    18s]                    Layer : M3
+[08/02 11:43:55    18s]                 Location : 85.96 0.0
+[08/02 11:43:55    18s]                    Width : 0.28
+[08/02 11:43:55    18s]                    Depth : 1.12
+[08/02 11:43:55    18s]                   Status : PLACED
+[08/02 11:43:55    18s]                      USE : SIGNAL
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s]              Object Type : IO Pin
+[08/02 11:43:55    18s]                     Name : GS[2]
+[08/02 11:43:55    18s]                    Layer : M3
+[08/02 11:43:55    18s]                 Location : 84.84 0.0
+[08/02 11:43:55    18s]                    Width : 0.28
+[08/02 11:43:55    18s]                    Depth : 1.12
+[08/02 11:43:55    18s]                   Status : PLACED
+[08/02 11:43:55    18s]                      USE : SIGNAL
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s]              Object Type : IO Pin
+[08/02 11:43:55    18s]                     Name : GS[3]
+[08/02 11:43:55    18s]                    Layer : M3
+[08/02 11:43:55    18s]                 Location : 83.72 0.0
+[08/02 11:43:55    18s]                    Width : 0.28
+[08/02 11:43:55    18s]                    Depth : 1.12
+[08/02 11:43:55    18s]                   Status : PLACED
+[08/02 11:43:55    18s]                      USE : SIGNAL
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s]              Object Type : IO Pin
+[08/02 11:43:55    18s]                     Name : IQ
+[08/02 11:43:55    18s]                    Layer : M3
+[08/02 11:43:55    18s]                 Location : 82.6 0.0
+[08/02 11:43:55    18s]                    Width : 0.28
+[08/02 11:43:55    18s]                    Depth : 1.12
+[08/02 11:43:55    18s]                   Status : PLACED
+[08/02 11:43:55    18s]                      USE : SIGNAL
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s]              Object Type : IO Pin
+[08/02 11:43:55    18s]                     Name : F[0]
+[08/02 11:43:55    18s]                    Layer : M3
+[08/02 11:43:55    18s]                 Location : 81.48 0.0
+[08/02 11:43:55    18s]                    Width : 0.28
+[08/02 11:43:55    18s]                    Depth : 1.12
+[08/02 11:43:55    18s]                   Status : PLACED
+[08/02 11:43:55    18s]                      USE : SIGNAL
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s]              Object Type : IO Pin
+[08/02 11:43:55    18s]                     Name : F[1]
+[08/02 11:43:55    18s]                    Layer : M3
+[08/02 11:43:55    18s]                 Location : 80.36 0.0
+[08/02 11:43:55    18s]                    Width : 0.28
+[08/02 11:43:55    18s]                    Depth : 1.12
+[08/02 11:43:55    18s]                   Status : PLACED
+[08/02 11:43:55    18s]                      USE : SIGNAL
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s]              Object Type : IO Pin
+[08/02 11:43:55    18s]                     Name : F[2]
+[08/02 11:43:55    18s]                    Layer : M3
+[08/02 11:43:55    18s]                 Location : 79.24 0.0
+[08/02 11:43:55    18s]                    Width : 0.28
+[08/02 11:43:55    18s]                    Depth : 1.12
+[08/02 11:43:55    18s]                   Status : PLACED
+[08/02 11:43:55    18s]                      USE : SIGNAL
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s]              Object Type : IO Pin
+[08/02 11:43:55    18s]                     Name : F[3]
+[08/02 11:43:55    18s]                    Layer : M3
+[08/02 11:43:55    18s]                 Location : 78.12 0.0
+[08/02 11:43:55    18s]                    Width : 0.28
+[08/02 11:43:55    18s]                    Depth : 1.12
+[08/02 11:43:55    18s]                   Status : PLACED
+[08/02 11:43:55    18s]                      USE : SIGNAL
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s]              Object Type : IO Pin
+[08/02 11:43:55    18s]                     Name : CapSel[0]
+[08/02 11:43:55    18s]                    Layer : M3
+[08/02 11:43:55    18s]                 Location : 77.0 0.0
+[08/02 11:43:55    18s]                    Width : 0.28
+[08/02 11:43:55    18s]                    Depth : 1.12
+[08/02 11:43:55    18s]                   Status : PLACED
+[08/02 11:43:55    18s]                      USE : SIGNAL
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s]              Object Type : IO Pin
+[08/02 11:43:55    18s]                     Name : CapSel[1]
+[08/02 11:43:55    18s]                    Layer : M3
+[08/02 11:43:55    18s]                 Location : 75.88 0.0
+[08/02 11:43:55    18s]                    Width : 0.28
+[08/02 11:43:55    18s]                    Depth : 1.12
+[08/02 11:43:55    18s]                   Status : PLACED
+[08/02 11:43:55    18s]                      USE : SIGNAL
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s]              Object Type : IO Pin
+[08/02 11:43:55    18s]                     Name : CapSel[2]
+[08/02 11:43:55    18s]                    Layer : M3
+[08/02 11:43:55    18s]                 Location : 74.76 0.0
+[08/02 11:43:55    18s]                    Width : 0.28
+[08/02 11:43:55    18s]                    Depth : 1.12
+[08/02 11:43:55    18s]                   Status : PLACED
+[08/02 11:43:55    18s]                      USE : SIGNAL
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s]              Object Type : IO Pin
+[08/02 11:43:55    18s]                     Name : CapSel[3]
+[08/02 11:43:55    18s]                    Layer : M3
+[08/02 11:43:55    18s]                 Location : 73.64 0.0
+[08/02 11:43:55    18s]                    Width : 0.28
+[08/02 11:43:55    18s]                    Depth : 1.12
+[08/02 11:43:55    18s]                   Status : PLACED
+[08/02 11:43:55    18s]                      USE : SIGNAL
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s]              Object Type : IO Pin
+[08/02 11:43:55    18s]                     Name : CcompSel[0]
+[08/02 11:43:55    18s]                    Layer : M3
+[08/02 11:43:55    18s]                 Location : 72.52 0.0
+[08/02 11:43:55    18s]                    Width : 0.28
+[08/02 11:43:55    18s]                    Depth : 1.12
+[08/02 11:43:55    18s]                   Status : PLACED
+[08/02 11:43:55    18s]                      USE : SIGNAL
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s]              Object Type : IO Pin
+[08/02 11:43:55    18s]                     Name : CcompSel[1]
+[08/02 11:43:55    18s]                    Layer : M3
+[08/02 11:43:55    18s]                 Location : 71.4 0.0
+[08/02 11:43:55    18s]                    Width : 0.28
+[08/02 11:43:55    18s]                    Depth : 1.12
+[08/02 11:43:55    18s]                   Status : PLACED
+[08/02 11:43:55    18s]                      USE : SIGNAL
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s]              Object Type : IO Pin
+[08/02 11:43:55    18s]                     Name : EnRdegHF[0]
+[08/02 11:43:55    18s]                    Layer : M3
+[08/02 11:43:55    18s]                 Location : 70.28 0.0
+[08/02 11:43:55    18s]                    Width : 0.28
+[08/02 11:43:55    18s]                    Depth : 1.12
+[08/02 11:43:55    18s]                   Status : PLACED
+[08/02 11:43:55    18s]                      USE : SIGNAL
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s]              Object Type : IO Pin
+[08/02 11:43:55    18s]                     Name : EnRdegHF[1]
+[08/02 11:43:55    18s]                    Layer : M3
+[08/02 11:43:55    18s]                 Location : 69.16 0.0
+[08/02 11:43:55    18s]                    Width : 0.28
+[08/02 11:43:55    18s]                    Depth : 1.12
+[08/02 11:43:55    18s]                   Status : PLACED
+[08/02 11:43:55    18s]                      USE : SIGNAL
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s]              Object Type : IO Pin
+[08/02 11:43:55    18s]                     Name : EnRdeg
+[08/02 11:43:55    18s]                    Layer : M3
+[08/02 11:43:55    18s]                 Location : 68.04 0.0
+[08/02 11:43:55    18s]                    Width : 0.28
+[08/02 11:43:55    18s]                    Depth : 1.12
+[08/02 11:43:55    18s]                   Status : PLACED
+[08/02 11:43:55    18s]                      USE : SIGNAL
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s]              Object Type : IO Pin
+[08/02 11:43:55    18s]                     Name : DP[0]
+[08/02 11:43:55    18s]                    Layer : M3
+[08/02 11:43:55    18s]                 Location : 66.92 0.0
+[08/02 11:43:55    18s]                    Width : 0.28
+[08/02 11:43:55    18s]                    Depth : 1.12
+[08/02 11:43:55    18s]                   Status : PLACED
+[08/02 11:43:55    18s]                      USE : SIGNAL
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s]              Object Type : IO Pin
+[08/02 11:43:55    18s]                     Name : DP[1]
+[08/02 11:43:55    18s]                    Layer : M3
+[08/02 11:43:55    18s]                 Location : 65.8 0.0
+[08/02 11:43:55    18s]                    Width : 0.28
+[08/02 11:43:55    18s]                    Depth : 1.12
+[08/02 11:43:55    18s]                   Status : PLACED
+[08/02 11:43:55    18s]                      USE : SIGNAL
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s]              Object Type : IO Pin
+[08/02 11:43:55    18s]                     Name : DP[2]
+[08/02 11:43:55    18s]                    Layer : M3
+[08/02 11:43:55    18s]                 Location : 64.68 0.0
+[08/02 11:43:55    18s]                    Width : 0.28
+[08/02 11:43:55    18s]                    Depth : 1.12
+[08/02 11:43:55    18s]                   Status : PLACED
+[08/02 11:43:55    18s]                      USE : SIGNAL
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s]              Object Type : IO Pin
+[08/02 11:43:55    18s]                     Name : DN[0]
+[08/02 11:43:55    18s]                    Layer : M3
+[08/02 11:43:55    18s]                 Location : 63.56 0.0
+[08/02 11:43:55    18s]                    Width : 0.28
+[08/02 11:43:55    18s]                    Depth : 1.12
+[08/02 11:43:55    18s]                   Status : PLACED
+[08/02 11:43:55    18s]                      USE : SIGNAL
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s]              Object Type : IO Pin
+[08/02 11:43:55    18s]                     Name : DN[1]
+[08/02 11:43:55    18s]                    Layer : M3
+[08/02 11:43:55    18s]                 Location : 62.44 0.0
+[08/02 11:43:55    18s]                    Width : 0.28
+[08/02 11:43:55    18s]                    Depth : 1.12
+[08/02 11:43:55    18s]                   Status : PLACED
+[08/02 11:43:55    18s]                      USE : SIGNAL
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s]              Object Type : IO Pin
+[08/02 11:43:55    18s]                     Name : EnHF
+[08/02 11:43:55    18s]                    Layer : M3
+[08/02 11:43:55    18s]                 Location : 61.32 0.0
+[08/02 11:43:55    18s]                    Width : 0.28
+[08/02 11:43:55    18s]                    Depth : 1.12
+[08/02 11:43:55    18s]                   Status : PLACED
+[08/02 11:43:55    18s]                      USE : SIGNAL
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s]              Object Type : IO Pin
+[08/02 11:43:55    18s]                     Name : EnMF
+[08/02 11:43:55    18s]                    Layer : M3
+[08/02 11:43:55    18s]                 Location : 60.2 0.0
+[08/02 11:43:55    18s]                    Width : 0.28
+[08/02 11:43:55    18s]                    Depth : 1.12
+[08/02 11:43:55    18s]                   Status : PLACED
+[08/02 11:43:55    18s]                      USE : SIGNAL
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s]              Object Type : IO Pin
+[08/02 11:43:55    18s]                     Name : EnLF
+[08/02 11:43:55    18s]                    Layer : M3
+[08/02 11:43:55    18s]                 Location : 59.08 0.0
+[08/02 11:43:55    18s]                    Width : 0.28
+[08/02 11:43:55    18s]                    Depth : 1.12
+[08/02 11:43:55    18s]                   Status : PLACED
+[08/02 11:43:55    18s]                      USE : SIGNAL
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s]              Object Type : IO Pin
+[08/02 11:43:55    18s]                     Name : Resetn
+[08/02 11:43:55    18s]                    Layer : M3
+[08/02 11:43:55    18s]                 Location : 75.88 151.2
+[08/02 11:43:55    18s]                    Width : 0.28
+[08/02 11:43:55    18s]                    Depth : 1.12
+[08/02 11:43:55    18s]                   Status : PLACED
+[08/02 11:43:55    18s]                      USE : SIGNAL
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s]              Object Type : IO Pin
+[08/02 11:43:55    18s]                     Name : Clk
+[08/02 11:43:55    18s]                    Layer : M3
+[08/02 11:43:55    18s]                 Location : 77.0 151.2
+[08/02 11:43:55    18s]                    Width : 0.28
+[08/02 11:43:55    18s]                    Depth : 1.12
+[08/02 11:43:55    18s]                   Status : PLACED
+[08/02 11:43:55    18s]                      USE : SIGNAL
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s] 
+[08/02 11:43:55    18s]              Object Type : IO Pin
+[08/02 11:43:55    18s]                     Name : Cfg_in
+[08/02 11:43:55    18s]                    Layer : M3
+[08/02 11:43:55    18s]                 Location : 78.12 151.2
+[08/02 11:43:55    18s]                    Width : 0.28
+[08/02 11:43:55    18s]                    Depth : 1.12
+[08/02 11:43:55    18s]                   Status : PLACED
+[08/02 11:43:55    18s]                      USE : SIGNAL
+[08/02 11:43:55    18s] <CMD> deselectAll
+[08/02 11:43:55    18s] <CMD_INTERNAL> print {---# End Write PinList}
+[08/02 11:43:55    18s] ---# End Write PinList
+[08/02 11:43:55    18s] <CMD_INTERNAL> print {---# Writing Ports to File now: vin_spc.ports}
+[08/02 11:43:55    18s] ---# Writing Ports to File now: vin_spc.ports
+[08/02 11:43:55    18s] <CMD> getLogFileName
+[08/02 11:43:55    18s] <CMD_INTERNAL> print {---# 36 Ports found}
+[08/02 11:43:55    18s] ---# 36 Ports found
+[08/02 11:44:21    18s] 
+[08/02 11:44:21    18s] *** Memory Usage v#1 (Current mem = 629.637M, initial mem = 95.973M) ***
+[08/02 11:44:21    18s] 
+[08/02 11:44:21    18s] *** Summary of all messages that are not suppressed in this session:
+[08/02 11:44:21    18s] Severity  ID               Count  Summary                                  
+[08/02 11:44:21    18s] WARNING   ENCFP-3961           7  The techSite '%s' has no related cells i...
+[08/02 11:44:21    18s] WARNING   ENCEXT-6202          1  In addition to the technology file, capa...
+[08/02 11:44:21    18s] WARNING   ENCOAX-571           1  Property '%s' from OA is a hierarchical ...
+[08/02 11:44:21    18s] WARNING   ENCOAX-738           1  Non-Default Rule '%s' has already been d...
+[08/02 11:44:21    18s] WARNING   ENCOAX-741           8  Site '%s' has already been defined in %s...
+[08/02 11:44:21    18s] WARNING   ENCOAX-1313          1  The library '%s' has its data compressio...
+[08/02 11:44:21    18s] *** Message Summary: 19 warning(s), 0 error(s)
+[08/02 11:44:21    18s] 
+[08/02 11:44:21    18s] --- Ending "Encounter" (totcpu=0:00:18.2, real=0:04:40, mem=629.6M) ---
