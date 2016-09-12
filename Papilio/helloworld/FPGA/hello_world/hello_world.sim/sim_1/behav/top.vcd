@@ -1,0 +1,33 @@
+$date
+   Mon Sep 12 14:07:37 2016
+$end
+$version
+  P.20131013
+$end
+$timescale
+  1ps
+$end
+$scope module hello_tb $end
+$scope module my_top $end
+$var wire 1 $ in $end
+$var wire 1 % out $end
+$var wire 1 # ARD_RESET $end
+$scope module hello1 $end
+$var wire 1 $ in $end
+$var wire 1 % out $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+1%
+0$
+0#
+$end
+#10000
+0%
+1$
+#20000
+1%
+0$

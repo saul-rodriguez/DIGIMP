@@ -1,0 +1,13 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Fri Sep 09 16:09:42 2016
+//! **************************************************************************
+
+SCHEMATIC START;
+PROHIBIT = SITE "P144";
+PROHIBIT = SITE "P69";
+PROHIBIT = SITE "P60";
+COMP "in" LOCATE = SITE "P133" LEVEL 1;
+COMP "ARD_RESET" LOCATE = SITE "P139" LEVEL 1;
+COMP "out" LOCATE = SITE "P134" LEVEL 1;
+SCHEMATIC END;
+

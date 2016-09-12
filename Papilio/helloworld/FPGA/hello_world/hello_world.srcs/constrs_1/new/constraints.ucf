@@ -1,0 +1,9 @@
+## Prohibit the automatic placement of pins that are connected to VCC or GND for configuration.
+CONFIG PROHIBIT=P144;
+CONFIG PROHIBIT=P69;
+CONFIG PROHIBIT=P60;
+
+#NET ARDUINO_RESET  LOC="P139" | IOSTANDARD=LVTTL;                               
+NET ARD_RESET 	LOC="P139" | IOSTANDARD=LVTTL | DRIVE=8 | SLEW=SLOW; # ARD_RESET
+NET in         LOC="P133" | IOSTANDARD=LVTTL | PULLUP;                                
+NET out         LOC="P134" | IOSTANDARD=LVTTL;                               
