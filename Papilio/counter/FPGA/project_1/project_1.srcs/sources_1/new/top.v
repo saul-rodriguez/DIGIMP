@@ -39,6 +39,8 @@ wire [25:0] aux_out;
 
 assign ARDUINO_RESET = 0;
 
+
+
 counter counter1(RESETN,CLK,EN,aux_out);
 
 assign LED7 = aux_out[25];
@@ -49,6 +51,5 @@ assign LED3 = aux_out[21];
 assign LED2 = aux_out[20];
 assign LED1 = aux_out[19];
 assign LED0 = aux_out[18];
-
 
 endmodule

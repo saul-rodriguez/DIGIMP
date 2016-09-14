@@ -13,7 +13,7 @@ always @(posedge clk, negedge resetn) begin
 	if (resetn == 0)
 		out <= 0;
 	else if (en) begin
-		if (out == 32000)
+		if (out == 32000000)
 			out <= 0;
 		else
 			out <= out + 1;
