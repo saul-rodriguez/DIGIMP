@@ -1,0 +1,24 @@
+Running: /pkg/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -intstyle pa -incremental -L work -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secureip -o spc2_pap_tb.exe --prj /home/saul/projects/digital/DIGIMP/IMP_SPC2_TW/FPGA/Papilio/project_1/project_1.sim/sim_1/behav/spc2_pap_tb.prj -top work.spc2_pap_tb -top work.glbl 
+ISim P.20131013 (signature 0xfbc00daa)
+Number of CPUs detected in this system: 4
+Turning on mult-threading, number of parallel sub-compilation jobs: 8 
+Determining compilation order of HDL files
+Analyzing Verilog file "/home/saul/projects/digital/DIGIMP/IMP_SPC2_TW/FPGA/Papilio/project_1/project_1.srcs/sources_1/imports/FPGA/spc2.v" into library work
+Analyzing Verilog file "/home/saul/projects/digital/DIGIMP/IMP_SPC2_TW/FPGA/Papilio/project_1/project_1.srcs/sources_1/imports/FPGA/top.v" into library work
+Analyzing Verilog file "/home/saul/projects/digital/DIGIMP/IMP_SPC2_TW/FPGA/Papilio/project_1/project_1.srcs/sim_1/imports/FPGA/spc2_pap_tb.v" into library work
+Analyzing Verilog file "/pkg/Xilinx/14.7/ISE_DS/PlanAhead/data/verilog/src/glbl.v" into library work
+Starting static elaboration
+Completed static elaboration
+Fuse Memory Usage: 94692 KB
+Fuse CPU Usage: 860 ms
+Compiling module spc2
+Compiling module top
+Compiling module spc2_pap_tb
+Compiling module glbl
+Time Resolution for simulation is 1ps.
+Waiting for 1 sub-compilation(s) to finish...
+Compiled 4 Verilog Units
+Built simulation executable spc2_pap_tb.exe
+Fuse Memory Usage: 654912 KB
+Fuse CPU Usage: 880 ms
+GCC CPU Usage: 320 ms

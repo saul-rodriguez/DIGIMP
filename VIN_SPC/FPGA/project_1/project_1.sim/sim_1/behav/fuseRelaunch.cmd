@@ -1,0 +1,1 @@
+-intstyle "pa" -incremental -L "work" -L "unisims_ver" -L "unimacro_ver" -L "xilinxcorelib_ver" -L "secureip" -o "vin_spc_tb.exe" --prj "/home/saul/projects/digital/DIGIMP/VIN_SPC/FPGA/project_1/project_1.sim/sim_1/behav/vin_spc_tb.prj" -top "work.vin_spc_tb" -top "work.glbl" 

@@ -1,0 +1,15 @@
+ISim log file
+Running: vin_spc_tb.exe -intstyle pa -gui -tclbatch isim.cmd -wdb vin_spc_tb.wdb 
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+Time resolution is 1 ps
+# onerror resume
+# wave add /
+# run 1000ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+Stopped at time : 757 ns : File "/home/saul/projects/digital/DIGIMP/VIN_SPC/FPGA/project_1/project_1.srcs/sim_1/imports/FPGA/vin_spc_tb.v" Line 175
+# exit 0
