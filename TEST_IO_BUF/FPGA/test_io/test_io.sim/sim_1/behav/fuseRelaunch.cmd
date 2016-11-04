@@ -1,0 +1,1 @@
+-intstyle "pa" -incremental -L "work" -L "unisims_ver" -L "unimacro_ver" -L "xilinxcorelib_ver" -L "secureip" -o "test_io_tb.exe" --prj "/home/saul/projects/digital/DIGIMP/TEST_IO_BUF/FPGA/test_io/test_io.sim/sim_1/behav/test_io_tb.prj" -top "work.test_io_tb" -top "work.glbl" 

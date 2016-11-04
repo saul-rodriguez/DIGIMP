@@ -1,0 +1,29 @@
+Command line:
+   test_io_tb.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  57078
+
+Fri Nov  4 17:14:54 2016
+
+
+ Elaboration Time: 0.03 sec
+
+ Current Memory Usage: 196.239 Meg
+
+ Total Signals          : 25
+ Total Nets             : 19
+ Total Signal Drivers   : 11
+ Total Blocks           : 4
+ Total Primitive Blocks : 2
+ Total Processes        : 13
+ Total Traceable Variables  : 21
+ Total Scalar Nets and Variables : 102
+Total Line Count : 27
+
+ Total Simulation Time: 0.15 sec
+
+ Current Memory Usage: 271.741 Meg
+
+Fri Nov  4 17:16:18 2016
+
