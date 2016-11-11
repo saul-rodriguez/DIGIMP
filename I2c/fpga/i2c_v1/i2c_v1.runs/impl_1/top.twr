@@ -1,0 +1,121 @@
+--------------------------------------------------------------------------------
+Release 14.7 Trace  (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+/pkg/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/trce -intstyle ise -o top.twr
+-v 30 -l 30 top_routed.ncd top.pcf
+
+Design file:              top_routed.ncd
+Physical constraint file: top.pcf
+Device,package,speed:     xc6slx9,tqg144,C,-2 (PRODUCTION 1.23 2013-10-13)
+Report level:             verbose report, limited to 30 items per constraint
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:2698 - No timing constraints found, doing default enumeration.
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Clock SW2 to Pad
+------------+-----------------+------------+-----------------+------------+------------------+--------+
+            |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                  | Clock  |
+Destination |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s) | Phase  |
+------------+-----------------+------------+-----------------+------------+------------------+--------+
+LED0        |        17.839(F)|      SLOW  |         8.269(F)|      FAST  |SW2_IBUF_BUFG     |   0.000|
+LED1        |        18.581(F)|      SLOW  |         8.282(F)|      FAST  |SW2_IBUF_BUFG     |   0.000|
+LED2        |        18.121(F)|      SLOW  |         8.301(F)|      FAST  |SW2_IBUF_BUFG     |   0.000|
+LED3        |        17.493(F)|      SLOW  |         7.544(F)|      FAST  |SW2_IBUF_BUFG     |   0.000|
+LED4        |        16.334(F)|      SLOW  |         7.295(F)|      FAST  |SW2_IBUF_BUFG     |   0.000|
+LED5        |        16.636(F)|      SLOW  |         7.194(F)|      FAST  |SW2_IBUF_BUFG     |   0.000|
+LED6        |        16.235(F)|      SLOW  |         7.068(F)|      FAST  |SW2_IBUF_BUFG     |   0.000|
+LED7        |        16.992(F)|      SLOW  |         7.517(F)|      FAST  |SW2_IBUF_BUFG     |   0.000|
+SW1         |        14.351(F)|      SLOW  |         6.318(F)|      FAST  |SW2_IBUF_BUFG     |   0.000|
+------------+-----------------+------------+-----------------+------------+------------------+--------+
+
+Clock to Setup on destination clock SW0
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+SW0            |         |         |    1.418|    3.276|
+SW2            |         |         |    5.735|    6.402|
+SW3            |         |         |    1.311|    2.207|
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock SW2
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+SW0            |   -0.296|    5.645|         |    6.061|
+SW2            |    3.912|    3.752|    3.719|    4.786|
+SW3            |    0.823|    3.939|    0.419|    4.069|
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock SW3
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+SW0            |         |         |    1.133|    5.624|
+SW2            |         |         |    5.735|    6.402|
+SW3            |         |         |    1.026|    3.512|
+---------------+---------+---------+---------+---------+
+
+Pad to Pad
+---------------+---------------+---------+
+Source Pad     |Destination Pad|  Delay  |
+---------------+---------------+---------+
+DIR_DOWN       |LED0           |   13.851|
+DIR_DOWN       |LED1           |   14.448|
+DIR_DOWN       |LED2           |   14.782|
+DIR_DOWN       |LED3           |   13.489|
+DIR_DOWN       |LED4           |   11.243|
+DIR_DOWN       |LED5           |   11.949|
+DIR_DOWN       |LED6           |   11.873|
+DIR_DOWN       |LED7           |   12.211|
+DIR_LEFT       |LED0           |   14.309|
+DIR_LEFT       |LED1           |   15.167|
+DIR_LEFT       |LED2           |   14.901|
+DIR_LEFT       |LED3           |   13.393|
+DIR_LEFT       |LED4           |   11.477|
+DIR_LEFT       |LED5           |   11.687|
+DIR_LEFT       |LED6           |   12.210|
+DIR_LEFT       |LED7           |   12.172|
+DIR_UP         |LED0           |   12.946|
+DIR_UP         |LED1           |   13.784|
+DIR_UP         |LED2           |   13.725|
+DIR_UP         |LED3           |   12.374|
+DIR_UP         |LED4           |   10.976|
+DIR_UP         |LED5           |   11.103|
+DIR_UP         |LED6           |   10.922|
+DIR_UP         |LED7           |   11.171|
+---------------+---------------+---------+
+
+
+Analysis completed Fri Nov 11 15:33:22 2016 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 386 MB
+
+
+

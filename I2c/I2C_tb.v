@@ -13,9 +13,10 @@ module  I2C_tb(
 
 //Nets to drive
 reg SCL;
-//reg SDA;
+reg RSTN;
 
-reg RST;
+//reg SDA;
+//reg RST;
 
 wire SDAW;
 
@@ -30,12 +31,12 @@ initial begin
     $dumpfile("I2C.vcd");
     $dumpvars(0,my_I2C);
     
-    RST = 0;
+    RSTN = 1;
     SCL = 1;
     SDA = 1;
     
-    #2 RST = 1;
-    #2 RST = 0;
+    #2 RSTN = 0;
+    #2 RSTN = 1;
     #40;
     
     `include "write_i2c.inc"
@@ -63,7 +64,7 @@ always begin
 end
 */
 
-I2C my_I2C(SDA,SDAout,SCL,RST);
+I2C my_I2C(SDA,SDAout,SCL,RSTN);
 
 
 endmodule

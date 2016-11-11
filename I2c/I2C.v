@@ -5,19 +5,25 @@
 *
 * Description: I2C slave
 ***************************************/
+
+
 module  I2C(
 SDA,
 SDAout,
 SCL,
-RST
+RSTN
 );
 
 //inout SDA;
 input SDA;
 output SDAout;
 input SCL;
-input RST; 
+input RSTN; 
 
+
+wire RST;
+
+assign RST = ~RSTN;
 
 //Start Detection
 reg  start_detect;

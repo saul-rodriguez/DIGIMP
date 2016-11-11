@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"/home/saul/projects/digital/DIGIMP/I2c/fpga/i2c_v1/i2c_v1.srcs/sim_1/imports/I2c/I2C_f_tb.v" Line 78: Port <arg fmt="%s" index="1">DIR_DOWN</arg> is not connected to this instance
+</msg>
+
+</messages>
+
