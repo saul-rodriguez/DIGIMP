@@ -1,0 +1,29 @@
+Command line:
+   I2C_f_tb.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  35984
+
+Fri Nov 11 16:24:27 2016
+
+
+ Elaboration Time: 0.02 sec
+
+ Current Memory Usage: 196.276 Meg
+
+ Total Signals          : 36
+ Total Nets             : 27
+ Total Signal Drivers   : 19
+ Total Blocks           : 5
+ Total Primitive Blocks : 3
+ Total Processes        : 33
+ Total Traceable Variables  : 42
+ Total Scalar Nets and Variables : 201
+Total Line Count : 299
+
+ Total Simulation Time: 0.03 sec
+
+ Current Memory Usage: 271.778 Meg
+
+Fri Nov 11 17:06:42 2016
+

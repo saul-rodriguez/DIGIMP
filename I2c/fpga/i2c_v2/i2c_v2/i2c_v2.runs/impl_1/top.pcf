@@ -1,0 +1,19 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Fri Nov 11 16:25:19 2016
+//! **************************************************************************
+
+SCHEMATIC START;
+PROHIBIT = SITE "P144";
+PROHIBIT = SITE "P69";
+PROHIBIT = SITE "P60";
+COMP "ARDUINO_RESET" LOCATE = SITE "P139" LEVEL 1;
+COMP "SW0" LOCATE = SITE "P116" LEVEL 1;
+PIN SW0_pin<0> = BEL "SW0" PINNAME PAD;
+PIN "SW0_pin<0>" CLOCK_DEDICATED_ROUTE = FALSE;
+COMP "SW1" LOCATE = SITE "P117" LEVEL 1;
+COMP "SW2" LOCATE = SITE "P118" LEVEL 1;
+PIN SW2_pin<0> = BEL "SW2" PINNAME PAD;
+PIN "SW2_pin<0>" CLOCK_DEDICATED_ROUTE = FALSE;
+COMP "SW3" LOCATE = SITE "P119" LEVEL 1;
+SCHEMATIC END;
+
