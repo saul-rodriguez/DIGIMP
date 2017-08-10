@@ -1,0 +1,474 @@
+#######################################################
+#                                                     
+#  Innovus Command Logging File                     
+#  Created on Wed Jul  5 15:34:24 2017                
+#                                                     
+#######################################################
+
+#@(#)CDS: Innovus v15.28-s017_1 (64bit) 03/20/2017 11:28 (Linux 2.6.18-194.el5)
+#@(#)CDS: NanoRoute 15.28-s017_1 NR170225-1338/15_28-UB (database version 2.30, 317.6.1) {superthreading v1.26}
+#@(#)CDS: AAE 15.28-s003 (64bit) 03/20/2017 (Linux 2.6.18-194.el5)
+#@(#)CDS: CTE 15.28-s006_1 () Feb 16 2017 04:38:28 ( )
+#@(#)CDS: SYNTECH 15.28-s002_1 () Feb 14 2017 21:05:47 ( )
+#@(#)CDS: CPE v15.28-s003
+#@(#)CDS: IQRC/TQRC 15.1.4-s213 (64bit) Tue Feb  9 17:31:28 PST 2016 (Linux 2.6.18-194.el5)
+
+setCheckMode -tapeOut true
+setDelayCalMode -siAware false
+setGenerateViaMode -auto true
+setExtractRCMode -lefTechFileMap /pkg/AMS414/cds/HK_AC18/LEF/ac18a6/qrclaymap.ccl
+suppressMessage IMPFP-3961
+suppressMessage TECHLIB-436
+set defHierChar /
+set init_oa_ref_lib {TECH_C18A6  CORELIB  }
+set init_verilog ../VERILOG/sar5_synth.v
+set init_top_cell sar5
+set init_pwr_net {vdd!  }
+set init_gnd_net {gnd! subc!  }
+set init_mmmc_file ../CONFIG/ac18_sar5_mmmc.view
+set conf_gen_footprint 1
+set fp_core_to_left 50.000000
+set fp_core_to_right 50.000000
+set fp_core_to_top 50.000000
+set fp_core_to_bottom 50.000000
+set lsgOCPGainMult 1.000000
+set conf_ioOri R0
+set fp_core_util 0.800
+set init_assign_buffer 0
+set conf_in_tran_delay 0.1ps
+set init_import_mode { -keepEmptyModule 1 -treatUndefinedCellAsBbox 0}
+set init_layout_view layout
+set init_abstract_view abstract
+set init_io_file {}
+print {---# TCL Script amsSetup.tcl loaded}
+print {---# TCL Script ../SCRIPTS/amsVoltusSetup.tcl loaded}
+print {---# Additional ams TCL Procedures loaded}
+getVersion
+getVersion
+print {### austriamicrosystems HitKit-Utilities Menu added}
+set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+suppressMessage ENCEXT-2799
+getDrawView
+loadWorkspace -name Physical
+win
+setGenerateViaMode -auto true
+setDesignMode -process 180
+init_design
+setCTSMode -bottomPreferredLayer 1
+setMaxRouteLayer 5
+setExtractRCMode -lefTechFileMap /pkg/AMS414/cds/HK_AC18/LEF/ac18a6/qrclaymap.ccl
+checkDesign -all -outDir ../REPORTS/checkDesignDbSetup
+check_timing -verbose  > $filename2
+print {#### }
+print {---# CheckDesign Result: ../REPORTS/checkDesignDbSetup/sar5.main.htm}
+print {---# CheckTiming Result: ../REPORTS/checkDesignDbSetup/sar5.checkTiming}
+print {#### }
+setPreference ConstraintUserXGrid 0.01
+setPreference ConstraintUserXOffset 0.01
+setPreference ConstraintUserYGrid 0.01
+setPreference ConstraintUserYOffset 0.01
+setPreference SnapAllCorners 1
+setPreference BlockSnapRule 2
+snapFPlanIO -usergrid
+setDrawView ameba
+setDrawView fplan
+setDrawView ameba
+setDrawView place
+selectMarker 131.2200 125.6400 141.2200 135.6400 -1 0 0
+uiSetTool select
+uiSetTool moveWire
+clearGlobalNets
+globalNetConnect vdd! -type pgpin -pin vdd! -inst * -module {}
+print {---# GlobalConnect all vdd! pins to net vdd!}
+globalNetConnect gnd! -type pgpin -pin gnd! -inst * -module {}
+print {---# GlobalConnect all gnd! pins to net gnd!}
+setLayerPreference pinblock -isVisible 1
+setLayerPreference pinstdCell -isVisible 1
+setLayerPreference pinio -isVisible 1
+setLayerPreference piniopin -isVisible 1
+setLayerPreference pinother -isVisible 1
+setLayerPreference obsblock -isVisible 1
+setLayerPreference obsstdCell -isVisible 1
+setLayerPreference obsio -isVisible 1
+setLayerPreference obsother -isVisible 1
+setLayerPreference layoutObj -isVisible 1
+setLayerPreference pinblock -isVisible 0
+setLayerPreference pinstdCell -isVisible 0
+setLayerPreference pinio -isVisible 0
+setLayerPreference piniopin -isVisible 0
+setLayerPreference pinother -isVisible 0
+setLayerPreference obsblock -isVisible 0
+setLayerPreference obsstdCell -isVisible 0
+setLayerPreference obsio -isVisible 0
+setLayerPreference obsother -isVisible 0
+setLayerPreference layoutObj -isVisible 0
+setLayerPreference pinblock -isVisible 1
+setLayerPreference pinstdCell -isVisible 1
+setLayerPreference pinio -isVisible 1
+setLayerPreference piniopin -isVisible 1
+setLayerPreference pinother -isVisible 1
+setLayerPreference obsblock -isVisible 1
+setLayerPreference obsstdCell -isVisible 1
+setLayerPreference obsio -isVisible 1
+setLayerPreference obsother -isVisible 1
+setLayerPreference layoutObj -isVisible 1
+setLayerPreference pinblock -isSelectable 1
+setLayerPreference pinstdCell -isSelectable 1
+setLayerPreference pinio -isSelectable 1
+setLayerPreference piniopin -isSelectable 1
+setLayerPreference pinother -isSelectable 1
+setLayerPreference obsblock -isSelectable 1
+setLayerPreference obsstdCell -isSelectable 1
+setLayerPreference obsio -isSelectable 1
+setLayerPreference obsother -isSelectable 1
+setLayerPreference layoutObj -isSelectable 1
+setDrawView fplan
+setDrawView ameba
+setDrawView place
+createLib sar5_OADB -attachTech TECH_C18A6 -libPath ../OADB/sar5_OADB
+saveDesign -cellview {sar5_OADB sar5 loaded}
+print {---#   Saved As OA: sar5_OADB sar5 loaded
+}
+saveDesign sar5_loaded
+set sprCreateIeRingNets {}
+set sprCreateIeRingLayers {}
+set sprCreateIeRingWidth 1.0
+set sprCreateIeRingSpacing 1.0
+set sprCreateIeRingOffset 1.0
+set sprCreateIeRingThreshold 1.0
+set sprCreateIeRingJogDistance 1.0
+addRing -skip_via_on_wire_shape Noshape -skip_via_on_pin Standardcell -center 1 -stacked_via_top_layer AM -type core_rings -jog_distance 2.52 -threshold 2.52 -nets {vdd! gnd!} -follow core -stacked_via_bottom_layer M1 -layer {bottom M1 top M1 right M2 left M2} -width 8 -spacing 0.6 -offset 2.52
+setViaGenMode -symmetrical_via_only true
+setViaGenMode -parameterized_via_only true
+editPushUndo
+print {---# Libray sar5_OADB already exists
+}
+saveDesign -cellview {sar5_OADB sar5 floorplan}
+print {---#   Saved As OA: sar5_OADB sar5 floorplan
+}
+saveDesign sar5_loaded_floorplan
+getIoFlowFlag
+deselectAll
+set_analysis_view -setup $maxviewList -hold $minviewList
+timeDesign -prePlace -expandedViews
+get_propagated_clock -clock clk
+setPlaceMode -fp false
+placeDesign
+setDrawView place
+print {---# Libray sar5_OADB already exists
+}
+saveDesign -cellview {sar5_OADB sar5 placed}
+print {---#   Saved As OA: sar5_OADB sar5 placed
+}
+saveDesign sar5_loaded_floorplan_power_placed
+set_ccopt_mode -cts_target_slew 1.0
+set_ccopt_mode -cts_target_nonleaf_slew 2.0
+set_ccopt_property buffer_cells CLKBU*
+set_ccopt_property inverter_cells CLKIN*
+create_ccopt_clock_tree_spec -immediate
+setCTSMode -routeBottomPreferredLayer M1 -routeLeafBottomPreferredLayer M1 -routeLeafTopPreferredLayer MT -routeTopPreferredLayer MT
+ccopt_design -cts
+report_ccopt_clock_trees -file ../REPORTS/ccopt_postCTS.report
+report_ccopt_skew_groups -file ../REPORTS/ccopt_postCTS_skew.report
+getCTSMode -engine -quiet
+getCTSMode -engine -quiet
+getCTSMode -engine -quiet
+getCTSMode -engine -quiet
+getCTSMode -engine -quiet
+getCTSMode -engine -quiet
+getCTSMode -engine -quiet
+getCTSMode -engine -quiet
+getCTSMode -engine -quiet
+getCTSMode -engine -quiet
+getCTSMode -engine -quiet
+getCTSMode -engine -quiet
+getCTSMode -engine -quiet
+ctd_win -id ctdMain
+print {---# Libray sar5_OADB already exists
+}
+saveDesign -cellview {sar5_OADB sar5 cts}
+print {---#   Saved As OA: sar5_OADB sar5 cts
+}
+saveDesign sar5_loaded_floorplan_power_placed_cts
+get_propagated_clock -clock clk
+timeDesign -postCTS -expandedViews
+print {---# Libray sar5_OADB already exists
+}
+saveDesign -cellview {sar5_OADB sar5 opt}
+print {---#   Saved As OA: sar5_OADB sar5 opt
+}
+saveDesign sar5_loaded_floorplan_power_placed_cts_opt
+getPinAssignMode -pinEditInBatch -quiet
+setMaxRouteLayer 5
+setNanoRouteMode -quiet -routeInsertAntennaDiode true -routeAntennaCellName ANTENNA
+routeDesign -globalDetail
+setLayerPreference violation -isVisible 1
+uiKit::addWidget vb -type main
+violationBrowser -all -no_display_false
+getMultiCpuUsage -localCpu
+get_verify_drc_mode -disable_rules -quiet
+get_verify_drc_mode -quiet -area
+get_verify_drc_mode -quiet -layer_range
+get_verify_drc_mode -check_implant -quiet
+get_verify_drc_mode -check_implant_across_rows -quiet
+get_verify_drc_mode -check_ndr_spacing -quiet
+get_verify_drc_mode -check_only -quiet
+get_verify_drc_mode -check_same_via_cell -quiet
+get_verify_drc_mode -exclude_pg_net -quiet
+get_verify_drc_mode -ignore_trial_route -quiet
+get_verify_drc_mode -max_wrong_way_halo -quiet
+get_verify_drc_mode -use_min_spacing_on_block_obs -quiet
+get_verify_drc_mode -limit -quiet
+set_verify_drc_mode -disable_rules {} -check_implant true -check_implant_across_rows false -check_ndr_spacing false -check_same_via_cell false -exclude_pg_net false -ignore_trial_route false -report sar5.drc.rpt -limit 1000
+verify_drc
+set_verify_drc_mode -area {0 0 0 0}
+get_verify_drc_mode -disable_rules -quiet
+get_verify_drc_mode -quiet -area
+get_verify_drc_mode -quiet -layer_range
+get_verify_drc_mode -check_implant -quiet
+get_verify_drc_mode -check_implant_across_rows -quiet
+get_verify_drc_mode -check_ndr_spacing -quiet
+get_verify_drc_mode -check_only -quiet
+get_verify_drc_mode -check_same_via_cell -quiet
+get_verify_drc_mode -exclude_pg_net -quiet
+get_verify_drc_mode -ignore_trial_route -quiet
+get_verify_drc_mode -max_wrong_way_halo -quiet
+get_verify_drc_mode -use_min_spacing_on_block_obs -quiet
+get_verify_drc_mode -limit -quiet
+get_verify_drc_mode -disable_rules -quiet
+get_verify_drc_mode -quiet -area
+get_verify_drc_mode -quiet -layer_range
+get_verify_drc_mode -check_implant -quiet
+get_verify_drc_mode -check_implant_across_rows -quiet
+get_verify_drc_mode -check_ndr_spacing -quiet
+get_verify_drc_mode -check_only -quiet
+get_verify_drc_mode -check_same_via_cell -quiet
+get_verify_drc_mode -exclude_pg_net -quiet
+get_verify_drc_mode -ignore_trial_route -quiet
+get_verify_drc_mode -max_wrong_way_halo -quiet
+get_verify_drc_mode -use_min_spacing_on_block_obs -quiet
+get_verify_drc_mode -limit -quiet
+set_verify_drc_mode -disable_rules {} -check_implant true -check_implant_across_rows false -check_ndr_spacing false -check_same_via_cell false -exclude_pg_net false -ignore_trial_route false -report sar5.drc.rpt -limit 1000
+verify_drc
+set_verify_drc_mode -area {0 0 0 0}
+fit
+print {---# Libray sar5_OADB already exists
+}
+saveDesign -cellview {sar5_OADB sar5 routed}
+print {---#   Saved As OA: sar5_OADB sar5 routed
+}
+saveDesign sar5_loaded_floorplan_power_placed_cts_opt_routed
+addFiller -cell FILLCAPX32 FILLCAPX16 FILLCAPX8 FILLCAPX4 -prefix FILLERCAP
+addFiller -cell FILLCELLX32 FILLCELLX16 FILLCELLX8 FILLCELLX4 FILLCELLX2 FILLCELLX1 -prefix FILLER
+panPage 0 1
+get_verify_drc_mode -disable_rules -quiet
+get_verify_drc_mode -quiet -area
+get_verify_drc_mode -quiet -layer_range
+get_verify_drc_mode -check_implant -quiet
+get_verify_drc_mode -check_implant_across_rows -quiet
+get_verify_drc_mode -check_ndr_spacing -quiet
+get_verify_drc_mode -check_only -quiet
+get_verify_drc_mode -check_same_via_cell -quiet
+get_verify_drc_mode -exclude_pg_net -quiet
+get_verify_drc_mode -ignore_trial_route -quiet
+get_verify_drc_mode -max_wrong_way_halo -quiet
+get_verify_drc_mode -use_min_spacing_on_block_obs -quiet
+get_verify_drc_mode -limit -quiet
+set_verify_drc_mode -disable_rules {} -check_implant true -check_implant_across_rows false -check_ndr_spacing false -check_same_via_cell false -exclude_pg_net false -ignore_trial_route false -report sar5.drc.rpt -limit 1000
+verify_drc
+set_verify_drc_mode -area {0 0 0 0}
+print {---# Libray sar5_OADB already exists
+}
+saveDesign -cellview {sar5_OADB sar5 final}
+print {---#   Saved As OA: sar5_OADB sar5 final
+}
+saveDesign sar5_loaded_floorplan_power_placed_cts_opt_routed_final
+timeDesign -postRoute -expandedViews
+timeDesign -postRoute -expandedViews -hold
+timeDesign -signoff -expandedViews
+timeDesign -signoff -expandedViews -hold
+sroute -connect { blockPin padPin padRing corePin floatingStripe } -layerChangeRange { M1(1) AM(6) } -blockPinTarget { nearestTarget } -padPinPortConnect { allPort oneGeom } -padPinTarget { nearestTarget } -corePinTarget { firstAfterRowEnd } -floatingStripeTarget { blockring padring ring stripe ringpin blockpin followpin } -allowJogging 1 -crossoverViaLayerRange { M1(1) AM(6) } -nets { gnd! vdd! } -allowLayerChange 1 -blockPin useLef -targetViaLayerRange { M1(1) AM(6) }
+get_verify_drc_mode -disable_rules -quiet
+get_verify_drc_mode -quiet -area
+get_verify_drc_mode -quiet -layer_range
+get_verify_drc_mode -check_implant -quiet
+get_verify_drc_mode -check_implant_across_rows -quiet
+get_verify_drc_mode -check_ndr_spacing -quiet
+get_verify_drc_mode -check_only -quiet
+get_verify_drc_mode -check_same_via_cell -quiet
+get_verify_drc_mode -exclude_pg_net -quiet
+get_verify_drc_mode -ignore_trial_route -quiet
+get_verify_drc_mode -max_wrong_way_halo -quiet
+get_verify_drc_mode -use_min_spacing_on_block_obs -quiet
+get_verify_drc_mode -limit -quiet
+set_verify_drc_mode -disable_rules {} -check_implant true -check_implant_across_rows false -check_ndr_spacing false -check_same_via_cell false -exclude_pg_net false -ignore_trial_route false -report sar5.drc.rpt -limit 1000
+verify_drc
+set_verify_drc_mode -area {0 0 0 0}
+verifyConnectivity -type all -error 1000 -warning 50
+timeDesign -signoff -expandedViews -hold
+print {---# Libray sar5_OADB already exists
+}
+saveDesign -cellview {sar5_OADB sar5 final}
+print {---#   Saved As OA: sar5_OADB sar5 final
+}
+saveDesign sar5_loaded_floorplan_power_placed_cts_opt_routed_final
+verifyProcessAntenna -reportfile sar5.antenna.rpt -error 1000
+print {#### Available Functions}
+print {---#     - amsDbSetup....................... Setup Database - read Config}
+print {---#     - amsUserGrid...................... Sets the grid for the IO-Cells}
+print {---#     - amsGlobalConnect type............ connects global nets: }
+print {---#                                               type = core | both}
+print {---#     - amsAddEndCaps.................... place Caps}
+print {---#     - amsSetAnalysisView cond conslist.. set Analysis Views}
+print {---#     - amsFillcore ...................... places core filler cells}
+print {---#     - amsFillperi ...................... places periphery filler cells}
+print {---#     - amsRoute router................... run routing with: }
+print {---#                                               router = nano|nanodcv|wroute|wroute2(using 2CPUs)}
+print {---#     - amsWrite postfix dir ............. writes GDS, Verilog NL, SPEF, DB}
+print {---#     - amsWriteSDF4View viewList dir .... write SDF for all analysis views in list}
+print {---#     - amsWriteFinalTiming dir .......... writes final timing data (signoff-SDF,-SPEF,-timingReports)}
+print {---#     - amsZoomTo x y .................... zooms to coordinates x y}
+print {#### }
+add_text -label clk -alignment centerRight -orient R0 -height 5 -layer M3 -pt 0.56 65.8
+add_text -label comp -alignment centerLeft -orient R90 -height 5 -layer M2 -pt 70.84 130.08
+add_text -label resetn -alignment centerLeft -orient R90 -height 5 -layer M4 -pt 70.84 130.08
+add_text -label {out[4]} -alignment centerRight -orient R0 -height 5 -layer M3 -pt 0.56 68.6
+add_text -label {out[3]} -alignment centerLeft -orient R90 -height 5 -layer M2 -pt 66.92 130.08
+add_text -label {out[2]} -alignment centerLeft -orient R180 -height 5 -layer M2 -pt 68.6 0.56
+add_text -label {out[1]} -alignment centerLeft -orient R180 -height 5 -layer M2 -pt 64.12 0.56
+add_text -label {out[0]} -alignment centerRight -orient R0 -height 5 -layer M3 -pt 0.56 58.52
+print {---# 8 Port labels added to OA Database}
+print {---# Run following command to save port labels on purpose label in OA}
+print {---#    setOaxMode -textPurpose label}
+setOaxMode -textPurpose label
+print {---# Libray sar5_OADB already exists
+}
+saveDesign -cellview {sar5_OADB sar5 final}
+print {---#   Saved As OA: sar5_OADB sar5 final
+}
+print {---# Libray sar5_OADB already exists
+}
+saveDesign -cellview {sar5_OADB sar5 final}
+print {---#   Saved As OA: sar5_OADB sar5 final
+}
+defOut -floorplan -netlist -routing ../FINALDATA/last/sar5_final.def
+streamOut ../FINALDATA/last/sar5_final_fe.gds -mapFile ../SNW/gds2.map -libName DesignLib -structureName sar5 -attachInstanceName 13 -attachNetName 13 -stripes 1 -units 1000 -mode ALL
+print {---# 8 Ports found}
+print {---# Port File written: ../FINALDATA/last/sar5.ports}
+saveNetlist ../FINALDATA/last/sar5_final.v
+saveNetlist ../FINALDATA/last/sar5_final_fillcap.v -excludeLeafCell -includePhysicalInst -excludeCellInst { FILLCELLX32 FILLCELLX16 FILLCELLX8 FILLCELLX4 FILLCELLX2 FILLCELLX1  }
+saveNetlist ../FINALDATA/last/sar5_final_fillcap_pg.v -excludeLeafCell -includePhysicalInst -includePowerGround -excludeCellInst { FILLCELLX32 FILLCELLX16 FILLCELLX8 FILLCELLX4 FILLCELLX2 FILLCELLX1  }
+setExtractRCMode -engine postRoute -effortLevel high
+extractRC
+rcOut -spef ../FINALDATA/last/sar5_final.spef
+setExtractRCMode -engine postRoute -effortLevel signoff
+extractRC
+rcOut -spef ../FINALDATA/last/sar5_final_qrc.spef
+print {####    Saved data
+}
+print {---# Save directory: ../FINALDATA/last}
+print {---# DEF           : ../FINALDATA/last/sar5_final.def}
+print {---# GDSII         : ../FINALDATA/last/sar5_final_fe.gds}
+print {---# VerilogNL     : ../FINALDATA/last/sar5_final.v}
+print {---# VerilogNL     : ../FINALDATA/last/sar5_final_fillcap.v (includes FILLCAPs)}
+print {---# VerilogNL     : ../FINALDATA/last/sar5_final_fillcap_pg.v (includes FILLCAPs and Power/Ground Connections)}
+print {---# Encounter SPEF: ../FINALDATA/last/sar5_final.spef}
+print {---# QRC SPEF      : ../FINALDATA/last/sar5_final_qrc.spef}
+print {---# Port List     : ../FINALDATA/last/sar5.ports}
+print {#### 
+}
+get_delay_corner corner_$corner -rc_corner
+set_analysis_view -setup $viewList -hold $viewList
+setExtractRCMode -engine postRoute -effortLevel signoff -coupled false
+extractRC
+rcOut -spef ../FINALDATA/last/SPEF/ams_rc_corner_minCaR.spef -rc_corner ams_rc_corner_minCaR
+print {---# SPEF file written: ../FINALDATA/last/SPEF/ams_rc_corner_minCaR.spef}
+timeDesign -signoff -expandedViews -outDir ../FINALDATA/last/timingReports/min
+timeDesign -reportOnly -hold -expandedViews -outDir ../FINALDATA/last/timingReports/min
+print {---# Analysis View: func_min
+}
+write_sdf -version 3.0 -prec 3 -edges check_edge  -force_calculation -average_typ_delays  -recompute_parallel_arcs  -view $view $filename
+print {---# Created SDF: ../FINALDATA/last/SDF/sar5_func_min.sdf
+}
+print {---# Analysis View: test_min
+}
+write_sdf -version 3.0 -prec 3 -edges check_edge  -force_calculation -average_typ_delays  -recompute_parallel_arcs  -view $view $filename
+print {---# Created SDF: ../FINALDATA/last/SDF/sar5_test_min.sdf
+}
+get_delay_corner corner_$corner -rc_corner
+set_analysis_view -setup $viewList -hold $viewList
+setExtractRCMode -engine postRoute -effortLevel signoff -coupled false
+extractRC
+rcOut -spef ../FINALDATA/last/SPEF/ams_rc_corner_maxCaR.spef -rc_corner ams_rc_corner_maxCaR
+print {---# SPEF file written: ../FINALDATA/last/SPEF/ams_rc_corner_maxCaR.spef}
+timeDesign -signoff -expandedViews -outDir ../FINALDATA/last/timingReports/max
+timeDesign -reportOnly -hold -expandedViews -outDir ../FINALDATA/last/timingReports/max
+print {---# Analysis View: func_max
+}
+write_sdf -version 3.0 -prec 3 -edges check_edge  -force_calculation -average_typ_delays  -recompute_parallel_arcs  -view $view $filename
+print {---# Created SDF: ../FINALDATA/last/SDF/sar5_func_max.sdf
+}
+print {---# Analysis View: test_max
+}
+write_sdf -version 3.0 -prec 3 -edges check_edge  -force_calculation -average_typ_delays  -recompute_parallel_arcs  -view $view $filename
+print {---# Created SDF: ../FINALDATA/last/SDF/sar5_test_max.sdf
+}
+get_delay_corner corner_$corner -rc_corner
+set_analysis_view -setup $viewList -hold $viewList
+setExtractRCMode -engine postRoute -effortLevel signoff -coupled false
+extractRC
+rcOut -spef ../FINALDATA/last/SPEF/ams_rc_corner_typ.spef -rc_corner ams_rc_corner_typ
+print {---# SPEF file written: ../FINALDATA/last/SPEF/ams_rc_corner_typ.spef}
+timeDesign -signoff -expandedViews -outDir ../FINALDATA/last/timingReports/typ
+timeDesign -reportOnly -hold -expandedViews -outDir ../FINALDATA/last/timingReports/typ
+print {---# Analysis View: func_typ
+}
+write_sdf -version 3.0 -prec 3 -edges check_edge  -force_calculation -average_typ_delays  -recompute_parallel_arcs  -view $view $filename
+print {---# Created SDF: ../FINALDATA/last/SDF/sar5_func_typ.sdf
+}
+print {---# Analysis View: test_typ
+}
+write_sdf -version 3.0 -prec 3 -edges check_edge  -force_calculation -average_typ_delays  -recompute_parallel_arcs  -view $view $filename
+print {---# Created SDF: ../FINALDATA/last/SDF/sar5_test_typ.sdf
+}
+get_delay_corner corner_$corner -rc_corner
+set_analysis_view -setup $viewList -hold $viewList
+setExtractRCMode -engine postRoute -effortLevel signoff -coupled false
+extractRC
+rcOut -spef ../FINALDATA/last/SPEF/ams_rc_corner_maxCaR2.spef -rc_corner ams_rc_corner_maxCaR2
+print {---# SPEF file written: ../FINALDATA/last/SPEF/ams_rc_corner_maxCaR2.spef}
+timeDesign -signoff -expandedViews -outDir ../FINALDATA/last/timingReports/min2
+timeDesign -reportOnly -hold -expandedViews -outDir ../FINALDATA/last/timingReports/min2
+print {---# Analysis View: func_min2
+}
+write_sdf -version 3.0 -prec 3 -edges check_edge  -force_calculation -average_typ_delays  -recompute_parallel_arcs  -view $view $filename
+print {---# Created SDF: ../FINALDATA/last/SDF/sar5_func_min2.sdf
+}
+print {---# Analysis View: test_min2
+}
+write_sdf -version 3.0 -prec 3 -edges check_edge  -force_calculation -average_typ_delays  -recompute_parallel_arcs  -view $view $filename
+print {---# Created SDF: ../FINALDATA/last/SDF/sar5_test_min2.sdf
+}
+get_delay_corner corner_$corner -rc_corner
+set_analysis_view -setup $viewList -hold $viewList
+setExtractRCMode -engine postRoute -effortLevel signoff -coupled false
+extractRC
+rcOut -spef ../FINALDATA/last/SPEF/ams_rc_corner_minCaR2.spef -rc_corner ams_rc_corner_minCaR2
+print {---# SPEF file written: ../FINALDATA/last/SPEF/ams_rc_corner_minCaR2.spef}
+timeDesign -signoff -expandedViews -outDir ../FINALDATA/last/timingReports/max2
+timeDesign -reportOnly -hold -expandedViews -outDir ../FINALDATA/last/timingReports/max2
+print {---# Analysis View: func_max2
+}
+write_sdf -version 3.0 -prec 3 -edges check_edge  -force_calculation -average_typ_delays  -recompute_parallel_arcs  -view $view $filename
+print {---# Created SDF: ../FINALDATA/last/SDF/sar5_func_max2.sdf
+}
+print {---# Analysis View: test_max2
+}
+write_sdf -version 3.0 -prec 3 -edges check_edge  -force_calculation -average_typ_delays  -recompute_parallel_arcs  -view $view $filename
+print {---# Created SDF: ../FINALDATA/last/SDF/sar5_test_max2.sdf
+}
+print ---#------------------------------------------------------
+print {---# Final Timing Files written into: ../FINALDATA/last}
+print {---#    SDF}
+print {---#    SPEF}
+print {---#    timingReports}
