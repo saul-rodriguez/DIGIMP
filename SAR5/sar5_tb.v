@@ -15,6 +15,8 @@ reg resetn;
 
 //output wires
 wire [4:0] out;
+wire sar_serial;
+wire start_ready;
 
 initial begin
     $dumpfile("sar5.vcd");
@@ -27,8 +29,7 @@ initial begin
     #30 comp = 1;
     #80 comp = 0;
     #120 comp = 1;
-    #400 $finish;
-    
+    #400 $finish; 
     
     
 end
@@ -39,7 +40,7 @@ always begin
 end
 
 
-sar5 my_sar5(clk,comp,resetn,out);
+sar5 my_sar5(clk,comp,resetn,out,sar_serial,start_ready);
 
 
 endmodule
