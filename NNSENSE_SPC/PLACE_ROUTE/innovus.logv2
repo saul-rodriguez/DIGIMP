@@ -1,0 +1,13 @@
+[08/28 14:36:54      0] 
+[08/28 14:36:54      0] Cadence Innovus(TM) Implementation System.
+[08/28 14:36:54      0] Copyright 2015 Cadence Design Systems, Inc. All rights reserved worldwide.
+[08/28 14:36:54      0] 
+[08/28 14:36:54      0] Version:	v15.28-s017_1, built Mon Mar 20 11:28:11 PDT 2017
+[08/28 14:36:54      0] Options:	amsInnovusSetup 
+[08/28 14:36:54      0] Date:		Mon Aug 28 14:36:54 2017
+[08/28 14:36:54      0] Host:		s2424.it.kth.se (x86_64 w/Linux 2.6.18-417.el5) (8cores*32cpus*Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz 20480KB)
+[08/28 14:36:54      0] OS:		CentOS release 5.11 (Final)
+[08/28 14:36:54      0] 
+[08/28 14:36:54      0] License:
+[08/28 14:36:54      0] **ERROR: (IMPLIC-68):	Unknown argument: amsInnovusSetup.
+[08/28 14:36:54      0] 	Run "innovus -help" for valid option/argument.

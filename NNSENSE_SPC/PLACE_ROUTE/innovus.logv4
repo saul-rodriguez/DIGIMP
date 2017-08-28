@@ -1,0 +1,113 @@
+[08/28 14:46:35      0] 
+[08/28 14:46:35      0] Cadence Innovus(TM) Implementation System.
+[08/28 14:46:35      0] Copyright 2015 Cadence Design Systems, Inc. All rights reserved worldwide.
+[08/28 14:46:35      0] 
+[08/28 14:46:35      0] Version:	v15.28-s017_1, built Mon Mar 20 11:28:11 PDT 2017
+[08/28 14:46:35      0] Options:	
+[08/28 14:46:35      0] Date:		Mon Aug 28 14:46:35 2017
+[08/28 14:46:35      0] Host:		s2424.it.kth.se (x86_64 w/Linux 2.6.18-417.el5) (8cores*32cpus*Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz 20480KB)
+[08/28 14:46:35      0] OS:		CentOS release 5.11 (Final)
+[08/28 14:46:35      0] 
+[08/28 14:46:35      0] License:
+[08/28 14:46:35      0] 		invs	Innovus Implementation System	15.2	checkout succeeded
+[08/28 14:46:35      0] 		8 CPU jobs allowed with the current license(s). Use setMultiCpuUsage to set your required CPU count.
+[08/28 14:46:43      6] @(#)CDS: Innovus v15.28-s017_1 (64bit) 03/20/2017 11:28 (Linux 2.6.18-194.el5)
+[08/28 14:46:43      6] @(#)CDS: NanoRoute 15.28-s017_1 NR170225-1338/15_28-UB (database version 2.30, 317.6.1) {superthreading v1.26}
+[08/28 14:46:43      6] @(#)CDS: AAE 15.28-s003 (64bit) 03/20/2017 (Linux 2.6.18-194.el5)
+[08/28 14:46:43      6] @(#)CDS: CTE 15.28-s006_1 () Feb 16 2017 04:38:28 ( )
+[08/28 14:46:43      6] @(#)CDS: SYNTECH 15.28-s002_1 () Feb 14 2017 21:05:47 ( )
+[08/28 14:46:43      6] @(#)CDS: CPE v15.28-s003
+[08/28 14:46:43      6] @(#)CDS: IQRC/TQRC 15.1.4-s213 (64bit) Tue Feb  9 17:31:28 PST 2016 (Linux 2.6.18-194.el5)
+[08/28 14:46:43      6] @(#)CDS: OA 22.50-p036 Tue Nov  3 09:29:52 2015
+[08/28 14:46:43      6] @(#)CDS: SGN 10.10-p124 (19-Aug-2014) (64 bit executable)
+[08/28 14:46:43      6] @(#)CDS: RCDB 11.7
+[08/28 14:46:43      6] --- Running on s2424.it.kth.se (x86_64 w/Linux 2.6.18-417.el5) (8cores*32cpus*Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz 20480KB) ---
+[08/28 14:46:43      6] Create and set the environment variable TMPDIR to /tmp/innovus_temp_29070_s2424.it.kth.se_saul_J65zys.
+
+[08/28 14:46:43      6] 
+[08/28 14:46:43      6] **INFO:  MMMC transition support version v31-84 
+[08/28 14:46:43      6] 
+[08/28 14:46:43      6] <CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+[08/28 14:46:43      6] <CMD> suppressMessage ENCEXT-2799
+[08/28 14:46:43      7] <CMD> getDrawView
+[08/28 14:46:43      7] <CMD> loadWorkspace -name Physical
+[08/28 14:46:43      7] <CMD> win
+[08/28 14:47:03      7] can't read "AMS_DIR": no such variable
+[08/28 14:47:39      7] <CMD> setGenerateViaMode -auto true
+[08/28 14:47:50      7] <CMD> setDesignMode -process 180
+[08/28 14:47:50      7] Applying the recommended capacitance filtering threshold values for 180nm process node: total_c_th=5, relative_c_th=0.03 and coupling_c_th=3.
+[08/28 14:47:50      7] 	These values will be used by all post-route extraction engines, including tQuantus, IQRC and Quantus QRC extraction.
+[08/28 14:47:50      7] 	For postRoute effortLevel low extraction, the coupling_c_th value will be used only when the -capFilterMode parameter of the setExtractRCMode command is set to relAndCoup or relOrCoup. Default value of -capFilterMode parameter in postRoute extraction effortLevel low is relOnly.
+[08/28 14:47:50      7] 	The accuracy mode for postRoute effortLevel low extraction will be set to 'standard'.
+[08/28 14:47:50      7] 	Default value for EffortLevel(-effortLevel option of the setExtractRCMode) in postRoute extraction mode is 'low'.
+[08/28 14:47:50      7] Updating process node dependent CCOpt properties for the 180nm process node.
+[08/28 14:49:35      9] <CMD> set defHierChar /
+[08/28 14:49:35      9] <CMD> set init_oa_ref_lib {TECH_C18A6  CORELIB  }
+[08/28 14:49:35      9] <CMD> set init_verilog ../VERILOG/nnspc.v
+[08/28 14:49:35      9] <CMD> set init_top_cell nnspc
+[08/28 14:49:35      9] <CMD> set init_pwr_net {vdd!  }
+[08/28 14:49:35      9] <CMD> set init_gnd_net {gnd! subc!  }
+[08/28 14:49:35      9] <CMD> set init_mmmc_file ../CONFIG/ac18_nnspc_mmmc.view
+[08/28 14:49:35      9] <CMD> set conf_gen_footprint 1
+[08/28 14:49:35      9] <CMD> set fp_core_to_left 50.000000
+[08/28 14:49:35      9] <CMD> set fp_core_to_right 50.000000
+[08/28 14:49:35      9] <CMD> set fp_core_to_top 50.000000
+[08/28 14:49:35      9] <CMD> set fp_core_to_bottom 50.000000
+[08/28 14:49:35      9] <CMD> set lsgOCPGainMult 1.000000
+[08/28 14:49:35      9] <CMD> set conf_ioOri R0
+[08/28 14:49:35      9] <CMD> set fp_core_util 0.800
+[08/28 14:49:35      9] <CMD> set init_assign_buffer 0
+[08/28 14:49:35      9] **WARN: (IMPSYC-6163):	Command 'setDoAssign' is obsolete and will be made private and will be unsupported in future release. To avoid this warning, please remove the obsolete command from your script.
+[08/28 14:49:35      9] <CMD> set conf_in_tran_delay 0.1ps
+[08/28 14:49:35      9] <CMD> set init_import_mode { -keepEmptyModule 1 -treatUndefinedCellAsBbox 0}
+[08/28 14:49:35      9] <CMD> set init_layout_view layout
+[08/28 14:49:35      9] <CMD> set init_abstract_view abstract
+[08/28 14:49:35      9] <CMD> set init_io_file {}
+[08/28 14:49:59      9] <CMD> init_design
+[08/28 14:49:59      9] **ERROR: (IMPSYT-6284):	Failed to open file ../CONFIG/ac18_nnspc_mmmc.view for read.
+[08/28 14:50:28      9] **WARN: (IMPSYC-6163):	Command 'setDoAssign' is obsolete and will be made private and will be unsupported in future release. To avoid this warning, please remove the obsolete command from your script.
+[08/28 14:50:28      9] Reading tech data from OA library 'TECH_C18A6' ...
+[08/28 14:50:28      9] FE units: 0.001 microns/dbu, OA units: 0.001 microns/dbu, Conversion factor: 1
+[08/28 14:50:28      9] **WARN: (IMPOAX-1645):	'minWidth' constraint is not supported on layer 'PC'. This constraint will be ignored by tool.
+[08/28 14:50:28      9] **WARN: (IMPOAX-1645):	'minSpacing' constraint is not supported on layer 'PC'. This constraint will be ignored by tool.
+[08/28 14:50:28      9] Set DBUPerIGU to M2 pitch 560.
+[08/28 14:50:28      9] **WARN: (IMPOAX-1637):	Enclosure and width are supported on routing layers only for a stdViaDef (VIARULE GENERATE).'RX_M1' contains poly layer, enclosure and width values will be ignored by the tool.
+[08/28 14:50:28      9] **WARN: (IMPOAX-1637):	Enclosure and width are supported on routing layers only for a stdViaDef (VIARULE GENERATE).'RX_M1_min' contains poly layer, enclosure and width values will be ignored by the tool.
+[08/28 14:50:28      9] **WARN: (IMPOAX-1637):	Enclosure and width are supported on routing layers only for a stdViaDef (VIARULE GENERATE).'DRX_M1' contains poly layer, enclosure and width values will be ignored by the tool.
+[08/28 14:50:28      9] **WARN: (IMPOAX-1637):	Enclosure and width are supported on routing layers only for a stdViaDef (VIARULE GENERATE).'PC_M1' contains poly layer, enclosure and width values will be ignored by the tool.
+[08/28 14:50:28      9] **WARN: (IMPOAX-1637):	Enclosure and width are supported on routing layers only for a stdViaDef (VIARULE GENERATE).'DPC_M1' contains poly layer, enclosure and width values will be ignored by the tool.
+[08/28 14:50:28      9] LEFDefaultRouteSpec(LDRS) is read from rule 'LEFDefaultRouteSpec' and library 'TECH_C18A6'. Only default vias, routing layers, pitch, routing width, routing direction, layer offset, wire extension constraints are read from it and rest of rules are read from foundry constraint group.
+[08/28 14:50:28      9] Reading OA reference library 'CORELIB' ...
+[08/28 14:50:29      9] **WARN: (IMPOAX-738):	Non-Default Rule 'VSRDefaultSetup' has already been defined in Innovus. Its contents will be skipped.
+[08/28 14:50:29      9] **WARN: (IMPOAX-741):	Site 'ams018Site' has already been defined in Innovus, the contents will be skipped.
+[08/28 14:50:29      9] **WARN: (IMPOAX-741):	Site 'ams018Site3B' has already been defined in Innovus, the contents will be skipped.
+[08/28 14:50:29      9] **WARN: (IMPOAX-741):	Site 'ams018Site7tr' has already been defined in Innovus, the contents will be skipped.
+[08/28 14:50:29      9] **WARN: (IMPOAX-741):	Site 'ams018twSite' has already been defined in Innovus, the contents will be skipped.
+[08/28 14:50:29      9] **WARN: (IMPOAX-741):	Site 'ams018SiteLL' has already been defined in Innovus, the contents will be skipped.
+[08/28 14:50:29      9] **WARN: (IMPOAX-741):	Site 'amsIoSite' has already been defined in Innovus, the contents will be skipped.
+[08/28 14:50:29      9] **WARN: (IMPOAX-741):	Site 'amsIoSiteC' has already been defined in Innovus, the contents will be skipped.
+[08/28 14:50:29      9] **WARN: (IMPOAX-741):	Site 'amsCornerSite' has already been defined in Innovus, the contents will be skipped.
+[08/28 14:50:29      9] **WARN: (IMPOAX-741):	Site 'amsCornerSiteC' has already been defined in Innovus, the contents will be skipped.
+[08/28 14:50:29     10] 
+[08/28 14:50:29     10] viaInitial starts at Mon Aug 28 14:50:29 2017
+viaInitial ends at Mon Aug 28 14:50:29 2017
+Loading view definition file from ../CONFIG/ac18_nnspc_mmmc.view
+[08/28 14:50:29     10] *** End library_loading (cpu=0.00min, mem=0.0M, fe_cpu=0.17min, fe_real=3.90min, fe_mem=505.8M) ***
+[08/28 14:50:29     10] **ERROR: (IMPSYT-16038):	The specified file '../VERILOG/nnspc.v' could not be found. Check your file system, correct the file name.
+[08/28 14:50:29     10] **ERROR: (IMPIMEX-7008):	No netlist files are found.
+[08/28 14:53:09     10] 
+[08/28 14:53:09     10] *** Memory Usage v#1 (Current mem = 505.773M, initial mem = 151.129M) ***
+[08/28 14:53:09     10] 
+[08/28 14:53:09     10] *** Summary of all messages that are not suppressed in this session:
+[08/28 14:53:09     10] Severity  ID               Count  Summary                                  
+[08/28 14:53:09     10] ERROR     IMPSYT-6284          2  Failed to open file %s for read.         
+[08/28 14:53:09     10] ERROR     IMPSYT-16038         1  The specified file '%s' could not be fou...
+[08/28 14:53:09     10] WARNING   IMPSYC-6163          2  Command '%s' is obsolete and will be mad...
+[08/28 14:53:09     10] WARNING   IMPOAX-1637          5  Enclosure and width are supported on rou...
+[08/28 14:53:09     10] WARNING   IMPOAX-1645          2  '%s' constraint is not supported on laye...
+[08/28 14:53:09     10] WARNING   IMPOAX-738           1  Non-Default Rule '%s' has already been d...
+[08/28 14:53:09     10] WARNING   IMPOAX-741           9  Site '%s' has already been defined in %s...
+[08/28 14:53:09     10] ERROR     IMPIMEX-7008         1  No netlist files are found.              
+[08/28 14:53:09     10] *** Message Summary: 19 warning(s), 4 error(s)
+[08/28 14:53:09     10] 
+[08/28 14:53:09     10] --- Ending "Innovus" (totcpu=0:00:10.2, real=0:06:34, mem=505.8M) ---

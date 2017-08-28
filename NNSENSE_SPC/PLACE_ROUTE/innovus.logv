@@ -1,0 +1,41 @@
+[08/28 14:32:13      0] 
+[08/28 14:32:13      0] Cadence Innovus(TM) Implementation System.
+[08/28 14:32:13      0] Copyright 2015 Cadence Design Systems, Inc. All rights reserved worldwide.
+[08/28 14:32:13      0] 
+[08/28 14:32:13      0] Version:	v15.28-s017_1, built Mon Mar 20 11:28:11 PDT 2017
+[08/28 14:32:13      0] Options:	
+[08/28 14:32:13      0] Date:		Mon Aug 28 14:32:13 2017
+[08/28 14:32:13      0] Host:		s2424.it.kth.se (x86_64 w/Linux 2.6.18-417.el5) (8cores*32cpus*Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz 20480KB)
+[08/28 14:32:13      0] OS:		CentOS release 5.11 (Final)
+[08/28 14:32:13      0] 
+[08/28 14:32:13      0] License:
+[08/28 14:32:13      0] 		invs	Innovus Implementation System	15.2	checkout succeeded
+[08/28 14:32:13      0] 		8 CPU jobs allowed with the current license(s). Use setMultiCpuUsage to set your required CPU count.
+[08/28 14:32:22      7] @(#)CDS: Innovus v15.28-s017_1 (64bit) 03/20/2017 11:28 (Linux 2.6.18-194.el5)
+[08/28 14:32:22      7] @(#)CDS: NanoRoute 15.28-s017_1 NR170225-1338/15_28-UB (database version 2.30, 317.6.1) {superthreading v1.26}
+[08/28 14:32:22      7] @(#)CDS: AAE 15.28-s003 (64bit) 03/20/2017 (Linux 2.6.18-194.el5)
+[08/28 14:32:22      7] @(#)CDS: CTE 15.28-s006_1 () Feb 16 2017 04:38:28 ( )
+[08/28 14:32:22      7] @(#)CDS: SYNTECH 15.28-s002_1 () Feb 14 2017 21:05:47 ( )
+[08/28 14:32:22      7] @(#)CDS: CPE v15.28-s003
+[08/28 14:32:22      7] @(#)CDS: IQRC/TQRC 15.1.4-s213 (64bit) Tue Feb  9 17:31:28 PST 2016 (Linux 2.6.18-194.el5)
+[08/28 14:32:22      7] @(#)CDS: OA 22.50-p036 Tue Nov  3 09:29:52 2015
+[08/28 14:32:22      7] @(#)CDS: SGN 10.10-p124 (19-Aug-2014) (64 bit executable)
+[08/28 14:32:22      7] @(#)CDS: RCDB 11.7
+[08/28 14:32:22      7] --- Running on s2424.it.kth.se (x86_64 w/Linux 2.6.18-417.el5) (8cores*32cpus*Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz 20480KB) ---
+[08/28 14:32:22      7] Create and set the environment variable TMPDIR to /tmp/innovus_temp_27879_s2424.it.kth.se_saul_UX3vRE.
+
+[08/28 14:32:22      7] 
+[08/28 14:32:22      7] **INFO:  MMMC transition support version v31-84 
+[08/28 14:32:22      7] 
+[08/28 14:32:22      7] <CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+[08/28 14:32:22      7] <CMD> suppressMessage ENCEXT-2799
+[08/28 14:32:23      7] <CMD> getDrawView
+[08/28 14:32:23      7] <CMD> loadWorkspace -name Physical
+[08/28 14:32:23      7] <CMD> win
+[08/28 14:33:05     16] invalid command name "amsHelp"
+[08/28 14:33:21     19] couldn't read file "amsSetup.tcl": no such file or directory
+[08/28 14:33:47     22] 
+[08/28 14:33:47     22] *** Memory Usage v#1 (Current mem = 440.965M, initial mem = 151.129M) ***
+[08/28 14:33:47     22] *** Message Summary: 0 warning(s), 0 error(s)
+[08/28 14:33:47     22] 
+[08/28 14:33:47     22] --- Ending "Innovus" (totcpu=0:00:22.1, real=0:01:34, mem=441.0M) ---

@@ -1,0 +1,3 @@
+DEFINE cmrf7sf                 $AMS_DIR/cds/HK_AC18/cmrf7sf
+DEFINE TECH_C18A6              $AMS_DIR/cds/HK_AC18/TECH_C18A6
+DEFINE CORELIB                 $AMS_DIR/cds/HK_AC18/CORELIB

@@ -1,0 +1,497 @@
+#######################################################
+#                                                     
+#  Innovus Command Logging File                     
+#  Created on Mon Aug 28 15:54:31 2017                
+#                                                     
+#######################################################
+
+#@(#)CDS: Innovus v15.28-s017_1 (64bit) 03/20/2017 11:28 (Linux 2.6.18-194.el5)
+#@(#)CDS: NanoRoute 15.28-s017_1 NR170225-1338/15_28-UB (database version 2.30, 317.6.1) {superthreading v1.26}
+#@(#)CDS: AAE 15.28-s003 (64bit) 03/20/2017 (Linux 2.6.18-194.el5)
+#@(#)CDS: CTE 15.28-s006_1 () Feb 16 2017 04:38:28 ( )
+#@(#)CDS: SYNTECH 15.28-s002_1 () Feb 14 2017 21:05:47 ( )
+#@(#)CDS: CPE v15.28-s003
+#@(#)CDS: IQRC/TQRC 15.1.4-s213 (64bit) Tue Feb  9 17:31:28 PST 2016 (Linux 2.6.18-194.el5)
+
+setCheckMode -tapeOut true
+setDelayCalMode -siAware false
+setGenerateViaMode -auto true
+setExtractRCMode -lefTechFileMap /pkg/AMS414/cds/HK_AC18/LEF/ac18a6/qrclaymap.ccl
+suppressMessage IMPFP-3961
+suppressMessage TECHLIB-436
+set defHierChar /
+set init_oa_ref_lib {TECH_C18A6  CORELIB  }
+set init_verilog ../VERILOG/nnspc.v
+set init_top_cell nnspc
+set init_pwr_net {vdd!  }
+set init_gnd_net {gnd! subc!  }
+set init_mmmc_file ../CONFIG/ac18_nnspc_mmmc.view
+set conf_gen_footprint 1
+set fp_core_to_left 50.000000
+set fp_core_to_right 50.000000
+set fp_core_to_top 50.000000
+set fp_core_to_bottom 50.000000
+set lsgOCPGainMult 1.000000
+set conf_ioOri R0
+set fp_core_util 0.800
+set init_assign_buffer 0
+set conf_in_tran_delay 0.1ps
+set init_import_mode { -keepEmptyModule 1 -treatUndefinedCellAsBbox 0}
+set init_layout_view layout
+set init_abstract_view abstract
+set init_io_file {}
+print {---# TCL Script amsSetup.tcl loaded}
+print {---# TCL Script ../SCRIPTS/amsVoltusSetup.tcl loaded}
+print {---# Additional ams TCL Procedures loaded}
+getVersion
+getVersion
+print {### austriamicrosystems HitKit-Utilities Menu added}
+set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+suppressMessage ENCEXT-2799
+getDrawView
+loadWorkspace -name Physical
+win
+restoreDesign -cellview {nnspc_OADB nnspc pins}
+selectPhyPin 41.5800 0.0000 41.8600 0.7200 3 {NSEL[1]}
+deselectAll
+set_analysis_view -setup $maxviewList -hold $minviewList
+timeDesign -prepPlace -expandedViews
+timeDesign -prePlace -expandedViews
+fit
+setEndCapMode -reset
+setEndCapMode -boundary_tap false
+setNanoRouteMode -quiet -routeTopRoutingLayer 6
+setNanoRouteMode -quiet -droutePostRouteWidenWireRule VSRDefaultSetup
+setUsefulSkewMode -maxSkew false -noBoundary false -useCells {DLY4X1 DLY3X1 DLY2X1 DLY1X1 CLKBUFX32 CLKBUFX24 CLKBUFX16 CLKBUFX12 CLKBUFX10 CLKBUFX8 CLKBUFX6 CLKBUFX4 CLKBUFX3 CLKBUFX2 BUFX32 BUFX24 BUFX16 BUFX12 BUFX8 BUFX6 BUFX4 BUFX3 BUFX2 INVX32 INVX24 INVX16 INVX12 INVX8 INVX6 INVX4 INVX3 INVX2 INVX1 INVXL CLKINVX32 CLKINVX24 CLKINVX16 CLKINVX12 CLKINVX10 CLKINVX8 CLKINVX6 CLKINVX4 CLKINVX3 CLKINVX2 CLKINVX1} -maxAllowedDelay 1
+setPlaceMode -fp false
+placeDesign -noPrePlaceOpt
+selectWire 12.3200 21.9200 70.5600 22.8800 1 vdd!
+setLayerPreference pinblock -isVisible 1
+setLayerPreference pinstdCell -isVisible 1
+setLayerPreference pinio -isVisible 1
+setLayerPreference piniopin -isVisible 1
+setLayerPreference pinother -isVisible 1
+setLayerPreference obsblock -isVisible 1
+setLayerPreference obsstdCell -isVisible 1
+setLayerPreference obsio -isVisible 1
+setLayerPreference obsother -isVisible 1
+setLayerPreference layoutObj -isVisible 1
+setLayerPreference pinblock -isSelectable 1
+setLayerPreference pinstdCell -isSelectable 1
+setLayerPreference pinio -isSelectable 1
+setLayerPreference piniopin -isSelectable 1
+setLayerPreference pinother -isSelectable 1
+setLayerPreference obsblock -isSelectable 1
+setLayerPreference obsstdCell -isSelectable 1
+setLayerPreference obsio -isSelectable 1
+setLayerPreference obsother -isSelectable 1
+setLayerPreference layoutObj -isSelectable 1
+setDrawView place
+deselectAll
+restoreDesign -cellview {nnspc_OADB nnspc pins}
+setEndCapMode -reset
+setEndCapMode -boundary_tap false
+setNanoRouteMode -quiet -routeTopRoutingLayer 6
+setNanoRouteMode -quiet -droutePostRouteWidenWireRule VSRDefaultSetup
+setUsefulSkewMode -maxSkew false -noBoundary false -useCells {DLY4X1 DLY3X1 DLY2X1 DLY1X1 CLKBUFX32 CLKBUFX24 CLKBUFX16 CLKBUFX12 CLKBUFX10 CLKBUFX8 CLKBUFX6 CLKBUFX4 CLKBUFX3 CLKBUFX2 BUFX32 BUFX24 BUFX16 BUFX12 BUFX8 BUFX6 BUFX4 BUFX3 BUFX2 INVX32 INVX24 INVX16 INVX12 INVX8 INVX6 INVX4 INVX3 INVX2 INVX1 INVXL CLKINVX32 CLKINVX24 CLKINVX16 CLKINVX12 CLKINVX10 CLKINVX8 CLKINVX6 CLKINVX4 CLKINVX3 CLKINVX2 CLKINVX1} -maxAllowedDelay 1
+setPlaceMode -reset
+setPlaceMode -congEffort auto -timingDriven 1 -modulePlan 1 -clkGateAware 0 -powerDriven 0 -ignoreScan 1 -reorderScan 1 -ignoreSpare 1 -placeIOPins 0 -moduleAwareSpare 0 -checkPinLayerForAccess {  1 } -preserveRouting 0 -rmAffectedRouting 0 -checkRoute 0 -swapEEQ 0
+setEndCapMode -reset
+setEndCapMode -boundary_tap false
+setUsefulSkewMode -maxSkew false -noBoundary false -useCells {DLY4X1 DLY3X1 DLY2X1 DLY1X1 CLKBUFX32 CLKBUFX24 CLKBUFX16 CLKBUFX12 CLKBUFX10 CLKBUFX8 CLKBUFX6 CLKBUFX4 CLKBUFX3 CLKBUFX2 BUFX32 BUFX24 BUFX16 BUFX12 BUFX8 BUFX6 BUFX4 BUFX3 BUFX2 INVX32 INVX24 INVX16 INVX12 INVX8 INVX6 INVX4 INVX3 INVX2 INVX1 INVXL CLKINVX32 CLKINVX24 CLKINVX16 CLKINVX12 CLKINVX10 CLKINVX8 CLKINVX6 CLKINVX4 CLKINVX3 CLKINVX2 CLKINVX1} -maxAllowedDelay 1
+setPlaceMode -reset
+setPlaceMode -congEffort auto -timingDriven 1 -modulePlan 1 -clkGateAware 0 -powerDriven 0 -ignoreScan 1 -reorderScan 1 -ignoreSpare 1 -placeIOPins 0 -moduleAwareSpare 0 -checkPinLayerForAccess {  1 } -preserveRouting 0 -rmAffectedRouting 0 -checkRoute 0 -swapEEQ 0
+setPlaceMode -fp false
+placeDesign -noPrePlaceOpt -incremental
+set_analysis_view -setup $maxviewList -hold $minviewList
+timeDesign -prePlace -expandedViews
+setEndCapMode -reset
+setEndCapMode -boundary_tap false
+setUsefulSkewMode -maxSkew false -noBoundary false -useCells {BUFX2 BUFX3 BUFX4 BUFX6 BUFX8 BUFX12 BUFX16 BUFX24 BUFX32 CLKBUFX2 CLKBUFX3 CLKBUFX4 CLKBUFX6 CLKBUFX8 CLKBUFX10 CLKBUFX12 CLKBUFX16 CLKBUFX24 CLKBUFX32 DLY1X1 DLY2X1 DLY3X1 DLY4X1 CLKINVX1 CLKINVX2 CLKINVX3 CLKINVX4 CLKINVX6 CLKINVX8 CLKINVX10 CLKINVX12 CLKINVX16 CLKINVX24 CLKINVX32 INVXL INVX1 INVX2 INVX3 INVX4 INVX6 INVX8 INVX12 INVX16 INVX24 INVX32} -maxAllowedDelay 1
+setPlaceMode -reset
+setPlaceMode -congEffort auto -timingDriven 1 -modulePlan 1 -clkGateAware 0 -powerDriven 0 -ignoreScan 1 -reorderScan 1 -ignoreSpare 1 -placeIOPins 0 -moduleAwareSpare 0 -checkPinLayerForAccess {  1 } -preserveRouting 0 -rmAffectedRouting 0 -checkRoute 0 -swapEEQ 0
+setEndCapMode -reset
+setEndCapMode -boundary_tap false
+setUsefulSkewMode -maxSkew false -noBoundary false -useCells {BUFX2 BUFX3 BUFX4 BUFX6 BUFX8 BUFX12 BUFX16 BUFX24 BUFX32 CLKBUFX2 CLKBUFX3 CLKBUFX4 CLKBUFX6 CLKBUFX8 CLKBUFX10 CLKBUFX12 CLKBUFX16 CLKBUFX24 CLKBUFX32 DLY1X1 DLY2X1 DLY3X1 DLY4X1 CLKINVX1 CLKINVX2 CLKINVX3 CLKINVX4 CLKINVX6 CLKINVX8 CLKINVX10 CLKINVX12 CLKINVX16 CLKINVX24 CLKINVX32 INVXL INVX1 INVX2 INVX3 INVX4 INVX6 INVX8 INVX12 INVX16 INVX24 INVX32} -maxAllowedDelay 1
+setPlaceMode -reset
+setPlaceMode -congEffort auto -timingDriven 1 -modulePlan 1 -clkGateAware 0 -powerDriven 0 -ignoreScan 1 -reorderScan 1 -ignoreSpare 1 -placeIOPins 0 -moduleAwareSpare 0 -checkPinLayerForAccess {  1 } -preserveRouting 0 -rmAffectedRouting 0 -checkRoute 0 -swapEEQ 0
+setPlaceMode -fp true
+placeDesign
+setDrawView place
+setDrawView ameba
+setDrawView fplan
+setDrawView ameba
+setDrawView place
+fit
+restoreDesign -cellview {nnspc_OADB nnspc pins}
+setEndCapMode -reset
+setEndCapMode -boundary_tap false
+setNanoRouteMode -quiet -routeTopRoutingLayer 6
+setNanoRouteMode -quiet -droutePostRouteWidenWireRule VSRDefaultSetup
+setUsefulSkewMode -maxSkew false -noBoundary false -useCells {DLY4X1 DLY3X1 DLY2X1 DLY1X1 CLKBUFX32 CLKBUFX24 CLKBUFX16 CLKBUFX12 CLKBUFX10 CLKBUFX8 CLKBUFX6 CLKBUFX4 CLKBUFX3 CLKBUFX2 BUFX32 BUFX24 BUFX16 BUFX12 BUFX8 BUFX6 BUFX4 BUFX3 BUFX2 INVX32 INVX24 INVX16 INVX12 INVX8 INVX6 INVX4 INVX3 INVX2 INVX1 INVXL CLKINVX32 CLKINVX24 CLKINVX16 CLKINVX12 CLKINVX10 CLKINVX8 CLKINVX6 CLKINVX4 CLKINVX3 CLKINVX2 CLKINVX1} -maxAllowedDelay 1
+setPlaceMode -reset
+setPlaceMode -congEffort auto -timingDriven 1 -modulePlan 1 -clkGateAware 0 -powerDriven 0 -ignoreScan 1 -reorderScan 1 -ignoreSpare 1 -placeIOPins 0 -moduleAwareSpare 0 -checkPinLayerForAccess {  1 } -preserveRouting 0 -rmAffectedRouting 0 -checkRoute 0 -swapEEQ 0
+setEndCapMode -reset
+setEndCapMode -boundary_tap false
+setUsefulSkewMode -maxSkew false -noBoundary false -useCells {DLY4X1 DLY3X1 DLY2X1 DLY1X1 CLKBUFX32 CLKBUFX24 CLKBUFX16 CLKBUFX12 CLKBUFX10 CLKBUFX8 CLKBUFX6 CLKBUFX4 CLKBUFX3 CLKBUFX2 BUFX32 BUFX24 BUFX16 BUFX12 BUFX8 BUFX6 BUFX4 BUFX3 BUFX2 INVX32 INVX24 INVX16 INVX12 INVX8 INVX6 INVX4 INVX3 INVX2 INVX1 INVXL CLKINVX32 CLKINVX24 CLKINVX16 CLKINVX12 CLKINVX10 CLKINVX8 CLKINVX6 CLKINVX4 CLKINVX3 CLKINVX2 CLKINVX1} -maxAllowedDelay 1
+setPlaceMode -reset
+setPlaceMode -congEffort auto -timingDriven 1 -modulePlan 1 -clkGateAware 0 -powerDriven 0 -ignoreScan 1 -reorderScan 1 -ignoreSpare 1 -placeIOPins 0 -moduleAwareSpare 0 -checkPinLayerForAccess {  1 } -preserveRouting 0 -rmAffectedRouting 0 -checkRoute 0 -swapEEQ 0
+setPlaceMode -fp false
+placeDesign
+setDrawView place
+fit
+restoreDesign -cellview {nnspc_OADB nnspc pins}
+set_analysis_view -setup $maxviewList -hold $minviewList
+timeDesign -prePlace -expandedViews
+print {---# Libray nnspc_OADB already exists
+}
+saveDesign -cellview {nnspc_OADB nnspc pins2}
+print {---#   Saved As OA: nnspc_OADB nnspc pins2
+}
+setEndCapMode -reset
+setEndCapMode -boundary_tap false
+setNanoRouteMode -quiet -routeTopRoutingLayer 6
+setNanoRouteMode -quiet -droutePostRouteWidenWireRule VSRDefaultSetup
+setUsefulSkewMode -maxSkew false -noBoundary false -useCells {DLY4X1 DLY3X1 DLY2X1 DLY1X1 CLKBUFX32 CLKBUFX24 CLKBUFX16 CLKBUFX12 CLKBUFX10 CLKBUFX8 CLKBUFX6 CLKBUFX4 CLKBUFX3 CLKBUFX2 BUFX32 BUFX24 BUFX16 BUFX12 BUFX8 BUFX6 BUFX4 BUFX3 BUFX2 INVX32 INVX24 INVX16 INVX12 INVX8 INVX6 INVX4 INVX3 INVX2 INVX1 INVXL CLKINVX32 CLKINVX24 CLKINVX16 CLKINVX12 CLKINVX10 CLKINVX8 CLKINVX6 CLKINVX4 CLKINVX3 CLKINVX2 CLKINVX1} -maxAllowedDelay 1
+setPlaceMode -reset
+setPlaceMode -congEffort auto -timingDriven 1 -modulePlan 1 -clkGateAware 1 -powerDriven 0 -ignoreScan 1 -reorderScan 1 -ignoreSpare 1 -placeIOPins 0 -moduleAwareSpare 0 -checkPinLayerForAccess {  1 } -preserveRouting 0 -rmAffectedRouting 0 -checkRoute 0 -swapEEQ 0
+setEndCapMode -reset
+setEndCapMode -boundary_tap false
+setUsefulSkewMode -maxSkew false -noBoundary false -useCells {DLY4X1 DLY3X1 DLY2X1 DLY1X1 CLKBUFX32 CLKBUFX24 CLKBUFX16 CLKBUFX12 CLKBUFX10 CLKBUFX8 CLKBUFX6 CLKBUFX4 CLKBUFX3 CLKBUFX2 BUFX32 BUFX24 BUFX16 BUFX12 BUFX8 BUFX6 BUFX4 BUFX3 BUFX2 INVX32 INVX24 INVX16 INVX12 INVX8 INVX6 INVX4 INVX3 INVX2 INVX1 INVXL CLKINVX32 CLKINVX24 CLKINVX16 CLKINVX12 CLKINVX10 CLKINVX8 CLKINVX6 CLKINVX4 CLKINVX3 CLKINVX2 CLKINVX1} -maxAllowedDelay 1
+setPlaceMode -reset
+setPlaceMode -congEffort auto -timingDriven 1 -modulePlan 1 -clkGateAware 1 -powerDriven 0 -ignoreScan 1 -reorderScan 1 -ignoreSpare 1 -placeIOPins 0 -moduleAwareSpare 0 -checkPinLayerForAccess {  1 } -preserveRouting 0 -rmAffectedRouting 0 -checkRoute 0 -swapEEQ 0
+setPlaceMode -fp false
+placeDesign
+setDrawView place
+print {---# Libray nnspc_OADB already exists
+}
+saveDesign -cellview {nnspc_OADB nnspc placed}
+print {---#   Saved As OA: nnspc_OADB nnspc placed
+}
+set_ccopt_mode -cts_target_slew 1.0
+set_ccopt_mode -cts_target_nonleaf_slew 2.0
+set_ccopt_property buffer_cells CLKBU*
+set_ccopt_property inverter_cells CLKIN*
+create_ccopt_clock_tree_spec -immediate
+setCTSMode -routeBottomPreferredLayer M1 -routeLeafBottomPreferredLayer M1 -routeLeafTopPreferredLayer MT -routeTopPreferredLayer MT
+ccopt_design -cts
+report_ccopt_clock_trees -file ../REPORTS/ccopt_postCTS.report
+report_ccopt_skew_groups -file ../REPORTS/ccopt_postCTS_skew.report
+getCTSMode -engine -quiet
+getCTSMode -engine -quiet
+getCTSMode -engine -quiet
+getCTSMode -engine -quiet
+getCTSMode -engine -quiet
+getCTSMode -engine -quiet
+getCTSMode -engine -quiet
+getCTSMode -engine -quiet
+getCTSMode -engine -quiet
+getCTSMode -engine -quiet
+getCTSMode -engine -quiet
+getCTSMode -engine -quiet
+getCTSMode -engine -quiet
+ctd_win -id ctdMain
+print {---# Libray nnspc_OADB already exists
+}
+saveDesign -cellview {nnspc_OADB nnspc cts}
+print {---#   Saved As OA: nnspc_OADB nnspc cts
+}
+get_propagated_clock -clock Clk
+timeDesign -postCTS -expandedViews
+optDesign -postCTS
+timeDesign -postCTS -hold -expandedViews
+timeDesign -postCTS -hold
+print {---# Libray nnspc_OADB already exists
+}
+saveDesign -cellview {nnspc_OADB nnspc opt}
+print {---#   Saved As OA: nnspc_OADB nnspc opt
+}
+setMaxRouteLayer 5
+setNanoRouteMode -quiet -routeInsertAntennaDiode true -routeAntennaCellName ANTENNA
+routeDesign -globalDetail
+print {---# Libray nnspc_OADB already exists
+}
+saveDesign -cellview {nnspc_OADB nnspc routed}
+print {---#   Saved As OA: nnspc_OADB nnspc routed
+}
+addFiller -cell FILLCAPX32 FILLCAPX16 FILLCAPX8 FILLCAPX4 -prefix FILLERCAP
+addFiller -cell FILLCELLX32 FILLCELLX16 FILLCELLX8 FILLCELLX4 FILLCELLX2 FILLCELLX1 -prefix FILLER
+print {---# Libray nnspc_OADB already exists
+}
+saveDesign -cellview {nnspc_OADB nnspc final}
+print {---#   Saved As OA: nnspc_OADB nnspc final
+}
+timeDesign -postRoute -expandedViews
+timeDesign -postRoute -expandedViews -hold
+timeDesign -signoff -expandedViews
+timeDesign -signoff -expandedViews -hold
+getMultiCpuUsage -localCpu
+get_verify_drc_mode -disable_rules -quiet
+get_verify_drc_mode -quiet -area
+get_verify_drc_mode -quiet -layer_range
+get_verify_drc_mode -check_implant -quiet
+get_verify_drc_mode -check_implant_across_rows -quiet
+get_verify_drc_mode -check_ndr_spacing -quiet
+get_verify_drc_mode -check_only -quiet
+get_verify_drc_mode -check_same_via_cell -quiet
+get_verify_drc_mode -exclude_pg_net -quiet
+get_verify_drc_mode -ignore_trial_route -quiet
+get_verify_drc_mode -max_wrong_way_halo -quiet
+get_verify_drc_mode -use_min_spacing_on_block_obs -quiet
+get_verify_drc_mode -limit -quiet
+set_verify_drc_mode -disable_rules {} -check_implant true -check_implant_across_rows false -check_ndr_spacing false -check_same_via_cell false -exclude_pg_net false -ignore_trial_route false -report nnspc.drc.rpt -limit 1000
+verify_drc
+set_verify_drc_mode -area {0 0 0 0}
+verifyConnectivity -type all -error 1000 -warning 50
+verifyProcessAntenna -reportfile nnspc.antenna.rpt -error 1000
+print {#### Available Functions}
+print {---#     - amsDbSetup....................... Setup Database - read Config}
+print {---#     - amsUserGrid...................... Sets the grid for the IO-Cells}
+print {---#     - amsGlobalConnect type............ connects global nets: }
+print {---#                                               type = core | both}
+print {---#     - amsAddEndCaps.................... place Caps}
+print {---#     - amsSetAnalysisView cond conslist.. set Analysis Views}
+print {---#     - amsFillcore ...................... places core filler cells}
+print {---#     - amsFillperi ...................... places periphery filler cells}
+print {---#     - amsRoute router................... run routing with: }
+print {---#                                               router = nano|nanodcv|wroute|wroute2(using 2CPUs)}
+print {---#     - amsWrite postfix dir ............. writes GDS, Verilog NL, SPEF, DB}
+print {---#     - amsWriteSDF4View viewList dir .... write SDF for all analysis views in list}
+print {---#     - amsWriteFinalTiming dir .......... writes final timing data (signoff-SDF,-SPEF,-timingReports)}
+print {---#     - amsZoomTo x y .................... zooms to coordinates x y}
+print {#### }
+add_text -label Cfg_in -alignment centerLeft -orient R90 -height 5 -layer M3 -pt 40.6 69.44
+add_text -label Clk -alignment centerLeft -orient R90 -height 5 -layer M3 -pt 41.16 69.44
+add_text -label Resetn -alignment centerLeft -orient R90 -height 5 -layer M3 -pt 41.72 69.44
+add_text -label {NSEL[4]} -alignment centerLeft -orient R180 -height 5 -layer M3 -pt 45.08 0.36
+add_text -label {NSEL[3]} -alignment centerLeft -orient R180 -height 5 -layer M3 -pt 43.96 0.36
+add_text -label {NSEL[2]} -alignment centerLeft -orient R180 -height 5 -layer M3 -pt 42.84 0.36
+add_text -label {NSEL[1]} -alignment centerLeft -orient R180 -height 5 -layer M3 -pt 41.72 0.36
+add_text -label {NSEL[0]} -alignment centerLeft -orient R180 -height 5 -layer M3 -pt 40.6 0.36
+add_text -label {DAC[3]} -alignment centerLeft -orient R180 -height 5 -layer M3 -pt 39.48 0.36
+add_text -label {DAC[2]} -alignment centerLeft -orient R180 -height 5 -layer M3 -pt 38.36 0.36
+add_text -label {DAC[1]} -alignment centerLeft -orient R180 -height 5 -layer M3 -pt 37.24 0.36
+add_text -label {DAC[0]} -alignment centerLeft -orient R180 -height 5 -layer M3 -pt 36.12 0.36
+add_text -label RE -alignment centerLeft -orient R180 -height 5 -layer M3 -pt 46.2 0.36
+print {---# 13 Port labels added to OA Database}
+print {---# Run following command to save port labels on purpose label in OA}
+print {---#    setOaxMode -textPurpose label}
+setOaxMode -textPurpose label
+print {---# Libray nnspc_OADB already exists
+}
+saveDesign -cellview {nnspc_OADB nnspc final}
+print {---#   Saved As OA: nnspc_OADB nnspc final
+}
+defOut -floorplan -netlist -routing ../FINALDATA/last/nnspc_final.def
+streamOut ../FINALDATA/last/nnspc_final_fe.gds -mapFile ../SNW/gds2.map -libName DesignLib -structureName nnspc -attachInstanceName 13 -attachNetName 13 -stripes 1 -units 1000 -mode ALL
+print {---# 13 Ports found}
+print {---# Port File written: ../FINALDATA/last/nnspc.ports}
+saveNetlist ../FINALDATA/last/nnspc_final.v
+saveNetlist ../FINALDATA/last/nnspc_final_fillcap.v -excludeLeafCell -includePhysicalInst -excludeCellInst { FILLCELLX32 FILLCELLX16 FILLCELLX8 FILLCELLX4 FILLCELLX2 FILLCELLX1  }
+saveNetlist ../FINALDATA/last/nnspc_final_fillcap_pg.v -excludeLeafCell -includePhysicalInst -includePowerGround -excludeCellInst { FILLCELLX32 FILLCELLX16 FILLCELLX8 FILLCELLX4 FILLCELLX2 FILLCELLX1  }
+setExtractRCMode -engine postRoute -effortLevel high
+extractRC
+rcOut -spef ../FINALDATA/last/nnspc_final.spef
+setExtractRCMode -engine postRoute -effortLevel signoff
+extractRC
+rcOut -spef ../FINALDATA/last/nnspc_final_qrc.spef
+print {####    Saved data
+}
+print {---# Save directory: ../FINALDATA/last}
+print {---# DEF           : ../FINALDATA/last/nnspc_final.def}
+print {---# GDSII         : ../FINALDATA/last/nnspc_final_fe.gds}
+print {---# VerilogNL     : ../FINALDATA/last/nnspc_final.v}
+print {---# VerilogNL     : ../FINALDATA/last/nnspc_final_fillcap.v (includes FILLCAPs)}
+print {---# VerilogNL     : ../FINALDATA/last/nnspc_final_fillcap_pg.v (includes FILLCAPs and Power/Ground Connections)}
+print {---# Encounter SPEF: ../FINALDATA/last/nnspc_final.spef}
+print {---# QRC SPEF      : ../FINALDATA/last/nnspc_final_qrc.spef}
+print {---# Port List     : ../FINALDATA/last/nnspc.ports}
+print {#### 
+}
+panPage 0 -1
+zoomBox 47.112 -5.702 41.266 2.829
+restoreDesign -cellview {nnspc_OADB nnspc routed}
+fit
+fit
+fit
+fit
+fit
+setDrawView place
+setDrawView place
+setDrawView fplan
+selectInst g81
+deselectAll
+selectInst CTS_ccl_BUF_Clk_G0_L1_1
+deselectAll
+setDrawView place
+fit
+fit
+addFiller -cell FILLCAPX32 FILLCAPX16 FILLCAPX8 FILLCAPX4 -prefix FILLERCAP
+addFiller -cell FILLCELLX32 FILLCELLX16 FILLCELLX8 FILLCELLX4 FILLCELLX2 FILLCELLX1 -prefix FILLER
+print {---# Libray nnspc_OADB already exists
+}
+saveDesign -cellview {nnspc_OADB nnspc final}
+print {---#   Saved As OA: nnspc_OADB nnspc final
+}
+get_verify_drc_mode -disable_rules -quiet
+get_verify_drc_mode -quiet -area
+get_verify_drc_mode -quiet -layer_range
+get_verify_drc_mode -check_implant -quiet
+get_verify_drc_mode -check_implant_across_rows -quiet
+get_verify_drc_mode -check_ndr_spacing -quiet
+get_verify_drc_mode -check_only -quiet
+get_verify_drc_mode -check_same_via_cell -quiet
+get_verify_drc_mode -exclude_pg_net -quiet
+get_verify_drc_mode -ignore_trial_route -quiet
+get_verify_drc_mode -max_wrong_way_halo -quiet
+get_verify_drc_mode -use_min_spacing_on_block_obs -quiet
+get_verify_drc_mode -limit -quiet
+set_verify_drc_mode -disable_rules {} -check_implant true -check_implant_across_rows false -check_ndr_spacing false -check_same_via_cell false -exclude_pg_net false -ignore_trial_route false -report nnspc.drc.rpt -limit 1000
+verify_drc
+set_verify_drc_mode -area {0 0 0 0}
+verifyConnectivity -type all -error 1000 -warning 50
+add_text -label Cfg_in -alignment centerLeft -orient R90 -height 0.5 -layer M3 -pt 40.6 69.44
+add_text -label Clk -alignment centerLeft -orient R90 -height 0.5 -layer M3 -pt 41.16 69.44
+add_text -label Resetn -alignment centerLeft -orient R90 -height 0.5 -layer M3 -pt 41.72 69.44
+add_text -label {NSEL[4]} -alignment centerLeft -orient R180 -height 0.5 -layer M3 -pt 45.08 0.36
+add_text -label {NSEL[3]} -alignment centerLeft -orient R180 -height 0.5 -layer M3 -pt 43.96 0.36
+add_text -label {NSEL[2]} -alignment centerLeft -orient R180 -height 0.5 -layer M3 -pt 42.84 0.36
+add_text -label {NSEL[1]} -alignment centerLeft -orient R180 -height 0.5 -layer M3 -pt 41.72 0.36
+add_text -label {NSEL[0]} -alignment centerLeft -orient R180 -height 0.5 -layer M3 -pt 40.6 0.36
+add_text -label {DAC[3]} -alignment centerLeft -orient R180 -height 0.5 -layer M3 -pt 39.48 0.36
+add_text -label {DAC[2]} -alignment centerLeft -orient R180 -height 0.5 -layer M3 -pt 38.36 0.36
+add_text -label {DAC[1]} -alignment centerLeft -orient R180 -height 0.5 -layer M3 -pt 37.24 0.36
+add_text -label {DAC[0]} -alignment centerLeft -orient R180 -height 0.5 -layer M3 -pt 36.12 0.36
+add_text -label RE -alignment centerLeft -orient R180 -height 0.5 -layer M3 -pt 46.2 0.36
+print {---# 13 Port labels added to OA Database}
+print {---# Run following command to save port labels on purpose label in OA}
+print {---#    setOaxMode -textPurpose label}
+setOaxMode -textPurpose label
+print {---# Libray nnspc_OADB already exists
+}
+saveDesign -cellview {nnspc_OADB nnspc final}
+print {---#   Saved As OA: nnspc_OADB nnspc final
+}
+defOut -floorplan -netlist -routing ../FINALDATA/last/nnspc_final.def
+streamOut ../FINALDATA/last/nnspc_final_fe.gds -mapFile ../SNW/gds2.map -libName DesignLib -structureName nnspc -attachInstanceName 13 -attachNetName 13 -stripes 1 -units 1000 -mode ALL
+print {---# 13 Ports found}
+print {---# Port File written: ../FINALDATA/last/nnspc.ports}
+saveNetlist ../FINALDATA/last/nnspc_final.v
+saveNetlist ../FINALDATA/last/nnspc_final_fillcap.v -excludeLeafCell -includePhysicalInst -excludeCellInst { FILLCELLX32 FILLCELLX16 FILLCELLX8 FILLCELLX4 FILLCELLX2 FILLCELLX1  }
+saveNetlist ../FINALDATA/last/nnspc_final_fillcap_pg.v -excludeLeafCell -includePhysicalInst -includePowerGround -excludeCellInst { FILLCELLX32 FILLCELLX16 FILLCELLX8 FILLCELLX4 FILLCELLX2 FILLCELLX1  }
+setExtractRCMode -engine postRoute -effortLevel high
+extractRC
+rcOut -spef ../FINALDATA/last/nnspc_final.spef
+setExtractRCMode -engine postRoute -effortLevel signoff
+extractRC
+rcOut -spef ../FINALDATA/last/nnspc_final_qrc.spef
+print {####    Saved data
+}
+print {---# Save directory: ../FINALDATA/last}
+print {---# DEF           : ../FINALDATA/last/nnspc_final.def}
+print {---# GDSII         : ../FINALDATA/last/nnspc_final_fe.gds}
+print {---# VerilogNL     : ../FINALDATA/last/nnspc_final.v}
+print {---# VerilogNL     : ../FINALDATA/last/nnspc_final_fillcap.v (includes FILLCAPs)}
+print {---# VerilogNL     : ../FINALDATA/last/nnspc_final_fillcap_pg.v (includes FILLCAPs and Power/Ground Connections)}
+print {---# Encounter SPEF: ../FINALDATA/last/nnspc_final.spef}
+print {---# QRC SPEF      : ../FINALDATA/last/nnspc_final_qrc.spef}
+print {---# Port List     : ../FINALDATA/last/nnspc.ports}
+print {#### 
+}
+selectInst {DAC_reg[3]}
+fit
+get_delay_corner corner_$corner -rc_corner
+set_analysis_view -setup $viewList -hold $viewList
+setExtractRCMode -engine postRoute -effortLevel signoff -coupled false
+extractRC
+rcOut -spef ../FINALDATA/last/SPEF/ams_rc_corner_minCaR.spef -rc_corner ams_rc_corner_minCaR
+print {---# SPEF file written: ../FINALDATA/last/SPEF/ams_rc_corner_minCaR.spef}
+timeDesign -signoff -expandedViews -outDir ../FINALDATA/last/timingReports/min
+timeDesign -reportOnly -hold -expandedViews -outDir ../FINALDATA/last/timingReports/min
+print {---# Analysis View: func_min
+}
+write_sdf -version 3.0 -prec 3 -edges check_edge  -force_calculation -average_typ_delays  -recompute_parallel_arcs  -view $view $filename
+print {---# Created SDF: ../FINALDATA/last/SDF/nnspc_func_min.sdf
+}
+print {---# Analysis View: test_min
+}
+write_sdf -version 3.0 -prec 3 -edges check_edge  -force_calculation -average_typ_delays  -recompute_parallel_arcs  -view $view $filename
+print {---# Created SDF: ../FINALDATA/last/SDF/nnspc_test_min.sdf
+}
+get_delay_corner corner_$corner -rc_corner
+set_analysis_view -setup $viewList -hold $viewList
+setExtractRCMode -engine postRoute -effortLevel signoff -coupled false
+extractRC
+rcOut -spef ../FINALDATA/last/SPEF/ams_rc_corner_maxCaR.spef -rc_corner ams_rc_corner_maxCaR
+print {---# SPEF file written: ../FINALDATA/last/SPEF/ams_rc_corner_maxCaR.spef}
+timeDesign -signoff -expandedViews -outDir ../FINALDATA/last/timingReports/max
+timeDesign -reportOnly -hold -expandedViews -outDir ../FINALDATA/last/timingReports/max
+print {---# Analysis View: func_max
+}
+write_sdf -version 3.0 -prec 3 -edges check_edge  -force_calculation -average_typ_delays  -recompute_parallel_arcs  -view $view $filename
+print {---# Created SDF: ../FINALDATA/last/SDF/nnspc_func_max.sdf
+}
+print {---# Analysis View: test_max
+}
+write_sdf -version 3.0 -prec 3 -edges check_edge  -force_calculation -average_typ_delays  -recompute_parallel_arcs  -view $view $filename
+print {---# Created SDF: ../FINALDATA/last/SDF/nnspc_test_max.sdf
+}
+get_delay_corner corner_$corner -rc_corner
+set_analysis_view -setup $viewList -hold $viewList
+setExtractRCMode -engine postRoute -effortLevel signoff -coupled false
+extractRC
+rcOut -spef ../FINALDATA/last/SPEF/ams_rc_corner_typ.spef -rc_corner ams_rc_corner_typ
+print {---# SPEF file written: ../FINALDATA/last/SPEF/ams_rc_corner_typ.spef}
+timeDesign -signoff -expandedViews -outDir ../FINALDATA/last/timingReports/typ
+timeDesign -reportOnly -hold -expandedViews -outDir ../FINALDATA/last/timingReports/typ
+print {---# Analysis View: func_typ
+}
+write_sdf -version 3.0 -prec 3 -edges check_edge  -force_calculation -average_typ_delays  -recompute_parallel_arcs  -view $view $filename
+print {---# Created SDF: ../FINALDATA/last/SDF/nnspc_func_typ.sdf
+}
+print {---# Analysis View: test_typ
+}
+write_sdf -version 3.0 -prec 3 -edges check_edge  -force_calculation -average_typ_delays  -recompute_parallel_arcs  -view $view $filename
+print {---# Created SDF: ../FINALDATA/last/SDF/nnspc_test_typ.sdf
+}
+get_delay_corner corner_$corner -rc_corner
+set_analysis_view -setup $viewList -hold $viewList
+setExtractRCMode -engine postRoute -effortLevel signoff -coupled false
+extractRC
+rcOut -spef ../FINALDATA/last/SPEF/ams_rc_corner_maxCaR2.spef -rc_corner ams_rc_corner_maxCaR2
+print {---# SPEF file written: ../FINALDATA/last/SPEF/ams_rc_corner_maxCaR2.spef}
+timeDesign -signoff -expandedViews -outDir ../FINALDATA/last/timingReports/min2
+timeDesign -reportOnly -hold -expandedViews -outDir ../FINALDATA/last/timingReports/min2
+print {---# Analysis View: func_min2
+}
+write_sdf -version 3.0 -prec 3 -edges check_edge  -force_calculation -average_typ_delays  -recompute_parallel_arcs  -view $view $filename
+print {---# Created SDF: ../FINALDATA/last/SDF/nnspc_func_min2.sdf
+}
+print {---# Analysis View: test_min2
+}
+write_sdf -version 3.0 -prec 3 -edges check_edge  -force_calculation -average_typ_delays  -recompute_parallel_arcs  -view $view $filename
+print {---# Created SDF: ../FINALDATA/last/SDF/nnspc_test_min2.sdf
+}
+get_delay_corner corner_$corner -rc_corner
+set_analysis_view -setup $viewList -hold $viewList
+setExtractRCMode -engine postRoute -effortLevel signoff -coupled false
+extractRC
+rcOut -spef ../FINALDATA/last/SPEF/ams_rc_corner_minCaR2.spef -rc_corner ams_rc_corner_minCaR2
+print {---# SPEF file written: ../FINALDATA/last/SPEF/ams_rc_corner_minCaR2.spef}
+timeDesign -signoff -expandedViews -outDir ../FINALDATA/last/timingReports/max2
+timeDesign -reportOnly -hold -expandedViews -outDir ../FINALDATA/last/timingReports/max2
+print {---# Analysis View: func_max2
+}
+write_sdf -version 3.0 -prec 3 -edges check_edge  -force_calculation -average_typ_delays  -recompute_parallel_arcs  -view $view $filename
+print {---# Created SDF: ../FINALDATA/last/SDF/nnspc_func_max2.sdf
+}
+print {---# Analysis View: test_max2
+}
+write_sdf -version 3.0 -prec 3 -edges check_edge  -force_calculation -average_typ_delays  -recompute_parallel_arcs  -view $view $filename
+print {---# Created SDF: ../FINALDATA/last/SDF/nnspc_test_max2.sdf
+}
+print ---#------------------------------------------------------
+print {---# Final Timing Files written into: ../FINALDATA/last}
+print {---#    SDF}
+print {---#    SPEF}
+print {---#    timingReports}

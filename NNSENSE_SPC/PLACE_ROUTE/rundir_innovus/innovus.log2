@@ -1,0 +1,1810 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2015 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v15.28-s017_1, built Mon Mar 20 11:28:11 PDT 2017
+Options:	
+Date:		Mon Aug 28 15:21:32 2017
+Host:		s2424.it.kth.se (x86_64 w/Linux 2.6.18-417.el5) (8cores*32cpus*Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz 20480KB)
+OS:		CentOS release 5.11 (Final)
+
+License:
+		invs	Innovus Implementation System	15.2	checkout succeeded
+		8 CPU jobs allowed with the current license(s). Use setMultiCpuUsage to set your required CPU count.
+Sourcing startup file ./enc.tcl
+<CMD> setCheckMode -tapeOut true
+<CMD> setDelayCalMode -siAware false
+<CMD> setGenerateViaMode -auto true
+<CMD> setExtractRCMode -lefTechFileMap /pkg/AMS414/cds/HK_AC18/LEF/ac18a6/qrclaymap.ccl
+<CMD> suppressMessage IMPFP-3961
+<CMD> suppressMessage TECHLIB-436
+<CMD> set defHierChar /
+<CMD> set init_oa_ref_lib {TECH_C18A6  CORELIB  }
+<CMD> set init_verilog ../VERILOG/nnspc.v
+<CMD> set init_top_cell nnspc
+<CMD> set init_pwr_net {vdd!  }
+<CMD> set init_gnd_net {gnd! subc!  }
+<CMD> set init_mmmc_file ../CONFIG/ac18_nnspc_mmmc.view
+<CMD> set conf_gen_footprint 1
+<CMD> set fp_core_to_left 50.000000
+<CMD> set fp_core_to_right 50.000000
+<CMD> set fp_core_to_top 50.000000
+<CMD> set fp_core_to_bottom 50.000000
+<CMD> set lsgOCPGainMult 1.000000
+<CMD> set conf_ioOri R0
+<CMD> set fp_core_util 0.800
+<CMD> set init_assign_buffer 0
+**WARN: (IMPSYC-6163):	Command 'setDoAssign' is obsolete and will be made private and will be unsupported in future release. To avoid this warning, please remove the obsolete command from your script.
+<CMD> set conf_in_tran_delay 0.1ps
+<CMD> set init_import_mode { -keepEmptyModule 1 -treatUndefinedCellAsBbox 0}
+<CMD> set init_layout_view layout
+<CMD> set init_abstract_view abstract
+<CMD> set init_io_file {}
+<CMD_INTERNAL> print {---# TCL Script amsSetup.tcl loaded}
+---# TCL Script amsSetup.tcl loaded
+<CMD_INTERNAL> print {---# TCL Script ../SCRIPTS/amsVoltusSetup.tcl loaded}
+---# TCL Script ../SCRIPTS/amsVoltusSetup.tcl loaded
+<CMD_INTERNAL> print {---# Additional ams TCL Procedures loaded}
+---# Additional ams TCL Procedures loaded
+<CMD> getVersion
+<CMD> getVersion
+<CMD_INTERNAL> print {### austriamicrosystems HitKit-Utilities Menu added}
+### austriamicrosystems HitKit-Utilities Menu added
+
+**INFO:  MMMC transition support version v31-84 
+
+<CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+<CMD> suppressMessage ENCEXT-2799
+<CMD> getDrawView
+<CMD> loadWorkspace -name Physical
+<CMD> win
+<CMD> setGenerateViaMode -auto true
+<CMD> setDesignMode -process 180
+Applying the recommended capacitance filtering threshold values for 180nm process node: total_c_th=5, relative_c_th=0.03 and coupling_c_th=3.
+	These values will be used by all post-route extraction engines, including tQuantus, IQRC and Quantus QRC extraction.
+	For postRoute effortLevel low extraction, the coupling_c_th value will be used only when the -capFilterMode parameter of the setExtractRCMode command is set to relAndCoup or relOrCoup. Default value of -capFilterMode parameter in postRoute extraction effortLevel low is relOnly.
+	The accuracy mode for postRoute effortLevel low extraction will be set to 'standard'.
+	Default value for EffortLevel(-effortLevel option of the setExtractRCMode) in postRoute extraction mode is 'low'.
+Updating process node dependent CCOpt properties for the 180nm process node.
+<CMD> init_design
+---# Setup MMMC
+---#
+---#   rc_corner        : ams_rc_corner_typ
+---#   rc_corner        : ams_rc_corner_maxCaR
+---#   rc_corner        : ams_rc_corner_minCaR
+---#   rc_corner        : ams_rc_corner_maxCaR2
+---#   rc_corner        : ams_rc_corner_minCaR2
+---#   lib-sets         : libs_min, libs_max, libs_typ
+---#   constraint-modes : func test
+---#   delay-corners    : corner_min, corner_max, corner_typ
+---#   analysis-views   : 
+---#          #  Name: func_min  # Constraint-Mode: func # Corner: corner_min
+---#          #  Name: func_max  # Constraint-Mode: func # Corner: corner_max
+---#          #  Name: func_typ  # Constraint-Mode: func # Corner: corner_typ
+---#          #  Name: func_min2  # Constraint-Mode: func # Corner: corner_min2
+---#          #  Name: func_max2  # Constraint-Mode: func # Corner: corner_max2
+---#          #  Name: test_min  # Constraint-Mode: test # Corner: corner_min
+---#          #  Name: test_max  # Constraint-Mode: test # Corner: corner_max
+---#          #  Name: test_typ  # Constraint-Mode: test # Corner: corner_typ
+---#          #  Name: test_min2  # Constraint-Mode: test # Corner: corner_min2
+---#          #  Name: test_max2  # Constraint-Mode: test # Corner: corner_max2
+---#
+---# use following command to show analysis view definitions
+         report_analysis_view 
+
+ams_rc_corner_minCaR2 ams_rc_corner_maxCaR2 ams_rc_corner_typ ams_rc_corner_minCaR ams_rc_corner_maxCaR
+**WARN: (IMPSYC-6163):	Command 'setDoAssign' is obsolete and will be made private and will be unsupported in future release. To avoid this warning, please remove the obsolete command from your script.
+Reading tech data from OA library 'TECH_C18A6' ...
+FE units: 0.001 microns/dbu, OA units: 0.001 microns/dbu, Conversion factor: 1
+**WARN: (IMPOAX-1645):	'minWidth' constraint is not supported on layer 'PC'. This constraint will be ignored by tool.
+**WARN: (IMPOAX-1645):	'minSpacing' constraint is not supported on layer 'PC'. This constraint will be ignored by tool.
+Set DBUPerIGU to M2 pitch 560.
+**WARN: (IMPOAX-1637):	Enclosure and width are supported on routing layers only for a stdViaDef (VIARULE GENERATE).'RX_M1' contains poly layer, enclosure and width values will be ignored by the tool.
+**WARN: (IMPOAX-1637):	Enclosure and width are supported on routing layers only for a stdViaDef (VIARULE GENERATE).'RX_M1_min' contains poly layer, enclosure and width values will be ignored by the tool.
+**WARN: (IMPOAX-1637):	Enclosure and width are supported on routing layers only for a stdViaDef (VIARULE GENERATE).'DRX_M1' contains poly layer, enclosure and width values will be ignored by the tool.
+**WARN: (IMPOAX-1637):	Enclosure and width are supported on routing layers only for a stdViaDef (VIARULE GENERATE).'PC_M1' contains poly layer, enclosure and width values will be ignored by the tool.
+**WARN: (IMPOAX-1637):	Enclosure and width are supported on routing layers only for a stdViaDef (VIARULE GENERATE).'DPC_M1' contains poly layer, enclosure and width values will be ignored by the tool.
+LEFDefaultRouteSpec(LDRS) is read from rule 'LEFDefaultRouteSpec' and library 'TECH_C18A6'. Only default vias, routing layers, pitch, routing width, routing direction, layer offset, wire extension constraints are read from it and rest of rules are read from foundry constraint group.
+Reading OA reference library 'CORELIB' ...
+**WARN: (IMPOAX-738):	Non-Default Rule 'VSRDefaultSetup' has already been defined in Innovus. Its contents will be skipped.
+**WARN: (IMPOAX-741):	Site 'ams018Site' has already been defined in Innovus, the contents will be skipped.
+**WARN: (IMPOAX-741):	Site 'ams018Site3B' has already been defined in Innovus, the contents will be skipped.
+**WARN: (IMPOAX-741):	Site 'ams018Site7tr' has already been defined in Innovus, the contents will be skipped.
+**WARN: (IMPOAX-741):	Site 'ams018twSite' has already been defined in Innovus, the contents will be skipped.
+**WARN: (IMPOAX-741):	Site 'ams018SiteLL' has already been defined in Innovus, the contents will be skipped.
+**WARN: (IMPOAX-741):	Site 'amsIoSite' has already been defined in Innovus, the contents will be skipped.
+**WARN: (IMPOAX-741):	Site 'amsIoSiteC' has already been defined in Innovus, the contents will be skipped.
+**WARN: (IMPOAX-741):	Site 'amsCornerSite' has already been defined in Innovus, the contents will be skipped.
+**WARN: (IMPOAX-741):	Site 'amsCornerSiteC' has already been defined in Innovus, the contents will be skipped.
+
+viaInitial starts at Mon Aug 28 15:22:14 2017
+viaInitial ends at Mon Aug 28 15:22:14 2017
+Loading view definition file from ../CONFIG/ac18_nnspc_mmmc.view
+Reading libs_max timing library '/pkg/AMS414/liberty/ac18_1.8V/ac18_CORELIB_WC.lib' ...
+Read 483 cells in library 'ac18_CORELIB_WC' 
+Reading libs_min timing library '/pkg/AMS414/liberty/ac18_1.8V/ac18_CORELIB_BC.lib' ...
+Read 483 cells in library 'ac18_CORELIB_BC' 
+*** End library_loading (cpu=0.00min, mem=0.0M, fe_cpu=0.18min, fe_real=0.73min, fe_mem=520.7M) ***
+*** Begin netlist parsing (mem=520.7M) ***
+Created 483 new cells from 2 timing libraries.
+Reading netlist ...
+Backslashed names will retain backslash and a trailing blank character.
+Reading verilog netlist '../VERILOG/nnspc.v'
+
+*** Memory Usage v#1 (Current mem = 520.746M, initial mem = 151.129M) ***
+*** End netlist parsing (cpu=0:00:00.0, real=0:00:00.0, mem=520.7M) ***
+Set top cell to nnspc.
+Hooked 966 DB cells to tlib cells.
+Starting recursive module instantiation check.
+No recursion found.
+Building hierarchical netlist for Cell nnspc ...
+*** Netlist is unique.
+** info: there are 967 modules.
+** info: there are 37 stdCell insts.
+
+*** Memory Usage v#1 (Current mem = 558.504M, initial mem = 151.129M) ***
+*info: set bottom ioPad orient R0
+Adjusting Core to Left to: 50.4000. Core to Bottom to: 50.4000.
+**WARN: (EMS-42):	Message (IMPFP-3961) has been suppressed from output.
+Generated pitch 0.56 in AM is different from 5.04 defined in technology file in unpreferred direction.
+Set Default Net Delay as 1000 ps.
+Set Default Net Load as 0.5 pF. 
+Set Default Input Pin Transition as 0.1 ps.
+Initializing multi-corner RC extraction with 2 active RC Corners ...
+**WARN: (IMPEXT-6202):	In addition to the technology file, the capacitance table file is specified for all the RC corners. If the technology file  is already specified for all the RC corners, the capacitance table file is not required for preRoute and postRoute extraction. In a new session, the capacitance table files can be removed from the create_rc_corner command to enable the technology file to be used for preRoute and postRoute (effort level medium/high/signoff) extraction engines.
+Type 'man IMPEXT-6202' for more detail.
+Reading Encrypted Capacitance Table File /pkg/AMS414/cds/HK_AC18/LEF/ac18a6/ac18a6-worst.capTable ...
+Cap table was created using Encounter 13.22-s020_1.
+Process name: ac18a6-worst.
+Set Shrink Factor to 1.00000
+Allocated an empty WireEdgeEnlargement table in ams_rc_corner_maxCaR [6].
+Allocated an empty WireEdgeEnlargement table in ams_rc_corner_maxCaR [6].
+Decrypted 59392 characters.
+Reading Encrypted Capacitance Table File /pkg/AMS414/cds/HK_AC18/LEF/ac18a6/ac18a6-best.capTable ...
+Cap table was created using Encounter 13.22-s020_1.
+Process name: ac18a6-best.
+Set Shrink Factor to 1.00000
+Allocated an empty WireEdgeEnlargement table in ams_rc_corner_minCaR [6].
+Allocated an empty WireEdgeEnlargement table in ams_rc_corner_minCaR [6].
+Decrypted 41984 characters.
+Importing multi-corner RC tables ... 
+Summary of Active RC-Corners : 
+ 
+ Analysis View: func_max
+    RC-Corner Name        : ams_rc_corner_maxCaR
+    RC-Corner Index       : 0
+    RC-Corner Temperature : 150 Celsius
+    RC-Corner Cap Table   : '/pkg/AMS414/cds/HK_AC18/LEF/ac18a6/ac18a6-worst.capTable'
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner Technology file: '/pkg/AMS414/assura/ac18a6/ac18a6/QRC-worst/qrcTechFile'
+ 
+ Analysis View: test_max
+    RC-Corner Name        : ams_rc_corner_maxCaR
+    RC-Corner Index       : 0
+    RC-Corner Temperature : 150 Celsius
+    RC-Corner Cap Table   : '/pkg/AMS414/cds/HK_AC18/LEF/ac18a6/ac18a6-worst.capTable'
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner Technology file: '/pkg/AMS414/assura/ac18a6/ac18a6/QRC-worst/qrcTechFile'
+ 
+ Analysis View: func_min
+    RC-Corner Name        : ams_rc_corner_minCaR
+    RC-Corner Index       : 1
+    RC-Corner Temperature : -50 Celsius
+    RC-Corner Cap Table   : '/pkg/AMS414/cds/HK_AC18/LEF/ac18a6/ac18a6-best.capTable'
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner Technology file: '/pkg/AMS414/assura/ac18a6/ac18a6/QRC-best/qrcTechFile'
+ 
+ Analysis View: test_min
+    RC-Corner Name        : ams_rc_corner_minCaR
+    RC-Corner Index       : 1
+    RC-Corner Temperature : -50 Celsius
+    RC-Corner Cap Table   : '/pkg/AMS414/cds/HK_AC18/LEF/ac18a6/ac18a6-best.capTable'
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner Technology file: '/pkg/AMS414/assura/ac18a6/ac18a6/QRC-best/qrcTechFile'
+*Info: initialize multi-corner CTS.
+Reading timing constraints file '../CONSTRAINTS/nnspc_test.sdc' ...
+Current (total cpu=0:00:11.7, real=0:00:45.0, peak res=277.5M, current mem=677.4M)
+nnspc
+**WARN: (TCLNL-330):	set_input_delay on clock root 'Clk' is not supported. You should use the -source option to set_clock_latency to provide this offset. You can also use the global timing_allow_input_delay_on_clock_source to allow set_input_delay assertion to have an effect on clock source paths beginning at this clock root. (File ../CONSTRAINTS/nnspc_test.sdc, Line 28).
+
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+INFO (CTE): Reading of timing constraints file ../CONSTRAINTS/nnspc_test.sdc completed, with 1 WARNING
+WARNING (CTE-25): Line: 9, 10 of File ../CONSTRAINTS/nnspc_test.sdc : Skipped unsupported command: set_units
+
+
+Ending "Constraint file reading stats" (total cpu=0:00:00.0, real=0:00:00.0, peak res=294.1M, current mem=694.6M)
+Current (total cpu=0:00:11.7, real=0:00:45.0, peak res=294.1M, current mem=694.6M)
+Reading timing constraints file '../CONSTRAINTS/nnspc_func.sdc' ...
+Current (total cpu=0:00:11.7, real=0:00:45.0, peak res=294.2M, current mem=694.6M)
+nnspc
+**WARN: (TCLNL-330):	set_input_delay on clock root 'Clk' is not supported. You should use the -source option to set_clock_latency to provide this offset. You can also use the global timing_allow_input_delay_on_clock_source to allow set_input_delay assertion to have an effect on clock source paths beginning at this clock root. (File ../CONSTRAINTS/nnspc_func.sdc, Line 28).
+
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+**WARN: (EMS-27):	Message (IMPCTE-290) has exceeded the current message display limit of 20.
+To increase the message display limit, refer to the product command reference manual.
+INFO (CTE): Reading of timing constraints file ../CONSTRAINTS/nnspc_func.sdc completed, with 1 WARNING
+WARNING (CTE-25): Line: 9, 10 of File ../CONSTRAINTS/nnspc_func.sdc : Skipped unsupported command: set_units
+
+
+Ending "Constraint file reading stats" (total cpu=0:00:00.0, real=0:00:00.0, peak res=294.6M, current mem=696.1M)
+Current (total cpu=0:00:11.8, real=0:00:45.0, peak res=294.6M, current mem=696.1M)
+Total number of combinational cells: 384
+Total number of sequential cells: 85
+Total number of tristate cells: 14
+Total number of level shifter cells: 0
+Total number of power gating cells: 0
+Total number of isolation cells: 0
+Total number of power switch cells: 0
+Total number of pulse generator cells: 0
+Total number of always on buffers: 0
+Total number of retention cells: 0
+List of usable buffers: BUFX3 BUFX2 BUFX6 BUFX4 BUFX8 BUFX12 BUFX16 BUFX24 BUFX32 CLKBUFX2 CLKBUFX4 CLKBUFX3 CLKBUFX6 CLKBUFX8 CLKBUFX10 CLKBUFX12 CLKBUFX16 CLKBUFX24 CLKBUFX32
+Total number of usable buffers: 19
+List of unusable buffers: BUF2_ESDIF
+Total number of unusable buffers: 1
+List of usable inverters: CLKINVX2 CLKINVX1 CLKINVX4 CLKINVX3 CLKINVX6 CLKINVX8 CLKINVX10 CLKINVX12 CLKINVX16 CLKINVX24 CLKINVX32 INVXL INVX1 INVX3 INVX2 INVX6 INVX4 INVX8 INVX12 INVX16 INVX24 INVX32
+Total number of usable inverters: 22
+List of unusable inverters:
+Total number of unusable inverters: 0
+List of identified usable delay cells: DLY1X1 DLY2X1 DLY3X1 DLY4X1
+Total number of identified usable delay cells: 4
+List of identified unusable delay cells:
+Total number of identified unusable delay cells: 0
+Start generating vias ...
+**WARN: (IMPRM-143):	ENCLOSURE is not defined on cut layer "V1" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+**WARN: (IMPRM-143):	ENCLOSURE is not defined on cut layer "V2" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+**WARN: (IMPRM-143):	ENCLOSURE is not defined on cut layer "V3" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+**WARN: (IMPRM-143):	ENCLOSURE is not defined on cut layer "V4" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+**WARN: (IMPRM-143):	ENCLOSURE is not defined on cut layer "FT" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+Generating vias for default rule ...
+**WARN: (IMPRM-143):	ENCLOSURE is not defined on cut layer "V1" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+**WARN: (IMPRM-143):	ENCLOSURE is not defined on cut layer "V2" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+**WARN: (IMPRM-143):	ENCLOSURE is not defined on cut layer "V3" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+**WARN: (IMPRM-143):	ENCLOSURE is not defined on cut layer "V4" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+**WARN: (IMPRM-143):	ENCLOSURE is not defined on cut layer "FT" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+Total 49 vias inserted to default rule.
+Via generation for default rule completed.
+Generating vias for nondefault rule VSRDefaultSetup ...
+**WARN: (IMPRM-143):	ENCLOSURE for NONDEFAULTRULE VSRDefaultSetup is not defined on cut layer "V1" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+**WARN: (IMPRM-143):	ENCLOSURE for NONDEFAULTRULE VSRDefaultSetup is not defined on cut layer "V2" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+**WARN: (IMPRM-143):	ENCLOSURE for NONDEFAULTRULE VSRDefaultSetup is not defined on cut layer "V3" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+**WARN: (IMPRM-143):	ENCLOSURE for NONDEFAULTRULE VSRDefaultSetup is not defined on cut layer "V4" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+**WARN: (IMPRM-143):	ENCLOSURE for NONDEFAULTRULE VSRDefaultSetup is not defined on cut layer "FT" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+**WARN: (IMPRM-143):	ENCLOSURE for NONDEFAULTRULE VSRDefaultSetup is not defined on cut layer "V1" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+**WARN: (IMPRM-143):	ENCLOSURE for NONDEFAULTRULE VSRDefaultSetup is not defined on cut layer "V2" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+**WARN: (IMPRM-143):	ENCLOSURE for NONDEFAULTRULE VSRDefaultSetup is not defined on cut layer "V3" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+**WARN: (IMPRM-143):	ENCLOSURE for NONDEFAULTRULE VSRDefaultSetup is not defined on cut layer "V4" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+**WARN: (IMPRM-143):	ENCLOSURE for NONDEFAULTRULE VSRDefaultSetup is not defined on cut layer "FT" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+Total 42 vias added to nondefault rule VSRDefaultSetup
+Via generation for nondefault rule VSRDefaultSetup completed.
+Via generation completed.
+
+*** Summary of all messages that are not suppressed in this session:
+Severity  ID               Count  Summary                                  
+WARNING   IMPEXT-6202          1  In addition to the technology file, the ...
+WARNING   IMPSYC-6163          1  Command '%s' is obsolete and will be mad...
+WARNING   IMPRM-143           20  %s is not defined on cut layer "%s" in t...
+WARNING   IMPOAX-1637          5  Enclosure and width are supported on rou...
+WARNING   IMPOAX-1645          2  '%s' constraint is not supported on laye...
+WARNING   IMPOAX-738           1  Non-Default Rule '%s' has already been d...
+WARNING   IMPOAX-741           9  Site '%s' has already been defined in %s...
+WARNING   IMPCTE-290          24  Could not locate cell %s in any library ...
+*** Message Summary: 63 warning(s), 0 error(s)
+
+<CMD> setCTSMode -bottomPreferredLayer 1
+<CMD> setMaxRouteLayer 5
+<CMD> setExtractRCMode -lefTechFileMap /pkg/AMS414/cds/HK_AC18/LEF/ac18a6/qrclaymap.ccl
+<CMD> checkDesign -all -outDir ../REPORTS/checkDesignDbSetup
+Estimated cell power/ground rail width = 0.630 um
+Begin checking placement ... (start mem=705.1M, init mem=705.1M)
+*info: Recommended don't use cell = 0           
+*info: Placed = 0             
+*info: Unplaced = 37          
+Placement Density:80.49%(1840/2286)
+Finished checkPlace (cpu: total=0:00:00.0, vio checks=0:00:00.0; mem=705.1M)
+############################################################################
+# Innovus Netlist Design Rule Check
+# Mon Aug 28 15:22:17 2017
+
+############################################################################
+Design: nnspc
+
+------ Design Summary:
+Total Standard Cell Number   (cells) : 37
+Total Block Cell Number      (cells) : 0
+Total I/O Pad Cell Number    (cells) : 0
+Total Standard Cell Area     ( um^2) : 1840.20
+Total Block Cell Area        ( um^2) : 0.00
+Total I/O Pad Cell Area      ( um^2) : 0.00
+
+------ Design Statistics:
+
+Number of Instances            : 37
+Number of Nets                 : 68
+Average number of Pins per Net : 2.57
+Maximum number of Pins in Net  : 26
+
+------ I/O Port summary
+
+Number of Primary I/O Ports    : 13
+Number of Input Ports          : 3
+Number of Output Ports         : 10
+Number of Bidirectional Ports  : 0
+Number of Power/Ground Ports   : 0
+Number of Floating Ports                     *: 0
+Number of Ports Connected to Multiple Pads   *: 0
+Number of Ports Connected to Core Instances   : 13
+
+------ Design Rule Checking:
+
+Number of Output Pins connect to Power/Ground *: 0
+Number of Insts with Input Pins tied together ?: 0
+Number of TieHi/Lo term nets not connected to instance's PG terms ?: 0
+Number of Input/InOut Floating Pins            : 0
+Number of Output Floating Pins                 : 0
+Number of Output Term Marked TieHi/Lo         *: 0
+
+Number of nets with tri-state drivers          : 0
+Number of nets with parallel drivers           : 0
+Number of nets with multiple drivers           : 0
+Number of nets with no driver (No FanIn)       : 0
+Number of Output Floating nets (No FanOut)     : 24
+Number of High Fanout nets (>50)               : 0
+Checking routing tracks.....
+Checking other grids.....
+Checking routing blockage.....
+Checking components.....
+Checking IO Pins.....
+Unplaced Io Pins = 13 
+Checking constraints (guide/region/fence).....
+Checking groups.....
+
+Checking Ptn Pins .....
+Checking Ptn Core Box.....
+
+Checking Preroutes.....
+No. of regular pre-routes not on tracks : 0 
+ Design check done.
+Report saved in file ../REPORTS/checkDesignDbSetup/nnspc.main.htm.ascii.
+*** Message Summary: 0 warning(s), 0 error(s)
+
+<CMD> check_timing -verbose  > $filename2
+#################################################################################
+# Design Stage: PreRoute
+# Design Name: nnspc
+# Design Mode: 180nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: No SPEF/RCDB
+# Signoff Settings: SI Off 
+#################################################################################
+Calculate delays in BcWc mode...
+Calculate delays in BcWc mode...
+**WARN: (IMPTS-403):	Delay calculation was forced to extrapolate table data outside of the characterized range. In some cases, extrapolation can reduce the accuracy of the delay calculation. You can enable more detailed reporting of these cases by enabling the command 'setDelayCalMode -reportOutBound true'.
+Type 'man IMPTS-403' for more detail.
+End delay calculation. (MEM=887.754 CPU=0:00:00.0 REAL=0:00:00.0)
+*** CDM Built up (cpu=0:00:00.9  real=0:00:01.0  mem= 887.8M) ***
+<CMD_INTERNAL> print {#### }
+#### 
+<CMD_INTERNAL> print {---# CheckDesign Result: ../REPORTS/checkDesignDbSetup/nnspc.main.htm}
+---# CheckDesign Result: ../REPORTS/checkDesignDbSetup/nnspc.main.htm
+<CMD_INTERNAL> print {---# CheckTiming Result: ../REPORTS/checkDesignDbSetup/nnspc.checkTiming}
+---# CheckTiming Result: ../REPORTS/checkDesignDbSetup/nnspc.checkTiming
+<CMD_INTERNAL> print {#### }
+#### 
+<CMD> setPreference ConstraintUserXGrid 0.01
+<CMD> setPreference ConstraintUserXOffset 0.01
+<CMD> setPreference ConstraintUserYGrid 0.01
+<CMD> setPreference ConstraintUserYOffset 0.01
+<CMD> setPreference SnapAllCorners 1
+<CMD> setPreference BlockSnapRule 2
+**WARN: (IMPSYT-3004):	Preference BlockSnapRule for Snap Macros/Blackboxes is obsolete and will be removed in future release.To avoid this warning and to ensure compatibility with future releases, please remove the obsolete preference from your script.
+<CMD> snapFPlanIO -usergrid
+<CMD> getIoFlowFlag
+<CMD> setIoFlowFlag 0
+<CMD> floorPlan -site ams018Site -r 0.894321766562 0.70 12 12 12 12
+Generated pitch 0.56 in AM is different from 5.04 defined in technology file in unpreferred direction.
+**WARN: (IMPFP-325):	Floorplan of the design is resized. All current floorplan objects are automatically derived based on specified new floorplan. This may change blocks, fixed standard cells, existing routes and blockages.
+<CMD> uiSetTool select
+<CMD> getIoFlowFlag
+<CMD> fit
+<CMD> set sprCreateIeRingNets {}
+<CMD> set sprCreateIeRingLayers {}
+<CMD> set sprCreateIeRingWidth 1.0
+<CMD> set sprCreateIeRingSpacing 1.0
+<CMD> set sprCreateIeRingOffset 1.0
+<CMD> set sprCreateIeRingThreshold 1.0
+<CMD> set sprCreateIeRingJogDistance 1.0
+<CMD> clearGlobalNets
+<CMD> globalNetConnect vdd! -type pgpin -pin vdd! -inst * -module {}
+<CMD_INTERNAL> print {---# GlobalConnect all vdd! pins to net vdd!}
+---# GlobalConnect all vdd! pins to net vdd!
+<CMD> globalNetConnect gnd! -type pgpin -pin gnd! -inst * -module {}
+<CMD_INTERNAL> print {---# GlobalConnect all gnd! pins to net gnd!}
+---# GlobalConnect all gnd! pins to net gnd!
+<CMD_INTERNAL> print {---# Libray nnspc_OADB already exists
+}
+---# Libray nnspc_OADB already exists
+
+<CMD> saveDesign -cellview {nnspc_OADB nnspc loaded}
+----- oaOut ---------------------------
+Saving OA database: Lib: nnspc_OADB, Cell: nnspc, View: loaded
+FE units: 0.001 microns/dbu, OA units: 0.001 microns/dbu, Conversion factor: 1
+Special routes: 0 strips and 0 vias are crated in OA database.
+Created 37 insts; 74 instTerms; 68 nets; 0 routes.
+TIMER: Write OA to disk: 0h 0m  0.00s cpu {0h 0m 0s elapsed} Memory = 0.0
+TIMER: Purge OA from memory: 0h 0m  0.00s cpu {0h 0m 0s elapsed} Memory = 0.0
+TIMER: oaOut total process: 0h 0m  0.02s cpu {0h 0m 0s elapsed} Memory = 0.0
+Saving AAE Data ...
+Saving preference file /home/saul/projects/DIGIMP/NNSENSE_SPC/PLACE_ROUTE/OADB/nnspc_OADB/nnspc/loaded/inn_data/gui.pref.tcl ...
+Saving mode setting ...
+Saving global file ...
+Saving thumbnail file...
+*** Message Summary: 0 warning(s), 0 error(s)
+
+<CMD_INTERNAL> print {---#   Saved As OA: nnspc_OADB nnspc loaded
+}
+---#   Saved As OA: nnspc_OADB nnspc loaded
+
+<CMD> addRing -skip_via_on_wire_shape Noshape -skip_via_on_pin Standardcell -stacked_via_top_layer AM -type core_rings -jog_distance 2.52 -threshold 2.52 -nets {gnd! vdd!} -follow core -stacked_via_bottom_layer M1 -layer {bottom M1 top M1 right M2 left M2} -width 5 -spacing {bottom 0.6 top 0.6 right 0.4 left 0.4} -offset 2.52
+<CMD> setViaGenMode -symmetrical_via_only true
+'setViaGenMode -symmetrical_via_only true' is set by default for this OA design. 
+'setViaGenMode -parameterized_via_only true' is set by default for this OA design. 
+<CMD> setViaGenMode -parameterized_via_only true
+-parameterized_via_only is set to 1. ViaGen will generate parameterized vias only, which means the DEF syntax of generated vias is with +VIARULE.
+
+**WARN: (IMPPP-220):	The power planner does not create core rings outside the design boundary. Check the design boundary, or specify valid offsets.
+**WARN: (IMPPP-4051):	Fail to add rings. Gaps among IO cells may exist. Execute command addIoFiller to fill gaps among cells before addRing.
+*** Ending Ring Generation (totcpu: 0:00:00.0,real: 0:00:00.0, mem: 887.8M) ***
+<CMD> setLayerPreference pinblock -isVisible 1
+<CMD> setLayerPreference pinstdCell -isVisible 1
+<CMD> setLayerPreference pinio -isVisible 1
+<CMD> setLayerPreference piniopin -isVisible 1
+<CMD> setLayerPreference pinother -isVisible 1
+<CMD> setLayerPreference obsblock -isVisible 1
+<CMD> setLayerPreference obsstdCell -isVisible 1
+<CMD> setLayerPreference obsio -isVisible 1
+<CMD> setLayerPreference obsother -isVisible 1
+<CMD> setLayerPreference layoutObj -isVisible 1
+<CMD> setLayerPreference pinblock -isSelectable 1
+<CMD> setLayerPreference pinstdCell -isSelectable 1
+<CMD> setLayerPreference pinio -isSelectable 1
+<CMD> setLayerPreference piniopin -isSelectable 1
+<CMD> setLayerPreference pinother -isSelectable 1
+<CMD> setLayerPreference obsblock -isSelectable 1
+<CMD> setLayerPreference obsstdCell -isSelectable 1
+<CMD> setLayerPreference obsio -isSelectable 1
+<CMD> setLayerPreference obsother -isSelectable 1
+<CMD> setLayerPreference layoutObj -isSelectable 1
+<CMD> setDrawView place
+<CMD> setDrawView ameba
+<CMD> setDrawView fplan
+<CMD> setDrawView ameba
+<CMD> setDrawView place
+<CMD> getCTSMode -engine -quiet
+<CMD> getCTSMode -engine -quiet
+<CMD> getCTSMode -engine -quiet
+<CMD> getCTSMode -engine -quiet
+<CMD> getCTSMode -engine -quiet
+<CMD> getCTSMode -engine -quiet
+<CMD> getCTSMode -engine -quiet
+<CMD> getCTSMode -engine -quiet
+<CMD> getCTSMode -engine -quiet
+<CMD> getCTSMode -engine -quiet
+<CMD> getCTSMode -engine -quiet
+<CMD> getCTSMode -engine -quiet
+<CMD> getCTSMode -engine -quiet
+<CMD> addRing -skip_via_on_wire_shape Noshape -skip_via_on_pin Standardcell -stacked_via_top_layer AM -type core_rings -jog_distance 2.52 -threshold 2.52 -nets {gnd! vdd!} -follow core -stacked_via_bottom_layer M1 -layer {bottom M1 top M1 right M2 left M2} -width 5 -spacing {bottom 0.6 top 0.6 right 0.4 left 0.4} -offset 2.52
+
+**WARN: (IMPPP-220):	The power planner does not create core rings outside the design boundary. Check the design boundary, or specify valid offsets.
+**WARN: (IMPPP-4051):	Fail to add rings. Gaps among IO cells may exist. Execute command addIoFiller to fill gaps among cells before addRing.
+*** Ending Ring Generation (totcpu: 0:00:00.0,real: 0:00:00.0, mem: 887.8M) ***
+<CMD> addRing -skip_via_on_wire_shape Noshape -skip_via_on_pin Standardcell -stacked_via_top_layer AM -type core_rings -jog_distance 2.52 -threshold 2.52 -nets {gnd! vdd!} -follow core -stacked_via_bottom_layer M1 -layer {bottom M1 top M1 right M2 left M2} -width 4 -spacing {bottom 0.6 top 0.6 right 0.4 left 0.4} -offset 2.52
+
+Ring generation is complete; vias are now being generated.
+The power planner created 8 wires.
+<CMD_INTERNAL> editPushUndo
+*** Ending Ring Generation (totcpu: 0:00:00.0,real: 0:00:00.0, mem: 887.8M) ***
+<CMD> sroute -connect { blockPin padPin padRing corePin floatingStripe } -layerChangeRange { M1(1) AM(6) } -blockPinTarget { nearestTarget } -padPinPortConnect { allPort oneGeom } -padPinTarget { nearestTarget } -corePinTarget { firstAfterRowEnd } -floatingStripeTarget { blockring padring ring stripe ringpin blockpin followpin } -allowJogging 1 -crossoverViaLayerRange { M1(1) AM(6) } -nets { vdd! gnd! } -allowLayerChange 1 -blockPin useLef -targetViaLayerRange { M1(1) AM(6) }
+*** Begin SPECIAL ROUTE on Mon Aug 28 15:28:57 2017 ***
+SPECIAL ROUTE ran on directory: /home/saul/projects/DIGIMP/NNSENSE_SPC/PLACE_ROUTE/rundir_innovus
+SPECIAL ROUTE ran on machine: s2424.it.kth.se (Linux 2.6.18-417.el5 Xeon 2.40Ghz)
+
+Begin option processing ...
+srouteConnectPowerBump set to false
+routeSelectNet set to "vdd! gnd!"
+routeSpecial set to true
+srouteBlockPin set to "useLef"
+srouteBottomLayerLimit set to 1
+srouteBottomTargetLayerLimit set to 1
+srouteConnectConverterPin set to false
+srouteCrossoverViaBottomLayer set to 1
+srouteCrossoverViaTopLayer set to 6
+srouteFloatingStripeTarget set to "blockring padring ring stripe ringpin blockpin followpin"
+srouteFollowCorePinEnd set to 3
+srouteJogControl set to "preferWithChanges differentLayer"
+sroutePadPinAllPorts set to true
+sroutePreserveExistingRoutes set to true
+srouteRoutePowerBarPortOnBothDir set to true
+srouteStopBlockPin set to "nearestTarget"
+srouteTopLayerLimit set to 6
+srouteTopTargetLayerLimit set to 6
+End option processing: cpu: 0:00:00, real: 0:00:00, peak: 1815.00 megs.
+
+Reading DB technology information...
+Finished reading DB technology information.
+Reading floorplan and netlist information...
+Finished reading floorplan and netlist information.
+Read in 13 layers, 6 routing layers, 1 overlap layer
+Read in 2 nondefault rules, 0 used
+Read in 483 macros, 12 used
+Read in 9 components
+  9 core components: 9 unplaced, 0 placed, 0 fixed
+Read in 13 logical pins
+Read in 13 nets
+Read in 3 special nets, 2 routed
+Read in 18 terminals
+2 nets selected.
+
+Begin power routing ...
+**WARN: (IMPSR-1254):	Cannot find any block pin of net vdd!. Check netlist, or change option to include the pin.
+**WARN: (IMPSR-1256):	Cannot find any CORE class pad pin of net vdd!. Change routing area or layer to include the expected pin, or check netlist, or change port class in the technology file.
+Type 'man IMPSR-1256' for more detail.
+Cannot find any AREAIO class pad pin of net vdd!. Check net list, or change port class in the technology file, or change option to include pin in given range.
+**WARN: (IMPSR-1254):	Cannot find any block pin of net gnd!. Check netlist, or change option to include the pin.
+**WARN: (IMPSR-1256):	Cannot find any CORE class pad pin of net gnd!. Change routing area or layer to include the expected pin, or check netlist, or change port class in the technology file.
+Type 'man IMPSR-1256' for more detail.
+Cannot find any AREAIO class pad pin of net gnd!. Check net list, or change port class in the technology file, or change option to include pin in given range.
+CPU time for FollowPin 0 seconds
+CPU time for FollowPin 0 seconds
+  Number of IO ports routed: 0
+  Number of Block ports routed: 0
+  Number of Stripe ports routed: 0
+  Number of Core ports routed: 20
+  Number of Pad ports routed: 0
+  Number of Power Bump ports routed: 0
+  Number of Followpin connections: 10
+End power routing: cpu: 0:00:00, real: 0:00:01, peak: 1827.00 megs.
+
+
+
+ Begin updating DB with routing results ...
+ Updating DB with 55 via definition ...Extracting standard cell pins and blockage ...... 
+Pin and blockage extraction finished
+
+
+sroute post-processing starts at Mon Aug 28 15:28:58 2017
+The viaGen is rebuilding shadow vias for net gnd!.
+sroute post-processing ends at Mon Aug 28 15:28:58 2017
+
+sroute post-processing starts at Mon Aug 28 15:28:58 2017
+The viaGen is rebuilding shadow vias for net vdd!.
+sroute post-processing ends at Mon Aug 28 15:28:58 2017
+sroute: Total CPU time used = 0:0:0
+sroute: Total Real time used = 0:0:1
+sroute: Total Memory used = 10.30 megs
+sroute: Total Peak Memory used = 858.01 megs
+<CMD> getMultiCpuUsage -localCpu
+<CMD> get_verify_drc_mode -disable_rules -quiet
+<CMD> get_verify_drc_mode -quiet -area
+<CMD> get_verify_drc_mode -quiet -layer_range
+<CMD> get_verify_drc_mode -check_implant -quiet
+<CMD> get_verify_drc_mode -check_implant_across_rows -quiet
+<CMD> get_verify_drc_mode -check_ndr_spacing -quiet
+<CMD> get_verify_drc_mode -check_only -quiet
+<CMD> get_verify_drc_mode -check_same_via_cell -quiet
+<CMD> get_verify_drc_mode -exclude_pg_net -quiet
+<CMD> get_verify_drc_mode -ignore_trial_route -quiet
+<CMD> get_verify_drc_mode -max_wrong_way_halo -quiet
+<CMD> get_verify_drc_mode -use_min_spacing_on_block_obs -quiet
+<CMD> get_verify_drc_mode -limit -quiet
+<CMD> set_verify_drc_mode -disable_rules {} -check_implant true -check_implant_across_rows false -check_ndr_spacing false -check_same_via_cell false -exclude_pg_net false -ignore_trial_route false -report nnspc.drc.rpt -limit 1000
+<CMD> verify_drc
+ *** Starting Verify DRC (MEM: 858.0) ***
+
+  VERIFY DRC ...... Starting Verification
+  VERIFY DRC ...... Initializing
+  VERIFY DRC ...... Deleting Existing Violations
+  VERIFY DRC ...... Creating Sub-Areas
+  VERIFY DRC ...... Using new threading
+  VERIFY DRC ...... Sub-Area : 1 of 1
+  VERIFY DRC ...... Sub-Area : 1 complete 0 Viols.
+
+  Verification Complete : 0 Viols.
+
+ *** End Verify DRC (CPU: 0:00:00.1  ELAPSED TIME: 0.00  MEM: 95.9M) ***
+
+<CMD> set_verify_drc_mode -area {0 0 0 0}
+<CMD_INTERNAL> print {---# Libray nnspc_OADB already exists
+}
+---# Libray nnspc_OADB already exists
+
+<CMD> saveDesign -cellview {nnspc_OADB nnspc floowplan}
+----- oaOut ---------------------------
+Saving OA database: Lib: nnspc_OADB, Cell: nnspc, View: floowplan
+FE units: 0.001 microns/dbu, OA units: 0.001 microns/dbu, Conversion factor: 1
+Special routes: 38 strips and 28 vias are crated in OA database.
+Created 37 insts; 74 instTerms; 68 nets; 0 routes.
+TIMER: Write OA to disk: 0h 0m  0.00s cpu {0h 0m 0s elapsed} Memory = 0.0
+TIMER: Purge OA from memory: 0h 0m  0.01s cpu {0h 0m 0s elapsed} Memory = 0.0
+TIMER: oaOut total process: 0h 0m  0.02s cpu {0h 0m 0s elapsed} Memory = 0.0
+Saving AAE Data ...
+Saving preference file /home/saul/projects/DIGIMP/NNSENSE_SPC/PLACE_ROUTE/OADB/nnspc_OADB/nnspc/floowplan/inn_data/gui.pref.tcl ...
+Saving mode setting ...
+Saving global file ...
+Saving thumbnail file...
+*** Message Summary: 0 warning(s), 0 error(s)
+
+<CMD_INTERNAL> print {---#   Saved As OA: nnspc_OADB nnspc floowplan
+}
+---#   Saved As OA: nnspc_OADB nnspc floowplan
+
+<CMD> getPinAssignMode -pinEditInBatch -quiet
+<CMD> setPinAssignMode -pinEditInBatch true
+<CMD> editPin -fixOverlap 1 -side Top -layer 3 -assign 0.0 0.0 -pin {Cfg_in Clk Resetn}
+For usability, default behavior of placing the pin at close-by track if location is not on fence and option -side or -edge is not specified is changed. Now by default pin is snapped to closest location on closest edge for the given location. To place the pin inside partition or block boundary add '-side inside' in editPin command.
+**WARN: (IMPPTN-1234):	Option -assign is for assigning a pin at a specified location. Assigning first pin in the list at the specified location and ignoring rest of the pins in the list.
+editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 981.0M).
+<CMD> setPinAssignMode -pinEditInBatch true
+<CMD> editPin -fixOverlap 1 -unit MICRON -spreadDirection clockwise -side Top -layer 3 -spreadType start -spacing 0.56 -start 0.28 70.0 -pin {Cfg_in Clk Resetn}
+Successfully spread [3] pins.
+editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 981.0M).
+<CMD> setPinAssignMode -pinEditInBatch true
+<CMD> editPin -pinWidth 0.28 -pinDepth 1.12 -fixOverlap 1 -unit MICRON -spreadDirection clockwise -side Top -layer 3 -spreadType center -spacing 0.56 -pin {Cfg_in Clk Resetn}
+Successfully spread [3] pins.
+editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 981.0M).
+<CMD> setPinAssignMode -pinEditInBatch true
+<CMD> editPin -fixOverlap 1 -unit MICRON -spreadDirection clockwise -side Bottom -layer 1 -spreadType center -spacing 0.56 -pin {{NSEL[4]} {NSEL[3]} {NSEL[2]} {NSEL[1]} {NSEL[0]} {DAC[3]} {DAC[2]} {DAC[1]} {DAC[0]} RE}
+Successfully spread [10] pins.
+editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 981.0M).
+<CMD> setPinAssignMode -pinEditInBatch true
+<CMD> editPin -pinWidth 0.24 -pinDepth 0.72 -fixOverlap 1 -unit MICRON -spreadDirection clockwise -side Bottom -layer 1 -spreadType center -spacing 1.12 -pin {{NSEL[0]} {NSEL[1]} {NSEL[2]} {NSEL[3]} {NSEL[4]} {DAC[0]} {DAC[1]} {DAC[2]} {DAC[3]} RE}
+Successfully spread [10] pins.
+editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 981.0M).
+<CMD> setPinAssignMode -pinEditInBatch true
+<CMD> editPin -pinWidth 0.24 -pinDepth 0.72 -fixOverlap 1 -unit MICRON -spreadDirection clockwise -side Bottom -layer 1 -spreadType center -spacing -1.12 -pin {{NSEL[0]} {NSEL[1]} {NSEL[2]} {NSEL[3]} {NSEL[4]} {DAC[0]} {DAC[1]} {DAC[2]} {DAC[3]} RE}
+**ERROR: (IMPPTN-1668):	Specifying negative spacing value to spread the pins along the partition fence in anti-clockwise direction is obsolete. Use [-spreadDirection counterclockwise] option to specify the spreading direction.
+<CMD> setPinAssignMode -pinEditInBatch false
+<CMD> getPinAssignMode -pinEditInBatch -quiet
+<CMD> setPinAssignMode -pinEditInBatch true
+<CMD> editPin -pinWidth 0.24 -pinDepth 0.72 -fixOverlap 1 -unit MICRON -spreadDirection counterclockwise -side Bottom -layer 1 -spreadType center -spacing -1.12 -pin {{NSEL[4]} {NSEL[3]} {NSEL[2]} {NSEL[1]} {NSEL[0]} {DAC[3]} {DAC[2]} {DAC[1]} {DAC[0]} RE}
+**ERROR: (IMPPTN-1668):	Specifying negative spacing value to spread the pins along the partition fence in anti-clockwise direction is obsolete. Use [-spreadDirection counterclockwise] option to specify the spreading direction.
+<CMD> setPinAssignMode -pinEditInBatch true
+<CMD> editPin -pinWidth 0.24 -pinDepth 0.72 -fixOverlap 1 -unit MICRON -spreadDirection counterclockwise -side Bottom -layer 1 -spreadType center -spacing -1.12 -pin {{NSEL[0]} {NSEL[1]} {NSEL[2]} {NSEL[3]} {NSEL[4]} {DAC[0]} {DAC[1]} {DAC[2]} {DAC[3]} RE}
+**ERROR: (IMPPTN-1668):	Specifying negative spacing value to spread the pins along the partition fence in anti-clockwise direction is obsolete. Use [-spreadDirection counterclockwise] option to specify the spreading direction.
+<CMD> setPinAssignMode -pinEditInBatch true
+<CMD> editPin -pinWidth 0.24 -pinDepth 0.72 -fixOverlap 1 -unit MICRON -spreadDirection counterclockwise -side Bottom -layer 3 -spreadType center -spacing -1.12 -pin {{NSEL[0]} {NSEL[1]} {NSEL[2]} {NSEL[3]} {NSEL[4]} {DAC[0]} {DAC[1]} {DAC[2]} {DAC[3]} RE}
+**ERROR: (IMPPTN-1668):	Specifying negative spacing value to spread the pins along the partition fence in anti-clockwise direction is obsolete. Use [-spreadDirection counterclockwise] option to specify the spreading direction.
+<CMD> setPinAssignMode -pinEditInBatch true
+<CMD> editPin -pinWidth 0.24 -pinDepth 0.72 -fixOverlap 1 -unit MICRON -spreadDirection counterclockwise -side Bottom -layer 1 -spreadType center -spacing 1.12 -pin {{NSEL[0]} {NSEL[1]} {NSEL[2]} {NSEL[3]} {NSEL[4]} {DAC[0]} {DAC[1]} {DAC[2]} {DAC[3]} RE}
+Successfully spread [10] pins.
+editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 981.0M).
+<CMD> setPinAssignMode -pinEditInBatch true
+<CMD> editPin -pinWidth 0.24 -pinDepth 0.72 -fixOverlap 1 -unit MICRON -spreadDirection counterclockwise -side Bottom -layer 1 -spreadType center -spacing 1.12 -pin {{NSEL[0]} {NSEL[1]} {NSEL[2]} {NSEL[3]} {NSEL[4]} {DAC[0]} {DAC[1]} {DAC[2]} {DAC[3]} RE}
+Successfully spread [10] pins.
+editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 981.0M).
+<CMD> setPinAssignMode -pinEditInBatch true
+<CMD> editPin -pinWidth 0.24 -pinDepth 0.72 -fixOverlap 1 -unit MICRON -spreadDirection counterclockwise -side Bottom -layer 3 -spreadType center -spacing 1.12 -pin {{NSEL[0]} {NSEL[1]} {NSEL[2]} {NSEL[3]} {NSEL[4]} {DAC[0]} {DAC[1]} {DAC[2]} {DAC[3]} RE}
+**WARN: (IMPPTN-1027):	Pin [NSEL[4]] has area [0.2016] which is less than the minimum area [0.3136] required on layer [3]. Change pin width or pin depth to meet minimum area rule.
+**WARN: (IMPPTN-1027):	Pin [DAC[0]] has area [0.2016] which is less than the minimum area [0.3136] required on layer [3]. Change pin width or pin depth to meet minimum area rule.
+**WARN: (IMPPTN-1027):	Pin [NSEL[3]] has area [0.2016] which is less than the minimum area [0.3136] required on layer [3]. Change pin width or pin depth to meet minimum area rule.
+**WARN: (IMPPTN-1027):	Pin [DAC[1]] has area [0.2016] which is less than the minimum area [0.3136] required on layer [3]. Change pin width or pin depth to meet minimum area rule.
+**WARN: (IMPPTN-1027):	Pin [NSEL[2]] has area [0.2016] which is less than the minimum area [0.3136] required on layer [3]. Change pin width or pin depth to meet minimum area rule.
+**WARN: (IMPPTN-1027):	Pin [DAC[2]] has area [0.2016] which is less than the minimum area [0.3136] required on layer [3]. Change pin width or pin depth to meet minimum area rule.
+**WARN: (IMPPTN-1027):	Pin [NSEL[1]] has area [0.2016] which is less than the minimum area [0.3136] required on layer [3]. Change pin width or pin depth to meet minimum area rule.
+**WARN: (IMPPTN-1027):	Pin [DAC[3]] has area [0.2016] which is less than the minimum area [0.3136] required on layer [3]. Change pin width or pin depth to meet minimum area rule.
+**WARN: (IMPPTN-1027):	Pin [NSEL[0]] has area [0.2016] which is less than the minimum area [0.3136] required on layer [3]. Change pin width or pin depth to meet minimum area rule.
+**WARN: (IMPPTN-1027):	Pin [RE] has area [0.2016] which is less than the minimum area [0.3136] required on layer [3]. Change pin width or pin depth to meet minimum area rule.
+Successfully spread [10] pins.
+editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 981.0M).
+<CMD> fit
+<CMD> setPinAssignMode -pinEditInBatch false
+<CMD> getPinAssignMode -pinEditInBatch -quiet
+<CMD> setPinAssignMode -pinEditInBatch true
+<CMD> editPin -pinWidth 0.28 -pinDepth 0.72 -fixOverlap 1 -unit MICRON -spreadDirection counterclockwise -side Bottom -layer 3 -spreadType center -spacing 1.12 -pin {{DAC[0]} {DAC[1]} {DAC[2]} {DAC[3]} {NSEL[0]} {NSEL[1]} {NSEL[2]} {NSEL[3]} {NSEL[4]} RE}
+**WARN: (IMPPTN-1027):	Pin [NSEL[0]] has area [0.2016] which is less than the minimum area [0.3136] required on layer [3]. Change pin width or pin depth to meet minimum area rule.
+**WARN: (IMPPTN-1027):	Pin [NSEL[1]] has area [0.2016] which is less than the minimum area [0.3136] required on layer [3]. Change pin width or pin depth to meet minimum area rule.
+**WARN: (IMPPTN-1027):	Pin [DAC[3]] has area [0.2016] which is less than the minimum area [0.3136] required on layer [3]. Change pin width or pin depth to meet minimum area rule.
+**WARN: (IMPPTN-1027):	Pin [NSEL[2]] has area [0.2016] which is less than the minimum area [0.3136] required on layer [3]. Change pin width or pin depth to meet minimum area rule.
+**WARN: (IMPPTN-1027):	Pin [DAC[2]] has area [0.2016] which is less than the minimum area [0.3136] required on layer [3]. Change pin width or pin depth to meet minimum area rule.
+**WARN: (IMPPTN-1027):	Pin [NSEL[3]] has area [0.2016] which is less than the minimum area [0.3136] required on layer [3]. Change pin width or pin depth to meet minimum area rule.
+**WARN: (IMPPTN-1027):	Pin [DAC[1]] has area [0.2016] which is less than the minimum area [0.3136] required on layer [3]. Change pin width or pin depth to meet minimum area rule.
+**WARN: (IMPPTN-1027):	Pin [NSEL[4]] has area [0.2016] which is less than the minimum area [0.3136] required on layer [3]. Change pin width or pin depth to meet minimum area rule.
+**WARN: (IMPPTN-1027):	Pin [DAC[0]] has area [0.2016] which is less than the minimum area [0.3136] required on layer [3]. Change pin width or pin depth to meet minimum area rule.
+**WARN: (IMPPTN-1027):	Pin [RE] has area [0.2016] which is less than the minimum area [0.3136] required on layer [3]. Change pin width or pin depth to meet minimum area rule.
+Successfully spread [10] pins.
+editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 981.0M).
+<CMD> setPinAssignMode -pinEditInBatch false
+<CMD> get_verify_drc_mode -disable_rules -quiet
+<CMD> get_verify_drc_mode -quiet -area
+<CMD> get_verify_drc_mode -quiet -layer_range
+<CMD> get_verify_drc_mode -check_implant -quiet
+<CMD> get_verify_drc_mode -check_implant_across_rows -quiet
+<CMD> get_verify_drc_mode -check_ndr_spacing -quiet
+<CMD> get_verify_drc_mode -check_only -quiet
+<CMD> get_verify_drc_mode -check_same_via_cell -quiet
+<CMD> get_verify_drc_mode -exclude_pg_net -quiet
+<CMD> get_verify_drc_mode -ignore_trial_route -quiet
+<CMD> get_verify_drc_mode -max_wrong_way_halo -quiet
+<CMD> get_verify_drc_mode -use_min_spacing_on_block_obs -quiet
+<CMD> get_verify_drc_mode -limit -quiet
+<CMD> set_verify_drc_mode -disable_rules {} -check_implant true -check_implant_across_rows false -check_ndr_spacing false -check_same_via_cell false -exclude_pg_net false -ignore_trial_route false -report nnspc.drc.rpt -limit 1000
+<CMD> verify_drc
+ *** Starting Verify DRC (MEM: 981.0) ***
+
+  VERIFY DRC ...... Starting Verification
+  VERIFY DRC ...... Initializing
+  VERIFY DRC ...... Deleting Existing Violations
+  VERIFY DRC ...... Creating Sub-Areas
+  VERIFY DRC ...... Using new threading
+  VERIFY DRC ...... Sub-Area : 1 of 1
+  VERIFY DRC ...... Sub-Area : 1 complete 0 Viols.
+
+  Verification Complete : 0 Viols.
+
+ *** End Verify DRC (CPU: 0:00:00.1  ELAPSED TIME: 1.00  MEM: 9.2M) ***
+
+<CMD> set_verify_drc_mode -area {0 0 0 0}
+<CMD> getPinAssignMode -pinEditInBatch -quiet
+<CMD> setPinAssignMode -pinEditInBatch false
+<CMD_INTERNAL> print {---# Libray nnspc_OADB already exists
+}
+---# Libray nnspc_OADB already exists
+
+<CMD> saveDesign -cellview {nnspc_OADB nnspc pins}
+----- oaOut ---------------------------
+Saving OA database: Lib: nnspc_OADB, Cell: nnspc, View: pins
+FE units: 0.001 microns/dbu, OA units: 0.001 microns/dbu, Conversion factor: 1
+Special routes: 38 strips and 28 vias are crated in OA database.
+Created 37 insts; 74 instTerms; 68 nets; 0 routes.
+TIMER: Write OA to disk: 0h 0m  0.00s cpu {0h 0m 0s elapsed} Memory = 0.0
+TIMER: Purge OA from memory: 0h 0m  0.00s cpu {0h 0m 0s elapsed} Memory = 0.0
+TIMER: oaOut total process: 0h 0m  0.03s cpu {0h 0m 1s elapsed} Memory = 0.0
+Saving AAE Data ...
+Saving preference file /home/saul/projects/DIGIMP/NNSENSE_SPC/PLACE_ROUTE/OADB/nnspc_OADB/nnspc/pins/inn_data/gui.pref.tcl ...
+Saving mode setting ...
+Saving global file ...
+Saving thumbnail file...
+*** Message Summary: 0 warning(s), 0 error(s)
+
+<CMD_INTERNAL> print {---#   Saved As OA: nnspc_OADB nnspc pins
+}
+---#   Saved As OA: nnspc_OADB nnspc pins
+
+<CMD> set_analysis_view -setup $maxviewList -hold $minviewList
+Initializing multi-corner RC extraction with 2 active RC Corners ...
+**WARN: (IMPEXT-6202):	In addition to the technology file, the capacitance table file is specified for all the RC corners. If the technology file  is already specified for all the RC corners, the capacitance table file is not required for preRoute and postRoute extraction. In a new session, the capacitance table files can be removed from the create_rc_corner command to enable the technology file to be used for preRoute and postRoute (effort level medium/high/signoff) extraction engines.
+Type 'man IMPEXT-6202' for more detail.
+Reading Encrypted Capacitance Table File /pkg/AMS414/cds/HK_AC18/LEF/ac18a6/ac18a6-worst.capTable ...
+Cap table was created using Encounter 13.22-s020_1.
+Process name: ac18a6-worst.
+Set Shrink Factor to 1.00000
+Allocated an empty WireEdgeEnlargement table in ams_rc_corner_maxCaR [6].
+Allocated an empty WireEdgeEnlargement table in ams_rc_corner_maxCaR [6].
+Decrypted 37888 characters.
+Reading Encrypted Capacitance Table File /pkg/AMS414/cds/HK_AC18/LEF/ac18a6/ac18a6-best.capTable ...
+Cap table was created using Encounter 13.22-s020_1.
+Process name: ac18a6-best.
+Set Shrink Factor to 1.00000
+Allocated an empty WireEdgeEnlargement table in ams_rc_corner_minCaR [6].
+Allocated an empty WireEdgeEnlargement table in ams_rc_corner_minCaR [6].
+Decrypted 34816 characters.
+Importing multi-corner RC tables ... 
+Summary of Active RC-Corners : 
+ 
+ Analysis View: func_max
+    RC-Corner Name        : ams_rc_corner_maxCaR
+    RC-Corner Index       : 0
+    RC-Corner Temperature : 150 Celsius
+    RC-Corner Cap Table   : '/pkg/AMS414/cds/HK_AC18/LEF/ac18a6/ac18a6-worst.capTable'
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner Technology file: '/pkg/AMS414/assura/ac18a6/ac18a6/QRC-worst/qrcTechFile'
+ 
+ Analysis View: test_max
+    RC-Corner Name        : ams_rc_corner_maxCaR
+    RC-Corner Index       : 0
+    RC-Corner Temperature : 150 Celsius
+    RC-Corner Cap Table   : '/pkg/AMS414/cds/HK_AC18/LEF/ac18a6/ac18a6-worst.capTable'
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner Technology file: '/pkg/AMS414/assura/ac18a6/ac18a6/QRC-worst/qrcTechFile'
+ 
+ Analysis View: func_min
+    RC-Corner Name        : ams_rc_corner_minCaR
+    RC-Corner Index       : 1
+    RC-Corner Temperature : -50 Celsius
+    RC-Corner Cap Table   : '/pkg/AMS414/cds/HK_AC18/LEF/ac18a6/ac18a6-best.capTable'
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner Technology file: '/pkg/AMS414/assura/ac18a6/ac18a6/QRC-best/qrcTechFile'
+ 
+ Analysis View: test_min
+    RC-Corner Name        : ams_rc_corner_minCaR
+    RC-Corner Index       : 1
+    RC-Corner Temperature : -50 Celsius
+    RC-Corner Cap Table   : '/pkg/AMS414/cds/HK_AC18/LEF/ac18a6/ac18a6-best.capTable'
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner Technology file: '/pkg/AMS414/assura/ac18a6/ac18a6/QRC-best/qrcTechFile'
+Reading timing constraints file '../CONSTRAINTS/nnspc_test.sdc' ...
+Current (total cpu=0:00:46.1, real=0:24:32, peak res=504.9M, current mem=820.5M)
+nnspc
+**WARN: (TCLNL-330):	set_input_delay on clock root 'Clk' is not supported. You should use the -source option to set_clock_latency to provide this offset. You can also use the global timing_allow_input_delay_on_clock_source to allow set_input_delay assertion to have an effect on clock source paths beginning at this clock root. (File ../CONSTRAINTS/nnspc_test.sdc, Line 28).
+
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+INFO (CTE): Reading of timing constraints file ../CONSTRAINTS/nnspc_test.sdc completed, with 1 WARNING
+WARNING (CTE-25): Line: 9, 10 of File ../CONSTRAINTS/nnspc_test.sdc : Skipped unsupported command: set_units
+
+
+Ending "Constraint file reading stats" (total cpu=0:00:00.0, real=0:00:00.0, peak res=369.4M, current mem=831.7M)
+Current (total cpu=0:00:46.1, real=0:24:32, peak res=504.9M, current mem=831.7M)
+Reading timing constraints file '../CONSTRAINTS/nnspc_func.sdc' ...
+Current (total cpu=0:00:46.1, real=0:24:32, peak res=504.9M, current mem=831.7M)
+nnspc
+**WARN: (TCLNL-330):	set_input_delay on clock root 'Clk' is not supported. You should use the -source option to set_clock_latency to provide this offset. You can also use the global timing_allow_input_delay_on_clock_source to allow set_input_delay assertion to have an effect on clock source paths beginning at this clock root. (File ../CONSTRAINTS/nnspc_func.sdc, Line 28).
+
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+**WARN: (EMS-27):	Message (IMPCTE-290) has exceeded the current message display limit of 20.
+To increase the message display limit, refer to the product command reference manual.
+INFO (CTE): Reading of timing constraints file ../CONSTRAINTS/nnspc_func.sdc completed, with 1 WARNING
+WARNING (CTE-25): Line: 9, 10 of File ../CONSTRAINTS/nnspc_func.sdc : Skipped unsupported command: set_units
+
+
+Ending "Constraint file reading stats" (total cpu=0:00:00.0, real=0:00:00.0, peak res=369.7M, current mem=831.7M)
+Current (total cpu=0:00:46.1, real=0:24:32, peak res=504.9M, current mem=831.7M)
+Total number of combinational cells: 384
+Total number of sequential cells: 85
+Total number of tristate cells: 14
+Total number of level shifter cells: 0
+Total number of power gating cells: 0
+Total number of isolation cells: 0
+Total number of power switch cells: 0
+Total number of pulse generator cells: 0
+Total number of always on buffers: 0
+Total number of retention cells: 0
+List of usable buffers: BUFX3 BUFX2 BUFX6 BUFX4 BUFX8 BUFX12 BUFX16 BUFX24 BUFX32 CLKBUFX2 CLKBUFX4 CLKBUFX3 CLKBUFX6 CLKBUFX8 CLKBUFX10 CLKBUFX12 CLKBUFX16 CLKBUFX24 CLKBUFX32
+Total number of usable buffers: 19
+List of unusable buffers: BUF2_ESDIF
+Total number of unusable buffers: 1
+List of usable inverters: CLKINVX2 CLKINVX1 CLKINVX4 CLKINVX3 CLKINVX6 CLKINVX8 CLKINVX10 CLKINVX12 CLKINVX16 CLKINVX24 CLKINVX32 INVXL INVX1 INVX3 INVX2 INVX6 INVX4 INVX8 INVX12 INVX16 INVX24 INVX32
+Total number of usable inverters: 22
+List of unusable inverters:
+Total number of unusable inverters: 0
+List of identified usable delay cells: DLY1X1 DLY2X1 DLY3X1 DLY4X1
+Total number of identified usable delay cells: 4
+List of identified unusable delay cells:
+Total number of identified unusable delay cells: 0
+<CMD> timeDesign -prePlace -expandedViews
+**WARN: (IMPOPT-7136):	timing_socv_statistical_min_max_mode 'statistical' is not supported by Innovus. Setting it to 'mean_and_three_sigma_bounded'.
+Set Using Default Delay Limit as 101.
+**WARN: (IMPDC-1629):	The default delay limit was set to 101. This is less than the default of 1000 and may result in inaccurate delay calculation for nets with a fanout higher than the setting.  If needed, the default delay limit may be adjusted by running the command 'set delaycal_use_default_delay_limit'.
+Setting High Fanout Nets ( > 100 ) as ideal temporarily for -prePlace option
+Set Default Net Delay as 0 ps.
+Set Default Net Load as 0 pF. 
+#################################################################################
+# Design Stage: PreRoute
+# Design Name: nnspc
+# Design Mode: 180nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: No SPEF/RCDB
+# Signoff Settings: SI Off 
+#################################################################################
+AAE_INFO: 1 threads acquired from CTE.
+Calculate delays in BcWc mode...
+Calculate delays in BcWc mode...
+End delay calculation. (MEM=952.57 CPU=0:00:00.0 REAL=0:00:00.0)
+*** CDM Built up (cpu=0:00:01.0  real=0:00:01.0  mem= 952.6M) ***
+*** Done Building Timing Graph (cpu=0:00:01.0 real=0:00:01.0 totSessionCpu=0:00:47.3 mem=952.6M)
+
+------------------------------------------------------------
+          timeDesign Summary                             
+------------------------------------------------------------
+
+Setup views included:
+ func_max test_max 
+
++--------------------+---------+---------+---------+---------+
+|     Setup mode     |   all   | reg2reg |reg2cgate| default |
++--------------------+---------+---------+---------+---------+
+|           WNS (ns):| 118.745 | 124.268 | 124.112 | 118.745 |
+|           TNS (ns):|  0.000  |  0.000  |  0.000  |  0.000  |
+|    Violating Paths:|    0    |    0    |    0    |    0    |
+|          All Paths:|   61    |   24    |    1    |   36    |
++--------------------+---------+---------+---------+---------+
+|func_max            | 118.745 | 124.268 | 124.112 | 118.745 |
+|                    |  0.000  |  0.000  |  0.000  |  0.000  |
+|                    |    0    |    0    |    0    |    0    |
+|                    |   61    |   24    |    1    |   36    |
++--------------------+---------+---------+---------+---------+
+|test_max            | 118.745 | 124.268 | 124.112 | 118.745 |
+|                    |  0.000  |  0.000  |  0.000  |  0.000  |
+|                    |    0    |    0    |    0    |    0    |
+|                    |   61    |   24    |    1    |   36    |
++--------------------+---------+---------+---------+---------+
+
+Density: 0.000%
+------------------------------------------------------------
+Set Using Default Delay Limit as 1000.
+Resetting back High Fanout Nets as non-ideal
+Set Default Net Delay as 1000 ps.
+Set Default Net Load as 0.5 pF. 
+Reported timing to dir ./timingReports
+Total CPU time: 1.25 sec
+Total Real time: 1.0 sec
+Total Memory Usage: 862.808594 Mbytes
+<CMD> get_propagated_clock -clock Clk
+  Clock 'Clk' is in propagated mode
+  Clock 'Clk' is in propagated mode
+  Clock 'Clk' is in propagated mode
+  Clock 'Clk' is in propagated mode
+<CMD> setPlaceMode -fp false
+<CMD> placeDesign
+*** Starting placeDesign default flow ***
+**INFO: Enable pre-place timing setting for timing analysis
+Set Using Default Delay Limit as 101.
+**WARN: (IMPDC-1629):	The default delay limit was set to 101. This is less than the default of 1000 and may result in inaccurate delay calculation for nets with a fanout higher than the setting.  If needed, the default delay limit may be adjusted by running the command 'set delaycal_use_default_delay_limit'.
+Set Default Net Delay as 0 ps.
+Set Default Net Load as 0 pF. 
+**INFO: Analyzing IO path groups for slack adjustment
+Effort level <high> specified for reg2reg_tmp.31162 path_group
+#################################################################################
+# Design Stage: PreRoute
+# Design Name: nnspc
+# Design Mode: 180nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: No SPEF/RCDB
+# Signoff Settings: SI Off 
+#################################################################################
+Calculate delays in BcWc mode...
+Calculate delays in BcWc mode...
+End delay calculation. (MEM=954.059 CPU=0:00:00.0 REAL=0:00:00.0)
+*** CDM Built up (cpu=0:00:00.0  real=0:00:00.0  mem= 954.1M) ***
+*** Start deleteBufferTree ***
+Info: Detect buffers to remove automatically.
+Analyzing netlist ...
+All-RC-Corners-Per-Net-In-Memory is turned ON...
+Updating netlist
+
+*summary: 0 instances (buffers/inverters) removed
+*** Finish deleteBufferTree (0:00:00.0) ***
+**INFO: Disable pre-place timing setting for timing analysis
+Set Using Default Delay Limit as 1000.
+Set Default Net Delay as 1000 ps.
+Set Default Net Load as 0.5 pF. 
+Deleted 0 physical inst  (cell - / prefix -).
+*** Starting "NanoPlace(TM) placement v#1 (mem=939.9M)" ...
+*** Build Buffered Sizing Timing Model
+(cpu=0:00:07.3 mem=940.0M) ***
+*** Build Virtual Sizing Timing Model
+(cpu=0:00:08.0 mem=942.2M) ***
+Options: timingDriven clkGateAware ignoreScan pinGuide congEffort=auto gpeffort=medium 
+**WARN: (IMPSP-9042):	Scan chains were not defined, -ignoreScan option will be ignored.
+Define the scan chains before using this option.
+Type 'man IMPSP-9042' for more detail.
+#std cell=37 (0 fixed + 37 movable) #block=0 (0 floating + 0 preplaced)
+#ioInst=0 #net=41 #term=151 #term/net=3.68, #fixedIo=0, #floatIo=0, #fixedPin=0, #floatPin=13
+stdCell: 37 single + 0 double + 0 multi
+Total standard cell length = 0.3651 (mm), area = 0.0018 (mm^2)
+Average module density = 0.742.
+Density for the design = 0.742.
+       = stdcell_area 652 sites (1840 um^2) / alloc_area 878 sites (2479 um^2).
+Pin Density = 0.1613.
+            = total # of pins 151 / total area 936.
+=== lastAutoLevel = 4 
+Clock gating cells determined by native netlist tracing.
+Iteration  1: Total net bbox = 5.463e+02 (3.65e+01 5.10e+02)
+              Est.  stn bbox = 6.122e+02 (3.93e+01 5.73e+02)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 991.7M
+Iteration  2: Total net bbox = 5.463e+02 (3.65e+01 5.10e+02)
+              Est.  stn bbox = 6.122e+02 (3.93e+01 5.73e+02)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 991.7M
+Iteration  3: Total net bbox = 4.906e+02 (3.93e+01 4.51e+02)
+              Est.  stn bbox = 5.820e+02 (4.58e+01 5.36e+02)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 991.7M
+Iteration  4: Total net bbox = 8.841e+02 (3.29e+02 5.55e+02)
+              Est.  stn bbox = 1.046e+03 (3.96e+02 6.50e+02)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 991.7M
+Iteration  5: Total net bbox = 1.075e+03 (4.64e+02 6.11e+02)
+              Est.  stn bbox = 1.259e+03 (5.53e+02 7.06e+02)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 991.7M
+Iteration  6: Total net bbox = 1.043e+03 (4.34e+02 6.09e+02)
+              Est.  stn bbox = 1.230e+03 (5.25e+02 7.05e+02)
+              cpu = 0:00:00.1 real = 0:00:01.0 mem = 991.7M
+*** cost = 1.043e+03 (4.34e+02 6.09e+02) (cpu for global=0:00:00.1) real=0:00:01.0***
+Info: 0 clock gating cells identified, 0 (on average) moved
+nnspc
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+nnspc
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+**WARN: (EMS-27):	Message (IMPCTE-290) has exceeded the current message display limit of 20.
+To increase the message display limit, refer to the product command reference manual.
+Core Placement runtime cpu: 0:00:00.1 real: 0:00:01.0
+**WARN: (IMPSP-9025):	No scan chain specified/traced.
+Type 'man IMPSP-9025' for more detail.
+*** Starting refinePlace (0:00:56.5 mem=946.5M) ***
+Total net bbox length = 1.161e+03 (5.523e+02 6.092e+02) (ext = 4.293e+02)
+Density distribution unevenness ratio = 0.000%
+Move report: Detail placement moves 37 insts, mean move: 3.63 um, max move: 19.23 um
+	Max move on inst (count_reg[1]): (14.80, 24.21) --> (30.80, 27.44)
+	Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 946.5MB
+Summary Report:
+Instances move: 37 (out of 37 movable)
+Mean displacement: 3.63 um
+Max displacement: 19.23 um (Instance: count_reg[1]) (14.802, 24.21) -> (30.8, 27.44)
+	Length: 23 sites, height: 1 rows, site name: ams018Site, cell type: DFPX3
+Total net bbox length = 1.052e+03 (4.267e+02 6.254e+02) (ext = 3.684e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 946.5MB
+*** Finished refinePlace (0:00:56.5 mem=946.5M) ***
+*** End of Placement (cpu=0:00:08.4, real=0:00:09.0, mem=946.5M) ***
+default core: bins with density >  0.75 =    0 % ( 0 / 2 )
+Density distribution unevenness ratio = 0.000%
+*** Free Virtual Timing Model ...(mem=946.5M)
+Starting IO pin assignment...
+The design is not routed. Using flight-line based method for pin assignment.
+Completed IO pin assignment.
+Starting congestion repair ...
+[NR-eagl] honorMsvRouteConstraint: false
+[NR-eagl] honorClockSpecNDR      : 0
+[NR-eagl] minRouteLayer          : 2
+[NR-eagl] maxRouteLayer          : 5
+[NR-eagl] numTracksPerClockWire  : 0
+[NR-eagl] Layer1 has no routable track
+[NR-eagl] Layer2 has single uniform track structure
+[NR-eagl] Layer3 has single uniform track structure
+[NR-eagl] Layer4 has single uniform track structure
+[NR-eagl] Layer5 has single uniform track structure
+[NR-eagl] numRoutingBlks=0 numInstBlks=0 numPGBlocks=32 numBumpBlks=0 numBoundaryFakeBlks=0
+[NR-eagl] numPreroutedNet = 0  numPreroutedWires = 0
+[NR-eagl] Read numTotalNets=41  numIgnoredNets=0
+[NR-eagl] There are 2 clock nets ( 0 with NDR ).
+[NR-eagl] ============ Routing rule table ============
+[NR-eagl] Rule id 0. Nets 41 
+[NR-eagl] id=0  ndrTrackId=0  ndrViaId=-1  extraSpace=0  numShields=0  maxHorDemand=1  maxVerDemand=1
+[NR-eagl] Pitch:  L1=440  L2=560  L3=560  L4=560  L5=560
+[NR-eagl] ========================================
+[NR-eagl] 
+[NR-eagl] Layer group 1: route 41 net(s) in layer range [2, 5]
+[NR-eagl] earlyGlobalRoute overflow of layer group 1: 0.00% H + 0.00% V. EstWL: 1.093680e+03um
+[NR-eagl] 
+[NR-eagl] Overflow after earlyGlobalRoute (GR compatible) 0.00% H + 0.00% V
+[NR-eagl] Overflow after earlyGlobalRoute 0.00% H + 0.00% V
+Local HotSpot Analysis: normalized max congestion hotspot area = 0.00, normalized total congestion hotspot area = 0.00 (area is in unit of 4 std-cell row bins)
+describeCongestion: hCong = 0.00 vCong = 0.00
+Skipped repairing congestion.
+[NR-eagl] Layer1(M1)(F) length: 0.000000e+00um, number of vias: 138
+[NR-eagl] Layer2(M2)(V) length: 6.355800e+02um, number of vias: 187
+[NR-eagl] Layer3(M3)(H) length: 4.821600e+02um, number of vias: 6
+[NR-eagl] Layer4(M4)(V) length: 8.210000e+01um, number of vias: 2
+[NR-eagl] Layer5(MT)(H) length: 1.120000e+00um, number of vias: 0
+[NR-eagl] Total length: 1.200960e+03um, number of vias: 333
+End of congRepair (cpu=0:00:00.0, real=0:00:00.0)
+*** Finishing placeDesign default flow ***
+**placeDesign ... cpu = 0: 0: 9, real = 0: 0:10, mem = 936.2M **
+Command spTest is not supported.
+
+*** Summary of all messages that are not suppressed in this session:
+Severity  ID               Count  Summary                                  
+WARNING   IMPDC-1629           1  The default delay limit was set to %d. T...
+WARNING   IMPSP-9025           1  No scan chain specified/traced.          
+WARNING   IMPSP-9042           1  Scan chains were not defined, -ignoreSca...
+WARNING   IMPCTE-290          24  Could not locate cell %s in any library ...
+*** Message Summary: 27 warning(s), 0 error(s)
+
+<CMD_INTERNAL> print {---# Libray nnspc_OADB already exists
+}
+---# Libray nnspc_OADB already exists
+
+<CMD> saveDesign -cellview {nnspc_OADB nnspc placed}
+----- oaOut ---------------------------
+Saving OA database: Lib: nnspc_OADB, Cell: nnspc, View: placed
+FE units: 0.001 microns/dbu, OA units: 0.001 microns/dbu, Conversion factor: 1
+Special routes: 38 strips and 28 vias are crated in OA database.
+Created 37 insts; 74 instTerms; 68 nets; 179 routes.
+TIMER: Write OA to disk: 0h 0m  0.00s cpu {0h 0m 0s elapsed} Memory = 0.0
+TIMER: Purge OA from memory: 0h 0m  0.01s cpu {0h 0m 0s elapsed} Memory = 0.0
+TIMER: oaOut total process: 0h 0m  0.02s cpu {0h 0m 0s elapsed} Memory = 0.0
+Saving AAE Data ...
+Saving preference file /home/saul/projects/DIGIMP/NNSENSE_SPC/PLACE_ROUTE/OADB/nnspc_OADB/nnspc/placed/inn_data/gui.pref.tcl ...
+Saving mode setting ...
+Saving global file ...
+Saving thumbnail file...
+*** Message Summary: 0 warning(s), 0 error(s)
+
+<CMD_INTERNAL> print {---#   Saved As OA: nnspc_OADB nnspc placed
+}
+---#   Saved As OA: nnspc_OADB nnspc placed
+
+<CMD> zoomBox 35.392 -3.173 46.693 0.257
+<CMD> selectObject IO_Pin Resetn
+<CMD> deselectAll
+<CMD> selectWire 44.3800 -0.1400 44.6600 0.4200 4 Resetn
+<CMD> fit
+<CMD> restoreDesign -cellview {nnspc_OADB nnspc pins}
+exclude_path_collection 0
+Resetting process node dependent CCOpt properties.
+'setViaGenMode -parameterized_via_only true' is set by default for this OA design. 
+Free PSO.
+Reset cap table.
+Cleaning up the current multi-corner RC extraction setup.
+Resetting process node dependent CCOpt properties.
+Design nnspc was changed but not saved - it will be overwritten.
+Set DBUPerIGU to 1000.
+Set net toggle Scale Factor to 1.00
+Set Shrink Factor to 1.00000
+Set net toggle Scale Factor to 1.00
+Set Shrink Factor to 1.00000
+Set net toggle Scale Factor to 1.00
+Set Shrink Factor to 1.00000
+
+*** Memory Usage v#1 (Current mem = 918.016M, initial mem = 151.129M) ***
+
+
+Info (SM2C): Status of key globals:
+	 MMMC-by-default flow     : 1
+	 Default MMMC objs envvar : 0
+	 Data portability         : 0
+	 MMMC PV Emulation        : 0
+	 MMMC debug               : 0
+	 Init_Design flow         : 1
+
+
+	 CTE SM2C global          : false
+	 Reporting view filter    : false
+Set Default Input Pin Transition as 0.1 ps.
+**WARN: (IMPSYC-6163):	Command 'setDoAssign' is obsolete and will be made private and will be unsupported in future release. To avoid this warning, please remove the obsolete command from your script.
+**WARN: (IMPUDM-33):	Global variable "ptnAssignPinsOnLayerM1" is obsolete and will be removed in a future release. The obsolete variable still works in this release, but to avoid this warning and to ensure compatibility with future releases, remove the obsolete variable from your script.
+**WARN: (GLOBAL-100):	Global 'timing_enable_default_delay_arc' has become obsolete. It will be removed in the next release.
+ams_rc_corner_minCaR2 ams_rc_corner_maxCaR2 ams_rc_corner_typ ams_rc_corner_minCaR ams_rc_corner_maxCaR
+Reading tech data from OA library 'nnspc_OADB' ...
+FE units: 0.001 microns/dbu, OA units: 0.001 microns/dbu, Conversion factor: 1
+**WARN: (IMPOAX-1645):	'minWidth' constraint is not supported on layer 'PC'. This constraint will be ignored by tool.
+**WARN: (IMPOAX-1645):	'minSpacing' constraint is not supported on layer 'PC'. This constraint will be ignored by tool.
+Set DBUPerIGU to M2 pitch 560.
+**WARN: (IMPOAX-1637):	Enclosure and width are supported on routing layers only for a stdViaDef (VIARULE GENERATE).'RX_M1' contains poly layer, enclosure and width values will be ignored by the tool.
+**WARN: (IMPOAX-1637):	Enclosure and width are supported on routing layers only for a stdViaDef (VIARULE GENERATE).'RX_M1_min' contains poly layer, enclosure and width values will be ignored by the tool.
+**WARN: (IMPOAX-1637):	Enclosure and width are supported on routing layers only for a stdViaDef (VIARULE GENERATE).'DRX_M1' contains poly layer, enclosure and width values will be ignored by the tool.
+**WARN: (IMPOAX-1637):	Enclosure and width are supported on routing layers only for a stdViaDef (VIARULE GENERATE).'PC_M1' contains poly layer, enclosure and width values will be ignored by the tool.
+**WARN: (IMPOAX-1637):	Enclosure and width are supported on routing layers only for a stdViaDef (VIARULE GENERATE).'DPC_M1' contains poly layer, enclosure and width values will be ignored by the tool.
+LEFDefaultRouteSpec(LDRS) is read from rule 'LEFDefaultRouteSpec' and library 'TECH_C18A6'. Only default vias, routing layers, pitch, routing width, routing direction, layer offset, wire extension constraints are read from it and rest of rules are read from foundry constraint group.
+Reading OA reference library 'TECH_C18A6' ...
+Reading OA reference library 'CORELIB' ...
+**WARN: (IMPOAX-738):	Non-Default Rule 'VSRDefaultSetup' has already been defined in Innovus. Its contents will be skipped.
+**WARN: (IMPOAX-741):	Site 'ams018Site' has already been defined in Innovus, the contents will be skipped.
+**WARN: (IMPOAX-741):	Site 'ams018Site3B' has already been defined in Innovus, the contents will be skipped.
+**WARN: (IMPOAX-741):	Site 'ams018Site7tr' has already been defined in Innovus, the contents will be skipped.
+**WARN: (IMPOAX-741):	Site 'ams018twSite' has already been defined in Innovus, the contents will be skipped.
+**WARN: (IMPOAX-741):	Site 'ams018SiteLL' has already been defined in Innovus, the contents will be skipped.
+**WARN: (IMPOAX-741):	Site 'amsIoSite' has already been defined in Innovus, the contents will be skipped.
+**WARN: (IMPOAX-741):	Site 'amsIoSiteC' has already been defined in Innovus, the contents will be skipped.
+**WARN: (IMPOAX-741):	Site 'amsCornerSite' has already been defined in Innovus, the contents will be skipped.
+**WARN: (IMPOAX-741):	Site 'amsCornerSiteC' has already been defined in Innovus, the contents will be skipped.
+Reading OA reference library 'nnspc_OADB' ...
+
+viaInitial starts at Mon Aug 28 15:49:33 2017
+viaInitial ends at Mon Aug 28 15:49:33 2017
+Loading view definition file from /home/saul/projects/DIGIMP/NNSENSE_SPC/PLACE_ROUTE/OADB/nnspc_OADB/nnspc/pins/viewDefinition.tcl
+Reading libs_max timing library '/pkg/AMS414/liberty/ac18_1.8V/ac18_CORELIB_WC.lib' ...
+Read 483 cells in library 'ac18_CORELIB_WC' 
+Reading libs_min timing library '/pkg/AMS414/liberty/ac18_1.8V/ac18_CORELIB_BC.lib' ...
+Read 483 cells in library 'ac18_CORELIB_BC' 
+*** End library_loading (cpu=0.00min, mem=0.0M, fe_cpu=1.03min, fe_real=28.05min, fe_mem=704.7M) ***
+Reading EMH from OA ...
+Created 483 new cells from 2 timing libraries.
+
+*** Memory Usage v#1 (Current mem = 704.668M, initial mem = 151.129M) ***
+Set top cell to nnspc.
+Hooked 966 DB cells to tlib cells.
+Starting recursive module instantiation check.
+No recursion found.
+Building hierarchical netlist for Cell nnspc ...
+*** Netlist is unique.
+** info: there are 967 modules.
+** info: there are 37 stdCell insts.
+
+*** Memory Usage v#1 (Current mem = 740.426M, initial mem = 151.129M) ***
+*info: set bottom ioPad orient R0
+Generated pitch 0.56 in AM is different from 5.04 defined in technology file in unpreferred direction.
+Set Default Net Delay as 1000 ps.
+Set Default Net Load as 0.5 pF. 
+Set Default Input Pin Transition as 0.1 ps.
+Loading preference file /home/saul/projects/DIGIMP/NNSENSE_SPC/PLACE_ROUTE/OADB/nnspc_OADB/nnspc/pins/inn_data/gui.pref.tcl ...
+Applying the recommended capacitance filtering threshold values for 180nm process node: total_c_th=5, relative_c_th=0.03 and coupling_c_th=3.
+	These values will be used by all post-route extraction engines, including tQuantus, IQRC and Quantus QRC extraction.
+	For postRoute effortLevel low extraction, the coupling_c_th value will be used only when the -capFilterMode parameter of the setExtractRCMode command is set to relAndCoup or relOrCoup. Default value of -capFilterMode parameter in postRoute extraction effortLevel low is relOnly.
+	The accuracy mode for postRoute effortLevel low extraction will be set to 'standard'.
+	Default value for EffortLevel(-effortLevel option of the setExtractRCMode) in postRoute extraction mode is 'low'.
+Updating process node dependent CCOpt properties for the 180nm process node.
+-parameterized_via_only is set to 1. ViaGen will generate parameterized vias only, which means the DEF syntax of generated vias is with +VIARULE.
+**WARN: analysis view func_min not found, use default_view_setup
+**WARN: analysis view test_min not found, use default_view_setup
+Initializing multi-corner RC extraction with 2 active RC Corners ...
+**WARN: (IMPEXT-6202):	In addition to the technology file, the capacitance table file is specified for all the RC corners. If the technology file  is already specified for all the RC corners, the capacitance table file is not required for preRoute and postRoute extraction. In a new session, the capacitance table files can be removed from the create_rc_corner command to enable the technology file to be used for preRoute and postRoute (effort level medium/high/signoff) extraction engines.
+Type 'man IMPEXT-6202' for more detail.
+Reading Encrypted Capacitance Table File /pkg/AMS414/cds/HK_AC18/LEF/ac18a6/ac18a6-worst.capTable ...
+Cap table was created using Encounter 13.22-s020_1.
+Process name: ac18a6-worst.
+Set Shrink Factor to 1.00000
+Allocated an empty WireEdgeEnlargement table in ams_rc_corner_maxCaR [6].
+Allocated an empty WireEdgeEnlargement table in ams_rc_corner_maxCaR [6].
+Decrypted 36864 characters.
+Reading Encrypted Capacitance Table File /pkg/AMS414/cds/HK_AC18/LEF/ac18a6/ac18a6-best.capTable ...
+Cap table was created using Encounter 13.22-s020_1.
+Process name: ac18a6-best.
+Set Shrink Factor to 1.00000
+Allocated an empty WireEdgeEnlargement table in ams_rc_corner_minCaR [6].
+Allocated an empty WireEdgeEnlargement table in ams_rc_corner_minCaR [6].
+Decrypted 29696 characters.
+Importing multi-corner RC tables ... 
+Summary of Active RC-Corners : 
+ 
+ Analysis View: func_max
+    RC-Corner Name        : ams_rc_corner_maxCaR
+    RC-Corner Index       : 0
+    RC-Corner Temperature : 150 Celsius
+    RC-Corner Cap Table   : '/pkg/AMS414/cds/HK_AC18/LEF/ac18a6/ac18a6-worst.capTable'
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner Technology file: '/pkg/AMS414/assura/ac18a6/ac18a6/QRC-worst/qrcTechFile'
+ 
+ Analysis View: test_max
+    RC-Corner Name        : ams_rc_corner_maxCaR
+    RC-Corner Index       : 0
+    RC-Corner Temperature : 150 Celsius
+    RC-Corner Cap Table   : '/pkg/AMS414/cds/HK_AC18/LEF/ac18a6/ac18a6-worst.capTable'
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner Technology file: '/pkg/AMS414/assura/ac18a6/ac18a6/QRC-worst/qrcTechFile'
+ 
+ Analysis View: func_min
+    RC-Corner Name        : ams_rc_corner_minCaR
+    RC-Corner Index       : 1
+    RC-Corner Temperature : -50 Celsius
+    RC-Corner Cap Table   : '/pkg/AMS414/cds/HK_AC18/LEF/ac18a6/ac18a6-best.capTable'
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner Technology file: '/pkg/AMS414/assura/ac18a6/ac18a6/QRC-best/qrcTechFile'
+ 
+ Analysis View: test_min
+    RC-Corner Name        : ams_rc_corner_minCaR
+    RC-Corner Index       : 1
+    RC-Corner Temperature : -50 Celsius
+    RC-Corner Cap Table   : '/pkg/AMS414/cds/HK_AC18/LEF/ac18a6/ac18a6-best.capTable'
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner Technology file: '/pkg/AMS414/assura/ac18a6/ac18a6/QRC-best/qrcTechFile'
+*Info: initialize multi-corner CTS.
+Reading timing constraints file '../CONSTRAINTS/nnspc_func.sdc' ...
+Current (total cpu=0:01:03, real=0:28:04, peak res=504.9M, current mem=850.9M)
+nnspc
+**WARN: (TCLNL-330):	set_input_delay on clock root 'Clk' is not supported. You should use the -source option to set_clock_latency to provide this offset. You can also use the global timing_allow_input_delay_on_clock_source to allow set_input_delay assertion to have an effect on clock source paths beginning at this clock root. (File ../CONSTRAINTS/nnspc_func.sdc, Line 28).
+
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+INFO (CTE): Reading of timing constraints file ../CONSTRAINTS/nnspc_func.sdc completed, with 1 WARNING
+WARNING (CTE-25): Line: 9, 10 of File ../CONSTRAINTS/nnspc_func.sdc : Skipped unsupported command: set_units
+
+
+Ending "Constraint file reading stats" (total cpu=0:00:00.0, real=0:00:00.0, peak res=372.9M, current mem=862.1M)
+Current (total cpu=0:01:03, real=0:28:04, peak res=504.9M, current mem=862.1M)
+Reading timing constraints file '../CONSTRAINTS/nnspc_test.sdc' ...
+Current (total cpu=0:01:03, real=0:28:04, peak res=504.9M, current mem=862.1M)
+nnspc
+**WARN: (TCLNL-330):	set_input_delay on clock root 'Clk' is not supported. You should use the -source option to set_clock_latency to provide this offset. You can also use the global timing_allow_input_delay_on_clock_source to allow set_input_delay assertion to have an effect on clock source paths beginning at this clock root. (File ../CONSTRAINTS/nnspc_test.sdc, Line 28).
+
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (EMS-27):	Message (IMPCTE-290) has exceeded the current message display limit of 20.
+To increase the message display limit, refer to the product command reference manual.
+INFO (CTE): Reading of timing constraints file ../CONSTRAINTS/nnspc_test.sdc completed, with 1 WARNING
+WARNING (CTE-25): Line: 9, 10 of File ../CONSTRAINTS/nnspc_test.sdc : Skipped unsupported command: set_units
+
+
+Ending "Constraint file reading stats" (total cpu=0:00:00.0, real=0:00:01.0, peak res=373.3M, current mem=862.1M)
+Current (total cpu=0:01:03, real=0:28:05, peak res=504.9M, current mem=862.1M)
+Total number of combinational cells: 384
+Total number of sequential cells: 85
+Total number of tristate cells: 14
+Total number of level shifter cells: 0
+Total number of power gating cells: 0
+Total number of isolation cells: 0
+Total number of power switch cells: 0
+Total number of pulse generator cells: 0
+Total number of always on buffers: 0
+Total number of retention cells: 0
+List of usable buffers: BUFX3 BUFX2 BUFX6 BUFX4 BUFX8 BUFX12 BUFX16 BUFX24 BUFX32 CLKBUFX2 CLKBUFX4 CLKBUFX3 CLKBUFX6 CLKBUFX8 CLKBUFX10 CLKBUFX12 CLKBUFX16 CLKBUFX24 CLKBUFX32
+Total number of usable buffers: 19
+List of unusable buffers: BUF2_ESDIF
+Total number of unusable buffers: 1
+List of usable inverters: CLKINVX2 CLKINVX1 CLKINVX4 CLKINVX3 CLKINVX6 CLKINVX8 CLKINVX10 CLKINVX12 CLKINVX16 CLKINVX24 CLKINVX32 INVXL INVX1 INVX3 INVX2 INVX6 INVX4 INVX8 INVX12 INVX16 INVX24 INVX32
+Total number of usable inverters: 22
+List of unusable inverters:
+Total number of unusable inverters: 0
+List of identified usable delay cells: DLY1X1 DLY2X1 DLY3X1 DLY4X1
+Total number of identified usable delay cells: 4
+List of identified unusable delay cells:
+Total number of identified unusable delay cells: 0
+---------- oaIn ----------
+Reading physical information from OA database (nnspc_OADB/nnspc/pins).
+FE units: 0.001 microns/dbu, OA units: 0.001 microns/dbu, Conversion factor: 1
+**WARN: (IMPOAX-571):	Property 'lxInternal' from OA is a hierarchical property which is not supported in Innovus. It is from Design 'nnspc_OADB/nnspc/pins'. This property is not translated and it will be lost in round trip unless updateMode is enabled.
+Type 'man IMPOAX-571' for more detail.
+No new Ext DEF rule to be processed.
+Set FPlanBox to (0 0 82880 70000)
+Generated pitch 0.56 in AM is different from 5.04 defined in technology file in unpreferred direction.
+Extracting standard cell pins and blockage ...... 
+Pin and blockage extraction finished
+TIMER: Purge OA from memory: 0h 0m  0.00s cpu {0h 0m 0s elapsed} Memory = 0.0
+TIMER: oaIn total process: 0h 0m  0.02s cpu {0h 0m 0s elapsed} Memory = 0.0
+Set Default Input Pin Transition as 0.1 ps.
+**WARN: (IMPSYC-6163):	Command 'setDoAssign' is obsolete and will be made private and will be unsupported in future release. To avoid this warning, please remove the obsolete command from your script.
+**WARN: (IMPUDM-33):	Global variable "ptnAssignPinsOnLayerM1" is obsolete and will be removed in a future release. The obsolete variable still works in this release, but to avoid this warning and to ensure compatibility with future releases, remove the obsolete variable from your script.
+**WARN: (GLOBAL-100):	Global 'timing_enable_default_delay_arc' has become obsolete. It will be removed in the next release.
+Updating RC grid for preRoute extraction ...
+Initializing multi-corner capacitance tables ... 
+Initializing multi-corner resistance tables ...
+Start generating vias ...
+**WARN: (IMPRM-143):	ENCLOSURE is not defined on cut layer "V1" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+**WARN: (IMPRM-143):	ENCLOSURE is not defined on cut layer "V2" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+**WARN: (IMPRM-143):	ENCLOSURE is not defined on cut layer "V3" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+**WARN: (IMPRM-143):	ENCLOSURE is not defined on cut layer "V4" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+**WARN: (IMPRM-143):	ENCLOSURE is not defined on cut layer "FT" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+Generating vias for default rule ...
+**WARN: (IMPRM-143):	ENCLOSURE is not defined on cut layer "V1" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+**WARN: (IMPRM-143):	ENCLOSURE is not defined on cut layer "V2" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+**WARN: (IMPRM-143):	ENCLOSURE is not defined on cut layer "V3" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+**WARN: (IMPRM-143):	ENCLOSURE is not defined on cut layer "V4" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+**WARN: (IMPRM-143):	ENCLOSURE is not defined on cut layer "FT" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+Total 49 vias inserted to default rule.
+Via generation for default rule completed.
+Generating vias for nondefault rule VSRDefaultSetup ...
+**WARN: (IMPRM-143):	ENCLOSURE for NONDEFAULTRULE VSRDefaultSetup is not defined on cut layer "V1" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+**WARN: (IMPRM-143):	ENCLOSURE for NONDEFAULTRULE VSRDefaultSetup is not defined on cut layer "V2" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+**WARN: (IMPRM-143):	ENCLOSURE for NONDEFAULTRULE VSRDefaultSetup is not defined on cut layer "V3" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+**WARN: (IMPRM-143):	ENCLOSURE for NONDEFAULTRULE VSRDefaultSetup is not defined on cut layer "V4" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+**WARN: (IMPRM-143):	ENCLOSURE for NONDEFAULTRULE VSRDefaultSetup is not defined on cut layer "FT" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+**WARN: (IMPRM-143):	ENCLOSURE for NONDEFAULTRULE VSRDefaultSetup is not defined on cut layer "V1" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+**WARN: (IMPRM-143):	ENCLOSURE for NONDEFAULTRULE VSRDefaultSetup is not defined on cut layer "V2" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+**WARN: (IMPRM-143):	ENCLOSURE for NONDEFAULTRULE VSRDefaultSetup is not defined on cut layer "V3" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+**WARN: (IMPRM-143):	ENCLOSURE for NONDEFAULTRULE VSRDefaultSetup is not defined on cut layer "V4" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+**WARN: (IMPRM-143):	ENCLOSURE for NONDEFAULTRULE VSRDefaultSetup is not defined on cut layer "FT" in the technology DB. VIARULE GENERATE values will be used instead. The generated vias, using the VIARULE GENERATE values, are probably not optimal for signal routing and pin access.
+Type 'man IMPRM-143' for more detail.
+Total 42 vias added to nondefault rule VSRDefaultSetup
+Via generation for nondefault rule VSRDefaultSetup completed.
+Via generation completed.
+
+*** Summary of all messages that are not suppressed in this session:
+Severity  ID               Count  Summary                                  
+WARNING   IMPEXT-6202          1  In addition to the technology file, the ...
+WARNING   IMPSYC-6163          2  Command '%s' is obsolete and will be mad...
+WARNING   IMPRM-143           20  %s is not defined on cut layer "%s" in t...
+WARNING   IMPOAX-571           1  Property '%s' from OA is a hierarchical ...
+WARNING   IMPOAX-1637          5  Enclosure and width are supported on rou...
+WARNING   IMPOAX-1645          2  '%s' constraint is not supported on laye...
+WARNING   IMPOAX-738           1  Non-Default Rule '%s' has already been d...
+WARNING   IMPOAX-741           9  Site '%s' has already been defined in %s...
+WARNING   IMPCTE-290          24  Could not locate cell %s in any library ...
+WARNING   IMPUDM-33            2  Global variable "%s" is obsolete and wil...
+*** Message Summary: 67 warning(s), 0 error(s)
+
+<CMD> getCTSMode -engine -quiet
+<CMD> getCTSMode -engine -quiet
+<CMD> getCTSMode -engine -quiet
+<CMD> getCTSMode -engine -quiet
+<CMD> getCTSMode -engine -quiet
+<CMD> getCTSMode -engine -quiet
+<CMD> getCTSMode -engine -quiet
+<CMD> getCTSMode -engine -quiet
+<CMD> getCTSMode -engine -quiet
+<CMD> getCTSMode -engine -quiet
+<CMD> getCTSMode -engine -quiet
+<CMD> getCTSMode -engine -quiet
+<CMD> getCTSMode -engine -quiet
+**WARN: (IMPTCM-77):	Option "-drouteStartIteration" for command getNanoRouteMode is obsolete and will be removed in a future release. The obsolete option still works in this release but to avoid this warning and to ensure compatibility with future releases, remove the obsolete option from your script.
+**WARN: (IMPTCM-125):	Option "-checkPinLayerForAccess" for command getPlaceMode is obsolete and will be ignored. It no longer has any effect and should be removed from your script.
+<CMD> getPinAssignMode -pinEditInBatch -quiet
+<CMD> setPinAssignMode -pinEditInBatch false
+**WARN: (IMPTCM-77):	Option "-drouteStartIteration" for command getNanoRouteMode is obsolete and will be removed in a future release. The obsolete option still works in this release but to avoid this warning and to ensure compatibility with future releases, remove the obsolete option from your script.
+**WARN: (IMPTCM-125):	Option "-checkPinLayerForAccess" for command getPlaceMode is obsolete and will be ignored. It no longer has any effect and should be removed from your script.
+<CMD> setEndCapMode -reset
+<CMD> setEndCapMode -boundary_tap false
+<CMD> setNanoRouteMode -quiet -routeTopRoutingLayer 6
+<CMD> setNanoRouteMode -quiet -droutePostRouteWidenWireRule VSRDefaultSetup
+**WARN: (IMPTCM-77):	Option "-drouteStartIteration" for command getNanoRouteMode is obsolete and will be removed in a future release. The obsolete option still works in this release but to avoid this warning and to ensure compatibility with future releases, remove the obsolete option from your script.
+**WARN: (IMPTCM-77):	Option "-drouteStartIteration" for command getNanoRouteMode is obsolete and will be removed in a future release. The obsolete option still works in this release but to avoid this warning and to ensure compatibility with future releases, remove the obsolete option from your script.
+**WARN: (IMPTCM-77):	Option "-envDontUseLicsForThreadings" for command getNanoRouteMode is obsolete and will be removed in a future release. The obsolete option still works in this release but to avoid this warning and to ensure compatibility with future releases, remove the obsolete option from your script.
+**WARN: (IMPTCM-77):	Option "-routeAllowPowerGroundPin" for command getNanoRouteMode is obsolete and will be removed in a future release. The obsolete option still works in this release but to avoid this warning and to ensure compatibility with future releases, remove the obsolete option from your script.
+**WARN: (IMPTCM-77):	Option "-routeAllowPowerGroundPin" for command getNanoRouteMode is obsolete and will be removed in a future release. The obsolete option still works in this release but to avoid this warning and to ensure compatibility with future releases, remove the obsolete option from your script.
+<CMD> setUsefulSkewMode -maxSkew false -noBoundary false -useCells {DLY4X1 DLY3X1 DLY2X1 DLY1X1 CLKBUFX32 CLKBUFX24 CLKBUFX16 CLKBUFX12 CLKBUFX10 CLKBUFX8 CLKBUFX6 CLKBUFX4 CLKBUFX3 CLKBUFX2 BUFX32 BUFX24 BUFX16 BUFX12 BUFX8 BUFX6 BUFX4 BUFX3 BUFX2 INVX32 INVX24 INVX16 INVX12 INVX8 INVX6 INVX4 INVX3 INVX2 INVX1 INVXL CLKINVX32 CLKINVX24 CLKINVX16 CLKINVX12 CLKINVX10 CLKINVX8 CLKINVX6 CLKINVX4 CLKINVX3 CLKINVX2 CLKINVX1} -maxAllowedDelay 1
+<CMD> setEndCapMode -reset
+<CMD> setEndCapMode -boundary_tap false
+**WARN: (IMPTCM-77):	Option "-drouteStartIteration" for command getNanoRouteMode is obsolete and will be removed in a future release. The obsolete option still works in this release but to avoid this warning and to ensure compatibility with future releases, remove the obsolete option from your script.
+**WARN: (IMPTCM-77):	Option "-drouteStartIteration" for command getNanoRouteMode is obsolete and will be removed in a future release. The obsolete option still works in this release but to avoid this warning and to ensure compatibility with future releases, remove the obsolete option from your script.
+**WARN: (IMPTCM-77):	Option "-envDontUseLicsForThreadings" for command getNanoRouteMode is obsolete and will be removed in a future release. The obsolete option still works in this release but to avoid this warning and to ensure compatibility with future releases, remove the obsolete option from your script.
+**WARN: (IMPTCM-77):	Option "-routeAllowPowerGroundPin" for command getNanoRouteMode is obsolete and will be removed in a future release. The obsolete option still works in this release but to avoid this warning and to ensure compatibility with future releases, remove the obsolete option from your script.
+**WARN: (IMPTCM-77):	Option "-routeAllowPowerGroundPin" for command getNanoRouteMode is obsolete and will be removed in a future release. The obsolete option still works in this release but to avoid this warning and to ensure compatibility with future releases, remove the obsolete option from your script.
+<CMD> setUsefulSkewMode -maxSkew false -noBoundary false -useCells {DLY4X1 DLY3X1 DLY2X1 DLY1X1 CLKBUFX32 CLKBUFX24 CLKBUFX16 CLKBUFX12 CLKBUFX10 CLKBUFX8 CLKBUFX6 CLKBUFX4 CLKBUFX3 CLKBUFX2 BUFX32 BUFX24 BUFX16 BUFX12 BUFX8 BUFX6 BUFX4 BUFX3 BUFX2 INVX32 INVX24 INVX16 INVX12 INVX8 INVX6 INVX4 INVX3 INVX2 INVX1 INVXL CLKINVX32 CLKINVX24 CLKINVX16 CLKINVX12 CLKINVX10 CLKINVX8 CLKINVX6 CLKINVX4 CLKINVX3 CLKINVX2 CLKINVX1} -maxAllowedDelay 1
+<CMD> setEndCapMode -reset
+<CMD> setEndCapMode -boundary_tap false
+**WARN: (IMPTCM-77):	Option "-drouteStartIteration" for command getNanoRouteMode is obsolete and will be removed in a future release. The obsolete option still works in this release but to avoid this warning and to ensure compatibility with future releases, remove the obsolete option from your script.
+**WARN: (IMPTCM-77):	Option "-drouteStartIteration" for command getNanoRouteMode is obsolete and will be removed in a future release. The obsolete option still works in this release but to avoid this warning and to ensure compatibility with future releases, remove the obsolete option from your script.
+**WARN: (IMPTCM-77):	Option "-envDontUseLicsForThreadings" for command getNanoRouteMode is obsolete and will be removed in a future release. The obsolete option still works in this release but to avoid this warning and to ensure compatibility with future releases, remove the obsolete option from your script.
+**WARN: (IMPTCM-77):	Option "-routeAllowPowerGroundPin" for command getNanoRouteMode is obsolete and will be removed in a future release. The obsolete option still works in this release but to avoid this warning and to ensure compatibility with future releases, remove the obsolete option from your script.
+**WARN: (IMPTCM-77):	Option "-routeAllowPowerGroundPin" for command getNanoRouteMode is obsolete and will be removed in a future release. The obsolete option still works in this release but to avoid this warning and to ensure compatibility with future releases, remove the obsolete option from your script.
+<CMD> setUsefulSkewMode -maxSkew false -noBoundary false -useCells {DLY4X1 DLY3X1 DLY2X1 DLY1X1 CLKBUFX32 CLKBUFX24 CLKBUFX16 CLKBUFX12 CLKBUFX10 CLKBUFX8 CLKBUFX6 CLKBUFX4 CLKBUFX3 CLKBUFX2 BUFX32 BUFX24 BUFX16 BUFX12 BUFX8 BUFX6 BUFX4 BUFX3 BUFX2 INVX32 INVX24 INVX16 INVX12 INVX8 INVX6 INVX4 INVX3 INVX2 INVX1 INVXL CLKINVX32 CLKINVX24 CLKINVX16 CLKINVX12 CLKINVX10 CLKINVX8 CLKINVX6 CLKINVX4 CLKINVX3 CLKINVX2 CLKINVX1} -maxAllowedDelay 1
+<CMD> setPlaceMode -fp false
+<CMD> placeDesign
+*** Starting placeDesign default flow ***
+**INFO: Enable pre-place timing setting for timing analysis
+Set Using Default Delay Limit as 101.
+**WARN: (IMPDC-1629):	The default delay limit was set to 101. This is less than the default of 1000 and may result in inaccurate delay calculation for nets with a fanout higher than the setting.  If needed, the default delay limit may be adjusted by running the command 'set delaycal_use_default_delay_limit'.
+Set Default Net Delay as 0 ps.
+Set Default Net Load as 0 pF. 
+**INFO: Analyzing IO path groups for slack adjustment
+Effort level <high> specified for reg2reg_tmp.31162 path_group
+#################################################################################
+# Design Stage: PreRoute
+# Design Name: nnspc
+# Design Mode: 180nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: No SPEF/RCDB
+# Signoff Settings: SI Off 
+#################################################################################
+Calculate delays in BcWc mode...
+Calculate delays in BcWc mode...
+End delay calculation. (MEM=1031.77 CPU=0:00:00.0 REAL=0:00:00.0)
+*** CDM Built up (cpu=0:00:01.0  real=0:00:01.0  mem= 1031.8M) ***
+*** Start deleteBufferTree ***
+Info: Detect buffers to remove automatically.
+Analyzing netlist ...
+All-RC-Corners-Per-Net-In-Memory is turned ON...
+Updating netlist
+
+*summary: 0 instances (buffers/inverters) removed
+*** Finish deleteBufferTree (0:00:00.0) ***
+**INFO: Disable pre-place timing setting for timing analysis
+Set Using Default Delay Limit as 1000.
+Set Default Net Delay as 1000 ps.
+Set Default Net Load as 0.5 pF. 
+Deleted 0 physical inst  (cell - / prefix -).
+*** Starting "NanoPlace(TM) placement v#1 (mem=1017.6M)" ...
+*** Build Buffered Sizing Timing Model
+(cpu=0:00:07.3 mem=1017.6M) ***
+*** Build Virtual Sizing Timing Model
+(cpu=0:00:07.9 mem=1017.6M) ***
+Options: timingDriven clkGateAware ignoreScan pinGuide congEffort=auto gpeffort=medium 
+**WARN: (IMPSP-9042):	Scan chains were not defined, -ignoreScan option will be ignored.
+Define the scan chains before using this option.
+Type 'man IMPSP-9042' for more detail.
+#std cell=37 (0 fixed + 37 movable) #block=0 (0 floating + 0 preplaced)
+#ioInst=0 #net=41 #term=151 #term/net=3.68, #fixedIo=0, #floatIo=0, #fixedPin=0, #floatPin=13
+stdCell: 37 single + 0 double + 0 multi
+Total standard cell length = 0.3651 (mm), area = 0.0018 (mm^2)
+Average module density = 0.742.
+Density for the design = 0.742.
+       = stdcell_area 652 sites (1840 um^2) / alloc_area 878 sites (2479 um^2).
+Pin Density = 0.1613.
+            = total # of pins 151 / total area 936.
+=== lastAutoLevel = 4 
+Clock gating cells determined by native netlist tracing.
+Iteration  1: Total net bbox = 5.462e+02 (3.65e+01 5.10e+02)
+              Est.  stn bbox = 6.122e+02 (3.93e+01 5.73e+02)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 1031.8M
+Iteration  2: Total net bbox = 5.462e+02 (3.65e+01 5.10e+02)
+              Est.  stn bbox = 6.122e+02 (3.93e+01 5.73e+02)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 1031.8M
+Iteration  3: Total net bbox = 4.899e+02 (3.94e+01 4.50e+02)
+              Est.  stn bbox = 5.814e+02 (4.59e+01 5.35e+02)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 1031.8M
+Iteration  4: Total net bbox = 8.859e+02 (3.32e+02 5.54e+02)
+              Est.  stn bbox = 1.048e+03 (3.99e+02 6.49e+02)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 1031.8M
+Iteration  5: Total net bbox = 1.072e+03 (4.58e+02 6.14e+02)
+              Est.  stn bbox = 1.257e+03 (5.47e+02 7.10e+02)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 1031.8M
+Iteration  6: Total net bbox = 9.754e+02 (4.83e+02 4.92e+02)
+              Est.  stn bbox = 1.161e+03 (5.74e+02 5.88e+02)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 1031.8M
+*** cost = 9.754e+02 (4.83e+02 4.92e+02) (cpu for global=0:00:00.0) real=0:00:00.0***
+Info: 0 clock gating cells identified, 0 (on average) moved
+nnspc
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view func_min.
+nnspc
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (IMPCTE-290):	Could not locate cell NAND2X1 in any library for view test_min.
+**WARN: (EMS-27):	Message (IMPCTE-290) has exceeded the current message display limit of 20.
+To increase the message display limit, refer to the product command reference manual.
+Core Placement runtime cpu: 0:00:00.0 real: 0:00:00.0
+**WARN: (IMPSP-9025):	No scan chain specified/traced.
+Type 'man IMPSP-9025' for more detail.
+*** Starting refinePlace (0:01:16 mem=949.2M) ***
+Total net bbox length = 1.110e+03 (5.443e+02 5.656e+02) (ext = 3.836e+02)
+Density distribution unevenness ratio = 0.000%
+Move report: Detail placement moves 37 insts, mean move: 1.89 um, max move: 5.57 um
+	Max move on inst (g143): (18.33, 41.56) --> (16.80, 37.52)
+	Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 949.2MB
+Summary Report:
+Instances move: 37 (out of 37 movable)
+Mean displacement: 1.89 um
+Max displacement: 5.57 um (Instance: g143) (18.326, 41.561) -> (16.8, 37.52)
+	Length: 6 sites, height: 1 rows, site name: ams018Site, cell type: AO21X3
+Total net bbox length = 1.005e+03 (3.896e+02 6.150e+02) (ext = 3.072e+02)
+Runtime: CPU: 0:00:00.0 REAL: 0:00:00.0 MEM: 949.2MB
+*** Finished refinePlace (0:01:16 mem=949.2M) ***
+*** End of Placement (cpu=0:00:08.3, real=0:00:08.0, mem=949.2M) ***
+default core: bins with density >  0.75 =    0 % ( 0 / 2 )
+Density distribution unevenness ratio = 0.000%
+*** Free Virtual Timing Model ...(mem=949.2M)
+Starting IO pin assignment...
+The design is not routed. Using flight-line based method for pin assignment.
+Completed IO pin assignment.
+Starting congestion repair ...
+[NR-eagl] honorMsvRouteConstraint: false
+[NR-eagl] honorClockSpecNDR      : 0
+[NR-eagl] minRouteLayer          : 2
+[NR-eagl] maxRouteLayer          : 6
+[NR-eagl] numTracksPerClockWire  : 0
+[NR-eagl] Layer1 has no routable track
+[NR-eagl] Layer2 has single uniform track structure
+[NR-eagl] Layer3 has single uniform track structure
+[NR-eagl] Layer4 has single uniform track structure
+[NR-eagl] Layer5 has single uniform track structure
+[NR-eagl] Layer6 has single uniform track structure
+[NR-eagl] numRoutingBlks=0 numInstBlks=0 numPGBlocks=32 numBumpBlks=0 numBoundaryFakeBlks=0
+[NR-eagl] numPreroutedNet = 0  numPreroutedWires = 0
+[NR-eagl] Read numTotalNets=41  numIgnoredNets=0
+[NR-eagl] There are 2 clock nets ( 0 with NDR ).
+[NR-eagl] ============ Routing rule table ============
+[NR-eagl] Rule id 0. Nets 41 
+[NR-eagl] id=0  ndrTrackId=0  ndrViaId=-1  extraSpace=0  numShields=0  maxHorDemand=1  maxVerDemand=1
+[NR-eagl] Pitch:  L1=440  L2=560  L3=560  L4=560  L5=560  L6=5040
+[NR-eagl] ========================================
+[NR-eagl] 
+[NR-eagl] Layer group 1: route 41 net(s) in layer range [2, 6]
+[NR-eagl] earlyGlobalRoute overflow of layer group 1: 0.00% H + 0.00% V. EstWL: 1.093680e+03um
+[NR-eagl] 
+[NR-eagl] Overflow after earlyGlobalRoute (GR compatible) 0.00% H + 0.00% V
+[NR-eagl] Overflow after earlyGlobalRoute 0.00% H + 0.00% V
+Local HotSpot Analysis: normalized max congestion hotspot area = 0.00, normalized total congestion hotspot area = 0.00 (area is in unit of 4 std-cell row bins)
+describeCongestion: hCong = 0.00 vCong = 0.00
+Skipped repairing congestion.
+[NR-eagl] Layer1(M1)(F) length: 0.000000e+00um, number of vias: 138
+[NR-eagl] Layer2(M2)(V) length: 6.812400e+02um, number of vias: 170
+[NR-eagl] Layer3(M3)(H) length: 4.174800e+02um, number of vias: 7
+[NR-eagl] Layer4(M4)(V) length: 1.055600e+02um, number of vias: 4
+[NR-eagl] Layer5(MT)(H) length: 1.680000e+00um, number of vias: 0
+[NR-eagl] Layer6(AM)(V) length: 0.000000e+00um, number of vias: 0
+[NR-eagl] Total length: 1.205960e+03um, number of vias: 319
+End of congRepair (cpu=0:00:00.0, real=0:00:00.0)
+*** Finishing placeDesign default flow ***
+**placeDesign ... cpu = 0: 0: 9, real = 0: 0: 9, mem = 949.2M **
+Command spTest is not supported.
+
+*** Summary of all messages that are not suppressed in this session:
+Severity  ID               Count  Summary                                  
+WARNING   IMPDC-1629           1  The default delay limit was set to %d. T...
+WARNING   IMPSP-9025           1  No scan chain specified/traced.          
+WARNING   IMPSP-9042           1  Scan chains were not defined, -ignoreSca...
+WARNING   IMPCTE-290          24  Could not locate cell %s in any library ...
+*** Message Summary: 27 warning(s), 0 error(s)
+
+**WARN: (IMPTCM-77):	Option "-drouteStartIteration" for command getNanoRouteMode is obsolete and will be removed in a future release. The obsolete option still works in this release but to avoid this warning and to ensure compatibility with future releases, remove the obsolete option from your script.
+**WARN: (IMPTCM-125):	Option "-checkPinLayerForAccess" for command getPlaceMode is obsolete and will be ignored. It no longer has any effect and should be removed from your script.
+
+*** Memory Usage v#1 (Current mem = 949.172M, initial mem = 151.129M) ***
+*** Message Summary: 265 warning(s), 4 error(s)
+
+--- Ending "Innovus" (totcpu=0:01:17, real=0:32:47, mem=949.2M) ---

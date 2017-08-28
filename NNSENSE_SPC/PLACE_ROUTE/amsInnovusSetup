@@ -1,0 +1,25 @@
+#### amsAG - Innovus Setup Creation
+#--- hitkit: /pkg/AMS414
+#--- 
+#--- Corelib-Timing: CORELIB
+#---          Best : _1.8V + 10% => 1.98V
+#---           Typ : _1.8V
+#---         Worst : _1.8V - 10% => 1.62V
+#--- Iolib-Timing  : None
+#---          Best : None
+#---           Typ : None
+#---         Worst : None
+
+$AMS_DIR/cds/bin/ams_innovuss -tech ac18 \
+              -metlay 6AM \
+              -corelib CORELIB \
+              -corevolt _1.8V \
+              -corevolt_wc _1.8V \
+              -corevolt_bc _1.8V \
+              -iolib None \
+              -iovolt None \
+              -iovolt_wc None \
+              -iovolt_bc None \
+              -vn nnspc.v \
+              -vt nnspc \
+              -ediver INNOVUS15.2
