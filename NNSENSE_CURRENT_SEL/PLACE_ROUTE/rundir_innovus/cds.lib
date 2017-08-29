@@ -1,0 +1,2 @@
+INCLUDE ../cds.lib
+DEFINE cur_dec_OADB ../OADB/cur_dec_OADB

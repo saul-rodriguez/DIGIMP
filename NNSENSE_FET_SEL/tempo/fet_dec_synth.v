@@ -1,0 +1,1 @@
+../../SYNTEHSIS/fet_dec_synth.v

@@ -1,0 +1,768 @@
+#######################################################
+#                                                     
+#  Innovus Command Logging File                     
+#  Created on Tue Aug 29 13:47:12 2017                
+#                                                     
+#######################################################
+
+#@(#)CDS: Innovus v15.28-s017_1 (64bit) 03/20/2017 11:28 (Linux 2.6.18-194.el5)
+#@(#)CDS: NanoRoute 15.28-s017_1 NR170225-1338/15_28-UB (database version 2.30, 317.6.1) {superthreading v1.26}
+#@(#)CDS: AAE 15.28-s003 (64bit) 03/20/2017 (Linux 2.6.18-194.el5)
+#@(#)CDS: CTE 15.28-s006_1 () Feb 16 2017 04:38:28 ( )
+#@(#)CDS: SYNTECH 15.28-s002_1 () Feb 14 2017 21:05:47 ( )
+#@(#)CDS: CPE v15.28-s003
+#@(#)CDS: IQRC/TQRC 15.1.4-s213 (64bit) Tue Feb  9 17:31:28 PST 2016 (Linux 2.6.18-194.el5)
+
+setCheckMode -tapeOut true
+setDelayCalMode -siAware false
+setGenerateViaMode -auto true
+setExtractRCMode -lefTechFileMap /pkg/AMS414/cds/HK_AC18/LEF/ac18a6/qrclaymap.ccl
+suppressMessage IMPFP-3961
+suppressMessage TECHLIB-436
+set defHierChar /
+set init_oa_ref_lib {TECH_C18A6  CORELIB  }
+set init_verilog ../VERILOG/fet_dec_synth.v
+set init_top_cell fet_dec
+set init_pwr_net {vdd!  }
+set init_gnd_net {gnd! subc!  }
+set init_mmmc_file ../CONFIG/ac18_fet_dec_mmmc.view
+set conf_gen_footprint 1
+set fp_core_to_left 50.000000
+set fp_core_to_right 50.000000
+set fp_core_to_top 50.000000
+set fp_core_to_bottom 50.000000
+set lsgOCPGainMult 1.000000
+set conf_ioOri R0
+set fp_core_util 0.800
+set init_assign_buffer 0
+set conf_in_tran_delay 0.1ps
+set init_import_mode { -keepEmptyModule 1 -treatUndefinedCellAsBbox 0}
+set init_layout_view layout
+set init_abstract_view abstract
+set init_io_file {}
+print {---# TCL Script amsSetup.tcl loaded}
+print {---# TCL Script ../SCRIPTS/amsVoltusSetup.tcl loaded}
+print {---# Additional ams TCL Procedures loaded}
+getVersion
+getVersion
+print {### austriamicrosystems HitKit-Utilities Menu added}
+set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+suppressMessage ENCEXT-2799
+getDrawView
+loadWorkspace -name Physical
+win
+setGenerateViaMode -auto true
+setDesignMode -process 180
+init_design
+setCTSMode -bottomPreferredLayer 1
+setMaxRouteLayer 5
+setExtractRCMode -lefTechFileMap /pkg/AMS414/cds/HK_AC18/LEF/ac18a6/qrclaymap.ccl
+checkDesign -all -outDir ../REPORTS/checkDesignDbSetup
+check_timing -verbose  > $filename2
+print {#### }
+print {---# CheckDesign Result: ../REPORTS/checkDesignDbSetup/fet_dec.main.htm}
+print {---# CheckTiming Result: ../REPORTS/checkDesignDbSetup/fet_dec.checkTiming}
+print {#### }
+setPreference ConstraintUserXGrid 0.01
+setPreference ConstraintUserXOffset 0.01
+setPreference ConstraintUserYGrid 0.01
+setPreference ConstraintUserYOffset 0.01
+setPreference SnapAllCorners 1
+setPreference BlockSnapRule 2
+snapFPlanIO -usergrid
+clearGlobalNets
+globalNetConnect vdd! -type pgpin -pin vdd! -inst * -module {}
+print {---# GlobalConnect all vdd! pins to net vdd!}
+globalNetConnect gnd! -type pgpin -pin gnd! -inst * -module {}
+print {---# GlobalConnect all gnd! pins to net gnd!}
+print {---# Libray fet_dec_OADB already exists
+}
+saveDesign -cellview {fet_dec_OADB fet_dec loaded}
+print {---#   Saved As OA: fet_dec_OADB fet_dec loaded
+}
+getIoFlowFlag
+setIoFlowFlag 0
+floorPlan -site ams018Site -r 0.913705583756 0.3 12 12 12 12
+uiSetTool select
+getIoFlowFlag
+fit
+setIoFlowFlag 0
+floorPlan -site ams018Site -r 0.8 0.25 12.32 12.32 12.32 12.32
+uiSetTool select
+getIoFlowFlag
+fit
+setIoFlowFlag 0
+floorPlan -site ams018Site -r 0.727272727273 0.248737 12.32 12.32 12.32 12.32
+uiSetTool select
+getIoFlowFlag
+fit
+set sprCreateIeRingNets {}
+set sprCreateIeRingLayers {}
+set sprCreateIeRingWidth 1.0
+set sprCreateIeRingSpacing 1.0
+set sprCreateIeRingOffset 1.0
+set sprCreateIeRingThreshold 1.0
+set sprCreateIeRingJogDistance 1.0
+addRing -skip_via_on_wire_shape Noshape -skip_via_on_pin Standardcell -stacked_via_top_layer AM -type core_rings -jog_distance 2.52 -threshold 2.52 -nets {gnd! vdd!} -follow core -stacked_via_bottom_layer M1 -layer {bottom M1 top M1 right M2 left M2} -width 3.5 -spacing {bottom 0.36 top 0.36 right 0.4 left 0.4} -offset 2.52
+setViaGenMode -symmetrical_via_only true
+setViaGenMode -parameterized_via_only true
+editPushUndo
+sroute -connect { blockPin padPin padRing corePin floatingStripe } -layerChangeRange { M1(1) AM(6) } -blockPinTarget { nearestTarget } -padPinPortConnect { allPort oneGeom } -padPinTarget { nearestTarget } -corePinTarget { firstAfterRowEnd } -floatingStripeTarget { blockring padring ring stripe ringpin blockpin followpin } -allowJogging 1 -crossoverViaLayerRange { M1(1) AM(6) } -nets { gnd! vdd! } -allowLayerChange 1 -blockPin useLef -targetViaLayerRange { M1(1) AM(6) }
+fit
+print {---# Libray fet_dec_OADB already exists
+}
+saveDesign -cellview {fet_dec_OADB fet_dec power}
+print {---#   Saved As OA: fet_dec_OADB fet_dec power
+}
+getPinAssignMode -pinEditInBatch -quiet
+setPinAssignMode -pinEditInBatch true
+editPin -fixOverlap 1 -unit MICRON -spreadDirection clockwise -side Top -layer 3 -spreadType start -spacing 1.12 -start 0.0 0.0 -pin {{in[0]} {in[1]} {in[2]} {in[3]} {in[4]}}
+setPinAssignMode -pinEditInBatch true
+editPin -pinWidth 0.28 -pinDepth 1.12 -fixOverlap 1 -unit MICRON -spreadDirection clockwise -side Top -layer 3 -spreadType center -spacing 1.12 -pin {{in[0]} {in[1]} {in[2]} {in[3]} {in[4]}}
+setPinAssignMode -pinEditInBatch true
+editPin -fixOverlap 1 -unit MICRON -spreadDirection clockwise -side Bottom -layer 3 -spreadType center -spacing 1.12 -pin {{out[0]} {out[1]} {out[2]} {out[3]} {out[4]} {out[5]} {out[6]} {out[7]} {out[8]} {out[9]} {out[10]} {out[11]} {out[12]} {out[13]} {out[14]} {out[15]} {out[16]} {out[17]} {out[18]} {out[19]} {out[20]} {out[21]} {out[22]} {out[23]} {out[24]} {out[25]} {out[26]} {out[27]} {out[28]} {out[29]} {out[30]} {out[31]}}
+setPinAssignMode -pinEditInBatch true
+editPin -pinWidth 0.28 -pinDepth 1.12 -fixOverlap 1 -unit MICRON -spreadDirection clockwise -side Bottom -layer 3 -spreadType center -spacing -1.12 -pin {{out[0]} {out[1]} {out[2]} {out[3]} {out[4]} {out[5]} {out[6]} {out[7]} {out[8]} {out[9]} {out[10]} {out[11]} {out[12]} {out[13]} {out[14]} {out[15]} {out[16]} {out[17]} {out[18]} {out[19]} {out[20]} {out[21]} {out[22]} {out[23]} {out[24]} {out[25]} {out[26]} {out[27]} {out[28]} {out[29]} {out[30]} {out[31]}}
+setPinAssignMode -pinEditInBatch false
+print {---# Libray fet_dec_OADB already exists
+}
+saveDesign -cellview {fet_dec_OADB fet_dec pins}
+print {---#   Saved As OA: fet_dec_OADB fet_dec pins
+}
+set_analysis_view -setup $maxviewList -hold $minviewList
+timeDesign -prePlace -expandedViews
+print {---# Libray fet_dec_OADB already exists
+}
+saveDesign -cellview {fet_dec_OADB fet_dec preplace}
+print {---#   Saved As OA: fet_dec_OADB fet_dec preplace
+}
+get_propagated_clock -clock in[0]
+setEndCapMode -reset
+setEndCapMode -boundary_tap false
+setNanoRouteMode -quiet -routeTopRoutingLayer 6
+setNanoRouteMode -quiet -droutePostRouteWidenWireRule VSRDefaultSetup
+setUsefulSkewMode -maxSkew false -noBoundary false -useCells {DLY4X1 DLY3X1 DLY2X1 DLY1X1 CLKBUFX32 CLKBUFX24 CLKBUFX16 CLKBUFX12 CLKBUFX10 CLKBUFX8 CLKBUFX6 CLKBUFX4 CLKBUFX3 CLKBUFX2 BUFX32 BUFX24 BUFX16 BUFX12 BUFX8 BUFX6 BUFX4 BUFX3 BUFX2 INVX32 INVX24 INVX16 INVX12 INVX8 INVX6 INVX4 INVX3 INVX2 INVX1 INVXL CLKINVX32 CLKINVX24 CLKINVX16 CLKINVX12 CLKINVX10 CLKINVX8 CLKINVX6 CLKINVX4 CLKINVX3 CLKINVX2 CLKINVX1} -maxAllowedDelay 1
+setPlaceMode -reset
+setPlaceMode -congEffort auto -timingDriven 1 -modulePlan 1 -clkGateAware 1 -powerDriven 0 -ignoreScan 1 -reorderScan 1 -ignoreSpare 0 -placeIOPins 0 -moduleAwareSpare 0 -checkPinLayerForAccess {  1 2 3 } -maxRouteLayer 3 -preserveRouting 0 -rmAffectedRouting 0 -checkRoute 0 -swapEEQ 0
+setEndCapMode -reset
+setEndCapMode -boundary_tap false
+setUsefulSkewMode -maxSkew false -noBoundary false -useCells {DLY4X1 DLY3X1 DLY2X1 DLY1X1 CLKBUFX32 CLKBUFX24 CLKBUFX16 CLKBUFX12 CLKBUFX10 CLKBUFX8 CLKBUFX6 CLKBUFX4 CLKBUFX3 CLKBUFX2 BUFX32 BUFX24 BUFX16 BUFX12 BUFX8 BUFX6 BUFX4 BUFX3 BUFX2 INVX32 INVX24 INVX16 INVX12 INVX8 INVX6 INVX4 INVX3 INVX2 INVX1 INVXL CLKINVX32 CLKINVX24 CLKINVX16 CLKINVX12 CLKINVX10 CLKINVX8 CLKINVX6 CLKINVX4 CLKINVX3 CLKINVX2 CLKINVX1} -maxAllowedDelay 1
+setPlaceMode -reset
+setPlaceMode -congEffort auto -timingDriven 1 -modulePlan 1 -clkGateAware 1 -powerDriven 0 -ignoreScan 1 -reorderScan 1 -ignoreSpare 0 -placeIOPins 0 -moduleAwareSpare 0 -checkPinLayerForAccess {  1 2 3 } -maxRouteLayer 3 -preserveRouting 0 -rmAffectedRouting 0 -checkRoute 0 -swapEEQ 0
+setPlaceMode -fp false
+placeDesign
+getMultiCpuUsage -localCpu
+get_verify_drc_mode -disable_rules -quiet
+get_verify_drc_mode -quiet -area
+get_verify_drc_mode -quiet -layer_range
+get_verify_drc_mode -check_implant -quiet
+get_verify_drc_mode -check_implant_across_rows -quiet
+get_verify_drc_mode -check_ndr_spacing -quiet
+get_verify_drc_mode -check_only -quiet
+get_verify_drc_mode -check_same_via_cell -quiet
+get_verify_drc_mode -exclude_pg_net -quiet
+get_verify_drc_mode -ignore_trial_route -quiet
+get_verify_drc_mode -max_wrong_way_halo -quiet
+get_verify_drc_mode -use_min_spacing_on_block_obs -quiet
+get_verify_drc_mode -limit -quiet
+set_verify_drc_mode -disable_rules {} -check_implant true -check_implant_across_rows false -check_ndr_spacing false -check_same_via_cell false -exclude_pg_net false -ignore_trial_route false -report fet_dec.drc.rpt -limit 1000
+verify_drc
+set_verify_drc_mode -area {0 0 0 0}
+refinePlace -checkRoute 1 -preserveRouting 0 -rmAffectedRouting 0 -swapEEQ 0 -checkPinLayerForAccess 3
+setDrawView place
+setDrawView ameba
+setDrawView fplan
+setDrawView ameba
+setDrawView place
+fit
+get_verify_drc_mode -disable_rules -quiet
+get_verify_drc_mode -quiet -area
+get_verify_drc_mode -quiet -layer_range
+get_verify_drc_mode -check_implant -quiet
+get_verify_drc_mode -check_implant_across_rows -quiet
+get_verify_drc_mode -check_ndr_spacing -quiet
+get_verify_drc_mode -check_only -quiet
+get_verify_drc_mode -check_same_via_cell -quiet
+get_verify_drc_mode -exclude_pg_net -quiet
+get_verify_drc_mode -ignore_trial_route -quiet
+get_verify_drc_mode -max_wrong_way_halo -quiet
+get_verify_drc_mode -use_min_spacing_on_block_obs -quiet
+get_verify_drc_mode -limit -quiet
+set_verify_drc_mode -disable_rules {} -check_implant true -check_implant_across_rows false -check_ndr_spacing false -check_same_via_cell false -exclude_pg_net false -ignore_trial_route false -report fet_dec.drc.rpt -limit 1000
+verify_drc
+set_verify_drc_mode -area {0 0 0 0}
+selectInst sll_18_12/g329
+deselectAll
+selectInst sll_18_12/g329
+deselectAll
+selectInst sll_18_12/g328
+deselectAll
+selectInst sll_18_12/g330
+set_ccopt_mode -cts_target_slew 1.0
+set_ccopt_mode -cts_target_nonleaf_slew 2.0
+set_ccopt_property buffer_cells CLKBU*
+set_ccopt_property inverter_cells CLKIN*
+create_ccopt_clock_tree_spec -immediate
+setCTSMode -routeBottomPreferredLayer M1 -routeLeafBottomPreferredLayer M1 -routeLeafTopPreferredLayer MT -routeTopPreferredLayer MT
+ccopt_design -cts
+report_ccopt_clock_trees -file ../REPORTS/ccopt_postCTS.report
+report_ccopt_skew_groups -file ../REPORTS/ccopt_postCTS_skew.report
+setLayerPreference pinblock -isVisible 1
+setLayerPreference pinstdCell -isVisible 1
+setLayerPreference pinio -isVisible 1
+setLayerPreference piniopin -isVisible 1
+setLayerPreference pinother -isVisible 1
+setLayerPreference obsblock -isVisible 1
+setLayerPreference obsstdCell -isVisible 1
+setLayerPreference obsio -isVisible 1
+setLayerPreference obsother -isVisible 1
+setLayerPreference layoutObj -isVisible 1
+setLayerPreference pinblock -isVisible 0
+setLayerPreference pinstdCell -isVisible 0
+setLayerPreference pinio -isVisible 0
+setLayerPreference piniopin -isVisible 0
+setLayerPreference pinother -isVisible 0
+setLayerPreference obsblock -isVisible 0
+setLayerPreference obsstdCell -isVisible 0
+setLayerPreference obsio -isVisible 0
+setLayerPreference obsother -isVisible 0
+setLayerPreference layoutObj -isVisible 0
+setLayerPreference pinblock -isVisible 1
+setLayerPreference pinstdCell -isVisible 1
+setLayerPreference pinio -isVisible 1
+setLayerPreference piniopin -isVisible 1
+setLayerPreference pinother -isVisible 1
+setLayerPreference obsblock -isVisible 1
+setLayerPreference obsstdCell -isVisible 1
+setLayerPreference obsio -isVisible 1
+setLayerPreference obsother -isVisible 1
+setLayerPreference layoutObj -isVisible 1
+setLayerPreference pinblock -isSelectable 1
+setLayerPreference pinstdCell -isSelectable 1
+setLayerPreference pinio -isSelectable 1
+setLayerPreference piniopin -isSelectable 1
+setLayerPreference pinother -isSelectable 1
+setLayerPreference obsblock -isSelectable 1
+setLayerPreference obsstdCell -isSelectable 1
+setLayerPreference obsio -isSelectable 1
+setLayerPreference obsother -isSelectable 1
+setLayerPreference layoutObj -isSelectable 1
+get_verify_drc_mode -disable_rules -quiet
+get_verify_drc_mode -quiet -area
+get_verify_drc_mode -quiet -layer_range
+get_verify_drc_mode -check_implant -quiet
+get_verify_drc_mode -check_implant_across_rows -quiet
+get_verify_drc_mode -check_ndr_spacing -quiet
+get_verify_drc_mode -check_only -quiet
+get_verify_drc_mode -check_same_via_cell -quiet
+get_verify_drc_mode -exclude_pg_net -quiet
+get_verify_drc_mode -ignore_trial_route -quiet
+get_verify_drc_mode -max_wrong_way_halo -quiet
+get_verify_drc_mode -use_min_spacing_on_block_obs -quiet
+get_verify_drc_mode -limit -quiet
+set_verify_drc_mode -disable_rules {} -check_implant true -check_implant_across_rows false -check_ndr_spacing false -check_same_via_cell false -exclude_pg_net false -ignore_trial_route false -report fet_dec.drc.rpt -limit 1000
+verify_drc
+set_verify_drc_mode -area {0 0 0 0}
+verifyConnectivity -type all -error 1000 -warning 50
+setNanoRouteMode -quiet -timingEngine {}
+setNanoRouteMode -quiet -routeWithEco 1
+setNanoRouteMode -quiet -routeWithSiPostRouteFix 0
+setNanoRouteMode -quiet -drouteStartIteration default
+setNanoRouteMode -quiet -routeBottomRoutingLayer default
+setNanoRouteMode -quiet -drouteEndIteration default
+setNanoRouteMode -quiet -routeWithTimingDriven false
+setNanoRouteMode -quiet -routeWithSiDriven false
+routeDesign -globalDetail
+fit
+get_verify_drc_mode -disable_rules -quiet
+get_verify_drc_mode -quiet -area
+get_verify_drc_mode -quiet -layer_range
+get_verify_drc_mode -check_implant -quiet
+get_verify_drc_mode -check_implant_across_rows -quiet
+get_verify_drc_mode -check_ndr_spacing -quiet
+get_verify_drc_mode -check_only -quiet
+get_verify_drc_mode -check_same_via_cell -quiet
+get_verify_drc_mode -exclude_pg_net -quiet
+get_verify_drc_mode -ignore_trial_route -quiet
+get_verify_drc_mode -max_wrong_way_halo -quiet
+get_verify_drc_mode -use_min_spacing_on_block_obs -quiet
+get_verify_drc_mode -limit -quiet
+set_verify_drc_mode -disable_rules {} -check_implant true -check_implant_across_rows false -check_ndr_spacing false -check_same_via_cell false -exclude_pg_net false -ignore_trial_route false -report fet_dec.drc.rpt -limit 1000
+verify_drc
+set_verify_drc_mode -area {0 0 0 0}
+setOptMode -fixCap true -fixTran true -fixFanoutLoad false
+optDesign -postRoute
+get_verify_drc_mode -disable_rules -quiet
+get_verify_drc_mode -quiet -area
+get_verify_drc_mode -quiet -layer_range
+get_verify_drc_mode -check_implant -quiet
+get_verify_drc_mode -check_implant_across_rows -quiet
+get_verify_drc_mode -check_ndr_spacing -quiet
+get_verify_drc_mode -check_only -quiet
+get_verify_drc_mode -check_same_via_cell -quiet
+get_verify_drc_mode -exclude_pg_net -quiet
+get_verify_drc_mode -ignore_trial_route -quiet
+get_verify_drc_mode -max_wrong_way_halo -quiet
+get_verify_drc_mode -use_min_spacing_on_block_obs -quiet
+get_verify_drc_mode -limit -quiet
+set_verify_drc_mode -disable_rules {} -check_implant true -check_implant_across_rows false -check_ndr_spacing false -check_same_via_cell false -exclude_pg_net false -ignore_trial_route false -report fet_dec.drc.rpt -limit 1000
+verify_drc
+set_verify_drc_mode -area {0 0 0 0}
+restoreDesign -cellview {fet_dec_OADB fet_dec power}
+set_analysis_view -setup $maxviewList -hold $minviewList
+timeDesign -prePlace -expandedViews
+setEndCapMode -reset
+setEndCapMode -boundary_tap false
+setNanoRouteMode -quiet -routeTopRoutingLayer 6
+setNanoRouteMode -quiet -droutePostRouteWidenWireRule VSRDefaultSetup
+setUsefulSkewMode -maxSkew false -noBoundary false -useCells {DLY4X1 DLY3X1 DLY2X1 DLY1X1 CLKBUFX32 CLKBUFX24 CLKBUFX16 CLKBUFX12 CLKBUFX10 CLKBUFX8 CLKBUFX6 CLKBUFX4 CLKBUFX3 CLKBUFX2 BUFX32 BUFX24 BUFX16 BUFX12 BUFX8 BUFX6 BUFX4 BUFX3 BUFX2 INVX32 INVX24 INVX16 INVX12 INVX8 INVX6 INVX4 INVX3 INVX2 INVX1 INVXL CLKINVX32 CLKINVX24 CLKINVX16 CLKINVX12 CLKINVX10 CLKINVX8 CLKINVX6 CLKINVX4 CLKINVX3 CLKINVX2 CLKINVX1} -maxAllowedDelay 1
+setPlaceMode -reset
+setPlaceMode -congEffort auto -timingDriven 1 -modulePlan 1 -clkGateAware 1 -powerDriven 0 -ignoreScan 1 -reorderScan 1 -ignoreSpare 0 -placeIOPins 0 -moduleAwareSpare 0 -checkPinLayerForAccess {  3 } -preserveRouting 0 -rmAffectedRouting 0 -checkRoute 0 -swapEEQ 0
+setEndCapMode -reset
+setEndCapMode -boundary_tap false
+setUsefulSkewMode -maxSkew false -noBoundary false -useCells {DLY4X1 DLY3X1 DLY2X1 DLY1X1 CLKBUFX32 CLKBUFX24 CLKBUFX16 CLKBUFX12 CLKBUFX10 CLKBUFX8 CLKBUFX6 CLKBUFX4 CLKBUFX3 CLKBUFX2 BUFX32 BUFX24 BUFX16 BUFX12 BUFX8 BUFX6 BUFX4 BUFX3 BUFX2 INVX32 INVX24 INVX16 INVX12 INVX8 INVX6 INVX4 INVX3 INVX2 INVX1 INVXL CLKINVX32 CLKINVX24 CLKINVX16 CLKINVX12 CLKINVX10 CLKINVX8 CLKINVX6 CLKINVX4 CLKINVX3 CLKINVX2 CLKINVX1} -maxAllowedDelay 1
+setPlaceMode -reset
+setPlaceMode -congEffort auto -timingDriven 1 -modulePlan 1 -clkGateAware 1 -powerDriven 0 -ignoreScan 1 -reorderScan 1 -ignoreSpare 0 -placeIOPins 0 -moduleAwareSpare 0 -checkPinLayerForAccess {  3 } -preserveRouting 0 -rmAffectedRouting 0 -checkRoute 0 -swapEEQ 0
+setPlaceMode -fp false
+placeDesign
+setDrawView place
+setDrawView place
+restoreDesign -cellview {fet_dec_OADB fet_dec power}
+restoreDesign -cellview {fet_dec_OADB fet_dec pins}
+set_analysis_view -setup $maxviewList -hold $minviewList
+timeDesign -prePlace -expandedViews
+setEndCapMode -reset
+setEndCapMode -boundary_tap false
+setNanoRouteMode -quiet -routeTopRoutingLayer 6
+setNanoRouteMode -quiet -droutePostRouteWidenWireRule VSRDefaultSetup
+setUsefulSkewMode -maxSkew false -noBoundary false -useCells {DLY4X1 DLY3X1 DLY2X1 DLY1X1 CLKBUFX32 CLKBUFX24 CLKBUFX16 CLKBUFX12 CLKBUFX10 CLKBUFX8 CLKBUFX6 CLKBUFX4 CLKBUFX3 CLKBUFX2 BUFX32 BUFX24 BUFX16 BUFX12 BUFX8 BUFX6 BUFX4 BUFX3 BUFX2 INVX32 INVX24 INVX16 INVX12 INVX8 INVX6 INVX4 INVX3 INVX2 INVX1 INVXL CLKINVX32 CLKINVX24 CLKINVX16 CLKINVX12 CLKINVX10 CLKINVX8 CLKINVX6 CLKINVX4 CLKINVX3 CLKINVX2 CLKINVX1} -maxAllowedDelay 1
+setPlaceMode -reset
+setPlaceMode -congEffort auto -timingDriven 1 -modulePlan 1 -clkGateAware 1 -powerDriven 0 -ignoreScan 1 -reorderScan 1 -ignoreSpare 0 -placeIOPins 0 -moduleAwareSpare 0 -checkPinLayerForAccess {  3 } -preserveRouting 0 -rmAffectedRouting 0 -checkRoute 0 -swapEEQ 0
+setEndCapMode -reset
+setEndCapMode -boundary_tap false
+setUsefulSkewMode -maxSkew false -noBoundary false -useCells {DLY4X1 DLY3X1 DLY2X1 DLY1X1 CLKBUFX32 CLKBUFX24 CLKBUFX16 CLKBUFX12 CLKBUFX10 CLKBUFX8 CLKBUFX6 CLKBUFX4 CLKBUFX3 CLKBUFX2 BUFX32 BUFX24 BUFX16 BUFX12 BUFX8 BUFX6 BUFX4 BUFX3 BUFX2 INVX32 INVX24 INVX16 INVX12 INVX8 INVX6 INVX4 INVX3 INVX2 INVX1 INVXL CLKINVX32 CLKINVX24 CLKINVX16 CLKINVX12 CLKINVX10 CLKINVX8 CLKINVX6 CLKINVX4 CLKINVX3 CLKINVX2 CLKINVX1} -maxAllowedDelay 1
+setPlaceMode -reset
+setPlaceMode -congEffort auto -timingDriven 1 -modulePlan 1 -clkGateAware 1 -powerDriven 0 -ignoreScan 1 -reorderScan 1 -ignoreSpare 0 -placeIOPins 0 -moduleAwareSpare 0 -checkPinLayerForAccess {  3 } -preserveRouting 0 -rmAffectedRouting 0 -checkRoute 0 -swapEEQ 0
+setPlaceMode -fp false
+placeDesign
+setDrawView place
+get_verify_drc_mode -disable_rules -quiet
+get_verify_drc_mode -quiet -area
+get_verify_drc_mode -quiet -layer_range
+get_verify_drc_mode -check_implant -quiet
+get_verify_drc_mode -check_implant_across_rows -quiet
+get_verify_drc_mode -check_ndr_spacing -quiet
+get_verify_drc_mode -check_only -quiet
+get_verify_drc_mode -check_same_via_cell -quiet
+get_verify_drc_mode -exclude_pg_net -quiet
+get_verify_drc_mode -ignore_trial_route -quiet
+get_verify_drc_mode -max_wrong_way_halo -quiet
+get_verify_drc_mode -use_min_spacing_on_block_obs -quiet
+get_verify_drc_mode -limit -quiet
+set_verify_drc_mode -disable_rules {} -check_implant true -check_implant_across_rows false -check_ndr_spacing false -check_same_via_cell false -exclude_pg_net false -ignore_trial_route false -report fet_dec.drc.rpt -limit 1000
+verify_drc
+set_verify_drc_mode -area {0 0 0 0}
+set_ccopt_mode -cts_target_slew 1.0
+set_ccopt_mode -cts_target_nonleaf_slew 2.0
+set_ccopt_property buffer_cells CLKBU*
+set_ccopt_property inverter_cells CLKIN*
+create_ccopt_clock_tree_spec -immediate
+setCTSMode -routeBottomPreferredLayer M1 -routeLeafBottomPreferredLayer M1 -routeLeafTopPreferredLayer MT -routeTopPreferredLayer MT
+ccopt_design -cts
+report_ccopt_clock_trees -file ../REPORTS/ccopt_postCTS.report
+report_ccopt_skew_groups -file ../REPORTS/ccopt_postCTS_skew.report
+get_verify_drc_mode -disable_rules -quiet
+get_verify_drc_mode -quiet -area
+get_verify_drc_mode -quiet -layer_range
+get_verify_drc_mode -check_implant -quiet
+get_verify_drc_mode -check_implant_across_rows -quiet
+get_verify_drc_mode -check_ndr_spacing -quiet
+get_verify_drc_mode -check_only -quiet
+get_verify_drc_mode -check_same_via_cell -quiet
+get_verify_drc_mode -exclude_pg_net -quiet
+get_verify_drc_mode -ignore_trial_route -quiet
+get_verify_drc_mode -max_wrong_way_halo -quiet
+get_verify_drc_mode -use_min_spacing_on_block_obs -quiet
+get_verify_drc_mode -limit -quiet
+set_verify_drc_mode -disable_rules {} -check_implant true -check_implant_across_rows false -check_ndr_spacing false -check_same_via_cell false -exclude_pg_net false -ignore_trial_route false -report fet_dec.drc.rpt -limit 1000
+verify_drc
+set_verify_drc_mode -area {0 0 0 0}
+set_ccopt_mode -cts_target_slew 1.0
+set_ccopt_mode -cts_target_nonleaf_slew 2.0
+set_ccopt_property buffer_cells CLKBU*
+set_ccopt_property inverter_cells CLKIN*
+create_ccopt_clock_tree_spec -immediate
+get_propagated_clock -clock in[0]
+timeDesign -postCTS -expandedViews
+optDesign -postCTS
+setDrawView place
+setDrawView place
+uiSetTool select
+uiSetTool moveWire
+uiSetTool stretchWire
+setMaxRouteLayer 5
+setNanoRouteMode -quiet -routeInsertAntennaDiode true -routeAntennaCellName ANTENNA
+routeDesign -globalDetail
+get_verify_drc_mode -disable_rules -quiet
+get_verify_drc_mode -quiet -area
+get_verify_drc_mode -quiet -layer_range
+get_verify_drc_mode -check_implant -quiet
+get_verify_drc_mode -check_implant_across_rows -quiet
+get_verify_drc_mode -check_ndr_spacing -quiet
+get_verify_drc_mode -check_only -quiet
+get_verify_drc_mode -check_same_via_cell -quiet
+get_verify_drc_mode -exclude_pg_net -quiet
+get_verify_drc_mode -ignore_trial_route -quiet
+get_verify_drc_mode -max_wrong_way_halo -quiet
+get_verify_drc_mode -use_min_spacing_on_block_obs -quiet
+get_verify_drc_mode -limit -quiet
+set_verify_drc_mode -disable_rules {} -check_implant true -check_implant_across_rows false -check_ndr_spacing false -check_same_via_cell false -exclude_pg_net false -ignore_trial_route false -report fet_dec.drc.rpt -limit 1000
+verify_drc
+set_verify_drc_mode -area {0 0 0 0}
+setLayerPreference violation -isVisible 1
+uiKit::addWidget vb -type main
+violationBrowser -all -no_display_false
+zoomBox 58.52 45.08 65.24 55.16
+zoomBox 58.52 45.08 65.24 55.16
+zoomBox 58.52 45.08 65.24 55.16
+zoomBox 58.52 45.08 65.24 55.16
+zoomBox 58.52 45.08 65.24 55.16
+::Rda_Browser::VB::violationBrowserSetObjs
+zoomBox 58.52 45.08 65.24 55.16
+zoomBox 58.52 45.08 65.24 55.16
+::Rda_Browser::VB::violationBrowserSetObjs
+zoomBox 58.52 45.08 65.24 55.16
+zoomBox 58.52 45.08 65.24 55.16
+zoomBox 58.52 45.08 65.24 55.16
+::Rda_Browser::VB::violationBrowserSetObjs
+zoomBox 58.52 45.08 65.24 55.16
+zoomBox 58.52 45.08 65.24 55.16
+zoomBox 58.52 45.08 65.24 55.16
+::Rda_Browser::VB::violationBrowserSetObjs
+zoomBox 58.52 45.08 65.24 55.16
+redraw
+zoomBox 58.52 45.08 65.24 55.16
+zoomBox 58.52 45.08 65.24 55.16
+zoomBox 58.52 45.08 65.24 55.16
+selectInst sll_18_12/g319
+deselectAll
+selectMarker 61.0400 47.6000 62.7200 52.6400 -1 12 88
+deselectAll
+selectObject Pin sll_18_12/g319/Q
+deselectAll
+selectMarker 61.0400 47.6000 62.7200 52.6400 -1 12 88
+deselectAll
+selectInst sll_18_12/g319
+deselectAll
+selectMarker 61.0400 47.6000 62.7200 52.6400 -1 12 88
+deselectAll
+selectWire 60.6200 45.5000 60.9000 49.7000 2 sll_18_12/n_9
+deselectAll
+selectVia 59.5000 46.6200 60.6200 46.9000 4 sll_18_12/n_15
+deselectAll
+selectWire 12.3200 47.1200 67.7600 48.0800 1 gnd!
+deselectAll
+fit
+setVerifyGeometryMode -area { 0 0 0 0 } -minWidth true -minSpacing true -minArea true -sameNet true -short true -overlap true -offRGrid false -offMGrid true -mergedMGridCheck true -minHole true -implantCheck true -minimumCut true -minStep true -viaEnclosure true -antenna false -insuffMetalOverlap true -pinInBlkg false -diffCellViol true -sameCellViol false -padFillerCellsOverlap true -routingBlkgPinOverlap true -routingCellBlkgOverlap true -regRoutingOnly false -stackedViasOnRegNet false -wireExt true -useNonDefaultSpacing false -maxWidth true -maxNonPrefLength -1 -error 1000
+verifyGeometry
+setVerifyGeometryMode -area { 0 0 0 0 }
+restoreDesign -cellview {fet_dec_OADB fet_dec loaded}
+getIoFlowFlag
+setIoFlowFlag 0
+floorPlan -site ams018Site -r 0.6 0.25 12 12 12 12
+uiSetTool select
+getIoFlowFlag
+fit
+setIoFlowFlag 0
+floorPlan -site ams018Site -r 0.557522123894 0.22 12.32 12.32 12.32 12.32
+uiSetTool select
+getIoFlowFlag
+fit
+setIoFlowFlag 0
+floorPlan -site ams018Site -r 0.4921875 0.219866 12.32 12.32 12.32 12.32
+uiSetTool select
+getIoFlowFlag
+fit
+addRing -skip_via_on_wire_shape Noshape -skip_via_on_pin Standardcell -stacked_via_top_layer AM -type core_rings -jog_distance 2.52 -threshold 2.52 -nets {gnd! vdd!} -follow core -stacked_via_bottom_layer M1 -layer {bottom M1 top M1 right M2 left M2} -width 3.5 -spacing {bottom 0.36 top 0.36 right 0.4 left 0.4} -offset 2.52
+editPushUndo
+getCTSMode -engine -quiet
+getCTSMode -engine -quiet
+getCTSMode -engine -quiet
+getCTSMode -engine -quiet
+getCTSMode -engine -quiet
+getCTSMode -engine -quiet
+getCTSMode -engine -quiet
+getCTSMode -engine -quiet
+getCTSMode -engine -quiet
+getCTSMode -engine -quiet
+getCTSMode -engine -quiet
+getCTSMode -engine -quiet
+getCTSMode -engine -quiet
+sroute -connect { blockPin padPin padRing corePin floatingStripe } -layerChangeRange { M1(1) AM(6) } -blockPinTarget { nearestTarget } -padPinPortConnect { allPort oneGeom } -padPinTarget { nearestTarget } -corePinTarget { firstAfterRowEnd } -floatingStripeTarget { blockring padring ring stripe ringpin blockpin followpin } -allowJogging 1 -crossoverViaLayerRange { M1(1) AM(6) } -nets { gnd! vdd! } -allowLayerChange 1 -blockPin useLef -targetViaLayerRange { M1(1) AM(6) }
+getPinAssignMode -pinEditInBatch -quiet
+setPinAssignMode -pinEditInBatch true
+editPin -fixOverlap 1 -unit MICRON -spreadDirection clockwise -side Top -layer 3 -spreadType center -spacing 1.12 -pin {{in[0]} {in[1]} {in[2]} {in[3]} {in[4]}}
+setPinAssignMode -pinEditInBatch true
+editPin -fixOverlap 1 -unit MICRON -spreadDirection clockwise -side Bottom -layer 3 -spreadType center -spacing 1.12 -pin {{out[0]} {out[1]} {out[2]} {out[3]} {out[4]} {out[5]} {out[6]} {out[7]} {out[8]} {out[9]} {out[10]} {out[11]} {out[12]} {out[13]} {out[14]} {out[15]} {out[16]} {out[17]} {out[18]} {out[19]} {out[20]} {out[21]} {out[22]} {out[23]} {out[24]} {out[25]} {out[26]} {out[27]} {out[28]} {out[29]} {out[30]} {out[31]}}
+setPinAssignMode -pinEditInBatch false
+print {---# Libray fet_dec_OADB already exists
+}
+saveDesign -cellview {fet_dec_OADB fet_dec pins}
+print {---#   Saved As OA: fet_dec_OADB fet_dec pins
+}
+set_analysis_view -setup $maxviewList -hold $minviewList
+timeDesign -prePlace -expandedViews
+get_propagated_clock -clock in[0]
+print {---# Libray fet_dec_OADB already exists
+}
+saveDesign -cellview {fet_dec_OADB fet_dec preplace}
+print {---#   Saved As OA: fet_dec_OADB fet_dec preplace
+}
+setEndCapMode -reset
+setEndCapMode -boundary_tap false
+setNanoRouteMode -quiet -routeTopRoutingLayer 6
+setNanoRouteMode -quiet -droutePostRouteWidenWireRule VSRDefaultSetup
+setUsefulSkewMode -maxSkew false -noBoundary false -useCells {DLY4X1 DLY3X1 DLY2X1 DLY1X1 CLKBUFX32 CLKBUFX24 CLKBUFX16 CLKBUFX12 CLKBUFX10 CLKBUFX8 CLKBUFX6 CLKBUFX4 CLKBUFX3 CLKBUFX2 BUFX32 BUFX24 BUFX16 BUFX12 BUFX8 BUFX6 BUFX4 BUFX3 BUFX2 INVX32 INVX24 INVX16 INVX12 INVX8 INVX6 INVX4 INVX3 INVX2 INVX1 INVXL CLKINVX32 CLKINVX24 CLKINVX16 CLKINVX12 CLKINVX10 CLKINVX8 CLKINVX6 CLKINVX4 CLKINVX3 CLKINVX2 CLKINVX1} -maxAllowedDelay 1
+setPlaceMode -fp false
+placeDesign
+setDrawView place
+restoreDesign -cellview {fet_dec_OADB fet_dec preplace}
+setEndCapMode -reset
+setEndCapMode -boundary_tap false
+setNanoRouteMode -quiet -routeTopRoutingLayer 6
+setNanoRouteMode -quiet -droutePostRouteWidenWireRule VSRDefaultSetup
+setUsefulSkewMode -maxSkew false -noBoundary false -useCells {BUFX2 BUFX3 BUFX4 BUFX6 BUFX8 BUFX12 BUFX16 BUFX24 BUFX32 CLKBUFX2 CLKBUFX3 CLKBUFX4 CLKBUFX6 CLKBUFX8 CLKBUFX10 CLKBUFX12 CLKBUFX16 CLKBUFX24 CLKBUFX32 DLY1X1 DLY2X1 DLY3X1 DLY4X1 CLKINVX1 CLKINVX2 CLKINVX3 CLKINVX4 CLKINVX6 CLKINVX8 CLKINVX10 CLKINVX12 CLKINVX16 CLKINVX24 CLKINVX32 INVXL INVX1 INVX2 INVX3 INVX4 INVX6 INVX8 INVX12 INVX16 INVX24 INVX32} -maxAllowedDelay 1
+setPlaceMode -reset
+setPlaceMode -congEffort auto -timingDriven 1 -modulePlan 1 -clkGateAware 1 -powerDriven 0 -ignoreScan 1 -reorderScan 1 -ignoreSpare 0 -placeIOPins 0 -moduleAwareSpare 0 -checkPinLayerForAccess {  3 1 2 } -preserveRouting 0 -rmAffectedRouting 0 -checkRoute 0 -swapEEQ 0
+setPlaceMode -fp false
+placeDesign
+setDrawView place
+set_ccopt_mode -cts_target_slew 1.0
+set_ccopt_mode -cts_target_nonleaf_slew 2.0
+set_ccopt_property buffer_cells CLKBU*
+set_ccopt_property inverter_cells CLKIN*
+create_ccopt_clock_tree_spec -immediate
+setCTSMode -routeBottomPreferredLayer M1 -routeLeafBottomPreferredLayer M1 -routeLeafTopPreferredLayer MT -routeTopPreferredLayer MT
+ccopt_design -cts
+report_ccopt_clock_trees -file ../REPORTS/ccopt_postCTS.report
+report_ccopt_skew_groups -file ../REPORTS/ccopt_postCTS_skew.report
+get_propagated_clock -clock in[0]
+timeDesign -postCTS -expandedViews
+optDesign -postCTS
+print {---# Libray fet_dec_OADB already exists
+}
+saveDesign -cellview {fet_dec_OADB fet_dec opt}
+print {---#   Saved As OA: fet_dec_OADB fet_dec opt
+}
+setMaxRouteLayer 5
+setNanoRouteMode -quiet -routeInsertAntennaDiode true -routeAntennaCellName ANTENNA
+routeDesign -globalDetail
+get_verify_drc_mode -disable_rules -quiet
+get_verify_drc_mode -quiet -area
+get_verify_drc_mode -quiet -layer_range
+get_verify_drc_mode -check_implant -quiet
+get_verify_drc_mode -check_implant_across_rows -quiet
+get_verify_drc_mode -check_ndr_spacing -quiet
+get_verify_drc_mode -check_only -quiet
+get_verify_drc_mode -check_same_via_cell -quiet
+get_verify_drc_mode -exclude_pg_net -quiet
+get_verify_drc_mode -ignore_trial_route -quiet
+get_verify_drc_mode -max_wrong_way_halo -quiet
+get_verify_drc_mode -use_min_spacing_on_block_obs -quiet
+get_verify_drc_mode -limit -quiet
+set_verify_drc_mode -disable_rules {} -check_implant true -check_implant_across_rows false -check_ndr_spacing false -check_same_via_cell false -exclude_pg_net false -ignore_trial_route false -report fet_dec.drc.rpt -limit 1000
+verify_drc
+set_verify_drc_mode -area {0 0 0 0}
+verifyConnectivity -type all -error 1000 -warning 50
+setVerifyGeometryMode -area { 0 0 0 0 } -minWidth true -minSpacing true -minArea true -sameNet true -short true -overlap true -offRGrid false -offMGrid true -mergedMGridCheck true -minHole true -implantCheck true -minimumCut true -minStep true -viaEnclosure true -antenna false -insuffMetalOverlap true -pinInBlkg false -diffCellViol true -sameCellViol false -padFillerCellsOverlap true -routingBlkgPinOverlap true -routingCellBlkgOverlap true -regRoutingOnly false -stackedViasOnRegNet false -wireExt true -useNonDefaultSpacing false -maxWidth true -maxNonPrefLength -1 -error 1000
+verifyGeometry
+setVerifyGeometryMode -area { 0 0 0 0 }
+uiSetTool select
+uiSetTool moveWire
+uiSetTool stretchWire
+print {---# Libray fet_dec_OADB already exists
+}
+saveDesign -cellview {fet_dec_OADB fet_dec routed}
+print {---#   Saved As OA: fet_dec_OADB fet_dec routed
+}
+addFiller -cell FILLCAPX32 FILLCAPX16 FILLCAPX8 FILLCAPX4 -prefix FILLERCAP
+addFiller -cell FILLCELLX32 FILLCELLX16 FILLCELLX8 FILLCELLX4 FILLCELLX2 FILLCELLX1 -prefix FILLER
+print {---# Libray fet_dec_OADB already exists
+}
+saveDesign -cellview {fet_dec_OADB fet_dec final}
+print {---#   Saved As OA: fet_dec_OADB fet_dec final
+}
+timeDesign -postRoute -expandedViews
+timeDesign -postRoute -expandedViews -hold
+timeDesign -postRoute -expandedViews -hold
+timeDesign -postRoute -expandedViews
+timeDesign -postRoute -expandedViews -hold
+verifyConnectivity -type all -error 1000 -warning 50
+verifyProcessAntenna -reportfile fet_dec.antenna.rpt -error 1000
+add_text -label {in[4]} -alignment centerLeft -orient R90 -height 0.5 -layer M3 -pt 50.12 59.36
+add_text -label {in[3]} -alignment centerLeft -orient R90 -height 0.5 -layer M3 -pt 49.0 59.36
+add_text -label {in[2]} -alignment centerLeft -orient R90 -height 0.5 -layer M3 -pt 47.88 59.36
+add_text -label {in[1]} -alignment centerLeft -orient R90 -height 0.5 -layer M3 -pt 46.76 59.36
+add_text -label {in[0]} -alignment centerLeft -orient R90 -height 0.5 -layer M3 -pt 45.64 59.36
+add_text -label {out[31]} -alignment centerLeft -orient R180 -height 0.5 -layer M3 -pt 31.08 0.56
+add_text -label {out[30]} -alignment centerLeft -orient R180 -height 0.5 -layer M3 -pt 32.2 0.56
+add_text -label {out[29]} -alignment centerLeft -orient R180 -height 0.5 -layer M3 -pt 33.32 0.56
+add_text -label {out[28]} -alignment centerLeft -orient R180 -height 0.5 -layer M3 -pt 34.44 0.56
+add_text -label {out[27]} -alignment centerLeft -orient R180 -height 0.5 -layer M3 -pt 35.56 0.56
+add_text -label {out[26]} -alignment centerLeft -orient R180 -height 0.5 -layer M3 -pt 36.68 0.56
+add_text -label {out[25]} -alignment centerLeft -orient R180 -height 0.5 -layer M3 -pt 37.8 0.56
+add_text -label {out[24]} -alignment centerLeft -orient R180 -height 0.5 -layer M3 -pt 38.92 0.56
+add_text -label {out[23]} -alignment centerLeft -orient R180 -height 0.5 -layer M3 -pt 40.04 0.56
+add_text -label {out[22]} -alignment centerLeft -orient R180 -height 0.5 -layer M3 -pt 41.16 0.56
+add_text -label {out[21]} -alignment centerLeft -orient R180 -height 0.5 -layer M3 -pt 42.28 0.56
+add_text -label {out[20]} -alignment centerLeft -orient R180 -height 0.5 -layer M3 -pt 43.4 0.56
+add_text -label {out[19]} -alignment centerLeft -orient R180 -height 0.5 -layer M3 -pt 44.52 0.56
+add_text -label {out[18]} -alignment centerLeft -orient R180 -height 0.5 -layer M3 -pt 45.64 0.56
+add_text -label {out[17]} -alignment centerLeft -orient R180 -height 0.5 -layer M3 -pt 46.76 0.56
+add_text -label {out[16]} -alignment centerLeft -orient R180 -height 0.5 -layer M3 -pt 47.88 0.56
+add_text -label {out[15]} -alignment centerLeft -orient R180 -height 0.5 -layer M3 -pt 49.0 0.56
+add_text -label {out[14]} -alignment centerLeft -orient R180 -height 0.5 -layer M3 -pt 50.12 0.56
+add_text -label {out[13]} -alignment centerLeft -orient R180 -height 0.5 -layer M3 -pt 51.24 0.56
+add_text -label {out[12]} -alignment centerLeft -orient R180 -height 0.5 -layer M3 -pt 52.36 0.56
+add_text -label {out[11]} -alignment centerLeft -orient R180 -height 0.5 -layer M3 -pt 53.48 0.56
+add_text -label {out[10]} -alignment centerLeft -orient R180 -height 0.5 -layer M3 -pt 54.6 0.56
+add_text -label {out[9]} -alignment centerLeft -orient R180 -height 0.5 -layer M3 -pt 55.72 0.56
+add_text -label {out[8]} -alignment centerLeft -orient R180 -height 0.5 -layer M3 -pt 56.84 0.56
+add_text -label {out[7]} -alignment centerLeft -orient R180 -height 0.5 -layer M3 -pt 57.96 0.56
+add_text -label {out[6]} -alignment centerLeft -orient R180 -height 0.5 -layer M3 -pt 59.08 0.56
+add_text -label {out[5]} -alignment centerLeft -orient R180 -height 0.5 -layer M3 -pt 60.2 0.56
+add_text -label {out[4]} -alignment centerLeft -orient R180 -height 0.5 -layer M3 -pt 61.32 0.56
+add_text -label {out[3]} -alignment centerLeft -orient R180 -height 0.5 -layer M3 -pt 62.44 0.56
+add_text -label {out[2]} -alignment centerLeft -orient R180 -height 0.5 -layer M3 -pt 63.56 0.56
+add_text -label {out[1]} -alignment centerLeft -orient R180 -height 0.5 -layer M3 -pt 64.68 0.56
+add_text -label {out[0]} -alignment centerLeft -orient R180 -height 0.5 -layer M3 -pt 65.8 0.56
+print {---# 37 Port labels added to OA Database}
+print {---# Run following command to save port labels on purpose label in OA}
+print {---#    setOaxMode -textPurpose label}
+setOaxMode -textPurpose label
+print {---# Libray fet_dec_OADB already exists
+}
+saveDesign -cellview {fet_dec_OADB fet_dec final}
+print {---#   Saved As OA: fet_dec_OADB fet_dec final
+}
+defOut -floorplan -netlist -routing ../FINALDATA/last/fet_dec_final.def
+streamOut ../FINALDATA/last/fet_dec_final_fe.gds -mapFile ../SNW/gds2.map -libName DesignLib -structureName fet_dec -attachInstanceName 13 -attachNetName 13 -stripes 1 -units 1000 -mode ALL
+print {---# 37 Ports found}
+print {---# Port File written: ../FINALDATA/last/fet_dec.ports}
+saveNetlist ../FINALDATA/last/fet_dec_final.v
+saveNetlist ../FINALDATA/last/fet_dec_final_fillcap.v -excludeLeafCell -includePhysicalInst -excludeCellInst { FILLCELLX32 FILLCELLX16 FILLCELLX8 FILLCELLX4 FILLCELLX2 FILLCELLX1  }
+saveNetlist ../FINALDATA/last/fet_dec_final_fillcap_pg.v -excludeLeafCell -includePhysicalInst -includePowerGround -excludeCellInst { FILLCELLX32 FILLCELLX16 FILLCELLX8 FILLCELLX4 FILLCELLX2 FILLCELLX1  }
+setExtractRCMode -engine postRoute -effortLevel high
+extractRC
+rcOut -spef ../FINALDATA/last/fet_dec_final.spef
+setExtractRCMode -engine postRoute -effortLevel signoff
+extractRC
+rcOut -spef ../FINALDATA/last/fet_dec_final_qrc.spef
+print {####    Saved data
+}
+print {---# Save directory: ../FINALDATA/last}
+print {---# DEF           : ../FINALDATA/last/fet_dec_final.def}
+print {---# GDSII         : ../FINALDATA/last/fet_dec_final_fe.gds}
+print {---# VerilogNL     : ../FINALDATA/last/fet_dec_final.v}
+print {---# VerilogNL     : ../FINALDATA/last/fet_dec_final_fillcap.v (includes FILLCAPs)}
+print {---# VerilogNL     : ../FINALDATA/last/fet_dec_final_fillcap_pg.v (includes FILLCAPs and Power/Ground Connections)}
+print {---# Encounter SPEF: ../FINALDATA/last/fet_dec_final.spef}
+print {---# QRC SPEF      : ../FINALDATA/last/fet_dec_final_qrc.spef}
+print {---# Port List     : ../FINALDATA/last/fet_dec.ports}
+print {#### 
+}
+get_delay_corner corner_$corner -rc_corner
+set_analysis_view -setup $viewList -hold $viewList
+setExtractRCMode -engine postRoute -effortLevel signoff -coupled false
+extractRC
+rcOut -spef ../FINALDATA/last/SPEF/ams_rc_corner_minCaR.spef -rc_corner ams_rc_corner_minCaR
+print {---# SPEF file written: ../FINALDATA/last/SPEF/ams_rc_corner_minCaR.spef}
+timeDesign -signoff -expandedViews -outDir ../FINALDATA/last/timingReports/min
+timeDesign -reportOnly -hold -expandedViews -outDir ../FINALDATA/last/timingReports/min
+print {---# Analysis View: func_min
+}
+write_sdf -version 3.0 -prec 3 -edges check_edge  -force_calculation -average_typ_delays  -recompute_parallel_arcs  -view $view $filename
+print {---# Created SDF: ../FINALDATA/last/SDF/fet_dec_func_min.sdf
+}
+print {---# Analysis View: test_min
+}
+write_sdf -version 3.0 -prec 3 -edges check_edge  -force_calculation -average_typ_delays  -recompute_parallel_arcs  -view $view $filename
+print {---# Created SDF: ../FINALDATA/last/SDF/fet_dec_test_min.sdf
+}
+get_delay_corner corner_$corner -rc_corner
+set_analysis_view -setup $viewList -hold $viewList
+setExtractRCMode -engine postRoute -effortLevel signoff -coupled false
+extractRC
+rcOut -spef ../FINALDATA/last/SPEF/ams_rc_corner_maxCaR.spef -rc_corner ams_rc_corner_maxCaR
+print {---# SPEF file written: ../FINALDATA/last/SPEF/ams_rc_corner_maxCaR.spef}
+timeDesign -signoff -expandedViews -outDir ../FINALDATA/last/timingReports/max
+timeDesign -reportOnly -hold -expandedViews -outDir ../FINALDATA/last/timingReports/max
+print {---# Analysis View: func_max
+}
+write_sdf -version 3.0 -prec 3 -edges check_edge  -force_calculation -average_typ_delays  -recompute_parallel_arcs  -view $view $filename
+print {---# Created SDF: ../FINALDATA/last/SDF/fet_dec_func_max.sdf
+}
+print {---# Analysis View: test_max
+}
+write_sdf -version 3.0 -prec 3 -edges check_edge  -force_calculation -average_typ_delays  -recompute_parallel_arcs  -view $view $filename
+print {---# Created SDF: ../FINALDATA/last/SDF/fet_dec_test_max.sdf
+}
+get_delay_corner corner_$corner -rc_corner
+set_analysis_view -setup $viewList -hold $viewList
+setExtractRCMode -engine postRoute -effortLevel signoff -coupled false
+extractRC
+rcOut -spef ../FINALDATA/last/SPEF/ams_rc_corner_typ.spef -rc_corner ams_rc_corner_typ
+print {---# SPEF file written: ../FINALDATA/last/SPEF/ams_rc_corner_typ.spef}
+timeDesign -signoff -expandedViews -outDir ../FINALDATA/last/timingReports/typ
+timeDesign -reportOnly -hold -expandedViews -outDir ../FINALDATA/last/timingReports/typ
+print {---# Analysis View: func_typ
+}
+write_sdf -version 3.0 -prec 3 -edges check_edge  -force_calculation -average_typ_delays  -recompute_parallel_arcs  -view $view $filename
+print {---# Created SDF: ../FINALDATA/last/SDF/fet_dec_func_typ.sdf
+}
+print {---# Analysis View: test_typ
+}
+write_sdf -version 3.0 -prec 3 -edges check_edge  -force_calculation -average_typ_delays  -recompute_parallel_arcs  -view $view $filename
+print {---# Created SDF: ../FINALDATA/last/SDF/fet_dec_test_typ.sdf
+}
+get_delay_corner corner_$corner -rc_corner
+set_analysis_view -setup $viewList -hold $viewList
+setExtractRCMode -engine postRoute -effortLevel signoff -coupled false
+extractRC
+rcOut -spef ../FINALDATA/last/SPEF/ams_rc_corner_maxCaR2.spef -rc_corner ams_rc_corner_maxCaR2
+print {---# SPEF file written: ../FINALDATA/last/SPEF/ams_rc_corner_maxCaR2.spef}
+timeDesign -signoff -expandedViews -outDir ../FINALDATA/last/timingReports/min2
+timeDesign -reportOnly -hold -expandedViews -outDir ../FINALDATA/last/timingReports/min2
+print {---# Analysis View: func_min2
+}
+write_sdf -version 3.0 -prec 3 -edges check_edge  -force_calculation -average_typ_delays  -recompute_parallel_arcs  -view $view $filename
+print {---# Created SDF: ../FINALDATA/last/SDF/fet_dec_func_min2.sdf
+}
+print {---# Analysis View: test_min2
+}
+write_sdf -version 3.0 -prec 3 -edges check_edge  -force_calculation -average_typ_delays  -recompute_parallel_arcs  -view $view $filename
+print {---# Created SDF: ../FINALDATA/last/SDF/fet_dec_test_min2.sdf
+}
+get_delay_corner corner_$corner -rc_corner
+set_analysis_view -setup $viewList -hold $viewList
+setExtractRCMode -engine postRoute -effortLevel signoff -coupled false
+extractRC
+rcOut -spef ../FINALDATA/last/SPEF/ams_rc_corner_minCaR2.spef -rc_corner ams_rc_corner_minCaR2
+print {---# SPEF file written: ../FINALDATA/last/SPEF/ams_rc_corner_minCaR2.spef}
+timeDesign -signoff -expandedViews -outDir ../FINALDATA/last/timingReports/max2
+timeDesign -reportOnly -hold -expandedViews -outDir ../FINALDATA/last/timingReports/max2
+print {---# Analysis View: func_max2
+}
+write_sdf -version 3.0 -prec 3 -edges check_edge  -force_calculation -average_typ_delays  -recompute_parallel_arcs  -view $view $filename
+print {---# Created SDF: ../FINALDATA/last/SDF/fet_dec_func_max2.sdf
+}
+print {---# Analysis View: test_max2
+}
+write_sdf -version 3.0 -prec 3 -edges check_edge  -force_calculation -average_typ_delays  -recompute_parallel_arcs  -view $view $filename
+print {---# Created SDF: ../FINALDATA/last/SDF/fet_dec_test_max2.sdf
+}
+print ---#------------------------------------------------------
+print {---# Final Timing Files written into: ../FINALDATA/last}
+print {---#    SDF}
+print {---#    SPEF}
+print {---#    timingReports}
