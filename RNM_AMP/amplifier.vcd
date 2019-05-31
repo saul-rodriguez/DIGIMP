@@ -1,0 +1,60 @@
+$date
+	Fri May 31 06:41:55 2019
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module amplifier_tb $end
+$scope module my_amplifier $end
+$var wire 2 ! amp [1:0] $end
+$var wire 1 " en $end
+$var wire 1 # active $end
+$var real 1 $ gain $end
+$var real 1 % in $end
+$var real 1 & v $end
+$var real 1 ' vdd $end
+$var real 1 ( out $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+r0 (
+r0 '
+r0 &
+r0.1 %
+r0 $
+0#
+0"
+b0 !
+$end
+#20000
+r1 '
+#30000
+r0 (
+1#
+1"
+#40000
+r1 (
+r1 &
+r10 $
+b1 !
+#50000
+r2 (
+r2 &
+r20 $
+b10 !
+#60000
+r3 (
+r3 &
+r30 $
+b11 !
+#70000
+r0 (
+r0 &
+0#
+0"
+#90000
