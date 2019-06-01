@@ -1,7 +1,9 @@
-#sh make_fsm.sh
+#sh make_amplifier.sh
 #
-iverilog -o amplifier amplifier.v amplifier_tb.v
+
+iverilog -m va_math -o amplifier amplifier.v amplifier_tb.v
 vvp amplifier
 gtkwave amplifier.vcd
+
 
 
