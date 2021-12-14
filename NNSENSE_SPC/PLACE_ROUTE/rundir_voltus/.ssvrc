@@ -1,0 +1,15 @@
+## Don't show following known warnings
+suppressMessage IMPFP-3961 ;  #  The techSite 'xxx' has no related cells in LEF/OA library
+suppressMessage TECHLIB-436 ; #  Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'xxx' is not defined in the library.
+suppressMessage UI-156 ;      #  preference name 'xxxx' is not supported in Tempus
+suppressMessage IMPOAX-571 ;  #  Property 'lxInternal' from OA is a hierarchical property which is not supported in Voltus IC Power Integrity Solution
+
+
+
+## Load amsPa.tcl if it is existing
+if {[file exists "../SCRIPTS/amsPa.tcl"]} {
+  source ../SCRIPTS/amsPa.tcl
+}
+print "---# TCL Script ../SCRIPTS/amsPa.tcl loaded"
+
+

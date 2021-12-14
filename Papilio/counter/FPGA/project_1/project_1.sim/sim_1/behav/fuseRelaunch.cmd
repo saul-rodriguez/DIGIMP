@@ -1,0 +1,1 @@
+-intstyle "pa" -incremental -L "work" -L "unisims_ver" -L "unimacro_ver" -L "xilinxcorelib_ver" -L "secureip" -o "counter_tb.exe" --prj "/home/saul/Projects/digital/DIGIMP/Papilio/counter/FPGA/project_1/project_1.sim/sim_1/behav/counter_tb.prj" -top "work.counter_tb" -top "work.glbl" 

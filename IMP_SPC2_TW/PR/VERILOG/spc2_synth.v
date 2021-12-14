@@ -1,0 +1,1 @@
+../../SYNTHESIS/spc2_synth.v

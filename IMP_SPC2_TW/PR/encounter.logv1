@@ -1,0 +1,394 @@
+[07/01 21:53:04     0s] Checking out Encounter license ...
+[07/01 21:53:04     0s] 	edsxl		CHECKED OUT:	"Encounter_Digital_Impl_Sys_XL"
+[07/01 21:53:04     0s] Encounter_Digital_Impl_Sys_XL 14.2 license checkout succeeded.
+[07/01 21:53:04     0s] You can run 2 CPU jobs with the base license that is currently checked out.
+[07/01 21:53:04     0s] If required, use the setMultiCpuUsage command to enable multi-CPU processing.
+[07/01 21:53:08     2s] *******************************************************************
+*   Copyright (c)  Cadence Design Systems, Inc.  1996 - 2014.     *
+*                     All rights reserved.                        *
+*                                                                 *
+*                                                                 *
+*                                                                 *
+* This program contains confidential and trade secret information *
+* of Cadence Design Systems, Inc. and is protected by copyright   *
+* law and international treaties.  Any reproduction, use,         *
+* distribution or disclosure of this program or any portion of it,*
+* or any attempt to obtain a human-readable version of this       *
+* program, without the express, prior written consent of          *
+* Cadence Design Systems, Inc., is strictly prohibited.           *
+*                                                                 *
+*                 Cadence Design Systems, Inc.                    *
+*                    2655 Seely Avenue                            *
+*                   San Jose, CA 95134,  USA                      *
+*                                                                 *
+*                                                                 *
+*******************************************************************
+
+[07/01 21:53:08     2s] @(#)CDS: Encounter v14.25-s034_1 (64bit) 05/28/2015 13:06 (Linux 2.6.18-194.el5)
+[07/01 21:53:08     2s] @(#)CDS: NanoRoute v14.25-s018 NR150520-1502/14_25-UB (database version 2.30, 267.6.1) {superthreading v1.25}
+[07/01 21:53:08     2s] @(#)CDS: CeltIC v14.25-s023_1 (64bit) 05/28/2015 02:11:28 (Linux 2.6.18-194.el5)
+[07/01 21:53:08     2s] @(#)CDS: AAE 14.25-s009 (64bit) 05/28/2015 (Linux 2.6.18-194.el5)
+[07/01 21:53:08     2s] @(#)CDS: CTE 14.25-s022_1 (64bit) May 28 2015 00:14:16 (Linux 2.6.18-194.el5)
+[07/01 21:53:08     2s] @(#)CDS: CPE v14.25-s029
+[07/01 21:53:08     2s] @(#)CDS: IQRC/TQRC 14.2.2-s217 (64bit) Wed Apr 15 23:10:24 PDT 2015 (Linux 2.6.18-194.el5)
+[07/01 21:53:08     2s] @(#)CDS: OA 22.50-p011 Tue Nov 11 03:24:55 2014
+[07/01 21:53:08     2s] @(#)CDS: SGN 10.10-p124 (19-Aug-2014) (64 bit executable)
+[07/01 21:53:08     2s] @(#)CDS: RCDB 11.5
+[07/01 21:53:08     2s] --- Starting "Encounter v14.25-s034_1" on Fri Jul  1 21:53:08 2016 (mem=96.0M) ---
+[07/01 21:53:08     2s] --- Running on localhost.localdomain (x86_64 w/Linux 2.6.18-406.el5) ---
+[07/01 21:53:08     2s] This version was compiled on Thu May 28 13:06:39 PDT 2015.
+[07/01 21:53:08     2s] Set DBUPerIGU to 1000.
+[07/01 21:53:08     2s] Set net toggle Scale Factor to 1.00
+[07/01 21:53:08     2s] Set Shrink Factor to 1.00000
+[07/01 21:53:08     2s] Sourcing ./enc.tcl
+[07/01 21:53:08     2s] Sourcing tcl/tk file "./enc.tcl" ...
+[07/01 21:53:08     2s] <CMD> setCheckMode -tapeOut true
+[07/01 21:53:08     2s] <CMD> set defHierChar /
+[07/01 21:53:08     2s] <CMD> set init_oa_ref_lib {TECH_H18A6  CORELIB_HV  }
+[07/01 21:53:08     2s] <CMD> set init_verilog VERILOG/spc2_synth.v
+[07/01 21:53:08     2s] <CMD> set init_top_cell spc2
+[07/01 21:53:08     2s] <CMD> set init_pwr_net {vdd!  }
+[07/01 21:53:08     2s] <CMD> set init_gnd_net {gnd! subc!  }
+[07/01 21:53:08     2s] <CMD> set init_mmmc_file h18_spc2_mmmc.view
+[07/01 21:53:08     2s] <CMD> set conf_gen_footprint 1
+[07/01 21:53:08     2s] <CMD> set fp_core_to_left 50.000000
+[07/01 21:53:08     2s] <CMD> set fp_core_to_right 50.000000
+[07/01 21:53:08     2s] <CMD> set fp_core_to_top 50.000000
+[07/01 21:53:08     2s] <CMD> set fp_core_to_bottom 50.000000
+[07/01 21:53:08     2s] <CMD> set lsgOCPGainMult 1.000000
+[07/01 21:53:08     2s] <CMD> set conf_ioOri R0
+[07/01 21:53:08     2s] <CMD> set fp_core_util 0.800
+[07/01 21:53:08     2s] <CMD> set init_assign_buffer 0
+[07/01 21:53:08     2s] <CMD> set conf_in_tran_delay 0.1ps
+[07/01 21:53:08     2s] <CMD> set init_import_mode { -keepEmptyModule 1 -treatUndefinedCellAsBbox 0}
+[07/01 21:53:08     2s] <CMD> set init_layout_view layout
+[07/01 21:53:08     2s] <CMD> set init_abstract_view abstract
+[07/01 21:53:08     2s] <CMD_INTERNAL> print {---# TCL Script amsSetup.tcl loaded}
+[07/01 21:53:08     2s] ---# TCL Script amsSetup.tcl loaded
+[07/01 21:53:08     2s] <CMD_INTERNAL> print {---# Additional ams TCL Procedures loaded}
+[07/01 21:53:08     2s] ---# Additional ams TCL Procedures loaded
+[07/01 21:53:08     2s] <CMD> getVersion
+[07/01 21:53:08     2s] <CMD> getVersion
+[07/01 21:53:08     2s] <CMD_INTERNAL> print {### austriamicrosystems HitKit-Utilities Menu added}
+[07/01 21:53:08     2s] ### austriamicrosystems HitKit-Utilities Menu added
+[07/01 21:53:08     2s] 
+[07/01 21:53:08     2s] **INFO:  MMMC transition support version v31-84 
+[07/01 21:53:08     2s] 
+[07/01 21:53:08     2s] <CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+[07/01 21:53:08     2s] <CMD> suppressMessage ENCEXT-2799
+[07/01 21:53:08     2s] <CMD> win
+[07/01 21:53:31     2s] <CMD> encMessage warning 0
+[07/01 21:53:31     2s] Suppress "**WARN ..." messages.
+[07/01 21:53:31     2s] <CMD> encMessage debug 0
+[07/01 21:53:31     2s] <CMD> encMessage info 0
+[07/01 21:53:31     2s] Loading global variable file /home/saul/projects/DIGIMP/IMP_SPC2_TW/PR/FEOADesignlib/spc2/spc2_loaded_power_pin_routed/spc2.globals ...
+[07/01 21:53:31     3s] **WARN: (ENCOAX-738):	Non-Default Rule 'VSRDefaultSetup' has already been defined in Encounter. Its contents will be skipped.
+[07/01 21:53:31     3s] **WARN: (ENCOAX-741):	Site 'ams018Site' has already been defined in Encounter, the contents will be skipped.
+[07/01 21:53:31     3s] **WARN: (ENCOAX-741):	Site 'ams018hvSite' has already been defined in Encounter, the contents will be skipped.
+[07/01 21:53:31     3s] **WARN: (ENCOAX-741):	Site 'ams018SiteSHVT' has already been defined in Encounter, the contents will be skipped.
+[07/01 21:53:31     3s] **WARN: (ENCOAX-741):	Site 'ams018twSite' has already been defined in Encounter, the contents will be skipped.
+[07/01 21:53:31     3s] **WARN: (ENCOAX-741):	Site 'amsIoSite' has already been defined in Encounter, the contents will be skipped.
+[07/01 21:53:31     3s] **WARN: (ENCOAX-741):	Site 'amsIoSiteHV' has already been defined in Encounter, the contents will be skipped.
+[07/01 21:53:31     3s] **WARN: (ENCOAX-741):	Site 'amsCornerSite' has already been defined in Encounter, the contents will be skipped.
+[07/01 21:53:31     3s] **WARN: (ENCOAX-741):	Site 'amsCornerSiteHV' has already been defined in Encounter, the contents will be skipped.
+[07/01 21:53:31     3s] **WARN: (ENCPP-547):	Cut 'CA' does not fit in viaRule 'RX_M1'.
+[07/01 21:53:31     3s] **WARN: (ENCPP-547):	Cut 'CA' does not fit in viaRule 'RX_M1_min'.
+[07/01 21:53:31     3s] **WARN: (ENCPP-547):	Cut 'CA' does not fit in viaRule 'DRX_M1'.
+[07/01 21:53:31     3s] Loading view definition file from /home/saul/projects/DIGIMP/IMP_SPC2_TW/PR/FEOADesignlib/spc2/spc2_loaded_power_pin_routed/viewDefinition.tcl
+[07/01 21:53:31     3s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND2X1_HV' is not defined in the library.
+[07/01 21:53:31     3s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND2X2_HV' is not defined in the library.
+[07/01 21:53:31     3s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND2X3_HV' is not defined in the library.
+[07/01 21:53:31     3s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND2X4_HV' is not defined in the library.
+[07/01 21:53:31     3s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND2X6_HV' is not defined in the library.
+[07/01 21:53:31     3s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND2X8_HV' is not defined in the library.
+[07/01 21:53:31     3s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND3X1_HV' is not defined in the library.
+[07/01 21:53:31     3s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND3X2_HV' is not defined in the library.
+[07/01 21:53:31     3s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND3X3_HV' is not defined in the library.
+[07/01 21:53:31     3s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND3X4_HV' is not defined in the library.
+[07/01 21:53:31     3s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND3X6_HV' is not defined in the library.
+[07/01 21:53:31     3s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND3X8_HV' is not defined in the library.
+[07/01 21:53:31     3s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AOI21X1_HV' is not defined in the library.
+[07/01 21:53:31     3s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AOI21X2_HV' is not defined in the library.
+[07/01 21:53:31     3s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AOI21X3_HV' is not defined in the library.
+[07/01 21:53:31     3s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AOI21X4_HV' is not defined in the library.
+[07/01 21:53:31     3s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AOI21X6_HV' is not defined in the library.
+[07/01 21:53:31     3s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AOI21X8_HV' is not defined in the library.
+[07/01 21:53:31     3s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AOI22X1_HV' is not defined in the library.
+[07/01 21:53:31     3s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AOI22X2_HV' is not defined in the library.
+[07/01 21:53:32     4s] *** End library_loading (cpu=0.00min, mem=0.0M, fe_cpu=0.07min, fe_real=0.47min, fe_mem=465.2M) ***
+[07/01 21:53:32     4s] **WARN: (ENCFP-3961):	The techSite 'amsCornerSiteHV' has no related cells in LEF library. Cannot make calculations for this site type unless cell models of this type exist in the LEF library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF to avoid this message.
+[07/01 21:53:32     4s] **WARN: (ENCFP-3961):	The techSite 'amsCornerSite' has no related cells in LEF library. Cannot make calculations for this site type unless cell models of this type exist in the LEF library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF to avoid this message.
+[07/01 21:53:32     4s] **WARN: (ENCFP-3961):	The techSite 'amsIoSiteHV' has no related cells in LEF library. Cannot make calculations for this site type unless cell models of this type exist in the LEF library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF to avoid this message.
+[07/01 21:53:32     4s] **WARN: (ENCFP-3961):	The techSite 'amsIoSite' has no related cells in LEF library. Cannot make calculations for this site type unless cell models of this type exist in the LEF library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF to avoid this message.
+[07/01 21:53:32     4s] **WARN: (ENCFP-3961):	The techSite 'ams018twSite' has no related cells in LEF library. Cannot make calculations for this site type unless cell models of this type exist in the LEF library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF to avoid this message.
+[07/01 21:53:32     4s] **WARN: (ENCFP-3961):	The techSite 'ams018SiteSHVT' has no related cells in LEF library. Cannot make calculations for this site type unless cell models of this type exist in the LEF library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF to avoid this message.
+[07/01 21:53:32     4s] **WARN: (ENCFP-3961):	The techSite 'ams018Site' has no related cells in LEF library. Cannot make calculations for this site type unless cell models of this type exist in the LEF library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF to avoid this message.
+[07/01 21:53:32     4s] Loading preference file /home/saul/projects/DIGIMP/IMP_SPC2_TW/PR/FEOADesignlib/spc2/spc2_loaded_power_pin_routed/enc.pref.tcl ...
+[07/01 21:53:32     4s] Loading mode file /home/saul/projects/DIGIMP/IMP_SPC2_TW/PR/FEOADesignlib/spc2/spc2_loaded_power_pin_routed/spc2.mode ...
+[07/01 21:53:32     4s] **WARN: (ENCEXT-6202):	In addition to the technology file, capacitance table file is specified for all RC corners. If the technology file for all RC corners is already specified, the capacitance table file is not required for preRoute and postRoute extraction. In a new session, the capacitance table files can be removed from the create_rc_corner command. In this case, the technology file will be used for preRoute extraction and effort level medium/high/signoff of postRoute extraction.
+[07/01 21:53:32     4s] **WARN: (TCLNL-330):	set_input_delay on clock root 'Clk' is not supported. You should use the -source option to set_clock_latency to provide this offset. You can also use the global timing_allow_input_delay_on_clock_source to allow set_input_delay assertion to have an effect on clock source paths beginning at this clock root. (File CONSTRAINTS/spc2_func.sdc, Line 34).
+[07/01 21:53:32     4s] 
+[07/01 21:53:32     4s] **ERROR: (TCLCMD-290):	Could not find technology library 'h18_CORELIB_HV_WC' (File CONSTRAINTS/spc2_func.sdc, Line 56).
+[07/01 21:53:32     4s] 
+[07/01 21:53:32     4s] **WARN: (TCLNL-330):	set_input_delay on clock root 'Clk' is not supported. You should use the -source option to set_clock_latency to provide this offset. You can also use the global timing_allow_input_delay_on_clock_source to allow set_input_delay assertion to have an effect on clock source paths beginning at this clock root. (File CONSTRAINTS/spc2_test.sdc, Line 34).
+[07/01 21:53:32     4s] 
+[07/01 21:53:32     4s] **ERROR: (TCLCMD-290):	Could not find technology library 'h18_CORELIB_HV_WC' (File CONSTRAINTS/spc2_test.sdc, Line 56).
+[07/01 21:53:32     4s] 
+[07/01 21:53:32     4s] **WARN: (ENCOAX-571):	Property 'lxInternal' from OA is a hierarchical property which is not supported in Encounter. This property is not translated and it will be lost in round trip unless updateMode is enabled.
+[07/01 21:53:35     4s] <CMD> setDrawView place
+[07/01 21:53:39     4s] <CMD> setDrawView ameba
+[07/01 21:53:40     4s] <CMD> setDrawView fplan
+[07/01 21:53:41     4s] <CMD> setDrawView ameba
+[07/01 21:53:41     4s] <CMD> setDrawView place
+[07/01 21:54:19     4s] <CMD> saveDesign -cellview {IMP_DIG_SPI_HV spc2 routed}
+[07/01 21:54:19     4s] Redoing specifyClockTree ...
+[07/01 21:54:19     4s] Checking spec file integrity...
+[07/01 21:54:19     4s] ----- oaOut ---------------------------
+[07/01 21:54:19     4s] Saving OA database: Lib: IMP_DIG_SPI_HV, Cell: spc2, View: routed
+[07/01 21:54:19     4s] **WARN: (ENCOAX-1313):	The library 'IMP_DIG_SPI_HV' has its data compression level set to '0', while the compression level for this encounter session is 1. Any new data being saved into this library will be saved with its compression settings, irrespective of the global value.
+[07/01 21:54:19     4s] Type 'man ENCOAX-1313' for more detail.
+[07/01 21:54:19     4s] FE units: 0.001 microns/dbu, OA units: 0.001 microns/dbu, Conversion factor: 1
+[07/01 21:54:19     4s] Special routes: 25 strips and 42 vias are crated in OA database.
+[07/01 21:54:19     4s] Created 176 insts; 352 instTerms; 92 nets; 243 routes.
+[07/01 21:54:19     4s] TIMER: Write OA to disk: 0h 0m  0.01s cpu {0h 0m 0s elapsed} Memory = 0.0
+[07/01 21:54:19     4s] TIMER: Purge OA from memory: 0h 0m  0.00s cpu {0h 0m 0s elapsed} Memory = 0.0
+[07/01 21:54:19     4s] TIMER: oaOut total process: 0h 0m  0.03s cpu {0h 0m 0s elapsed} Memory = 0.0
+[07/01 21:54:19     4s] Saving AAE Data ...
+[07/01 21:54:19     4s] Saving clock tree spec file '/home/saul/projects/IMPLANTABLE_AMS/version1/saul/IMP_DIG_SPI_HV/spc2/routed/spc2.ctstch' ...
+[07/01 21:54:19     4s] Saving configuration ...
+[07/01 21:54:19     4s] Saving preference file /home/saul/projects/IMPLANTABLE_AMS/version1/saul/IMP_DIG_SPI_HV/spc2/routed/enc.pref.tcl ...
+[07/01 21:54:19     4s] Saving sdp information ...
+[07/01 21:54:19     4s] Saving thumbnail file...
+[07/01 21:54:19     5s] 
+[07/01 21:54:19     5s] *** Summary of all messages that are not suppressed in this session:
+[07/01 21:54:19     5s] Severity  ID               Count  Summary                                  
+[07/01 21:54:19     5s] WARNING   ENCOAX-1313          1  The library '%s' has its data compressio...
+[07/01 21:54:19     5s] *** Message Summary: 1 warning(s), 0 error(s)
+[07/01 21:54:19     5s] 
+[07/01 21:55:14     5s] <CMD> saveNetlist spc2_fe.v
+[07/01 21:55:14     5s] Writing Netlist "spc2_fe.v" ...
+[07/01 21:56:11     5s] <CMD> global dbgLefDefOutVersion
+[07/01 21:56:11     5s] <CMD> set dbgLefDefOutVersion 5.8
+[07/01 21:56:11     5s] <CMD> defOut -floorplan -netlist -routing spc2.def
+[07/01 21:56:11     5s] Writing DEF file 'spc2.def', current time is Fri Jul  1 21:56:11 2016 ...
+[07/01 21:56:11     5s] unitPerMicron=1000, dbgMicronPerDBU=0.001000, unitPerDBU=1.000000
+[07/01 21:56:11     5s] DEF file 'spc2.def' is written, current time is Fri Jul  1 21:56:11 2016 ...
+[07/01 21:56:11     5s] <CMD> set dbgLefDefOutVersion 5.8
+[07/01 21:56:33     5s] <CMD_INTERNAL> print {---# Write PinList to File: spc2.ports}
+[07/01 21:56:33     5s] ---# Write PinList to File: spc2.ports
+[07/01 21:56:33     5s] <CMD> deselectAll
+[07/01 21:56:33     5s] <CMD> selectIOPin *
+[07/01 21:56:33     5s] <CMD> reportSelect
+[07/01 21:56:33     5s] 
+[07/01 21:56:33     5s] 
+[07/01 21:56:33     5s]              Object Type : IO Pin
+[07/01 21:56:33     5s]                     Name : RE
+[07/01 21:56:33     5s]                    Layer : M3
+[07/01 21:56:33     5s]                 Location : 75.88 0.0
+[07/01 21:56:33     5s]                    Width : 0.28
+[07/01 21:56:33     5s]                    Depth : 1.12
+[07/01 21:56:33     5s]                   Status : PLACED
+[07/01 21:56:33     5s]                      USE : SIGNAL
+[07/01 21:56:33     5s] 
+[07/01 21:56:33     5s] 
+[07/01 21:56:33     5s]              Object Type : IO Pin
+[07/01 21:56:33     5s]                     Name : FS
+[07/01 21:56:33     5s]                    Layer : M3
+[07/01 21:56:33     5s]                 Location : 74.76 0.0
+[07/01 21:56:33     5s]                    Width : 0.28
+[07/01 21:56:33     5s]                    Depth : 1.12
+[07/01 21:56:33     5s]                   Status : PLACED
+[07/01 21:56:33     5s]                      USE : SIGNAL
+[07/01 21:56:33     5s] 
+[07/01 21:56:33     5s] 
+[07/01 21:56:33     5s]              Object Type : IO Pin
+[07/01 21:56:33     5s]                     Name : GD[0]
+[07/01 21:56:33     5s]                    Layer : M3
+[07/01 21:56:33     5s]                 Location : 71.4 0.0
+[07/01 21:56:33     5s]                    Width : 0.28
+[07/01 21:56:33     5s]                    Depth : 1.12
+[07/01 21:56:33     5s]                   Status : PLACED
+[07/01 21:56:33     5s]                      USE : SIGNAL
+[07/01 21:56:33     5s] 
+[07/01 21:56:33     5s] 
+[07/01 21:56:33     5s]              Object Type : IO Pin
+[07/01 21:56:33     5s]                     Name : GD[1]
+[07/01 21:56:33     5s]                    Layer : M3
+[07/01 21:56:33     5s]                 Location : 72.52 0.0
+[07/01 21:56:33     5s]                    Width : 0.28
+[07/01 21:56:33     5s]                    Depth : 1.12
+[07/01 21:56:33     5s]                   Status : PLACED
+[07/01 21:56:33     5s]                      USE : SIGNAL
+[07/01 21:56:33     5s] 
+[07/01 21:56:33     5s] 
+[07/01 21:56:33     5s]              Object Type : IO Pin
+[07/01 21:56:33     5s]                     Name : GD[2]
+[07/01 21:56:33     5s]                    Layer : M3
+[07/01 21:56:33     5s]                 Location : 73.64 0.0
+[07/01 21:56:33     5s]                    Width : 0.28
+[07/01 21:56:33     5s]                    Depth : 1.12
+[07/01 21:56:33     5s]                   Status : PLACED
+[07/01 21:56:33     5s]                      USE : SIGNAL
+[07/01 21:56:33     5s] 
+[07/01 21:56:33     5s] 
+[07/01 21:56:33     5s]              Object Type : IO Pin
+[07/01 21:56:33     5s]                     Name : NS
+[07/01 21:56:33     5s]                    Layer : M3
+[07/01 21:56:33     5s]                 Location : 70.28 0.0
+[07/01 21:56:33     5s]                    Width : 0.28
+[07/01 21:56:33     5s]                    Depth : 1.12
+[07/01 21:56:33     5s]                   Status : PLACED
+[07/01 21:56:33     5s]                      USE : SIGNAL
+[07/01 21:56:33     5s] 
+[07/01 21:56:33     5s] 
+[07/01 21:56:33     5s]              Object Type : IO Pin
+[07/01 21:56:33     5s]                     Name : CE
+[07/01 21:56:33     5s]                    Layer : M3
+[07/01 21:56:33     5s]                 Location : 69.16 0.0
+[07/01 21:56:33     5s]                    Width : 0.28
+[07/01 21:56:33     5s]                    Depth : 1.12
+[07/01 21:56:33     5s]                   Status : PLACED
+[07/01 21:56:33     5s]                      USE : SIGNAL
+[07/01 21:56:33     5s] 
+[07/01 21:56:33     5s] 
+[07/01 21:56:33     5s]              Object Type : IO Pin
+[07/01 21:56:33     5s]                     Name : GS[0]
+[07/01 21:56:33     5s]                    Layer : M3
+[07/01 21:56:33     5s]                 Location : 64.68 0.0
+[07/01 21:56:33     5s]                    Width : 0.28
+[07/01 21:56:33     5s]                    Depth : 1.12
+[07/01 21:56:33     5s]                   Status : PLACED
+[07/01 21:56:33     5s]                      USE : SIGNAL
+[07/01 21:56:33     5s] 
+[07/01 21:56:33     5s] 
+[07/01 21:56:33     5s]              Object Type : IO Pin
+[07/01 21:56:33     5s]                     Name : GS[1]
+[07/01 21:56:33     5s]                    Layer : M3
+[07/01 21:56:33     5s]                 Location : 65.8 0.0
+[07/01 21:56:33     5s]                    Width : 0.28
+[07/01 21:56:33     5s]                    Depth : 1.12
+[07/01 21:56:33     5s]                   Status : PLACED
+[07/01 21:56:33     5s]                      USE : SIGNAL
+[07/01 21:56:33     5s] 
+[07/01 21:56:33     5s] 
+[07/01 21:56:33     5s]              Object Type : IO Pin
+[07/01 21:56:33     5s]                     Name : GS[2]
+[07/01 21:56:33     5s]                    Layer : M3
+[07/01 21:56:33     5s]                 Location : 66.92 0.0
+[07/01 21:56:33     5s]                    Width : 0.28
+[07/01 21:56:33     5s]                    Depth : 1.12
+[07/01 21:56:33     5s]                   Status : PLACED
+[07/01 21:56:33     5s]                      USE : SIGNAL
+[07/01 21:56:33     5s] 
+[07/01 21:56:33     5s] 
+[07/01 21:56:33     5s]              Object Type : IO Pin
+[07/01 21:56:33     5s]                     Name : GS[3]
+[07/01 21:56:33     5s]                    Layer : M3
+[07/01 21:56:33     5s]                 Location : 68.04 0.0
+[07/01 21:56:33     5s]                    Width : 0.28
+[07/01 21:56:33     5s]                    Depth : 1.12
+[07/01 21:56:33     5s]                   Status : PLACED
+[07/01 21:56:33     5s]                      USE : SIGNAL
+[07/01 21:56:33     5s] 
+[07/01 21:56:33     5s] 
+[07/01 21:56:33     5s]              Object Type : IO Pin
+[07/01 21:56:33     5s]                     Name : IQ
+[07/01 21:56:33     5s]                    Layer : M3
+[07/01 21:56:33     5s]                 Location : 63.56 0.0
+[07/01 21:56:33     5s]                    Width : 0.28
+[07/01 21:56:33     5s]                    Depth : 1.12
+[07/01 21:56:33     5s]                   Status : PLACED
+[07/01 21:56:33     5s]                      USE : SIGNAL
+[07/01 21:56:33     5s] 
+[07/01 21:56:33     5s] 
+[07/01 21:56:33     5s]              Object Type : IO Pin
+[07/01 21:56:33     5s]                     Name : F[0]
+[07/01 21:56:33     5s]                    Layer : M3
+[07/01 21:56:33     5s]                 Location : 59.08 0.0
+[07/01 21:56:33     5s]                    Width : 0.28
+[07/01 21:56:33     5s]                    Depth : 1.12
+[07/01 21:56:33     5s]                   Status : PLACED
+[07/01 21:56:33     5s]                      USE : SIGNAL
+[07/01 21:56:33     5s] 
+[07/01 21:56:33     5s] 
+[07/01 21:56:33     5s]              Object Type : IO Pin
+[07/01 21:56:33     5s]                     Name : F[1]
+[07/01 21:56:33     5s]                    Layer : M3
+[07/01 21:56:33     5s]                 Location : 60.2 0.0
+[07/01 21:56:33     5s]                    Width : 0.28
+[07/01 21:56:33     5s]                    Depth : 1.12
+[07/01 21:56:33     5s]                   Status : PLACED
+[07/01 21:56:33     5s]                      USE : SIGNAL
+[07/01 21:56:33     5s] 
+[07/01 21:56:33     5s] 
+[07/01 21:56:33     5s]              Object Type : IO Pin
+[07/01 21:56:33     5s]                     Name : F[2]
+[07/01 21:56:33     5s]                    Layer : M3
+[07/01 21:56:33     5s]                 Location : 61.32 0.0
+[07/01 21:56:33     5s]                    Width : 0.28
+[07/01 21:56:33     5s]                    Depth : 1.12
+[07/01 21:56:33     5s]                   Status : PLACED
+[07/01 21:56:33     5s]                      USE : SIGNAL
+[07/01 21:56:33     5s] 
+[07/01 21:56:33     5s] 
+[07/01 21:56:33     5s]              Object Type : IO Pin
+[07/01 21:56:33     5s]                     Name : F[3]
+[07/01 21:56:33     5s]                    Layer : M3
+[07/01 21:56:33     5s]                 Location : 62.44 0.0
+[07/01 21:56:33     5s]                    Width : 0.28
+[07/01 21:56:33     5s]                    Depth : 1.12
+[07/01 21:56:33     5s]                   Status : PLACED
+[07/01 21:56:33     5s]                      USE : SIGNAL
+[07/01 21:56:33     5s] 
+[07/01 21:56:33     5s] 
+[07/01 21:56:33     5s]              Object Type : IO Pin
+[07/01 21:56:33     5s]                     Name : Resetn
+[07/01 21:56:33     5s]                    Layer : M3
+[07/01 21:56:33     5s]                 Location : 67.48 108.56
+[07/01 21:56:33     5s]                    Width : 0.28
+[07/01 21:56:33     5s]                    Depth : 1.12
+[07/01 21:56:33     5s]                   Status : PLACED
+[07/01 21:56:33     5s]                      USE : SIGNAL
+[07/01 21:56:33     5s] 
+[07/01 21:56:33     5s] 
+[07/01 21:56:33     5s]              Object Type : IO Pin
+[07/01 21:56:33     5s]                     Name : Clk
+[07/01 21:56:33     5s]                    Layer : M3
+[07/01 21:56:33     5s]                 Location : 68.6 108.56
+[07/01 21:56:33     5s]                    Width : 0.28
+[07/01 21:56:33     5s]                    Depth : 1.12
+[07/01 21:56:33     5s]                   Status : PLACED
+[07/01 21:56:33     5s]                      USE : SIGNAL
+[07/01 21:56:33     5s] 
+[07/01 21:56:33     5s] 
+[07/01 21:56:33     5s]              Object Type : IO Pin
+[07/01 21:56:33     5s]                     Name : Cfg_in
+[07/01 21:56:33     5s]                    Layer : M3
+[07/01 21:56:33     5s]                 Location : 66.36 108.56
+[07/01 21:56:33     5s]                    Width : 0.28
+[07/01 21:56:33     5s]                    Depth : 1.12
+[07/01 21:56:33     5s]                   Status : PLACED
+[07/01 21:56:33     5s]                      USE : SIGNAL
+[07/01 21:56:33     5s] <CMD> deselectAll
+[07/01 21:56:33     5s] <CMD_INTERNAL> print {---# End Write PinList}
+[07/01 21:56:33     5s] ---# End Write PinList
+[07/01 21:56:33     5s] <CMD_INTERNAL> print {---# Writing Ports to File now: spc2.ports}
+[07/01 21:56:33     5s] ---# Writing Ports to File now: spc2.ports
+[07/01 21:56:33     5s] <CMD> getLogFileName
+[07/01 21:56:33     5s] <CMD_INTERNAL> print {---# 19 Ports found}
+[07/01 21:56:33     5s] ---# 19 Ports found
+[07/01 21:56:42     5s] 
+[07/01 21:56:42     5s] *** Memory Usage v#1 (Current mem = 597.262M, initial mem = 95.977M) ***
+[07/01 21:56:42     5s] 
+[07/01 21:56:42     5s] *** Summary of all messages that are not suppressed in this session:
+[07/01 21:56:42     5s] Severity  ID               Count  Summary                                  
+[07/01 21:56:42     5s] WARNING   ENCFP-3961           7  The techSite '%s' has no related cells i...
+[07/01 21:56:42     5s] WARNING   ENCEXT-6202          1  In addition to the technology file, capa...
+[07/01 21:56:42     5s] WARNING   ENCPP-547            3  Cut '%s' does not fit in viaRule '%s'.   
+[07/01 21:56:42     5s] WARNING   ENCOAX-571           1  Property '%s' from OA is a hierarchical ...
+[07/01 21:56:42     5s] WARNING   ENCOAX-738           1  Non-Default Rule '%s' has already been d...
+[07/01 21:56:42     5s] WARNING   ENCOAX-741           8  Site '%s' has already been defined in %s...
+[07/01 21:56:42     5s] WARNING   ENCOAX-1313          1  The library '%s' has its data compressio...
+[07/01 21:56:42     5s] *** Message Summary: 22 warning(s), 0 error(s)
+[07/01 21:56:42     5s] 
+[07/01 21:56:42     5s] --- Ending "Encounter" (totcpu=0:00:05.5, real=0:03:38, mem=597.3M) ---

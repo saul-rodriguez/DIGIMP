@@ -1,0 +1,28 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2015 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v15.28-s017_1, built Mon Mar 20 11:28:11 PDT 2017
+Options:	
+Date:		Mon Aug 28 14:32:13 2017
+Host:		s2424.it.kth.se (x86_64 w/Linux 2.6.18-417.el5) (8cores*32cpus*Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz 20480KB)
+OS:		CentOS release 5.11 (Final)
+
+License:
+		invs	Innovus Implementation System	15.2	checkout succeeded
+		8 CPU jobs allowed with the current license(s). Use setMultiCpuUsage to set your required CPU count.
+
+**INFO:  MMMC transition support version v31-84 
+
+<CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+<CMD> suppressMessage ENCEXT-2799
+<CMD> getDrawView
+<CMD> loadWorkspace -name Physical
+<CMD> win
+invalid command name "amsHelp"
+couldn't read file "amsSetup.tcl": no such file or directory
+
+*** Memory Usage v#1 (Current mem = 440.965M, initial mem = 151.129M) ***
+*** Message Summary: 0 warning(s), 0 error(s)
+
+--- Ending "Innovus" (totcpu=0:00:22.1, real=0:01:34, mem=441.0M) ---

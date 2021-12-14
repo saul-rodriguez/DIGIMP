@@ -1,0 +1,139 @@
+/**************************************
+* Module: DacCtrl
+* Date:2015-09-25  
+* Author: saul     
+*
+* Description: 
+* 
+*
+*  output P     32 steps    16 steps    8 step
+* ------------------------------------------
+* 8             1         1          1
+* 7             0.9808      
+* 6             0.9239    0.9239  
+* 5             0.8315      
+* 4             0.7071    0.7071     0.7071
+* 3             0.5556      
+* 2             0.3827    0.3827  
+* 1             0.1951      
+* 0             0         0          0
+* 9             -0.1951     
+* 10            -0.3827   -0.3827 
+* 11            -0.5556     
+* 12            -0.7071   -0.7071    -0.7071
+* 13            -0.8315     
+* 14            -0.9239   -0.9239 
+* 15            -0.9808     
+* 16            -1        -1         -1
+* 
+* 
+***************************************/
+module  DacCtrl(
+CountEnable,
+Clk,
+Resetn,
+P,
+IP,
+IN,
+QP,
+QN
+);
+
+
+//Inputs
+input CountEnable;
+input Clk;
+input Resetn;
+
+//Outputs
+//output wire P1,P2,P3,P4,P5; //Control signals for the DAC
+output reg [16:0] P; //Control signals for the DAC
+output wire IP,IN; // in-phase (I) reference clock
+output reg QP; // quadrature (Q) reference clock
+output wire QN; 
+
+reg [16:0] S32;
+
+reg [4:0] count;
+
+// 5bit counter state machine
+always @(posedge Clk, negedge Resetn)
+begin
+    if (Resetn == 0) begin
+        count <= 0;
+    end else begin
+        count <= count + 1;    
+    end    
+end
+
+// AMS VERSION
+// P1 is active when CountEnable == 0 (input differential voltage at GM Cur. Gen = 0V)
+/* 
+always @(CountEnable, count)
+begin
+    if (CountEnable == 1) begin
+        P1 = count[1] & count[0];
+        P2 = (~count[2]) & (~count[0]);
+        P3 = (~count[2]) & (~count[1] & count[0]);
+        P4 = count[2] & (~count[0]);   
+        P5 = count[2] & (~count[1]) & count[0];
+    end else begin
+        P1 = 1;
+        P2 = 0;
+        P3 = 0;
+        P4 = 0;  
+        P5 = 0;    
+    end
+end
+*/
+
+always @(CountEnable, count)
+begin
+    if (CountEnable == 1) begin
+        case(count)
+            0:  P = 17'b0_0000_0000_0000_0001; //0 0V                
+            1:  P = 17'b0_0000_0000_0000_0010;
+            2:  P = 17'b0_0000_0000_0000_0100;
+            3:  P = 17'b0_0000_0000_0000_1000;
+            4:  P = 17'b0_0000_0000_0001_0000;
+            5:  P = 17'b0_0000_0000_0010_0000;
+            6:  P = 17'b0_0000_0000_0100_0000;
+            7:  P = 17'b0_0000_0000_1000_0000;
+            8:  P = 17'b0_0000_0001_0000_0000; //8 +1V
+            9:  P = 17'b0_0000_0000_1000_0000;
+            10: P = 17'b0_0000_0000_0100_0000;
+            11: P = 17'b0_0000_0000_0010_0000;
+            12: P = 17'b0_0000_0000_0001_0000;
+            13: P = 17'b0_0000_0000_0000_1000;
+            14: P = 17'b0_0000_0000_0000_0100;
+            15: P = 17'b0_0000_0000_0000_0010;
+            16: P = 17'b0_0000_0000_0000_0001;// 0V
+            17: P = 17'b0_0000_0010_0000_0000; 
+            18: P = 17'b0_0000_0100_0000_0000;
+            19: P = 17'b0_0000_1000_0000_0000;
+            20: P = 17'b0_0001_0000_0000_0000;
+            21: P = 17'b0_0010_0000_0000_0000;
+            22: P = 17'b0_0100_0000_0000_0000;
+            23: P = 17'b0_1000_0000_0000_0000;            
+            24: P = 17'b1_0000_0000_0000_0000; //16 -1V
+            25: P = 17'b0_1000_0000_0000_0000;
+            26: P = 17'b0_0100_0000_0000_0000;
+            27: P = 17'b0_0010_0000_0000_0000;
+            28: P = 17'b0_0001_0000_0000_0000;
+            29: P = 17'b0_0000_1000_0000_0000;
+            30: P = 17'b0_0000_0100_0000_0000;
+            31: P = 17'b0_0000_0010_0000_0000;
+            default: P = 17'b0_0000_0000_0000_0001; //0 0V
+         endcase   
+         
+    end else begin
+            P = 17'b0_0000_0000_0000_0001; //0 0V  
+    end
+end
+
+
+
+
+
+endmodule
+

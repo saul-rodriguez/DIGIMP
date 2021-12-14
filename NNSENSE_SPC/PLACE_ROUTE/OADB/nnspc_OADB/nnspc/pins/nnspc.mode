@@ -1,0 +1,32 @@
+catch { setDesignMode -process 180 }
+catch { setAnalysisMode -analysisType bcwc }
+setExtractRCMode  -lefTechFileMap /pkg/AMS414/cds/HK_AC18/LEF/ac18a6/qrclaymap.ccl -engine preRoute -total_c_th 5 -relative_c_th 0.03 -coupling_c_th 3
+catch { setCTSMode -routeBottomPreferredLayer M1 }
+catch { setCTSMode -routeTopPreferredLayer MT }
+catch {setNanoRouteMode -quiet -drouteUseMinSpacingForBlockage auto}
+catch {setNanoRouteMode -quiet -extractThirdPartyCompatible false}
+catch {setNanoRouteMode -quiet -routeStrictlyHonorNonDefaultRule "false"}
+catch {setNanoRouteMode -quiet -routeTopRoutingLayer 5}
+
+catch { setIlmMode -keepHighFanoutPorts true -keepLoopBack false -keepFlatten true }
+catch { setViaGenMode -parameterized_via_only true }
+catch { setViaGenMode -symmetrical_via_only true }
+catch { set_verify_drc_mode -area {0 0 0 0} }
+catch { set_verify_drc_mode -check_implant true }
+catch { set_verify_drc_mode -check_implant_across_rows false }
+catch { set_verify_drc_mode -check_ndr_spacing false }
+catch { set_verify_drc_mode -check_same_via_cell false }
+catch { set_verify_drc_mode -disable_rules "" }
+catch { set_verify_drc_mode -exclude_pg_net false }
+catch { set_verify_drc_mode -ignore_trial_route false }
+catch { set_verify_drc_mode -limit 1000 }
+catch { set_verify_drc_mode -report nnspc.drc.rpt }
+catch { setDelayCalMode -engine aae }
+catch { setDelayCalMode -SIAware false }
+catch { setPinAssignMode -maxLayer 5 }
+catch { setPinAssignMode -pinEditInBatch false }
+catch { setTrialRouteMode -maxRouteLayer 5 }
+catch { setCheckMode -tapeOut true }
+catch { setImportMode -keepEmptyModule true }
+catch { setImportMode -treatUndefinedCellAsBbox false }
+catch { setGenerateViaMode -auto true }

@@ -1,0 +1,1 @@
+-intstyle "pa" -incremental -L "work" -L "unisims_ver" -L "unimacro_ver" -L "xilinxcorelib_ver" -L "secureip" -o "I2C_f_tb.exe" --prj "/home/saul/projects/digital/DIGIMP/I2c/fpga/i2c_v2/i2c_v2/i2c_v2.sim/sim_1/behav/I2C_f_tb.prj" -top "work.I2C_f_tb" -top "work.glbl" 

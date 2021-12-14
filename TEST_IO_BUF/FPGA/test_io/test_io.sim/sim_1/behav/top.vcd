@@ -1,0 +1,54 @@
+$date
+   Fri Nov  4 17:14:55 2016
+$end
+$version
+  P.20131013
+$end
+$timescale
+  1ps
+$end
+$scope module test_io_tb $end
+$scope module my_top $end
+$var wire 1 ( SW7 $end
+$var wire 1 ' SW6 $end
+$var wire 1 # SW1 $end
+$var wire 1 $ LED0 $end
+$var wire 1 ) SW0 $end
+$var wire 1 & ARDUINO_RESET $end
+$scope module tri_buf1 $end
+$var wire 1 ' in $end
+$var wire 1 ( enable $end
+$var wire 1 ) out $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0'
+0(
+0)
+0&
+x#
+0$
+$end
+#10000
+1(
+z)
+z$
+#20000
+1'
+0(
+1)
+1$
+#30000
+1(
+z)
+z$
+#40000
+0'
+0(
+0)
+0$
+#50000
+1#

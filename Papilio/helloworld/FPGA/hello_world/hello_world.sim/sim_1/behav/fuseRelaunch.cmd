@@ -1,0 +1,1 @@
+-intstyle "pa" -incremental -L "work" -L "unisims_ver" -L "unimacro_ver" -L "xilinxcorelib_ver" -L "secureip" -o "hello_tb.exe" --prj "/home/saul/projects/digital/DIGIMP/Papilio/helloworld/FPGA/hello_world/hello_world.sim/sim_1/behav/hello_tb.prj" -top "work.hello_tb" -top "work.glbl" 

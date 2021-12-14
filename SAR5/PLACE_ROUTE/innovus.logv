@@ -1,0 +1,47 @@
+[08/28 14:42:17      0] 
+[08/28 14:42:17      0] Cadence Innovus(TM) Implementation System.
+[08/28 14:42:17      0] Copyright 2015 Cadence Design Systems, Inc. All rights reserved worldwide.
+[08/28 14:42:17      0] 
+[08/28 14:42:17      0] Version:	v15.28-s017_1, built Mon Mar 20 11:28:11 PDT 2017
+[08/28 14:42:17      0] Options:	
+[08/28 14:42:17      0] Date:		Mon Aug 28 14:42:17 2017
+[08/28 14:42:17      0] Host:		s2424.it.kth.se (x86_64 w/Linux 2.6.18-417.el5) (8cores*32cpus*Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz 20480KB)
+[08/28 14:42:17      0] OS:		CentOS release 5.11 (Final)
+[08/28 14:42:17      0] 
+[08/28 14:42:17      0] License:
+[08/28 14:42:17      0] 		invs	Innovus Implementation System	15.2	checkout succeeded
+[08/28 14:42:17      0] 		8 CPU jobs allowed with the current license(s). Use setMultiCpuUsage to set your required CPU count.
+[08/28 14:42:25      6] @(#)CDS: Innovus v15.28-s017_1 (64bit) 03/20/2017 11:28 (Linux 2.6.18-194.el5)
+[08/28 14:42:25      6] @(#)CDS: NanoRoute 15.28-s017_1 NR170225-1338/15_28-UB (database version 2.30, 317.6.1) {superthreading v1.26}
+[08/28 14:42:25      6] @(#)CDS: AAE 15.28-s003 (64bit) 03/20/2017 (Linux 2.6.18-194.el5)
+[08/28 14:42:25      6] @(#)CDS: CTE 15.28-s006_1 () Feb 16 2017 04:38:28 ( )
+[08/28 14:42:25      6] @(#)CDS: SYNTECH 15.28-s002_1 () Feb 14 2017 21:05:47 ( )
+[08/28 14:42:25      6] @(#)CDS: CPE v15.28-s003
+[08/28 14:42:25      6] @(#)CDS: IQRC/TQRC 15.1.4-s213 (64bit) Tue Feb  9 17:31:28 PST 2016 (Linux 2.6.18-194.el5)
+[08/28 14:42:25      6] @(#)CDS: OA 22.50-p036 Tue Nov  3 09:29:52 2015
+[08/28 14:42:25      6] @(#)CDS: SGN 10.10-p124 (19-Aug-2014) (64 bit executable)
+[08/28 14:42:25      6] @(#)CDS: RCDB 11.7
+[08/28 14:42:25      6] --- Running on s2424.it.kth.se (x86_64 w/Linux 2.6.18-417.el5) (8cores*32cpus*Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz 20480KB) ---
+[08/28 14:42:25      6] Create and set the environment variable TMPDIR to /tmp/innovus_temp_28886_s2424.it.kth.se_saul_YRxobw.
+
+[08/28 14:42:25      6] 
+[08/28 14:42:25      6] **INFO:  MMMC transition support version v31-84 
+[08/28 14:42:25      6] 
+[08/28 14:42:25      6] <CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+[08/28 14:42:25      6] <CMD> suppressMessage ENCEXT-2799
+[08/28 14:42:26      7] <CMD> getDrawView
+[08/28 14:42:26      7] <CMD> loadWorkspace -name Physical
+[08/28 14:42:26      7] <CMD> win
+[08/28 14:42:31      7] <CMD> uiSetTool stretchWire
+[08/28 14:42:31      7] **ERROR: (IMPSYT-6788):	Design not in memory
+[08/28 14:42:45      7] can't read "AMS_DIR": no such variable
+[08/28 14:43:45     22] invalid command name "amsHelp"
+[08/28 14:43:55     26] 
+[08/28 14:43:55     26] *** Memory Usage v#1 (Current mem = 444.973M, initial mem = 151.129M) ***
+[08/28 14:43:55     26] 
+[08/28 14:43:55     26] *** Summary of all messages that are not suppressed in this session:
+[08/28 14:43:55     26] Severity  ID               Count  Summary                                  
+[08/28 14:43:55     26] ERROR     IMPSYT-6788          2  Design not in memory                     
+[08/28 14:43:55     26] *** Message Summary: 0 warning(s), 2 error(s)
+[08/28 14:43:55     26] 
+[08/28 14:43:55     26] --- Ending "Innovus" (totcpu=0:00:26.1, real=0:01:38, mem=445.0M) ---

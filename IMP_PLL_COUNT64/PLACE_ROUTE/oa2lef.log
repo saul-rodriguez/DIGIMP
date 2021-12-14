@@ -1,0 +1,11 @@
+*****************************************************************************
+Tool:		oa2lefCDS           05.00.011
+*****************************************************************************
+Running: oa2lefCDS -logFile oa2lef.log -lib CORELIB_HV -lef .oa2lef21885/CORELIB_HV.lef -views "abstract" -ver 5.8 -noTech
+Started: Mon Apr 11 15:43:21 2016 (Hostname: s2424.it.kth.se)
+Finished:	oa2lefCDS
+Time elapsed:	0.59 seconds
+CPU Time:	0.359945 seconds
+System Time:	0.077988 seconds
+Peak VM:	31383552 bytes
+Messages:	0 errors, 0 warnings

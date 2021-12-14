@@ -1,0 +1,1 @@
+../../SYNTHESIS/vin_spc_synth.v

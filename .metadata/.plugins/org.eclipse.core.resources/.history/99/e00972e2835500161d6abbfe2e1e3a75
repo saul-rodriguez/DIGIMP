@@ -1,0 +1,13 @@
+/**************************************
+* Module: vin_spc
+* Date:2016-07-29  
+* Author: saul     
+*
+* Description: 
+***************************************/
+module  vin_spc(
+);
+
+
+endmodule
+

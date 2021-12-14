@@ -1,0 +1,90 @@
+[07/05 15:26:14      0] 
+[07/05 15:26:14      0] Cadence Innovus(TM) Implementation System.
+[07/05 15:26:14      0] Copyright 2015 Cadence Design Systems, Inc. All rights reserved worldwide.
+[07/05 15:26:14      0] 
+[07/05 15:26:14      0] Version:	v15.28-s017_1, built Mon Mar 20 11:28:11 PDT 2017
+[07/05 15:26:14      0] Options:	-vdi 
+[07/05 15:26:14      0] Date:		Wed Jul  5 15:26:14 2017
+[07/05 15:26:14      0] Host:		s2424.it.kth.se (x86_64 w/Linux 2.6.18-417.el5) (8cores*32cpus*Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz 20480KB)
+[07/05 15:26:14      0] OS:		CentOS release 5.11 (Final)
+[07/05 15:26:14      0] 
+[07/05 15:26:14      0] License:
+[07/05 15:26:14      0] 		vdi	Virtuoso Digital Implementation	15.2	checkout succeeded
+[07/05 15:26:14      0] 		Maximum number of instances allowed (1 x 50000).
+[07/05 15:26:23      7] @(#)CDS: Innovus v15.28-s017_1 (64bit) 03/20/2017 11:28 (Linux 2.6.18-194.el5)
+[07/05 15:26:23      7] @(#)CDS: NanoRoute 15.28-s017_1 NR170225-1338/15_28-UB (database version 2.30, 317.6.1) {superthreading v1.26}
+[07/05 15:26:23      7] @(#)CDS: AAE 15.28-s003 (64bit) 03/20/2017 (Linux 2.6.18-194.el5)
+[07/05 15:26:23      7] @(#)CDS: CTE 15.28-s006_1 () Feb 16 2017 04:38:28 ( )
+[07/05 15:26:23      7] @(#)CDS: SYNTECH 15.28-s002_1 () Feb 14 2017 21:05:47 ( )
+[07/05 15:26:23      7] @(#)CDS: CPE v15.28-s003
+[07/05 15:26:23      7] @(#)CDS: IQRC/TQRC 15.1.4-s213 (64bit) Tue Feb  9 17:31:28 PST 2016 (Linux 2.6.18-194.el5)
+[07/05 15:26:23      7] @(#)CDS: OA 22.50-p036 Tue Nov  3 09:29:52 2015
+[07/05 15:26:23      7] @(#)CDS: SGN 10.10-p124 (19-Aug-2014) (64 bit executable)
+[07/05 15:26:23      7] @(#)CDS: RCDB 11.7
+[07/05 15:26:23      7] --- Running on s2424.it.kth.se (x86_64 w/Linux 2.6.18-417.el5) (8cores*32cpus*Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz 20480KB) ---
+[07/05 15:26:23      7] Create and set the environment variable TMPDIR to /tmp/innovus_temp_17024_s2424.it.kth.se_saul_aoPiVV.
+
+[07/05 15:26:24      7] Sourcing startup file ./enc.tcl
+[07/05 15:26:24      7] <CMD> setCheckMode -tapeOut true
+[07/05 15:26:24      7] <CMD> setDelayCalMode -siAware false
+[07/05 15:26:24      7] <CMD> setGenerateViaMode -auto true
+[07/05 15:26:24      7] <CMD> setExtractRCMode -lefTechFileMap /pkg/AMS414/cds/HK_AC18/LEF/ac18a6/qrclaymap.ccl
+[07/05 15:26:24      7] <CMD> suppressMessage IMPFP-3961
+[07/05 15:26:24      7] <CMD> suppressMessage TECHLIB-436
+[07/05 15:26:24      7] <CMD> set defHierChar /
+[07/05 15:26:24      7] <CMD> set init_oa_ref_lib {TECH_C18A6  CORELIB  }
+[07/05 15:26:24      7] <CMD> set init_verilog ../VERILOG/sar5_synth.v
+[07/05 15:26:24      7] <CMD> set init_top_cell sar5
+[07/05 15:26:24      7] <CMD> set init_pwr_net {vdd!  }
+[07/05 15:26:24      7] <CMD> set init_gnd_net {gnd! subc!  }
+[07/05 15:26:24      7] <CMD> set init_mmmc_file ../CONFIG/ac18_sar5_mmmc.view
+[07/05 15:26:24      7] <CMD> set conf_gen_footprint 1
+[07/05 15:26:24      7] <CMD> set fp_core_to_left 50.000000
+[07/05 15:26:24      7] <CMD> set fp_core_to_right 50.000000
+[07/05 15:26:24      7] <CMD> set fp_core_to_top 50.000000
+[07/05 15:26:24      7] <CMD> set fp_core_to_bottom 50.000000
+[07/05 15:26:24      7] <CMD> set lsgOCPGainMult 1.000000
+[07/05 15:26:24      7] <CMD> set conf_ioOri R0
+[07/05 15:26:24      7] <CMD> set fp_core_util 0.800
+[07/05 15:26:24      7] <CMD> set init_assign_buffer 0
+[07/05 15:26:24      7] **WARN: (IMPSYC-6163):	Command 'setDoAssign' is obsolete and will be made private and will be unsupported in future release. To avoid this warning, please remove the obsolete command from your script.
+[07/05 15:26:24      7] <CMD> set conf_in_tran_delay 0.1ps
+[07/05 15:26:24      7] <CMD> set init_import_mode { -keepEmptyModule 1 -treatUndefinedCellAsBbox 0}
+[07/05 15:26:24      7] <CMD> set init_layout_view layout
+[07/05 15:26:24      7] <CMD> set init_abstract_view abstract
+[07/05 15:26:24      7] <CMD> set init_io_file {}
+[07/05 15:26:24      7] <CMD_INTERNAL> print {---# TCL Script amsSetup.tcl loaded}
+[07/05 15:26:24      7] ---# TCL Script amsSetup.tcl loaded
+[07/05 15:26:24      7] <CMD_INTERNAL> print {---# TCL Script ../SCRIPTS/amsVoltusSetup.tcl loaded}
+[07/05 15:26:24      7] ---# TCL Script ../SCRIPTS/amsVoltusSetup.tcl loaded
+[07/05 15:26:24      7] <CMD_INTERNAL> print {---# Additional ams TCL Procedures loaded}
+[07/05 15:26:24      7] ---# Additional ams TCL Procedures loaded
+[07/05 15:26:24      7] <CMD> getVersion
+[07/05 15:26:24      7] <CMD> getVersion
+[07/05 15:26:24      7] <CMD_INTERNAL> print {### austriamicrosystems HitKit-Utilities Menu added}
+[07/05 15:26:24      7] ### austriamicrosystems HitKit-Utilities Menu added
+[07/05 15:26:24      7] 
+[07/05 15:26:24      7] **INFO:  MMMC transition support version v31-84 
+[07/05 15:26:24      7] 
+[07/05 15:26:24      7] <CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+[07/05 15:26:24      7] <CMD> suppressMessage ENCEXT-2799
+[07/05 15:26:24      7] <CMD> getDrawView
+[07/05 15:26:24      7] <CMD> loadWorkspace -name Physical
+[07/05 15:26:24      7] <CMD> win
+[07/05 15:30:34     36] <CMD> setGenerateViaMode -auto true
+[07/05 15:30:47     36] <CMD> setDesignMode -process 180
+[07/05 15:30:47     36] Applying the recommended capacitance filtering threshold values for 180nm process node: total_c_th=5, relative_c_th=0.03 and coupling_c_th=3.
+[07/05 15:30:47     36] 	These values will be used by all post-route extraction engines, including tQuantus, IQRC and Quantus QRC extraction.
+[07/05 15:30:47     36] 	For postRoute effortLevel low extraction, the coupling_c_th value will be used only when the -capFilterMode parameter of the setExtractRCMode command is set to relAndCoup or relOrCoup. Default value of -capFilterMode parameter in postRoute extraction effortLevel low is relOnly.
+[07/05 15:30:47     36] 	The accuracy mode for postRoute effortLevel low extraction will be set to 'standard'.
+[07/05 15:30:47     36] 	Default value for EffortLevel(-effortLevel option of the setExtractRCMode) in postRoute extraction mode is 'low'.
+[07/05 15:30:47     36] Updating process node dependent CCOpt properties for the 180nm process node.
+[07/05 15:34:08     42] 
+[07/05 15:34:08     42] *** Memory Usage v#1 (Current mem = 461.730M, initial mem = 151.129M) ***
+[07/05 15:34:08     42] 
+[07/05 15:34:08     42] *** Summary of all messages that are not suppressed in this session:
+[07/05 15:34:08     42] Severity  ID               Count  Summary                                  
+[07/05 15:34:08     42] WARNING   IMPSYC-6163          1  Command '%s' is obsolete and will be mad...
+[07/05 15:34:08     42] *** Message Summary: 1 warning(s), 0 error(s)
+[07/05 15:34:08     42] 
+[07/05 15:34:08     42] --- Ending "Innovus" (totcpu=0:00:42.9, real=0:07:54, mem=461.7M) ---

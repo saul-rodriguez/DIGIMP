@@ -1,0 +1,25 @@
+/**************************************
+* Module: I2C_tb
+* Date:2015-06-21  
+* Author: saul     
+*
+* Description: 
+***************************************/
+module  I2C_tb(
+);
+
+//Nets to drive
+reg SCL;
+reg SDA;
+reg RST;
+
+
+//Output wires
+initial begin
+    $dumpfile("I2C.vcd");
+    $dumpvars(0,my_I2C);
+end
+
+
+endmodule
+

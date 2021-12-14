@@ -1,0 +1,90 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2015 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v15.28-s017_1, built Mon Mar 20 11:28:11 PDT 2017
+Options:	
+Date:		Mon Aug 28 14:46:35 2017
+Host:		s2424.it.kth.se (x86_64 w/Linux 2.6.18-417.el5) (8cores*32cpus*Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz 20480KB)
+OS:		CentOS release 5.11 (Final)
+
+License:
+		invs	Innovus Implementation System	15.2	checkout succeeded
+		8 CPU jobs allowed with the current license(s). Use setMultiCpuUsage to set your required CPU count.
+
+**INFO:  MMMC transition support version v31-84 
+
+<CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+<CMD> suppressMessage ENCEXT-2799
+<CMD> getDrawView
+<CMD> loadWorkspace -name Physical
+<CMD> win
+can't read "AMS_DIR": no such variable
+<CMD> setGenerateViaMode -auto true
+<CMD> setDesignMode -process 180
+Applying the recommended capacitance filtering threshold values for 180nm process node: total_c_th=5, relative_c_th=0.03 and coupling_c_th=3.
+	These values will be used by all post-route extraction engines, including tQuantus, IQRC and Quantus QRC extraction.
+	For postRoute effortLevel low extraction, the coupling_c_th value will be used only when the -capFilterMode parameter of the setExtractRCMode command is set to relAndCoup or relOrCoup. Default value of -capFilterMode parameter in postRoute extraction effortLevel low is relOnly.
+	The accuracy mode for postRoute effortLevel low extraction will be set to 'standard'.
+	Default value for EffortLevel(-effortLevel option of the setExtractRCMode) in postRoute extraction mode is 'low'.
+Updating process node dependent CCOpt properties for the 180nm process node.
+<CMD> set defHierChar /
+<CMD> set init_oa_ref_lib {TECH_C18A6  CORELIB  }
+<CMD> set init_verilog ../VERILOG/nnspc.v
+<CMD> set init_top_cell nnspc
+<CMD> set init_pwr_net {vdd!  }
+<CMD> set init_gnd_net {gnd! subc!  }
+<CMD> set init_mmmc_file ../CONFIG/ac18_nnspc_mmmc.view
+<CMD> set conf_gen_footprint 1
+<CMD> set fp_core_to_left 50.000000
+<CMD> set fp_core_to_right 50.000000
+<CMD> set fp_core_to_top 50.000000
+<CMD> set fp_core_to_bottom 50.000000
+<CMD> set lsgOCPGainMult 1.000000
+<CMD> set conf_ioOri R0
+<CMD> set fp_core_util 0.800
+<CMD> set init_assign_buffer 0
+**WARN: (IMPSYC-6163):	Command 'setDoAssign' is obsolete and will be made private and will be unsupported in future release. To avoid this warning, please remove the obsolete command from your script.
+<CMD> set conf_in_tran_delay 0.1ps
+<CMD> set init_import_mode { -keepEmptyModule 1 -treatUndefinedCellAsBbox 0}
+<CMD> set init_layout_view layout
+<CMD> set init_abstract_view abstract
+<CMD> set init_io_file {}
+<CMD> init_design
+**ERROR: (IMPSYT-6284):	Failed to open file ../CONFIG/ac18_nnspc_mmmc.view for read.
+
+**WARN: (IMPSYC-6163):	Command 'setDoAssign' is obsolete and will be made private and will be unsupported in future release. To avoid this warning, please remove the obsolete command from your script.
+Reading tech data from OA library 'TECH_C18A6' ...
+FE units: 0.001 microns/dbu, OA units: 0.001 microns/dbu, Conversion factor: 1
+**WARN: (IMPOAX-1645):	'minWidth' constraint is not supported on layer 'PC'. This constraint will be ignored by tool.
+**WARN: (IMPOAX-1645):	'minSpacing' constraint is not supported on layer 'PC'. This constraint will be ignored by tool.
+Set DBUPerIGU to M2 pitch 560.
+**WARN: (IMPOAX-1637):	Enclosure and width are supported on routing layers only for a stdViaDef (VIARULE GENERATE).'RX_M1' contains poly layer, enclosure and width values will be ignored by the tool.
+**WARN: (IMPOAX-1637):	Enclosure and width are supported on routing layers only for a stdViaDef (VIARULE GENERATE).'RX_M1_min' contains poly layer, enclosure and width values will be ignored by the tool.
+**WARN: (IMPOAX-1637):	Enclosure and width are supported on routing layers only for a stdViaDef (VIARULE GENERATE).'DRX_M1' contains poly layer, enclosure and width values will be ignored by the tool.
+**WARN: (IMPOAX-1637):	Enclosure and width are supported on routing layers only for a stdViaDef (VIARULE GENERATE).'PC_M1' contains poly layer, enclosure and width values will be ignored by the tool.
+**WARN: (IMPOAX-1637):	Enclosure and width are supported on routing layers only for a stdViaDef (VIARULE GENERATE).'DPC_M1' contains poly layer, enclosure and width values will be ignored by the tool.
+LEFDefaultRouteSpec(LDRS) is read from rule 'LEFDefaultRouteSpec' and library 'TECH_C18A6'. Only default vias, routing layers, pitch, routing width, routing direction, layer offset, wire extension constraints are read from it and rest of rules are read from foundry constraint group.
+Reading OA reference library 'CORELIB' ...
+**WARN: (IMPOAX-738):	Non-Default Rule 'VSRDefaultSetup' has already been defined in Innovus. Its contents will be skipped.
+**WARN: (IMPOAX-741):	Site 'ams018Site' has already been defined in Innovus, the contents will be skipped.
+**WARN: (IMPOAX-741):	Site 'ams018Site3B' has already been defined in Innovus, the contents will be skipped.
+**WARN: (IMPOAX-741):	Site 'ams018Site7tr' has already been defined in Innovus, the contents will be skipped.
+**WARN: (IMPOAX-741):	Site 'ams018twSite' has already been defined in Innovus, the contents will be skipped.
+**WARN: (IMPOAX-741):	Site 'ams018SiteLL' has already been defined in Innovus, the contents will be skipped.
+**WARN: (IMPOAX-741):	Site 'amsIoSite' has already been defined in Innovus, the contents will be skipped.
+**WARN: (IMPOAX-741):	Site 'amsIoSiteC' has already been defined in Innovus, the contents will be skipped.
+**WARN: (IMPOAX-741):	Site 'amsCornerSite' has already been defined in Innovus, the contents will be skipped.
+**WARN: (IMPOAX-741):	Site 'amsCornerSiteC' has already been defined in Innovus, the contents will be skipped.
+
+viaInitial starts at Mon Aug 28 14:50:29 2017
+viaInitial ends at Mon Aug 28 14:50:29 2017
+Loading view definition file from ../CONFIG/ac18_nnspc_mmmc.view
+*** End library_loading (cpu=0.00min, mem=0.0M, fe_cpu=0.17min, fe_real=3.90min, fe_mem=505.8M) ***
+**ERROR: (IMPSYT-16038):	The specified file '../VERILOG/nnspc.v' could not be found. Check your file system, correct the file name.
+**ERROR: (IMPIMEX-7008):	No netlist files are found.
+
+*** Memory Usage v#1 (Current mem = 505.773M, initial mem = 151.129M) ***
+*** Message Summary: 19 warning(s), 4 error(s)
+
+--- Ending "Innovus" (totcpu=0:00:10.2, real=0:06:34, mem=505.8M) ---

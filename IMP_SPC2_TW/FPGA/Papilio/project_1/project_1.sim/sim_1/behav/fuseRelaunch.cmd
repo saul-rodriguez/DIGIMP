@@ -1,0 +1,1 @@
+-intstyle "pa" -incremental -L "work" -L "unisims_ver" -L "unimacro_ver" -L "xilinxcorelib_ver" -L "secureip" -o "spc2_pap_tb.exe" --prj "/home/saul/projects/digital/DIGIMP/IMP_SPC2_TW/FPGA/Papilio/project_1/project_1.sim/sim_1/behav/spc2_pap_tb.prj" -top "work.spc2_pap_tb" -top "work.glbl" 

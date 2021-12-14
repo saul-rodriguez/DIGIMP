@@ -1,0 +1,18 @@
+ncsim(64): 14.20-s021: (c) Copyright 1995-2015 Cadence Design Systems, Inc.
+
+-------------------------------------
+Relinquished control to SimVision...
+ncsim> 
+ncsim> source /pkg/Cadence/installs/INCISIVE142/tools/inca/files/ncsimrc
+ncsim> database -open waves -into waves.shm -default
+Created default SHM database waves
+ncsim> probe -create -shm FreqDiv64_tb.F_PFD FreqDiv64_tb.Fin FreqDiv64_tb.Fout FreqDiv64_tb.Fsel FreqDiv64_tb.Resetn
+Created probe 1
+ncsim> run
+Simulation complete via $finish(1) at time 64106 NS + 0
+./FreqDiv64_tb.v:35     #60000 $finish;
+ncsim> scope -set FreqDiv64_tb.my_FreqDiv64.g442
+ncsim> ^C
+ncsim> exit
+ncsim: Memory Usage - 35.5M program + 99.9M data = 135.5M total
+ncsim: CPU Usage - 0.1s system + 0.2s user = 0.3s total (630.2s, 0.1% cpu)

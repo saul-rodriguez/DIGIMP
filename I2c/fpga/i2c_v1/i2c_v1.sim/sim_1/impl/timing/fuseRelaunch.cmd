@@ -1,0 +1,1 @@
+-intstyle "pa" -incremental -L "work" -L "simprims_ver" -L "unisims_ver" -L "secureip" -o "I2C_f_tb.exe" --prj "/home/saul/projects/digital/DIGIMP/I2c/fpga/i2c_v1/i2c_v1.sim/sim_1/impl/timing/I2C_f_tb.prj" -top "work.I2C_f_tb" -top "work.glbl" 

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>IMP_SPC2</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>net.sourceforge.veditor.simulateBuilder</name>
+			<arguments>
+				<dictionary>
+					<key>net.sourceforge.veditor.simulateBuilder.00000000.CleanCommand</key>
+					<value>echo &apos;Clean&apos;</value>
+				</dictionary>
+				<dictionary>
+					<key>net.sourceforge.veditor.simulateBuilder.00000000.buildOrder</key>
+					<value>0</value>
+				</dictionary>
+				<dictionary>
+					<key>net.sourceforge.veditor.simulateBuilder.00000000.command</key>
+					<value>sh make_spc2.sh</value>
+				</dictionary>
+				<dictionary>
+					<key>net.sourceforge.veditor.simulateBuilder.00000000.enable</key>
+					<value>true</value>
+				</dictionary>
+				<dictionary>
+					<key>net.sourceforge.veditor.simulateBuilder.00000000.name</key>
+					<value></value>
+				</dictionary>
+				<dictionary>
+					<key>net.sourceforge.veditor.simulateBuilder.00000000.parser</key>
+					<value>Icarus Verilog</value>
+				</dictionary>
+				<dictionary>
+					<key>net.sourceforge.veditor.simulateBuilder.00000000.workFolder</key>
+					<value></value>
+				</dictionary>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>net.sourceforge.veditor.HdlNature</nature>
+	</natures>
+</projectDescription>

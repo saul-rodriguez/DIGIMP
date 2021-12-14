@@ -1,0 +1,1 @@
+/pkg/AMS411/verilog/h18a6/h18_CORELIB.v

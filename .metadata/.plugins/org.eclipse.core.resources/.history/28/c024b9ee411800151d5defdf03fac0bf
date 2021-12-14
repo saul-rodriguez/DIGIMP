@@ -1,0 +1,13 @@
+/**************************************
+* Module: I2C
+* Date:2015-06-21  
+* Author: saul     
+*
+* Description: I2C slave
+***************************************/
+module  I2C(
+);
+
+
+endmodule
+

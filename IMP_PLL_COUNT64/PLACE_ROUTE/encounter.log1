@@ -1,0 +1,446 @@
+Checking out Encounter license ...
+	edsxl		CHECKED OUT:	"Encounter_Digital_Impl_Sys_XL"
+Encounter_Digital_Impl_Sys_XL 14.2 license checkout succeeded.
+You can run 2 CPU jobs with the base license that is currently checked out.
+If required, use the setMultiCpuUsage command to enable multi-CPU processing.
+*******************************************************************
+*   Copyright (c)  Cadence Design Systems, Inc.  1996 - 2014.     *
+*                     All rights reserved.                        *
+*                                                                 *
+*                                                                 *
+*                                                                 *
+* This program contains confidential and trade secret information *
+* of Cadence Design Systems, Inc. and is protected by copyright   *
+* law and international treaties.  Any reproduction, use,         *
+* distribution or disclosure of this program or any portion of it,*
+* or any attempt to obtain a human-readable version of this       *
+* program, without the express, prior written consent of          *
+* Cadence Design Systems, Inc., is strictly prohibited.           *
+*                                                                 *
+*                 Cadence Design Systems, Inc.                    *
+*                    2655 Seely Avenue                            *
+*                   San Jose, CA 95134,  USA                      *
+*                                                                 *
+*                                                                 *
+*******************************************************************
+
+@(#)CDS: Encounter v14.27-s035_1 (64bit) 10/07/2015 12:46 (Linux 2.6.18-194.el5)
+@(#)CDS: NanoRoute v14.27-s012 NR150928-2308/14_27-UB (database version 2.30, 267.6.1) {superthreading v1.25}
+@(#)CDS: CeltIC v14.27-s018_1 (64bit) 10/06/2015 22:57:34 (Linux 2.6.18-194.el5)
+@(#)CDS: AAE 14.27-s003 (64bit) 10/07/2015 (Linux 2.6.18-194.el5)
+@(#)CDS: CTE 14.27-s022_1 (64bit) Oct  6 2015 07:33:36 (Linux 2.6.18-194.el5)
+@(#)CDS: CPE v14.27-s021
+@(#)CDS: IQRC/TQRC 14.2.2-s217 (64bit) Wed Apr 15 23:10:24 PDT 2015 (Linux 2.6.18-194.el5)
+@(#)CDS: OA 22.50-p011 Tue Nov 11 03:24:55 2014
+@(#)CDS: SGN 10.10-p124 (19-Aug-2014) (64 bit executable)
+@(#)CDS: RCDB 11.5
+--- Starting "Encounter v14.27-s035_1" on Mon Apr 11 16:38:09 2016 (mem=96.0M) ---
+--- Running on s2424.it.kth.se (x86_64 w/Linux 2.6.18-407.el5) ---
+This version was compiled on Wed Oct 7 12:46:58 PDT 2015.
+Set DBUPerIGU to 1000.
+Set net toggle Scale Factor to 1.00
+Set Shrink Factor to 1.00000
+Sourcing ./enc.tcl
+Sourcing tcl/tk file "./enc.tcl" ...
+<CMD> setCheckMode -tapeOut true
+<CMD> set defHierChar /
+<CMD> set init_oa_ref_lib {TECH_H18A6  CORELIB_HV  }
+<CMD> set init_verilog VERILOG/FreqDiv64_synth.v
+<CMD> set init_top_cell FreqDiv64
+<CMD> set init_pwr_net {vdd!  }
+<CMD> set init_gnd_net {gnd! subc!  }
+<CMD> set init_mmmc_file h18_FreqDiv64_mmmc.view
+<CMD> set conf_gen_footprint 1
+<CMD> set fp_core_to_left 50.000000
+<CMD> set fp_core_to_right 50.000000
+<CMD> set fp_core_to_top 50.000000
+<CMD> set fp_core_to_bottom 50.000000
+<CMD> set lsgOCPGainMult 1.000000
+<CMD> set conf_ioOri R0
+<CMD> set fp_core_util 0.800
+<CMD> set init_assign_buffer 0
+<CMD> set conf_in_tran_delay 0.1ps
+<CMD> set init_import_mode { -keepEmptyModule 1 -treatUndefinedCellAsBbox 0}
+<CMD> set init_layout_view layout
+<CMD> set init_abstract_view abstract
+<CMD_INTERNAL> print {---# TCL Script amsSetup.tcl loaded}
+---# TCL Script amsSetup.tcl loaded
+<CMD_INTERNAL> print {---# Additional ams TCL Procedures loaded}
+---# Additional ams TCL Procedures loaded
+<CMD> getVersion
+<CMD> getVersion
+<CMD_INTERNAL> print {### austriamicrosystems HitKit-Utilities Menu added}
+### austriamicrosystems HitKit-Utilities Menu added
+
+**INFO:  MMMC transition support version v31-84 
+
+<CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+<CMD> suppressMessage ENCEXT-2799
+<CMD> win
+<CMD> encMessage warning 0
+Suppress "**WARN ..." messages.
+<CMD> encMessage debug 0
+<CMD> encMessage info 0
+Loading global variable file /home/saul/projects/DIGIMP/IMP_PLL_COUNT64/PLACE_ROUTE/FEOADesignlib/FreqDiv64/FreqDiv64_loaded_power_pin_routed/FreqDiv64.globals ...
+**WARN: (ENCOAX-738):	Non-Default Rule 'VSRDefaultSetup' has already been defined in Encounter. Its contents will be skipped.
+**WARN: (ENCOAX-741):	Site 'ams018Site' has already been defined in Encounter, the contents will be skipped.
+**WARN: (ENCOAX-741):	Site 'ams018hvSite' has already been defined in Encounter, the contents will be skipped.
+**WARN: (ENCOAX-741):	Site 'ams018SiteSHVT' has already been defined in Encounter, the contents will be skipped.
+**WARN: (ENCOAX-741):	Site 'ams018twSite' has already been defined in Encounter, the contents will be skipped.
+**WARN: (ENCOAX-741):	Site 'amsIoSite' has already been defined in Encounter, the contents will be skipped.
+**WARN: (ENCOAX-741):	Site 'amsIoSiteHV' has already been defined in Encounter, the contents will be skipped.
+**WARN: (ENCOAX-741):	Site 'amsCornerSite' has already been defined in Encounter, the contents will be skipped.
+**WARN: (ENCOAX-741):	Site 'amsCornerSiteHV' has already been defined in Encounter, the contents will be skipped.
+Loading view definition file from /home/saul/projects/DIGIMP/IMP_PLL_COUNT64/PLACE_ROUTE/FEOADesignlib/FreqDiv64/FreqDiv64_loaded_power_pin_routed/viewDefinition.tcl
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND2X1_HV' is not defined in the library.
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND2X2_HV' is not defined in the library.
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND2X3_HV' is not defined in the library.
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND2X4_HV' is not defined in the library.
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND2X6_HV' is not defined in the library.
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND2X8_HV' is not defined in the library.
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND3X1_HV' is not defined in the library.
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND3X2_HV' is not defined in the library.
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND3X3_HV' is not defined in the library.
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND3X4_HV' is not defined in the library.
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND3X6_HV' is not defined in the library.
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AND3X8_HV' is not defined in the library.
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AOI21X1_HV' is not defined in the library.
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AOI21X2_HV' is not defined in the library.
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AOI21X3_HV' is not defined in the library.
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AOI21X4_HV' is not defined in the library.
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AOI21X6_HV' is not defined in the library.
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AOI21X8_HV' is not defined in the library.
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AOI22X1_HV' is not defined in the library.
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'Q' of cell 'AOI22X2_HV' is not defined in the library.
+*** End library_loading (cpu=0.00min, mem=0.0M, fe_cpu=0.13min, fe_real=0.70min, fe_mem=447.8M) ***
+**WARN: (ENCFP-3961):	The techSite 'amsCornerSiteHV' has no related cells in LEF library. Cannot make calculations for this site type unless cell models of this type exist in the LEF library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF to avoid this message.
+**WARN: (ENCFP-3961):	The techSite 'amsCornerSite' has no related cells in LEF library. Cannot make calculations for this site type unless cell models of this type exist in the LEF library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF to avoid this message.
+**WARN: (ENCFP-3961):	The techSite 'amsIoSiteHV' has no related cells in LEF library. Cannot make calculations for this site type unless cell models of this type exist in the LEF library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF to avoid this message.
+**WARN: (ENCFP-3961):	The techSite 'amsIoSite' has no related cells in LEF library. Cannot make calculations for this site type unless cell models of this type exist in the LEF library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF to avoid this message.
+**WARN: (ENCFP-3961):	The techSite 'ams018twSite' has no related cells in LEF library. Cannot make calculations for this site type unless cell models of this type exist in the LEF library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF to avoid this message.
+**WARN: (ENCFP-3961):	The techSite 'ams018SiteSHVT' has no related cells in LEF library. Cannot make calculations for this site type unless cell models of this type exist in the LEF library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF to avoid this message.
+**WARN: (ENCFP-3961):	The techSite 'ams018Site' has no related cells in LEF library. Cannot make calculations for this site type unless cell models of this type exist in the LEF library. If the SITE is not used by the library you can ignore this warning or remove the SITE definition from the LEF to avoid this message.
+Loading preference file /home/saul/projects/DIGIMP/IMP_PLL_COUNT64/PLACE_ROUTE/FEOADesignlib/FreqDiv64/FreqDiv64_loaded_power_pin_routed/enc.pref.tcl ...
+Loading mode file /home/saul/projects/DIGIMP/IMP_PLL_COUNT64/PLACE_ROUTE/FEOADesignlib/FreqDiv64/FreqDiv64_loaded_power_pin_routed/FreqDiv64.mode ...
+**WARN: (ENCEXT-6202):	In addition to the technology file, capacitance table file is specified for all RC corners. If the technology file for all RC corners is already specified, the capacitance table file is not required for preRoute and postRoute extraction. In a new session, the capacitance table files can be removed from the create_rc_corner command. In this case, the technology file will be used for preRoute extraction and effort level medium/high/signoff of postRoute extraction.
+FreqDiv64
+**WARN: (TCLNL-330):	set_input_delay on clock root 'Fin' is not supported. You should use the -source option to set_clock_latency to provide this offset. You can also use the global timing_allow_input_delay_on_clock_source to allow set_input_delay assertion to have an effect on clock source paths beginning at this clock root. (File CONSTRAINTS/FreqDiv64_test.sdc, Line 19).
+
+**WARN: (ENCCTE-290):	Could not locate cell NAND2X1_HV in any library for view test_typ.
+**WARN: (ENCCTE-288):	Could not locate the library h18_CORELIB_HV_WC.
+**WARN: (ENCCTE-289):	set_driving_cell :  Use the cell in library h18_CORELIB_HV_TYP.
+**WARN: (ENCCTE-290):	Could not locate cell NAND2X1_HV in any library for view test_typ.
+**WARN: (ENCCTE-288):	Could not locate the library h18_CORELIB_HV_WC.
+**WARN: (ENCCTE-289):	set_driving_cell :  Use the cell in library h18_CORELIB_HV_TYP.
+**WARN: (ENCCTE-290):	Could not locate cell NAND2X1_HV in any library for view test_typ.
+**WARN: (ENCCTE-288):	Could not locate the library h18_CORELIB_HV_WC.
+**WARN: (ENCCTE-289):	set_driving_cell :  Use the cell in library h18_CORELIB_HV_TYP.
+**WARN: (ENCCTE-290):	Could not locate cell NAND2X1_HV in any library for view test_typ.
+**WARN: (ENCCTE-288):	Could not locate the library h18_CORELIB_HV_WC.
+**WARN: (ENCCTE-289):	set_driving_cell :  Use the cell in library h18_CORELIB_HV_TYP.
+**WARN: (ENCCTE-290):	Could not locate cell NAND2X1_HV in any library for view test_typ.
+**WARN: (ENCCTE-288):	Could not locate the library h18_CORELIB_HV_WC.
+**WARN: (ENCCTE-289):	set_driving_cell :  Use the cell in library h18_CORELIB_HV_TYP.
+**WARN: (ENCCTE-290):	Could not locate cell NAND2X1_HV in any library for view test_typ.
+**WARN: (ENCCTE-288):	Could not locate the library h18_CORELIB_HV_WC.
+**WARN: (ENCCTE-289):	set_driving_cell :  Use the cell in library h18_CORELIB_HV_TYP.
+**WARN: (ENCCTE-290):	Could not locate cell NAND2X1_HV in any library for view test_typ.
+**WARN: (ENCCTE-288):	Could not locate the library h18_CORELIB_HV_WC.
+**WARN: (ENCCTE-289):	set_driving_cell :  Use the cell in library h18_CORELIB_HV_TYP.
+**WARN: (ENCCTE-290):	Could not locate cell NAND2X1_HV in any library for view test_typ.
+**WARN: (ENCCTE-288):	Could not locate the library h18_CORELIB_HV_WC.
+**WARN: (ENCCTE-289):	set_driving_cell :  Use the cell in library h18_CORELIB_HV_TYP.
+**WARN: (ENCCTE-290):	Could not locate cell NAND2X1_HV in any library for view test_typ.
+**WARN: (ENCCTE-288):	Could not locate the library h18_CORELIB_HV_WC.
+**WARN: (ENCCTE-289):	set_driving_cell :  Use the cell in library h18_CORELIB_HV_TYP.
+**WARN: (ENCCTE-290):	Could not locate cell NAND2X1_HV in any library for view test_typ.
+**WARN: (ENCCTE-288):	Could not locate the library h18_CORELIB_HV_WC.
+**WARN: (ENCCTE-289):	set_driving_cell :  Use the cell in library h18_CORELIB_HV_TYP.
+**WARN: (ENCCTE-290):	Could not locate cell NAND2X1_HV in any library for view test_typ.
+**WARN: (ENCCTE-288):	Could not locate the library h18_CORELIB_HV_WC.
+**WARN: (ENCCTE-289):	set_driving_cell :  Use the cell in library h18_CORELIB_HV_TYP.
+**WARN: (ENCCTE-290):	Could not locate cell NAND2X1_HV in any library for view test_typ.
+**WARN: (ENCCTE-288):	Could not locate the library h18_CORELIB_HV_WC.
+**WARN: (ENCCTE-289):	set_driving_cell :  Use the cell in library h18_CORELIB_HV_TYP.
+**WARN: (ENCCTE-290):	Could not locate cell NAND2X1_HV in any library for view test_typ.
+**WARN: (ENCCTE-288):	Could not locate the library h18_CORELIB_HV_WC.
+**WARN: (ENCCTE-289):	set_driving_cell :  Use the cell in library h18_CORELIB_HV_TYP.
+**WARN: (ENCCTE-290):	Could not locate cell NAND2X1_HV in any library for view test_typ.
+**WARN: (ENCCTE-288):	Could not locate the library h18_CORELIB_HV_WC.
+**WARN: (ENCCTE-289):	set_driving_cell :  Use the cell in library h18_CORELIB_HV_TYP.
+**WARN: (ENCCTE-290):	Could not locate cell NAND2X1_HV in any library for view test_typ.
+**WARN: (ENCCTE-288):	Could not locate the library h18_CORELIB_HV_WC.
+**WARN: (ENCCTE-289):	set_driving_cell :  Use the cell in library h18_CORELIB_HV_TYP.
+**WARN: (ENCCTE-290):	Could not locate cell NAND2X1_HV in any library for view test_typ.
+**WARN: (ENCCTE-288):	Could not locate the library h18_CORELIB_HV_WC.
+**WARN: (ENCCTE-289):	set_driving_cell :  Use the cell in library h18_CORELIB_HV_TYP.
+**WARN: (ENCCTE-290):	Could not locate cell NAND2X1_HV in any library for view test_typ.
+**WARN: (ENCCTE-288):	Could not locate the library h18_CORELIB_HV_WC.
+**WARN: (ENCCTE-289):	set_driving_cell :  Use the cell in library h18_CORELIB_HV_TYP.
+**WARN: (ENCCTE-290):	Could not locate cell NAND2X1_HV in any library for view test_typ.
+**WARN: (ENCCTE-288):	Could not locate the library h18_CORELIB_HV_WC.
+**WARN: (ENCCTE-289):	set_driving_cell :  Use the cell in library h18_CORELIB_HV_TYP.
+**WARN: (ENCCTE-290):	Could not locate cell NAND2X1_HV in any library for view test_typ.
+**WARN: (ENCCTE-288):	Could not locate the library h18_CORELIB_HV_WC.
+**WARN: (ENCCTE-289):	set_driving_cell :  Use the cell in library h18_CORELIB_HV_TYP.
+**WARN: (ENCCTE-290):	Could not locate cell NAND2X1_HV in any library for view test_typ.
+**WARN: (ENCCTE-288):	Could not locate the library h18_CORELIB_HV_WC.
+**WARN: (ENCCTE-289):	set_driving_cell :  Use the cell in library h18_CORELIB_HV_TYP.
+**WARN: (EMS-63):	Message <ENCCTE-290> has exceeded the default message display limit of 20.
+To avoid this warning, increase the display limit per unique message by
+using the set_message -limit <number> command.
+The message limit can be removed by using the set_message -no_limit command.
+Note that setting a very large number using the set_message -limit command
+or removing the message limit using the set_message -no_limit command can
+significantly increase the log file size.
+To suppress a message, use the set_message -suppress command.
+**WARN: (EMS-63):	Message <ENCCTE-288> has exceeded the default message display limit of 20.
+To avoid this warning, increase the display limit per unique message by
+using the set_message -limit <number> command.
+The message limit can be removed by using the set_message -no_limit command.
+Note that setting a very large number using the set_message -limit command
+or removing the message limit using the set_message -no_limit command can
+significantly increase the log file size.
+To suppress a message, use the set_message -suppress command.
+**WARN: (EMS-63):	Message <ENCCTE-289> has exceeded the default message display limit of 20.
+To avoid this warning, increase the display limit per unique message by
+using the set_message -limit <number> command.
+The message limit can be removed by using the set_message -no_limit command.
+Note that setting a very large number using the set_message -limit command
+or removing the message limit using the set_message -no_limit command can
+significantly increase the log file size.
+To suppress a message, use the set_message -suppress command.
+**ERROR: (TCLCMD-290):	Could not find technology library 'h18_CORELIB_HV_WC' (File CONSTRAINTS/FreqDiv64_test.sdc, Line 34).
+
+FreqDiv64
+**WARN: (TCLNL-330):	set_input_delay on clock root 'Fin' is not supported. You should use the -source option to set_clock_latency to provide this offset. You can also use the global timing_allow_input_delay_on_clock_source to allow set_input_delay assertion to have an effect on clock source paths beginning at this clock root. (File CONSTRAINTS/FreqDiv64_func.sdc, Line 19).
+
+**ERROR: (TCLCMD-290):	Could not find technology library 'h18_CORELIB_HV_WC' (File CONSTRAINTS/FreqDiv64_func.sdc, Line 34).
+
+**WARN: (ENCOAX-571):	Property 'lxInternal' from OA is a hierarchical property which is not supported in Encounter. This property is not translated and it will be lost in round trip unless updateMode is enabled.
+<CMD> setDrawView place
+<CMD> saveDesign -cellview {IMP_DIG_64 FreqDiv64 routed}
+Redoing specifyClockTree ...
+Checking spec file integrity...
+----- oaOut ---------------------------
+Saving OA database: Lib: IMP_DIG_64, Cell: FreqDiv64, View: routed
+**WARN: (ENCOAX-1313):	The library 'IMP_DIG_64' has its data compression level set to '0', while the compression level for this encounter session is 1. Any new data being saved into this library will be saved with its compression settings, irrespective of the global value.
+Type 'man ENCOAX-1313' for more detail.
+FE units: 0.001 microns/dbu, OA units: 0.001 microns/dbu, Conversion factor: 1
+Special routes: 24 strips and 40 vias are crated in OA database.
+Created 146 insts; 292 instTerms; 88 nets; 185 routes.
+TIMER: Write OA to disk: 0h 0m  0.00s cpu {0h 0m 0s elapsed} Memory = 0.0
+TIMER: Purge OA from memory: 0h 0m  0.01s cpu {0h 0m 0s elapsed} Memory = 0.0
+TIMER: oaOut total process: 0h 0m  0.04s cpu {0h 0m 0s elapsed} Memory = 0.0
+Saving AAE Data ...
+Saving clock tree spec file '/home/saul/projects/IMPLANTABLE_AMS/version1/saul/IMP_DIG_DIV64/FreqDiv64/routed/FreqDiv64.ctstch' ...
+Saving configuration ...
+Saving preference file /home/saul/projects/IMPLANTABLE_AMS/version1/saul/IMP_DIG_DIV64/FreqDiv64/routed/enc.pref.tcl ...
+Saving sdp information ...
+Saving thumbnail file...
+
+*** Summary of all messages that are not suppressed in this session:
+Severity  ID               Count  Summary                                  
+WARNING   ENCOAX-1313          1  The library '%s' has its data compressio...
+*** Message Summary: 1 warning(s), 0 error(s)
+
+<CMD> saveNetlist FreqDiv64_fe.v
+Writing Netlist "FreqDiv64_fe.v" ...
+<CMD> global dbgLefDefOutVersion
+<CMD> set dbgLefDefOutVersion 5.8
+<CMD> defOut -floorplan -netlist -routing FreqDiv64.def
+Writing DEF file 'FreqDiv64.def', current time is Mon Apr 11 16:41:08 2016 ...
+unitPerMicron=1000, dbgMicronPerDBU=0.001000, unitPerDBU=1.000000
+DEF file 'FreqDiv64.def' is written, current time is Mon Apr 11 16:41:08 2016 ...
+<CMD> set dbgLefDefOutVersion 5.8
+<CMD_INTERNAL> print {---# Write PinList to File: counterEnable.ports}
+---# Write PinList to File: counterEnable.ports
+<CMD> deselectAll
+<CMD> selectIOPin *
+<CMD> reportSelect
+
+
+             Object Type : IO Pin
+                    Name : F_PFD
+                   Layer : M3
+                Location : 0.0 50.12
+                   Width : 0.28
+                   Depth : 1.12
+                  Status : PLACED
+                     USE : SIGNAL
+
+
+             Object Type : IO Pin
+                    Name : Fout
+                   Layer : M3
+                Location : 52.36 0.0
+                   Width : 0.28
+                   Depth : 1.12
+                  Status : PLACED
+                     USE : SIGNAL
+
+
+             Object Type : IO Pin
+                    Name : Resetn
+                   Layer : M3
+                Location : 105.79 46.2
+                   Width : 0.28
+                   Depth : 1.12
+                  Status : PLACED
+                     USE : SIGNAL
+
+
+             Object Type : IO Pin
+                    Name : Fsel[0]
+                   Layer : M3
+                Location : 105.79 47.32
+                   Width : 0.28
+                   Depth : 1.12
+                  Status : PLACED
+                     USE : SIGNAL
+
+
+             Object Type : IO Pin
+                    Name : Fsel[1]
+                   Layer : M3
+                Location : 105.79 48.44
+                   Width : 0.28
+                   Depth : 1.12
+                  Status : PLACED
+                     USE : SIGNAL
+
+
+             Object Type : IO Pin
+                    Name : Fsel[2]
+                   Layer : M3
+                Location : 105.79 49.56
+                   Width : 0.28
+                   Depth : 1.12
+                  Status : PLACED
+                     USE : SIGNAL
+
+
+             Object Type : IO Pin
+                    Name : Fsel[3]
+                   Layer : M3
+                Location : 105.79 50.68
+                   Width : 0.28
+                   Depth : 1.12
+                  Status : PLACED
+                     USE : SIGNAL
+
+
+             Object Type : IO Pin
+                    Name : Fin
+                   Layer : M3
+                Location : 0.0 49.0
+                   Width : 0.28
+                   Depth : 1.12
+                  Status : PLACED
+                     USE : SIGNAL
+<CMD> deselectAll
+<CMD_INTERNAL> print {---# End Write PinList}
+---# End Write PinList
+<CMD_INTERNAL> print {---# Writing Ports to File now: counterEnable.ports}
+---# Writing Ports to File now: counterEnable.ports
+<CMD> getLogFileName
+<CMD_INTERNAL> print {---# 8 Ports found}
+---# 8 Ports found
+<CMD_INTERNAL> print {---# Write PinList to File: FreqDiv64.ports}
+---# Write PinList to File: FreqDiv64.ports
+<CMD> deselectAll
+<CMD> selectIOPin *
+<CMD> reportSelect
+
+
+             Object Type : IO Pin
+                    Name : F_PFD
+                   Layer : M3
+                Location : 0.0 50.12
+                   Width : 0.28
+                   Depth : 1.12
+                  Status : PLACED
+                     USE : SIGNAL
+
+
+             Object Type : IO Pin
+                    Name : Fout
+                   Layer : M3
+                Location : 52.36 0.0
+                   Width : 0.28
+                   Depth : 1.12
+                  Status : PLACED
+                     USE : SIGNAL
+
+
+             Object Type : IO Pin
+                    Name : Resetn
+                   Layer : M3
+                Location : 105.79 46.2
+                   Width : 0.28
+                   Depth : 1.12
+                  Status : PLACED
+                     USE : SIGNAL
+
+
+             Object Type : IO Pin
+                    Name : Fsel[0]
+                   Layer : M3
+                Location : 105.79 47.32
+                   Width : 0.28
+                   Depth : 1.12
+                  Status : PLACED
+                     USE : SIGNAL
+
+
+             Object Type : IO Pin
+                    Name : Fsel[1]
+                   Layer : M3
+                Location : 105.79 48.44
+                   Width : 0.28
+                   Depth : 1.12
+                  Status : PLACED
+                     USE : SIGNAL
+
+
+             Object Type : IO Pin
+                    Name : Fsel[2]
+                   Layer : M3
+                Location : 105.79 49.56
+                   Width : 0.28
+                   Depth : 1.12
+                  Status : PLACED
+                     USE : SIGNAL
+
+
+             Object Type : IO Pin
+                    Name : Fsel[3]
+                   Layer : M3
+                Location : 105.79 50.68
+                   Width : 0.28
+                   Depth : 1.12
+                  Status : PLACED
+                     USE : SIGNAL
+
+
+             Object Type : IO Pin
+                    Name : Fin
+                   Layer : M3
+                Location : 0.0 49.0
+                   Width : 0.28
+                   Depth : 1.12
+                  Status : PLACED
+                     USE : SIGNAL
+<CMD> deselectAll
+<CMD_INTERNAL> print {---# End Write PinList}
+---# End Write PinList
+<CMD_INTERNAL> print {---# Writing Ports to File now: FreqDiv64.ports}
+---# Writing Ports to File now: FreqDiv64.ports
+<CMD> getLogFileName
+<CMD_INTERNAL> print {---# 8 Ports found}
+---# 8 Ports found
+
+*** Memory Usage v#1 (Current mem = 579.203M, initial mem = 95.973M) ***
+*** Message Summary: 163 warning(s), 0 error(s)
+
+--- Ending "Encounter" (totcpu=0:01:22, real=0:34:38, mem=579.2M) ---

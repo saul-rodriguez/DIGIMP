@@ -1,0 +1,73 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2015 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v15.28-s017_1, built Mon Mar 20 11:28:11 PDT 2017
+Options:	-vdi 
+Date:		Wed Jul  5 15:26:14 2017
+Host:		s2424.it.kth.se (x86_64 w/Linux 2.6.18-417.el5) (8cores*32cpus*Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz 20480KB)
+OS:		CentOS release 5.11 (Final)
+
+License:
+		vdi	Virtuoso Digital Implementation	15.2	checkout succeeded
+		Maximum number of instances allowed (1 x 50000).
+Sourcing startup file ./enc.tcl
+<CMD> setCheckMode -tapeOut true
+<CMD> setDelayCalMode -siAware false
+<CMD> setGenerateViaMode -auto true
+<CMD> setExtractRCMode -lefTechFileMap /pkg/AMS414/cds/HK_AC18/LEF/ac18a6/qrclaymap.ccl
+<CMD> suppressMessage IMPFP-3961
+<CMD> suppressMessage TECHLIB-436
+<CMD> set defHierChar /
+<CMD> set init_oa_ref_lib {TECH_C18A6  CORELIB  }
+<CMD> set init_verilog ../VERILOG/sar5_synth.v
+<CMD> set init_top_cell sar5
+<CMD> set init_pwr_net {vdd!  }
+<CMD> set init_gnd_net {gnd! subc!  }
+<CMD> set init_mmmc_file ../CONFIG/ac18_sar5_mmmc.view
+<CMD> set conf_gen_footprint 1
+<CMD> set fp_core_to_left 50.000000
+<CMD> set fp_core_to_right 50.000000
+<CMD> set fp_core_to_top 50.000000
+<CMD> set fp_core_to_bottom 50.000000
+<CMD> set lsgOCPGainMult 1.000000
+<CMD> set conf_ioOri R0
+<CMD> set fp_core_util 0.800
+<CMD> set init_assign_buffer 0
+**WARN: (IMPSYC-6163):	Command 'setDoAssign' is obsolete and will be made private and will be unsupported in future release. To avoid this warning, please remove the obsolete command from your script.
+<CMD> set conf_in_tran_delay 0.1ps
+<CMD> set init_import_mode { -keepEmptyModule 1 -treatUndefinedCellAsBbox 0}
+<CMD> set init_layout_view layout
+<CMD> set init_abstract_view abstract
+<CMD> set init_io_file {}
+<CMD_INTERNAL> print {---# TCL Script amsSetup.tcl loaded}
+---# TCL Script amsSetup.tcl loaded
+<CMD_INTERNAL> print {---# TCL Script ../SCRIPTS/amsVoltusSetup.tcl loaded}
+---# TCL Script ../SCRIPTS/amsVoltusSetup.tcl loaded
+<CMD_INTERNAL> print {---# Additional ams TCL Procedures loaded}
+---# Additional ams TCL Procedures loaded
+<CMD> getVersion
+<CMD> getVersion
+<CMD_INTERNAL> print {### austriamicrosystems HitKit-Utilities Menu added}
+### austriamicrosystems HitKit-Utilities Menu added
+
+**INFO:  MMMC transition support version v31-84 
+
+<CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+<CMD> suppressMessage ENCEXT-2799
+<CMD> getDrawView
+<CMD> loadWorkspace -name Physical
+<CMD> win
+<CMD> setGenerateViaMode -auto true
+<CMD> setDesignMode -process 180
+Applying the recommended capacitance filtering threshold values for 180nm process node: total_c_th=5, relative_c_th=0.03 and coupling_c_th=3.
+	These values will be used by all post-route extraction engines, including tQuantus, IQRC and Quantus QRC extraction.
+	For postRoute effortLevel low extraction, the coupling_c_th value will be used only when the -capFilterMode parameter of the setExtractRCMode command is set to relAndCoup or relOrCoup. Default value of -capFilterMode parameter in postRoute extraction effortLevel low is relOnly.
+	The accuracy mode for postRoute effortLevel low extraction will be set to 'standard'.
+	Default value for EffortLevel(-effortLevel option of the setExtractRCMode) in postRoute extraction mode is 'low'.
+Updating process node dependent CCOpt properties for the 180nm process node.
+
+*** Memory Usage v#1 (Current mem = 461.730M, initial mem = 151.129M) ***
+*** Message Summary: 1 warning(s), 0 error(s)
+
+--- Ending "Innovus" (totcpu=0:00:42.9, real=0:07:54, mem=461.7M) ---

@@ -1,0 +1,29 @@
+Command line:
+   vin_spc_tb.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  52367
+
+Fri Sep 16 16:16:48 2016
+
+
+ Elaboration Time: 0.02 sec
+
+ Current Memory Usage: 196.264 Meg
+
+ Total Signals          : 51
+ Total Nets             : 63
+ Total Signal Drivers   : 39
+ Total Blocks           : 4
+ Total Primitive Blocks : 2
+ Total Processes        : 45
+ Total Traceable Variables  : 56
+ Total Scalar Nets and Variables : 362
+Total Line Count : 226
+
+ Total Simulation Time: 0.06 sec
+
+ Current Memory Usage: 271.766 Meg
+
+Fri Sep 16 16:17:32 2016
+

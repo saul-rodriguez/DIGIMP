@@ -1,0 +1,93 @@
+[11/08 18:11:22     0s] Checking out Encounter license ...
+[11/08 18:11:23     0s] 	edsxl		CHECKED OUT:	"Encounter_Digital_Impl_Sys_XL"
+[11/08 18:11:23     0s] Encounter_Digital_Impl_Sys_XL 14.2 license checkout succeeded.
+[11/08 18:11:23     0s] You can run 2 CPU jobs with the base license that is currently checked out.
+[11/08 18:11:23     0s] If required, use the setMultiCpuUsage command to enable multi-CPU processing.
+[11/08 18:11:31     2s] *******************************************************************
+*   Copyright (c)  Cadence Design Systems, Inc.  1996 - 2014.     *
+*                     All rights reserved.                        *
+*                                                                 *
+*                                                                 *
+*                                                                 *
+* This program contains confidential and trade secret information *
+* of Cadence Design Systems, Inc. and is protected by copyright   *
+* law and international treaties.  Any reproduction, use,         *
+* distribution or disclosure of this program or any portion of it,*
+* or any attempt to obtain a human-readable version of this       *
+* program, without the express, prior written consent of          *
+* Cadence Design Systems, Inc., is strictly prohibited.           *
+*                                                                 *
+*                 Cadence Design Systems, Inc.                    *
+*                    2655 Seely Avenue                            *
+*                   San Jose, CA 95134,  USA                      *
+*                                                                 *
+*                                                                 *
+*******************************************************************
+
+[11/08 18:11:31     2s] @(#)CDS: Encounter v14.25-s034_1 (64bit) 05/28/2015 13:06 (Linux 2.6.18-194.el5)
+[11/08 18:11:31     2s] @(#)CDS: NanoRoute v14.25-s018 NR150520-1502/14_25-UB (database version 2.30, 267.6.1) {superthreading v1.25}
+[11/08 18:11:31     2s] @(#)CDS: CeltIC v14.25-s023_1 (64bit) 05/28/2015 02:11:28 (Linux 2.6.18-194.el5)
+[11/08 18:11:31     2s] @(#)CDS: AAE 14.25-s009 (64bit) 05/28/2015 (Linux 2.6.18-194.el5)
+[11/08 18:11:31     2s] @(#)CDS: CTE 14.25-s022_1 (64bit) May 28 2015 00:14:16 (Linux 2.6.18-194.el5)
+[11/08 18:11:31     2s] @(#)CDS: CPE v14.25-s029
+[11/08 18:11:31     2s] @(#)CDS: IQRC/TQRC 14.2.2-s217 (64bit) Wed Apr 15 23:10:24 PDT 2015 (Linux 2.6.18-194.el5)
+[11/08 18:11:31     2s] @(#)CDS: OA 22.50-p011 Tue Nov 11 03:24:55 2014
+[11/08 18:11:31     2s] @(#)CDS: SGN 10.10-p124 (19-Aug-2014) (64 bit executable)
+[11/08 18:11:31     2s] @(#)CDS: RCDB 11.5
+[11/08 18:11:31     2s] --- Starting "Encounter v14.25-s034_1" on Sun Nov  8 18:11:31 2015 (mem=96.0M) ---
+[11/08 18:11:31     2s] --- Running on localhost.localdomain (x86_64 w/Linux 2.6.18-406.el5) ---
+[11/08 18:11:31     2s] This version was compiled on Thu May 28 13:06:39 PDT 2015.
+[11/08 18:11:31     2s] Set DBUPerIGU to 1000.
+[11/08 18:11:31     2s] Set net toggle Scale Factor to 1.00
+[11/08 18:11:31     2s] Set Shrink Factor to 1.00000
+[11/08 18:11:32     2s] Sourcing ./enc.tcl
+[11/08 18:11:32     2s] Sourcing tcl/tk file "./enc.tcl" ...
+[11/08 18:11:32     2s] <CMD> setCheckMode -tapeOut true
+[11/08 18:11:32     2s] <CMD> set defHierChar /
+[11/08 18:11:32     2s] <CMD> set init_oa_ref_lib {TECH_H18A6  CORELIB_HV  }
+[11/08 18:11:32     2s] <CMD> set init_verilog VERILOG/DacCtrl_synth.v
+[11/08 18:11:32     2s] <CMD> set init_top_cell DacCtrl
+[11/08 18:11:32     2s] <CMD> set init_pwr_net {vdd!  }
+[11/08 18:11:32     2s] <CMD> set init_gnd_net {gnd! subc!  }
+[11/08 18:11:32     2s] <CMD> set init_mmmc_file h18_DacCtrl_mmmc.view
+[11/08 18:11:32     2s] <CMD> set conf_gen_footprint 1
+[11/08 18:11:32     2s] <CMD> set fp_core_to_left 50.000000
+[11/08 18:11:32     2s] <CMD> set fp_core_to_right 50.000000
+[11/08 18:11:32     2s] <CMD> set fp_core_to_top 50.000000
+[11/08 18:11:32     2s] <CMD> set fp_core_to_bottom 50.000000
+[11/08 18:11:32     2s] <CMD> set lsgOCPGainMult 1.000000
+[11/08 18:11:32     2s] <CMD> set conf_ioOri R0
+[11/08 18:11:32     2s] <CMD> set fp_core_util 0.800
+[11/08 18:11:32     2s] <CMD> set init_assign_buffer 0
+[11/08 18:11:32     2s] <CMD> set conf_in_tran_delay 0.1ps
+[11/08 18:11:32     2s] <CMD> set init_import_mode { -keepEmptyModule 1 -treatUndefinedCellAsBbox 0}
+[11/08 18:11:32     2s] <CMD> set init_layout_view layout
+[11/08 18:11:32     2s] <CMD> set init_abstract_view abstract
+[11/08 18:11:32     2s] <CMD_INTERNAL> print {---# TCL Script amsSetup.tcl loaded}
+[11/08 18:11:32     2s] ---# TCL Script amsSetup.tcl loaded
+[11/08 18:11:32     2s] <CMD_INTERNAL> print {---# Additional ams TCL Procedures loaded}
+[11/08 18:11:32     2s] ---# Additional ams TCL Procedures loaded
+[11/08 18:11:32     2s] <CMD> getVersion
+[11/08 18:11:32     2s] <CMD> getVersion
+[11/08 18:11:32     2s] <CMD_INTERNAL> print {### austriamicrosystems HitKit-Utilities Menu added}
+[11/08 18:11:32     2s] ### austriamicrosystems HitKit-Utilities Menu added
+[11/08 18:11:32     2s] 
+[11/08 18:11:32     2s] **INFO:  MMMC transition support version v31-84 
+[11/08 18:11:32     2s] 
+[11/08 18:11:32     2s] <CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+[11/08 18:11:32     2s] <CMD> suppressMessage ENCEXT-2799
+[11/08 18:11:32     2s] <CMD> win
+[11/08 18:11:45     3s] <CMD_INTERNAL> print {---# TCL Script amsSetup.tcl loaded}
+[11/08 18:11:45     3s] ---# TCL Script amsSetup.tcl loaded
+[11/08 18:11:53     3s] <CMD> init_design
+[11/08 18:11:53     3s] ---# Setup MMMC
+---#
+[11/08 18:11:53     3s] ---#   rc_corner        : ams_rc_corner_typ
+[11/08 18:11:53     3s] ---#   lib-sets         : libs_min, libs_max, libs_typ
+[11/08 18:11:53     3s] **ERROR: (TCLCMD-989):	cannot open SDC file 'CONSTRAINTS/DacCtrl_func.sdc' for mode 'func'
+[11/08 18:11:53     3s] 
+[11/08 18:12:02     3s] 
+[11/08 18:12:02     3s] *** Memory Usage v#1 (Current mem = 363.469M, initial mem = 95.977M) ***
+[11/08 18:12:02     3s] *** Message Summary: 0 warning(s), 0 error(s)
+[11/08 18:12:02     3s] 
+[11/08 18:12:02     3s] --- Ending "Encounter" (totcpu=0:00:03.0, real=0:00:40.0, mem=363.5M) ---

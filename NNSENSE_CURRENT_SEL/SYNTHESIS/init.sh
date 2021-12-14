@@ -1,0 +1,1 @@
+/home/saul/projects/NANONETS/init.sh

@@ -1,0 +1,30 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2015 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v15.28-s017_1, built Mon Mar 20 11:28:11 PDT 2017
+Options:	
+Date:		Mon Aug 28 14:42:17 2017
+Host:		s2424.it.kth.se (x86_64 w/Linux 2.6.18-417.el5) (8cores*32cpus*Intel(R) Xeon(R) CPU E5-2630 v3 @ 2.40GHz 20480KB)
+OS:		CentOS release 5.11 (Final)
+
+License:
+		invs	Innovus Implementation System	15.2	checkout succeeded
+		8 CPU jobs allowed with the current license(s). Use setMultiCpuUsage to set your required CPU count.
+
+**INFO:  MMMC transition support version v31-84 
+
+<CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+<CMD> suppressMessage ENCEXT-2799
+<CMD> getDrawView
+<CMD> loadWorkspace -name Physical
+<CMD> win
+<CMD> uiSetTool stretchWire
+**ERROR: (IMPSYT-6788):	Design not in memory
+can't read "AMS_DIR": no such variable
+invalid command name "amsHelp"
+
+*** Memory Usage v#1 (Current mem = 444.973M, initial mem = 151.129M) ***
+*** Message Summary: 0 warning(s), 2 error(s)
+
+--- Ending "Innovus" (totcpu=0:00:26.1, real=0:01:38, mem=445.0M) ---

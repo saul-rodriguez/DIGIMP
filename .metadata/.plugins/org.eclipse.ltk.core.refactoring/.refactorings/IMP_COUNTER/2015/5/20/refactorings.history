@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;IMP_COUNTER/make_pll.sh&apos; to &apos;make_counter_enable.sh&apos;" description="Rename resource &apos;make_pll.sh&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="make_pll.sh" name="make_counter_enable.sh" stamp="1431351462568" updateReferences="true"/>
+</session>

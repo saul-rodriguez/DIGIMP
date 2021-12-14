@@ -1,0 +1,26 @@
+catch { setDesignMode -process 180 }
+catch { setAnalysisMode -analysisType bcwc }
+catch { setAnalysisMode -checkType setup }
+catch { setAnalysisMode -clkSrcPath false }
+catch { setAnalysisMode -clockPropagation forcedIdeal }
+catch { setAnalysisMode -virtualIPO false }
+setExtractRCMode  -lefTechFileMap /pkg/AMS414/cds/HK_AC18/LEF/ac18a6/qrclaymap.ccl -engine preRoute -total_c_th 5 -relative_c_th 0.03 -coupling_c_th 3
+catch { setCTSMode -moveGateLimit 25 }
+catch { setCTSMode -routeBottomPreferredLayer M1 }
+catch { setCTSMode -routeTopPreferredLayer MT }
+catch {setNanoRouteMode -quiet -routeTopRoutingLayer 5}
+
+catch { setPlaceMode -fp false }
+catch { setIlmMode -keepHighFanoutPorts true -keepLoopBack false -keepFlatten true }
+catch { setViaGenMode -parameterized_via_only true }
+catch { setViaGenMode -symmetrical_via_only true }
+catch { setDelayCalMode -enable_high_fanout true }
+catch { setDelayCalMode -engine aae }
+catch { setDelayCalMode -ignoreNetLoad false }
+catch { setDelayCalMode -SIAware false }
+catch { setPinAssignMode -maxLayer 5 }
+catch { setTrialRouteMode -maxRouteLayer 5 }
+catch { setCheckMode -tapeOut true }
+catch { setImportMode -keepEmptyModule true }
+catch { setImportMode -treatUndefinedCellAsBbox false }
+catch { setGenerateViaMode -auto true }

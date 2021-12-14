@@ -1,0 +1,28 @@
+$date
+	Fri Sep  9 15:15:53 2016
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module hello_tb $end
+$scope module my_hello $end
+$var wire 1 ! in $end
+$var wire 1 " out $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+1"
+0!
+$end
+#10
+0"
+1!
+#20
+1"
+0!
+#30

@@ -1,0 +1,1230 @@
+--------------------------------------------------------------------------------
+Release 14.7 Trace  (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+/pkg/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/trce -intstyle ise -o top.twr
+-v 30 -l 30 top_routed.ncd top.pcf
+
+Design file:              top_routed.ncd
+Physical constraint file: top.pcf
+Device,package,speed:     xc6slx9,tqg144,C,-2 (PRODUCTION 1.23 2013-10-13)
+Report level:             verbose report, limited to 30 items per constraint
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+
+================================================================================
+Timing constraint: NET "Clk_IBUF" PERIOD = 31 ns HIGH 50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 0 paths analyzed, 0 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 component switching limit errors)
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: NET "Clk_IBUF" PERIOD = 1000 ns HIGH 50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 86 paths analyzed, 86 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is   4.980ns.
+--------------------------------------------------------------------------------
+Slack:                  995.020ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vin_spc_1/out_23 (FF)
+  Destination:          vin_spc_1/EnRdegHF_1 (FF)
+  Requirement:          1000.000ns
+  Data Path Delay:      5.124ns (Levels of Logic = 0)
+  Clock Path Skew:      0.179ns (6.743 - 6.564)
+  Source Clock:         Clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    vin_spc_1/strobe_BUFG rising at 1000.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: vin_spc_1/out_23 to vin_spc_1/EnRdegHF_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X12Y47.DMUX    Tshcko                0.576   vin_spc_1/out[27]
+                                                       vin_spc_1/out_23
+    SLICE_X12Y52.BX      net (fanout=2)        4.463   vin_spc_1/out[23]
+    SLICE_X12Y52.CLK     Tdick                 0.085   EnRdegHF[1]
+                                                       vin_spc_1/EnRdegHF_1
+    -------------------------------------------------  ---------------------------
+    Total                                      5.124ns (0.661ns logic, 4.463ns route)
+                                                       (12.9% logic, 87.1% route)
+
+--------------------------------------------------------------------------------
+Slack:                  995.430ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vin_spc_1/out_10 (FF)
+  Destination:          vin_spc_1/GS_3 (FF)
+  Requirement:          1000.000ns
+  Data Path Delay:      4.657ns (Levels of Logic = 0)
+  Clock Path Skew:      0.122ns (6.684 - 6.562)
+  Source Clock:         Clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    vin_spc_1/strobe_BUFG rising at 1000.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: vin_spc_1/out_10 to vin_spc_1/GS_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X14Y45.CQ      Tcko                  0.476   vin_spc_1/out[11]
+                                                       vin_spc_1/out_10
+    SLICE_X12Y45.DX      net (fanout=2)        4.096   vin_spc_1/out[10]
+    SLICE_X12Y45.CLK     Tdick                 0.085   GS[3]
+                                                       vin_spc_1/GS_3
+    -------------------------------------------------  ---------------------------
+    Total                                      4.657ns (0.561ns logic, 4.096ns route)
+                                                       (12.0% logic, 88.0% route)
+
+--------------------------------------------------------------------------------
+Slack:                  995.612ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vin_spc_1/out_3 (FF)
+  Destination:          vin_spc_1/GD_1 (FF)
+  Requirement:          1000.000ns
+  Data Path Delay:      4.476ns (Levels of Logic = 0)
+  Clock Path Skew:      0.123ns (6.748 - 6.625)
+  Source Clock:         Clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    vin_spc_1/strobe_BUFG rising at 1000.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: vin_spc_1/out_3 to vin_spc_1/GD_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X13Y49.DMUX    Tshcko                0.518   vin_spc_1/out[7]
+                                                       vin_spc_1/out_3
+    SLICE_X12Y49.BX      net (fanout=2)        3.873   vin_spc_1/out[3]
+    SLICE_X12Y49.CLK     Tdick                 0.085   CE
+                                                       vin_spc_1/GD_1
+    -------------------------------------------------  ---------------------------
+    Total                                      4.476ns (0.603ns logic, 3.873ns route)
+                                                       (13.5% logic, 86.5% route)
+
+--------------------------------------------------------------------------------
+Slack:                  995.748ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vin_spc_1/out_8 (FF)
+  Destination:          vin_spc_1/GS_1 (FF)
+  Requirement:          1000.000ns
+  Data Path Delay:      4.339ns (Levels of Logic = 0)
+  Clock Path Skew:      0.122ns (6.684 - 6.562)
+  Source Clock:         Clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    vin_spc_1/strobe_BUFG rising at 1000.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: vin_spc_1/out_8 to vin_spc_1/GS_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X14Y45.AQ      Tcko                  0.476   vin_spc_1/out[11]
+                                                       vin_spc_1/out_8
+    SLICE_X12Y45.BX      net (fanout=2)        3.778   vin_spc_1/out[8]
+    SLICE_X12Y45.CLK     Tdick                 0.085   GS[3]
+                                                       vin_spc_1/GS_1
+    -------------------------------------------------  ---------------------------
+    Total                                      4.339ns (0.561ns logic, 3.778ns route)
+                                                       (12.9% logic, 87.1% route)
+
+--------------------------------------------------------------------------------
+Slack:                  995.843ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vin_spc_1/out_0 (FF)
+  Destination:          vin_spc_1/RE (FF)
+  Requirement:          1000.000ns
+  Data Path Delay:      4.245ns (Levels of Logic = 0)
+  Clock Path Skew:      0.123ns (6.748 - 6.625)
+  Source Clock:         Clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    vin_spc_1/strobe_BUFG rising at 1000.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: vin_spc_1/out_0 to vin_spc_1/RE
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X13Y49.AMUX    Tshcko                0.518   vin_spc_1/out[7]
+                                                       vin_spc_1/out_0
+    SLICE_X12Y48.AX      net (fanout=1)        3.642   vin_spc_1/out[0]
+    SLICE_X12Y48.CLK     Tdick                 0.085   RE
+                                                       vin_spc_1/RE
+    -------------------------------------------------  ---------------------------
+    Total                                      4.245ns (0.603ns logic, 3.642ns route)
+                                                       (14.2% logic, 85.8% route)
+
+--------------------------------------------------------------------------------
+Slack:                  996.122ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vin_spc_1/out_26 (FF)
+  Destination:          vin_spc_1/DP_1 (FF)
+  Requirement:          1000.000ns
+  Data Path Delay:      3.963ns (Levels of Logic = 0)
+  Clock Path Skew:      0.120ns (6.684 - 6.564)
+  Source Clock:         Clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    vin_spc_1/strobe_BUFG rising at 1000.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: vin_spc_1/out_26 to vin_spc_1/DP_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X12Y47.CQ      Tcko                  0.525   vin_spc_1/out[27]
+                                                       vin_spc_1/out_26
+    SLICE_X13Y45.BX      net (fanout=2)        3.324   vin_spc_1/out[26]
+    SLICE_X13Y45.CLK     Tdick                 0.114   DP[2]
+                                                       vin_spc_1/DP_1
+    -------------------------------------------------  ---------------------------
+    Total                                      3.963ns (0.639ns logic, 3.324ns route)
+                                                       (16.1% logic, 83.9% route)
+
+--------------------------------------------------------------------------------
+Slack:                  996.124ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vin_spc_1/out_29 (FF)
+  Destination:          vin_spc_1/DN_1 (FF)
+  Requirement:          1000.000ns
+  Data Path Delay:      3.963ns (Levels of Logic = 0)
+  Clock Path Skew:      0.122ns (6.740 - 6.618)
+  Source Clock:         Clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    vin_spc_1/strobe_BUFG rising at 1000.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: vin_spc_1/out_29 to vin_spc_1/DN_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X15Y53.BQ      Tcko                  0.430   vin_spc_1/out[31]
+                                                       vin_spc_1/out_29
+    SLICE_X12Y53.BX      net (fanout=2)        3.448   vin_spc_1/out[29]
+    SLICE_X12Y53.CLK     Tdick                 0.085   DN[1]
+                                                       vin_spc_1/DN_1
+    -------------------------------------------------  ---------------------------
+    Total                                      3.963ns (0.515ns logic, 3.448ns route)
+                                                       (13.0% logic, 87.0% route)
+
+--------------------------------------------------------------------------------
+Slack:                  996.136ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vin_spc_1/out_30 (FF)
+  Destination:          vin_spc_1/EnHF (FF)
+  Requirement:          1000.000ns
+  Data Path Delay:      3.950ns (Levels of Logic = 0)
+  Clock Path Skew:      0.121ns (6.739 - 6.618)
+  Source Clock:         Clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    vin_spc_1/strobe_BUFG rising at 1000.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: vin_spc_1/out_30 to vin_spc_1/EnHF
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X15Y53.CQ      Tcko                  0.430   vin_spc_1/out[31]
+                                                       vin_spc_1/out_30
+    SLICE_X14Y53.AX      net (fanout=2)        3.406   vin_spc_1/out[30]
+    SLICE_X14Y53.CLK     Tdick                 0.114   EnHF
+                                                       vin_spc_1/EnHF
+    -------------------------------------------------  ---------------------------
+    Total                                      3.950ns (0.544ns logic, 3.406ns route)
+                                                       (13.8% logic, 86.2% route)
+
+--------------------------------------------------------------------------------
+Slack:                  996.266ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vin_spc_1/out_18 (FF)
+  Destination:          vin_spc_1/CapSel_2 (FF)
+  Requirement:          1000.000ns
+  Data Path Delay:      3.820ns (Levels of Logic = 0)
+  Clock Path Skew:      0.121ns (6.685 - 6.564)
+  Source Clock:         Clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    vin_spc_1/strobe_BUFG rising at 1000.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: vin_spc_1/out_18 to vin_spc_1/CapSel_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X13Y47.CQ      Tcko                  0.430   vin_spc_1/out[19]
+                                                       vin_spc_1/out_18
+    SLICE_X12Y46.CX      net (fanout=2)        3.305   vin_spc_1/out[18]
+    SLICE_X12Y46.CLK     Tdick                 0.085   CapSel[3]
+                                                       vin_spc_1/CapSel_2
+    -------------------------------------------------  ---------------------------
+    Total                                      3.820ns (0.515ns logic, 3.305ns route)
+                                                       (13.5% logic, 86.5% route)
+
+--------------------------------------------------------------------------------
+Slack:                  996.347ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vin_spc_1/out_7 (FF)
+  Destination:          vin_spc_1/GS_0 (FF)
+  Requirement:          1000.000ns
+  Data Path Delay:      3.677ns (Levels of Logic = 0)
+  Clock Path Skew:      0.059ns (6.684 - 6.625)
+  Source Clock:         Clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    vin_spc_1/strobe_BUFG rising at 1000.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: vin_spc_1/out_7 to vin_spc_1/GS_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X13Y49.DQ      Tcko                  0.430   vin_spc_1/out[7]
+                                                       vin_spc_1/out_7
+    SLICE_X12Y45.AX      net (fanout=2)        3.162   vin_spc_1/out[7]
+    SLICE_X12Y45.CLK     Tdick                 0.085   GS[3]
+                                                       vin_spc_1/GS_0
+    -------------------------------------------------  ---------------------------
+    Total                                      3.677ns (0.515ns logic, 3.162ns route)
+                                                       (14.0% logic, 86.0% route)
+
+--------------------------------------------------------------------------------
+Slack:                  996.474ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vin_spc_1/out_15 (FF)
+  Destination:          vin_spc_1/F_3 (FF)
+  Requirement:          1000.000ns
+  Data Path Delay:      3.672ns (Levels of Logic = 0)
+  Clock Path Skew:      0.181ns (6.745 - 6.564)
+  Source Clock:         Clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    vin_spc_1/strobe_BUFG rising at 1000.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: vin_spc_1/out_15 to vin_spc_1/F_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X13Y47.DMUX    Tshcko                0.518   vin_spc_1/out[19]
+                                                       vin_spc_1/out_15
+    SLICE_X12Y51.DX      net (fanout=2)        3.069   vin_spc_1/out[15]
+    SLICE_X12Y51.CLK     Tdick                 0.085   F[3]
+                                                       vin_spc_1/F_3
+    -------------------------------------------------  ---------------------------
+    Total                                      3.672ns (0.603ns logic, 3.069ns route)
+                                                       (16.4% logic, 83.6% route)
+
+--------------------------------------------------------------------------------
+Slack:                  996.495ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vin_spc_1/out_16 (FF)
+  Destination:          vin_spc_1/CapSel_0 (FF)
+  Requirement:          1000.000ns
+  Data Path Delay:      3.591ns (Levels of Logic = 0)
+  Clock Path Skew:      0.121ns (6.685 - 6.564)
+  Source Clock:         Clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    vin_spc_1/strobe_BUFG rising at 1000.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: vin_spc_1/out_16 to vin_spc_1/CapSel_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X13Y47.AQ      Tcko                  0.430   vin_spc_1/out[19]
+                                                       vin_spc_1/out_16
+    SLICE_X12Y46.AX      net (fanout=2)        3.076   vin_spc_1/out[16]
+    SLICE_X12Y46.CLK     Tdick                 0.085   CapSel[3]
+                                                       vin_spc_1/CapSel_0
+    -------------------------------------------------  ---------------------------
+    Total                                      3.591ns (0.515ns logic, 3.076ns route)
+                                                       (14.3% logic, 85.7% route)
+
+--------------------------------------------------------------------------------
+Slack:                  996.513ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vin_spc_1/out_1 (FF)
+  Destination:          vin_spc_1/FS (FF)
+  Requirement:          1000.000ns
+  Data Path Delay:      3.507ns (Levels of Logic = 0)
+  Clock Path Skew:      0.055ns (6.680 - 6.625)
+  Source Clock:         Clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    vin_spc_1/strobe_BUFG rising at 1000.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: vin_spc_1/out_1 to vin_spc_1/FS
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X13Y49.BMUX    Tshcko                0.518   vin_spc_1/out[7]
+                                                       vin_spc_1/out_1
+    SLICE_X12Y43.AX      net (fanout=2)        2.904   vin_spc_1/out[1]
+    SLICE_X12Y43.CLK     Tdick                 0.085   FS
+                                                       vin_spc_1/FS
+    -------------------------------------------------  ---------------------------
+    Total                                      3.507ns (0.603ns logic, 2.904ns route)
+                                                       (17.2% logic, 82.8% route)
+
+--------------------------------------------------------------------------------
+Slack:                  996.535ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vin_spc_1/out_19 (FF)
+  Destination:          vin_spc_1/CapSel_3 (FF)
+  Requirement:          1000.000ns
+  Data Path Delay:      3.551ns (Levels of Logic = 0)
+  Clock Path Skew:      0.121ns (6.685 - 6.564)
+  Source Clock:         Clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    vin_spc_1/strobe_BUFG rising at 1000.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: vin_spc_1/out_19 to vin_spc_1/CapSel_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X13Y47.DQ      Tcko                  0.430   vin_spc_1/out[19]
+                                                       vin_spc_1/out_19
+    SLICE_X12Y46.DX      net (fanout=2)        3.036   vin_spc_1/out[19]
+    SLICE_X12Y46.CLK     Tdick                 0.085   CapSel[3]
+                                                       vin_spc_1/CapSel_3
+    -------------------------------------------------  ---------------------------
+    Total                                      3.551ns (0.515ns logic, 3.036ns route)
+                                                       (14.5% logic, 85.5% route)
+
+--------------------------------------------------------------------------------
+Slack:                  996.556ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vin_spc_1/out_11 (FF)
+  Destination:          vin_spc_1/IQ (FF)
+  Requirement:          1000.000ns
+  Data Path Delay:      3.532ns (Levels of Logic = 1)
+  Clock Path Skew:      0.123ns (6.685 - 6.562)
+  Source Clock:         Clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    vin_spc_1/strobe_BUFG rising at 1000.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: vin_spc_1/out_11 to vin_spc_1/IQ
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X14Y45.DQ      Tcko                  0.476   vin_spc_1/out[11]
+                                                       vin_spc_1/out_11
+    SLICE_X12Y46.B3      net (fanout=2)        2.856   vin_spc_1/out[11]
+    SLICE_X12Y46.CLK     Tas                   0.200   CapSel[3]
+                                                       vin_spc_1/out[11]_rt
+                                                       vin_spc_1/IQ
+    -------------------------------------------------  ---------------------------
+    Total                                      3.532ns (0.676ns logic, 2.856ns route)
+                                                       (19.1% logic, 80.9% route)
+
+--------------------------------------------------------------------------------
+Slack:                  996.559ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vin_spc_1/out_2 (FF)
+  Destination:          vin_spc_1/GD_0 (FF)
+  Requirement:          1000.000ns
+  Data Path Delay:      3.529ns (Levels of Logic = 0)
+  Clock Path Skew:      0.123ns (6.748 - 6.625)
+  Source Clock:         Clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    vin_spc_1/strobe_BUFG rising at 1000.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: vin_spc_1/out_2 to vin_spc_1/GD_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X13Y49.CMUX    Tshcko                0.518   vin_spc_1/out[7]
+                                                       vin_spc_1/out_2
+    SLICE_X12Y49.AX      net (fanout=2)        2.926   vin_spc_1/out[2]
+    SLICE_X12Y49.CLK     Tdick                 0.085   CE
+                                                       vin_spc_1/GD_0
+    -------------------------------------------------  ---------------------------
+    Total                                      3.529ns (0.603ns logic, 2.926ns route)
+                                                       (17.1% logic, 82.9% route)
+
+--------------------------------------------------------------------------------
+Slack:                  996.589ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vin_spc_1/out_17 (FF)
+  Destination:          vin_spc_1/CapSel_1 (FF)
+  Requirement:          1000.000ns
+  Data Path Delay:      3.497ns (Levels of Logic = 0)
+  Clock Path Skew:      0.121ns (6.685 - 6.564)
+  Source Clock:         Clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    vin_spc_1/strobe_BUFG rising at 1000.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: vin_spc_1/out_17 to vin_spc_1/CapSel_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X13Y47.BQ      Tcko                  0.430   vin_spc_1/out[19]
+                                                       vin_spc_1/out_17
+    SLICE_X12Y46.BX      net (fanout=2)        2.982   vin_spc_1/out[17]
+    SLICE_X12Y46.CLK     Tdick                 0.085   CapSel[3]
+                                                       vin_spc_1/CapSel_1
+    -------------------------------------------------  ---------------------------
+    Total                                      3.497ns (0.515ns logic, 2.982ns route)
+                                                       (14.7% logic, 85.3% route)
+
+--------------------------------------------------------------------------------
+Slack:                  996.617ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vin_spc_1/out_13 (FF)
+  Destination:          vin_spc_1/F_1 (FF)
+  Requirement:          1000.000ns
+  Data Path Delay:      3.529ns (Levels of Logic = 0)
+  Clock Path Skew:      0.181ns (6.745 - 6.564)
+  Source Clock:         Clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    vin_spc_1/strobe_BUFG rising at 1000.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: vin_spc_1/out_13 to vin_spc_1/F_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X13Y47.BMUX    Tshcko                0.518   vin_spc_1/out[19]
+                                                       vin_spc_1/out_13
+    SLICE_X12Y51.BX      net (fanout=2)        2.926   vin_spc_1/out[13]
+    SLICE_X12Y51.CLK     Tdick                 0.085   F[3]
+                                                       vin_spc_1/F_1
+    -------------------------------------------------  ---------------------------
+    Total                                      3.529ns (0.603ns logic, 2.926ns route)
+                                                       (17.1% logic, 82.9% route)
+
+--------------------------------------------------------------------------------
+Slack:                  996.621ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vin_spc_1/out_4 (FF)
+  Destination:          vin_spc_1/GD_2 (FF)
+  Requirement:          1000.000ns
+  Data Path Delay:      3.467ns (Levels of Logic = 0)
+  Clock Path Skew:      0.123ns (6.748 - 6.625)
+  Source Clock:         Clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    vin_spc_1/strobe_BUFG rising at 1000.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: vin_spc_1/out_4 to vin_spc_1/GD_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X13Y49.AQ      Tcko                  0.430   vin_spc_1/out[7]
+                                                       vin_spc_1/out_4
+    SLICE_X12Y49.CX      net (fanout=2)        2.952   vin_spc_1/out[4]
+    SLICE_X12Y49.CLK     Tdick                 0.085   CE
+                                                       vin_spc_1/GD_2
+    -------------------------------------------------  ---------------------------
+    Total                                      3.467ns (0.515ns logic, 2.952ns route)
+                                                       (14.9% logic, 85.1% route)
+
+--------------------------------------------------------------------------------
+Slack:                  996.745ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vin_spc_1/out_25 (FF)
+  Destination:          vin_spc_1/DP_0 (FF)
+  Requirement:          1000.000ns
+  Data Path Delay:      3.340ns (Levels of Logic = 0)
+  Clock Path Skew:      0.120ns (6.684 - 6.564)
+  Source Clock:         Clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    vin_spc_1/strobe_BUFG rising at 1000.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: vin_spc_1/out_25 to vin_spc_1/DP_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X12Y47.BQ      Tcko                  0.525   vin_spc_1/out[27]
+                                                       vin_spc_1/out_25
+    SLICE_X13Y45.AX      net (fanout=2)        2.701   vin_spc_1/out[25]
+    SLICE_X13Y45.CLK     Tdick                 0.114   DP[2]
+                                                       vin_spc_1/DP_0
+    -------------------------------------------------  ---------------------------
+    Total                                      3.340ns (0.639ns logic, 2.701ns route)
+                                                       (19.1% logic, 80.9% route)
+
+--------------------------------------------------------------------------------
+Slack:                  996.792ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vin_spc_1/out_28 (FF)
+  Destination:          vin_spc_1/DN_0 (FF)
+  Requirement:          1000.000ns
+  Data Path Delay:      3.295ns (Levels of Logic = 0)
+  Clock Path Skew:      0.122ns (6.740 - 6.618)
+  Source Clock:         Clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    vin_spc_1/strobe_BUFG rising at 1000.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: vin_spc_1/out_28 to vin_spc_1/DN_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X15Y53.AQ      Tcko                  0.430   vin_spc_1/out[31]
+                                                       vin_spc_1/out_28
+    SLICE_X12Y53.AX      net (fanout=2)        2.780   vin_spc_1/out[28]
+    SLICE_X12Y53.CLK     Tdick                 0.085   DN[1]
+                                                       vin_spc_1/DN_0
+    -------------------------------------------------  ---------------------------
+    Total                                      3.295ns (0.515ns logic, 2.780ns route)
+                                                       (15.6% logic, 84.4% route)
+
+--------------------------------------------------------------------------------
+Slack:                  996.824ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vin_spc_1/out_12 (FF)
+  Destination:          vin_spc_1/F_0 (FF)
+  Requirement:          1000.000ns
+  Data Path Delay:      3.322ns (Levels of Logic = 0)
+  Clock Path Skew:      0.181ns (6.745 - 6.564)
+  Source Clock:         Clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    vin_spc_1/strobe_BUFG rising at 1000.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: vin_spc_1/out_12 to vin_spc_1/F_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X13Y47.AMUX    Tshcko                0.518   vin_spc_1/out[19]
+                                                       vin_spc_1/out_12
+    SLICE_X12Y51.AX      net (fanout=2)        2.719   vin_spc_1/out[12]
+    SLICE_X12Y51.CLK     Tdick                 0.085   F[3]
+                                                       vin_spc_1/F_0
+    -------------------------------------------------  ---------------------------
+    Total                                      3.322ns (0.603ns logic, 2.719ns route)
+                                                       (18.2% logic, 81.8% route)
+
+--------------------------------------------------------------------------------
+Slack:                  996.824ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vin_spc_1/out_6 (FF)
+  Destination:          vin_spc_1/CE (FF)
+  Requirement:          1000.000ns
+  Data Path Delay:      3.264ns (Levels of Logic = 0)
+  Clock Path Skew:      0.123ns (6.748 - 6.625)
+  Source Clock:         Clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    vin_spc_1/strobe_BUFG rising at 1000.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: vin_spc_1/out_6 to vin_spc_1/CE
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X13Y49.CQ      Tcko                  0.430   vin_spc_1/out[7]
+                                                       vin_spc_1/out_6
+    SLICE_X12Y49.DX      net (fanout=2)        2.749   vin_spc_1/out[6]
+    SLICE_X12Y49.CLK     Tdick                 0.085   CE
+                                                       vin_spc_1/CE
+    -------------------------------------------------  ---------------------------
+    Total                                      3.264ns (0.515ns logic, 2.749ns route)
+                                                       (15.8% logic, 84.2% route)
+
+--------------------------------------------------------------------------------
+Slack:                  996.829ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vin_spc_1/out_24 (FF)
+  Destination:          vin_spc_1/EnRdeg (FF)
+  Requirement:          1000.000ns
+  Data Path Delay:      3.256ns (Levels of Logic = 1)
+  Clock Path Skew:      0.120ns (6.684 - 6.564)
+  Source Clock:         Clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    vin_spc_1/strobe_BUFG rising at 1000.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: vin_spc_1/out_24 to vin_spc_1/EnRdeg
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X12Y47.AQ      Tcko                  0.525   vin_spc_1/out[27]
+                                                       vin_spc_1/out_24
+    SLICE_X12Y45.A5      net (fanout=2)        2.531   vin_spc_1/out[24]
+    SLICE_X12Y45.CLK     Tas                   0.200   GS[3]
+                                                       vin_spc_1/out[24]_rt
+                                                       vin_spc_1/EnRdeg
+    -------------------------------------------------  ---------------------------
+    Total                                      3.256ns (0.725ns logic, 2.531ns route)
+                                                       (22.3% logic, 77.7% route)
+
+--------------------------------------------------------------------------------
+Slack:                  996.881ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vin_spc_1/out_21 (FF)
+  Destination:          vin_spc_1/CcompSel_1 (FF)
+  Requirement:          1000.000ns
+  Data Path Delay:      3.260ns (Levels of Logic = 0)
+  Clock Path Skew:      0.176ns (6.740 - 6.564)
+  Source Clock:         Clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    vin_spc_1/strobe_BUFG rising at 1000.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: vin_spc_1/out_21 to vin_spc_1/CcompSel_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X12Y47.BMUX    Tshcko                0.576   vin_spc_1/out[27]
+                                                       vin_spc_1/out_21
+    SLICE_X13Y53.BX      net (fanout=2)        2.570   vin_spc_1/out[21]
+    SLICE_X13Y53.CLK     Tdick                 0.114   CcompSel[1]
+                                                       vin_spc_1/CcompSel_1
+    -------------------------------------------------  ---------------------------
+    Total                                      3.260ns (0.690ns logic, 2.570ns route)
+                                                       (21.2% logic, 78.8% route)
+
+--------------------------------------------------------------------------------
+Slack:                  996.925ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vin_spc_1/out_27 (FF)
+  Destination:          vin_spc_1/DP_2 (FF)
+  Requirement:          1000.000ns
+  Data Path Delay:      3.160ns (Levels of Logic = 0)
+  Clock Path Skew:      0.120ns (6.684 - 6.564)
+  Source Clock:         Clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    vin_spc_1/strobe_BUFG rising at 1000.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: vin_spc_1/out_27 to vin_spc_1/DP_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X12Y47.DQ      Tcko                  0.525   vin_spc_1/out[27]
+                                                       vin_spc_1/out_27
+    SLICE_X13Y45.CX      net (fanout=2)        2.521   vin_spc_1/out[27]
+    SLICE_X13Y45.CLK     Tdick                 0.114   DP[2]
+                                                       vin_spc_1/DP_2
+    -------------------------------------------------  ---------------------------
+    Total                                      3.160ns (0.639ns logic, 2.521ns route)
+                                                       (20.2% logic, 79.8% route)
+
+--------------------------------------------------------------------------------
+Slack:                  996.927ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vin_spc_1/out_5 (FF)
+  Destination:          vin_spc_1/NS (FF)
+  Requirement:          1000.000ns
+  Data Path Delay:      3.158ns (Levels of Logic = 0)
+  Clock Path Skew:      0.120ns (6.745 - 6.625)
+  Source Clock:         Clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    vin_spc_1/strobe_BUFG rising at 1000.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: vin_spc_1/out_5 to vin_spc_1/NS
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X13Y49.BQ      Tcko                  0.430   vin_spc_1/out[7]
+                                                       vin_spc_1/out_5
+    SLICE_X13Y51.AX      net (fanout=2)        2.614   vin_spc_1/out[5]
+    SLICE_X13Y51.CLK     Tdick                 0.114   NS
+                                                       vin_spc_1/NS
+    -------------------------------------------------  ---------------------------
+    Total                                      3.158ns (0.544ns logic, 2.614ns route)
+                                                       (17.2% logic, 82.8% route)
+
+--------------------------------------------------------------------------------
+Slack:                  996.942ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vin_spc_1/out_22 (FF)
+  Destination:          vin_spc_1/EnRdegHF_0 (FF)
+  Requirement:          1000.000ns
+  Data Path Delay:      3.202ns (Levels of Logic = 0)
+  Clock Path Skew:      0.179ns (6.743 - 6.564)
+  Source Clock:         Clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    vin_spc_1/strobe_BUFG rising at 1000.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: vin_spc_1/out_22 to vin_spc_1/EnRdegHF_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X12Y47.CMUX    Tshcko                0.576   vin_spc_1/out[27]
+                                                       vin_spc_1/out_22
+    SLICE_X12Y52.AX      net (fanout=2)        2.541   vin_spc_1/out[22]
+    SLICE_X12Y52.CLK     Tdick                 0.085   EnRdegHF[1]
+                                                       vin_spc_1/EnRdegHF_0
+    -------------------------------------------------  ---------------------------
+    Total                                      3.202ns (0.661ns logic, 2.541ns route)
+                                                       (20.6% logic, 79.4% route)
+
+--------------------------------------------------------------------------------
+Slack:                  996.971ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vin_spc_1/out_31 (FF)
+  Destination:          vin_spc_1/EnMF (FF)
+  Requirement:          1000.000ns
+  Data Path Delay:      3.119ns (Levels of Logic = 0)
+  Clock Path Skew:      0.125ns (6.743 - 6.618)
+  Source Clock:         Clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    vin_spc_1/strobe_BUFG rising at 1000.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: vin_spc_1/out_31 to vin_spc_1/EnMF
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X15Y53.DQ      Tcko                  0.430   vin_spc_1/out[31]
+                                                       vin_spc_1/out_31
+    SLICE_X13Y52.AX      net (fanout=2)        2.575   vin_spc_1/out[31]
+    SLICE_X13Y52.CLK     Tdick                 0.114   EnMF
+                                                       vin_spc_1/EnMF
+    -------------------------------------------------  ---------------------------
+    Total                                      3.119ns (0.544ns logic, 2.575ns route)
+                                                       (17.4% logic, 82.6% route)
+
+--------------------------------------------------------------------------------
+Slack:                  997.022ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               vin_spc_1/out_14 (FF)
+  Destination:          vin_spc_1/F_2 (FF)
+  Requirement:          1000.000ns
+  Data Path Delay:      3.124ns (Levels of Logic = 0)
+  Clock Path Skew:      0.181ns (6.745 - 6.564)
+  Source Clock:         Clk_IBUF_BUFG rising at 0.000ns
+  Destination Clock:    vin_spc_1/strobe_BUFG rising at 1000.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: vin_spc_1/out_14 to vin_spc_1/F_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X13Y47.CMUX    Tshcko                0.518   vin_spc_1/out[19]
+                                                       vin_spc_1/out_14
+    SLICE_X12Y51.CX      net (fanout=2)        2.521   vin_spc_1/out[14]
+    SLICE_X12Y51.CLK     Tdick                 0.085   F[3]
+                                                       vin_spc_1/F_2
+    -------------------------------------------------  ---------------------------
+    Total                                      3.124ns (0.603ns logic, 2.521ns route)
+                                                       (19.3% logic, 80.7% route)
+
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: NET "Clk_IBUF" PERIOD = 1000 ns HIGH 50%;
+--------------------------------------------------------------------------------
+Slack: 997.334ns (period - min period limit)
+  Period: 1000.000ns
+  Min period limit: 2.666ns (375.094MHz) (Tbcper_I)
+  Physical resource: vin_spc_1/strobe_BUFG/I0
+  Logical resource: vin_spc_1/strobe_BUFG/I0
+  Location pin: BUFGMUX_X2Y3.I0
+  Clock network: vin_spc_1/strobe
+--------------------------------------------------------------------------------
+Slack: 997.334ns (period - min period limit)
+  Period: 1000.000ns
+  Min period limit: 2.666ns (375.094MHz) (Tbcper_I)
+  Physical resource: Clk_IBUF_BUFG/I0
+  Logical resource: Clk_IBUF_BUFG/I0
+  Location pin: BUFGMUX_X2Y2.I0
+  Clock network: Clk_IBUF
+--------------------------------------------------------------------------------
+Slack: 999.520ns (period - min period limit)
+  Period: 1000.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: FS/CLK
+  Logical resource: vin_spc_1/FS/CK
+  Location pin: SLICE_X12Y43.CLK
+  Clock network: vin_spc_1/strobe_BUFG
+--------------------------------------------------------------------------------
+Slack: 999.520ns (period - min period limit)
+  Period: 1000.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: GS[3]/CLK
+  Logical resource: vin_spc_1/EnRdeg/CK
+  Location pin: SLICE_X12Y45.CLK
+  Clock network: vin_spc_1/strobe_BUFG
+--------------------------------------------------------------------------------
+Slack: 999.520ns (period - min period limit)
+  Period: 1000.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: GS[3]/CLK
+  Logical resource: vin_spc_1/GS_0/CK
+  Location pin: SLICE_X12Y45.CLK
+  Clock network: vin_spc_1/strobe_BUFG
+--------------------------------------------------------------------------------
+Slack: 999.520ns (period - min period limit)
+  Period: 1000.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: GS[3]/CLK
+  Logical resource: vin_spc_1/GS_1/CK
+  Location pin: SLICE_X12Y45.CLK
+  Clock network: vin_spc_1/strobe_BUFG
+--------------------------------------------------------------------------------
+Slack: 999.520ns (period - min period limit)
+  Period: 1000.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: GS[3]/CLK
+  Logical resource: vin_spc_1/GS_2/CK
+  Location pin: SLICE_X12Y45.CLK
+  Clock network: vin_spc_1/strobe_BUFG
+--------------------------------------------------------------------------------
+Slack: 999.520ns (period - min period limit)
+  Period: 1000.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: GS[3]/CLK
+  Logical resource: vin_spc_1/GS_3/CK
+  Location pin: SLICE_X12Y45.CLK
+  Clock network: vin_spc_1/strobe_BUFG
+--------------------------------------------------------------------------------
+Slack: 999.520ns (period - min period limit)
+  Period: 1000.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: CapSel[3]/CLK
+  Logical resource: vin_spc_1/EnLF/CK
+  Location pin: SLICE_X12Y46.CLK
+  Clock network: vin_spc_1/strobe_BUFG
+--------------------------------------------------------------------------------
+Slack: 999.520ns (period - min period limit)
+  Period: 1000.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: CapSel[3]/CLK
+  Logical resource: vin_spc_1/CapSel_0/CK
+  Location pin: SLICE_X12Y46.CLK
+  Clock network: vin_spc_1/strobe_BUFG
+--------------------------------------------------------------------------------
+Slack: 999.520ns (period - min period limit)
+  Period: 1000.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: CapSel[3]/CLK
+  Logical resource: vin_spc_1/IQ/CK
+  Location pin: SLICE_X12Y46.CLK
+  Clock network: vin_spc_1/strobe_BUFG
+--------------------------------------------------------------------------------
+Slack: 999.520ns (period - min period limit)
+  Period: 1000.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: CapSel[3]/CLK
+  Logical resource: vin_spc_1/CapSel_1/CK
+  Location pin: SLICE_X12Y46.CLK
+  Clock network: vin_spc_1/strobe_BUFG
+--------------------------------------------------------------------------------
+Slack: 999.520ns (period - min period limit)
+  Period: 1000.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: CapSel[3]/CLK
+  Logical resource: vin_spc_1/CapSel_2/CK
+  Location pin: SLICE_X12Y46.CLK
+  Clock network: vin_spc_1/strobe_BUFG
+--------------------------------------------------------------------------------
+Slack: 999.520ns (period - min period limit)
+  Period: 1000.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: CapSel[3]/CLK
+  Logical resource: vin_spc_1/CapSel_3/CK
+  Location pin: SLICE_X12Y46.CLK
+  Clock network: vin_spc_1/strobe_BUFG
+--------------------------------------------------------------------------------
+Slack: 999.520ns (period - min period limit)
+  Period: 1000.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: vin_spc_1/out[27]/CLK
+  Logical resource: vin_spc_1/out_20/CK
+  Location pin: SLICE_X12Y47.CLK
+  Clock network: Clk_IBUF_BUFG
+--------------------------------------------------------------------------------
+Slack: 999.520ns (period - min period limit)
+  Period: 1000.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: vin_spc_1/out[27]/CLK
+  Logical resource: vin_spc_1/out_24/CK
+  Location pin: SLICE_X12Y47.CLK
+  Clock network: Clk_IBUF_BUFG
+--------------------------------------------------------------------------------
+Slack: 999.520ns (period - min period limit)
+  Period: 1000.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: vin_spc_1/out[27]/CLK
+  Logical resource: vin_spc_1/out_21/CK
+  Location pin: SLICE_X12Y47.CLK
+  Clock network: Clk_IBUF_BUFG
+--------------------------------------------------------------------------------
+Slack: 999.520ns (period - min period limit)
+  Period: 1000.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: vin_spc_1/out[27]/CLK
+  Logical resource: vin_spc_1/out_25/CK
+  Location pin: SLICE_X12Y47.CLK
+  Clock network: Clk_IBUF_BUFG
+--------------------------------------------------------------------------------
+Slack: 999.520ns (period - min period limit)
+  Period: 1000.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: vin_spc_1/out[27]/CLK
+  Logical resource: vin_spc_1/out_22/CK
+  Location pin: SLICE_X12Y47.CLK
+  Clock network: Clk_IBUF_BUFG
+--------------------------------------------------------------------------------
+Slack: 999.520ns (period - min period limit)
+  Period: 1000.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: vin_spc_1/out[27]/CLK
+  Logical resource: vin_spc_1/out_26/CK
+  Location pin: SLICE_X12Y47.CLK
+  Clock network: Clk_IBUF_BUFG
+--------------------------------------------------------------------------------
+Slack: 999.520ns (period - min period limit)
+  Period: 1000.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: vin_spc_1/out[27]/CLK
+  Logical resource: vin_spc_1/out_23/CK
+  Location pin: SLICE_X12Y47.CLK
+  Clock network: Clk_IBUF_BUFG
+--------------------------------------------------------------------------------
+Slack: 999.520ns (period - min period limit)
+  Period: 1000.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: vin_spc_1/out[27]/CLK
+  Logical resource: vin_spc_1/out_27/CK
+  Location pin: SLICE_X12Y47.CLK
+  Clock network: Clk_IBUF_BUFG
+--------------------------------------------------------------------------------
+Slack: 999.520ns (period - min period limit)
+  Period: 1000.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: RE/CLK
+  Logical resource: vin_spc_1/RE/CK
+  Location pin: SLICE_X12Y48.CLK
+  Clock network: vin_spc_1/strobe_BUFG
+--------------------------------------------------------------------------------
+Slack: 999.520ns (period - min period limit)
+  Period: 1000.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: CE/CLK
+  Logical resource: vin_spc_1/GD_0/CK
+  Location pin: SLICE_X12Y49.CLK
+  Clock network: vin_spc_1/strobe_BUFG
+--------------------------------------------------------------------------------
+Slack: 999.520ns (period - min period limit)
+  Period: 1000.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: CE/CLK
+  Logical resource: vin_spc_1/GD_1/CK
+  Location pin: SLICE_X12Y49.CLK
+  Clock network: vin_spc_1/strobe_BUFG
+--------------------------------------------------------------------------------
+Slack: 999.520ns (period - min period limit)
+  Period: 1000.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: CE/CLK
+  Logical resource: vin_spc_1/GD_2/CK
+  Location pin: SLICE_X12Y49.CLK
+  Clock network: vin_spc_1/strobe_BUFG
+--------------------------------------------------------------------------------
+Slack: 999.520ns (period - min period limit)
+  Period: 1000.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: CE/CLK
+  Logical resource: vin_spc_1/CE/CK
+  Location pin: SLICE_X12Y49.CLK
+  Clock network: vin_spc_1/strobe_BUFG
+--------------------------------------------------------------------------------
+Slack: 999.520ns (period - min period limit)
+  Period: 1000.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: F[3]/CLK
+  Logical resource: vin_spc_1/F_0/CK
+  Location pin: SLICE_X12Y51.CLK
+  Clock network: vin_spc_1/strobe_BUFG
+--------------------------------------------------------------------------------
+Slack: 999.520ns (period - min period limit)
+  Period: 1000.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: F[3]/CLK
+  Logical resource: vin_spc_1/F_1/CK
+  Location pin: SLICE_X12Y51.CLK
+  Clock network: vin_spc_1/strobe_BUFG
+--------------------------------------------------------------------------------
+Slack: 999.520ns (period - min period limit)
+  Period: 1000.000ns
+  Min period limit: 0.480ns (2083.333MHz) (Tcp)
+  Physical resource: F[3]/CLK
+  Logical resource: vin_spc_1/F_2/CK
+  Location pin: SLICE_X12Y51.CLK
+  Clock network: vin_spc_1/strobe_BUFG
+--------------------------------------------------------------------------------
+
+
+All constraints were met.
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Clock to Setup on destination clock Clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+Clk            |    4.980|         |         |         |
+---------------+---------+---------+---------+---------+
+
+
+Timing summary:
+---------------
+
+Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
+
+Constraints cover 86 paths, 0 nets, and 116 connections
+
+Design statistics:
+   Minimum period:   4.980ns{1}   (Maximum frequency: 200.803MHz)
+
+
+------------------------------------Footnotes-----------------------------------
+1)  The minimum period statistic assumes all single cycle delays.
+
+Analysis completed Fri Sep 16 16:18:25 2016 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 390 MB
+
+
+

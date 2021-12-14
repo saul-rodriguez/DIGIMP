@@ -1,0 +1,16 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Fri Nov 04 17:16:25 2016
+//! **************************************************************************
+
+SCHEMATIC START;
+PROHIBIT = SITE "P144";
+PROHIBIT = SITE "P69";
+PROHIBIT = SITE "P60";
+COMP "ARDUINO_RESET" LOCATE = SITE "P139" LEVEL 1;
+COMP "SW0" LOCATE = SITE "P116" LEVEL 1;
+COMP "SW1" LOCATE = SITE "P117" LEVEL 1;
+COMP "SW6" LOCATE = SITE "P59" LEVEL 1;
+COMP "SW7" LOCATE = SITE "P57" LEVEL 1;
+COMP "LED0" LOCATE = SITE "P55" LEVEL 1;
+SCHEMATIC END;
+

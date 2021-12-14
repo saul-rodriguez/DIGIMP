@@ -1,0 +1,8 @@
+INTSTYLE=pa
+INFILE=/home/saul/projects/digital/DIGIMP/Papilio/counter/FPGA/project_1/project_1.runs/impl_1/top_routed.ncd
+OUTFILE=/home/saul/projects/digital/DIGIMP/Papilio/counter/FPGA/project_1/project_1.runs/impl_1/top.bit
+FAMILY=Spartan6
+PART=xc6slx9-2tqg144
+WORKINGDIR=/home/saul/projects/digital/DIGIMP/Papilio/counter/FPGA/project_1/project_1.runs/impl_1
+LICENSE=WebPack
+USER_INFO=211163472_0_0_851

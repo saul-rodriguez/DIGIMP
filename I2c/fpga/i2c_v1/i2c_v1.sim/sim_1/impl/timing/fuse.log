@@ -1,0 +1,42 @@
+Running: /pkg/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -relaunch -intstyle "pa" -incremental -L "work" -L "simprims_ver" -L "unisims_ver" -L "secureip" -o "I2C_f_tb.exe" --prj "/home/saul/projects/digital/DIGIMP/I2c/fpga/i2c_v1/i2c_v1.sim/sim_1/impl/timing/I2C_f_tb.prj" -top "work.I2C_f_tb" -top "work.glbl" 
+ISim P.20131013 (signature 0xfbc00daa)
+Number of CPUs detected in this system: 4
+Turning on mult-threading, number of parallel sub-compilation jobs: 8 
+Determining compilation order of HDL files
+Analyzing Verilog file "/home/saul/projects/digital/DIGIMP/I2c/fpga/i2c_v1/i2c_v1.sim/sim_1/impl/timing/I2C_f_tb_time_impl.v" into library work
+Analyzing Verilog file "/home/saul/projects/digital/DIGIMP/I2c/fpga/i2c_v1/i2c_v1.srcs/sim_1/imports/I2c/I2C_f_tb.v" into library work
+Starting static elaboration
+WARNING:HDLCompiler:1016 - "/home/saul/projects/digital/DIGIMP/I2c/fpga/i2c_v1/i2c_v1.srcs/sim_1/imports/I2c/I2C_f_tb.v" Line 77: Port DIR_DOWN is not connected to this instance
+Completed static elaboration
+Fuse Memory Usage: 101500 KB
+Fuse CPU Usage: 1030 ms
+Compiling module X_CKBUF
+Compiling module X_OPAD
+Compiling module X_OBUF
+Compiling module X_IPAD
+Compiling module X_BUF
+Compiling module X_OBUFT
+Compiling module X_INV(LOC="PAD37")
+Compiling module ffsrce
+Compiling module X_FF
+Compiling module X_LUT6(INIT=64'b1100110011001100...
+Compiling module latchsre
+Compiling module X_LATCHE
+Compiling module X_FF(INIT=1'b1)
+Compiling module X_LUT5(INIT=32'b1100111111001111...
+Compiling module mux
+Compiling module X_MUX2
+Compiling module sffsrce
+Compiling module X_SFF
+Compiling module X_ZERO
+Compiling module X_ONE
+Compiling module top
+Compiling module I2C_f_tb
+Compiling module glbl
+Time Resolution for simulation is 1ps.
+Waiting for 1 sub-compilation(s) to finish...
+Compiled 196 Verilog Units
+Built simulation executable I2C_f_tb.exe
+Fuse Memory Usage: 663716 KB
+Fuse CPU Usage: 1580 ms
+GCC CPU Usage: 160 ms

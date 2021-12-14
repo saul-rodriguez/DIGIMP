@@ -1,0 +1,2 @@
+INCLUDE ../cds.lib
+DEFINE fet_dec_OADB ../OADB/fet_dec_OADB

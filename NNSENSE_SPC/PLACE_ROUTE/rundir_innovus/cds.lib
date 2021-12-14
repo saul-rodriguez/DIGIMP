@@ -1,0 +1,2 @@
+INCLUDE ../cds.lib
+DEFINE nnspc_OADB ../OADB/nnspc_OADB

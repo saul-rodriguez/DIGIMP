@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;IMPL_SPC/make_spc&apos; to &apos;make_spc.sh&apos;" description="Rename resource &apos;make_spc&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="make_spc" name="make_spc.sh" stamp="1430563600254" updateReferences="true"/>
+</session>

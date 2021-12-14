@@ -1,0 +1,164 @@
+
+*** Running xst
+    with args -ifn top.xst -ofn top.srp -intstyle ise
+
+Reading design: top.prj
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "/home/saul/projects/digital/DIGIMP/VIN_SPC/FPGA/project_1/project_1.srcs/sources_1/imports/FPGA/vin_spc.v" into library work
+Parsing module <vin_spc>.
+Analyzing Verilog file "/home/saul/projects/digital/DIGIMP/VIN_SPC/FPGA/project_1/project_1.srcs/sources_1/imports/FPGA/top.v" into library work
+Parsing module <top>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating module <top>.
+
+Elaborating module <vin_spc>.
+WARNING:HDLCompiler:413 - "/home/saul/projects/digital/DIGIMP/VIN_SPC/FPGA/project_1/project_1.srcs/sources_1/imports/FPGA/vin_spc.v" Line 120: Result of 32-bit expression is truncated to fit in 6-bit target.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <top>.
+    Related source file is "/home/saul/projects/digital/DIGIMP/VIN_SPC/FPGA/project_1/project_1.srcs/sources_1/imports/FPGA/top.v".
+    Summary:
+	inferred  32 Multiplexer(s).
+Unit <top> synthesized.
+
+Synthesizing Unit <vin_spc>.
+    Related source file is "/home/saul/projects/digital/DIGIMP/VIN_SPC/FPGA/project_1/project_1.srcs/sources_1/imports/FPGA/vin_spc.v".
+    Found 1-bit register for signal <IQ>.
+    Found 1-bit register for signal <CE>.
+    Found 1-bit register for signal <NS>.
+    Found 1-bit register for signal <FS>.
+    Found 1-bit register for signal <RE>.
+    Found 1-bit register for signal <EnLF>.
+    Found 1-bit register for signal <EnMF>.
+    Found 1-bit register for signal <EnHF>.
+    Found 1-bit register for signal <EnRdeg>.
+    Found 4-bit register for signal <F>.
+    Found 4-bit register for signal <GS>.
+    Found 4-bit register for signal <CapSel>.
+    Found 3-bit register for signal <GD>.
+    Found 3-bit register for signal <DP>.
+    Found 2-bit register for signal <DN>.
+    Found 2-bit register for signal <EnRdegHF>.
+    Found 2-bit register for signal <CcompSel>.
+    Found 33-bit register for signal <out>.
+    Found 6-bit register for signal <count>.
+    Found 6-bit subtractor for signal <GND_2_o_GND_2_o_sub_2_OUT<5:0>> created at line 120.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  72 D-type flip-flop(s).
+Unit <vin_spc> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 1
+ 6-bit subtractor                                      : 1
+# Registers                                            : 19
+ 1-bit register                                        : 9
+ 2-bit register                                        : 3
+ 3-bit register                                        : 2
+ 33-bit register                                       : 1
+ 4-bit register                                        : 3
+ 6-bit register                                        : 1
+# Multiplexers                                         : 32
+ 1-bit 2-to-1 multiplexer                              : 32
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+Synthesizing (advanced) Unit <vin_spc>.
+The following registers are absorbed into counter <count>: 1 register on signal <count>.
+Unit <vin_spc> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Counters                                             : 1
+ 6-bit down counter                                    : 1
+# Registers                                            : 66
+ Flip-Flops                                            : 66
+# Multiplexers                                         : 32
+ 1-bit 2-to-1 multiplexer                              : 32
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <top> ...
+
+Optimizing unit <vin_spc> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 0) on block top, actual ratio is 1.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 72
+ Flip-Flops                                            : 72
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Clock Information:
+------------------
+------------------------------------+------------------------------+-------+
+Clock Signal                        | Clock buffer(FF name)        | Load  |
+------------------------------------+------------------------------+-------+
+Clk                                 | IBUF+BUFG                    | 39    |
+vin_spc_1/strobe(vin_spc_1/strobe:O)| BUFG(*)(vin_spc_1/CcompSel_1)| 33    |
+------------------------------------+------------------------------+-------+
+(*) This 1 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -2
+
+   Minimum period: 2.444ns (Maximum Frequency: 409.165MHz)
+   Minimum input arrival time before clock: 4.714ns
+   Maximum output required time after clock: 6.370ns
+   Maximum combinational path delay: 7.614ns
+
+=========================================================================
