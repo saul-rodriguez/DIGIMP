@@ -6,7 +6,13 @@
 	// Date: 2021-12-13
 
 	// NOTE: This version synchronizes all SPI signals to the system's clock. It is recommended that the ratio clk / SPI_Clk >= 8;  
-	// Only MISO implemented and intended for applications in which the slave only receive orders. MOSI is connected in loopback mode.
+	
+	// Usage:
+	
+	// Async resetn (L) will reset the module. Once SPI_CS goes (L) the module will receive and transmit bits through the SPI_MOSI and 
+	// SPI_MISO lines. Once 8 bits have been received at the SPI_MOSI line, the Rx_DV output flag goes (H) for a clock period. The received byte 
+	// is available in the register Rx_Byte. The transmit byte is copied from Ty_Byte input when SPI_CS goes (L) or in falling edge of 
+	// the 8th SPI_CLK.  
 		
 	module SPI_Slave (
 			input clk,
@@ -17,12 +23,11 @@
 			output SPI_MISO,
 			output Rx_DV, // pulse high, one cycle, when 8 bits have been received 
 			output reg [7:0] Rx_Byte, // 8 bit received data
-			input [7:0] Tx_Byte, // 8 bit data to transmit
-			input Tx_DV	    // New Tx_Byte available (pulse)
+			input [7:0] Tx_Byte // 8 bit data to transmit			
 			);
 	
 		
-		//Purpose: synchronize all master inputs to internal clk (It results in a bit slower brate, but it is safer...?)
+		//Purpose: synchronize all master inputs to internal clk (It results in a bit slower brate, but it is safer...)
 	
 		reg SPI_CS_mt, SPI_CS_st, SPI_CS_del;
 		reg SPI_Clk_mt, SPI_Clk_st;

@@ -28,7 +28,7 @@ module SPI_Master_TB ();
   // Slave specific
   logic [7:0] w_Slave_RX_Byte;
   logic w_Slave_RX_DV;
-  logic r_Slave_TX_DV;
+  //logic r_Slave_TX_DV;
   logic [7:0] r_Slave_TX_Byte;
   
 
@@ -71,8 +71,8 @@ module SPI_Master_TB ();
   		.SPI_MISO(w_SPI_MISO),
   		.Rx_DV(w_Slave_RX_DV),
   		.Rx_Byte(w_Slave_RX_Byte),
-  		.Tx_Byte(r_Slave_TX_Byte), // 8 bit data to transmit
-  		.Tx_DV(r_Slave_TX_DV)	    
+  		.Tx_Byte(r_Slave_TX_Byte) // 8 bit data to transmit
+  		//.Tx_DV(r_Slave_TX_DV)	    
   		);
   
   // Sends a single byte from master to slave.
@@ -114,10 +114,10 @@ module SPI_Master_TB ();
   //Places data to send from slave to master
   task SendSlaveByte(input [7:0] data);
   	@(posedge w_Slave_RX_DV);
-  	r_Slave_TX_DV <= 1'b1;
+  	//r_Slave_TX_DV <= 1'b1;
   	r_Slave_TX_Byte <= data;
   	@(posedge r_Clk);    	
-  	r_Slave_TX_DV <= 1'b0;
+  	//r_Slave_TX_DV <= 1'b0;
   endtask
   
   initial begin
@@ -126,7 +126,7 @@ module SPI_Master_TB ();
       $dumpvars;
       
       r_SPI_CS = 1'b1;
-      r_Slave_TX_DV = 1'b0;
+      //r_Slave_TX_DV = 1'b0;
       r_Slave_TX_Byte = 8'h00;
       r_Rst_L  <= 1'b0;
       repeat(10) @(posedge r_Clk);
@@ -152,7 +152,7 @@ module SPI_Master_TB ();
     
     initial begin
     	@(negedge r_SPI_CS);
-    	r_Slave_TX_DV <= 1'b0;
+    	//r_Slave_TX_DV <= 1'b0;
     	r_Slave_TX_Byte <= 8'h54;    	
     	SendSlaveByte(8'h33);
     	SendSlaveByte(8'h44);
