@@ -11,12 +11,12 @@ module SPI_Master_TB ();
   parameter CLKS_PER_HALF_BIT = 4;  // 6.25 MHz (SPI_CLK = 3.125 MHz)
   parameter MAIN_CLK_DELAY = 20;  // 25 MHz
 
-  logic r_Rst_L     = 1'b0;  
+  logic r_Rst_L     = 1'b0;
   logic w_SPI_Clk;
   logic r_Clk       = 1'b0;
   logic w_SPI_MOSI;
   logic w_SPI_MISO;
-  logic r_CS;
+  logic r_SPI_CS;
 
   // Master Specific
   logic [7:0] r_Master_TX_Byte = 0;
@@ -27,7 +27,7 @@ module SPI_Master_TB ();
   
   // Slave specific
   logic [7:0] w_Slave_RX_Byte;
-  logic w_Slave_Rx_DV;
+  logic w_Slave_RX_DV;
   logic r_Slave_TX_DV;
   logic [7:0] r_Slave_TX_Byte;
   
@@ -65,11 +65,11 @@ module SPI_Master_TB ();
   	(
   		.clk(r_Clk),
   		.resetn(r_Rst_L),
-  		.SPI_CS(r_CS),
+  		.SPI_CS(r_SPI_CS),
   		.SPI_Clk(w_SPI_Clk),
   		.SPI_MOSI(w_SPI_MOSI),
   		.SPI_MISO(w_SPI_MISO),
-  		.Rx_DV(w_Slave_Rx_DV),
+  		.Rx_DV(w_Slave_RX_DV),
   		.Rx_Byte(w_Slave_RX_Byte),
   		.Tx_Byte(r_Slave_TX_Byte), // 8 bit data to transmit
   		.Tx_DV(r_Slave_TX_DV)	    
@@ -79,7 +79,7 @@ module SPI_Master_TB ();
   task SendSingleByte(input [7:0] data);
   	@(negedge r_Clk);
   	#1;
-  	r_CS = 0;
+  	r_SPI_CS = 0;
     @(posedge r_Clk);
     r_Master_TX_Byte <= data;
     r_Master_TX_DV   <= 1'b1;
@@ -87,14 +87,14 @@ module SPI_Master_TB ();
     r_Master_TX_DV <= 1'b0;
     @(posedge w_Master_TX_Ready);
     @(posedge r_Clk);
-    r_CS = 1;
+    r_SPI_CS = 1;
   endtask // SendSingleByte
 
   // Sends two bytes from master to slave
   task SendTwoByte(input [7:0] data, input [7:0] data2 );
   	@(negedge r_Clk);
   	#1;
-  	r_CS = 0;
+  	r_SPI_CS = 0;
   	@(posedge r_Clk);
   	r_Master_TX_Byte <= data;
   	r_Master_TX_DV   <= 1'b1;
@@ -108,12 +108,12 @@ module SPI_Master_TB ();
   	r_Master_TX_DV <= 1'b0;
   	@(posedge w_Master_TX_Ready);
   	@(posedge r_Clk);
-  	r_CS = 1;
+  	r_SPI_CS = 1;
   endtask // SendSingleByte
   
   //Places data to send from slave to master
   task SendSlaveByte(input [7:0] data);
-  	@(posedge w_Slave_Rx_DV);
+  	@(posedge w_Slave_RX_DV);
   	r_Slave_TX_DV <= 1'b1;
   	r_Slave_TX_Byte <= data;
   	@(posedge r_Clk);    	
@@ -125,22 +125,24 @@ module SPI_Master_TB ();
       $dumpfile("dump.vcd"); 
       $dumpvars;
       
-      r_CS = 1'b1;
+      r_SPI_CS = 1'b1;
       r_Slave_TX_DV = 1'b0;
+      r_Slave_TX_Byte = 8'h00;
       r_Rst_L  <= 1'b0;
       repeat(10) @(posedge r_Clk);
       r_Rst_L  <= 1'b1;
       
       @(posedge r_Clk);     
       
-      // Test single byte
+      // Test sending single byte MOSI
       SendSingleByte(8'hC1);      
       
-      // Test double byte
+      // Test sending double byte MOSI 
       SendSingleByte(8'hBE);     
       SendSingleByte(8'hEF);      
       repeat(20) @(posedge r_Clk);
       
+      // Test sending double byte MOSI with a single CS
       SendTwoByte(8'haa, 8'hbb);
       SendTwoByte(8'hcc, 8'hdd);
       repeat(20) @(posedge r_Clk);
@@ -149,7 +151,7 @@ module SPI_Master_TB ();
     end // initial begin
     
     initial begin
-    	@(negedge r_CS);
+    	@(negedge r_SPI_CS);
     	r_Slave_TX_DV <= 1'b0;
     	r_Slave_TX_Byte <= 8'h54;    	
     	SendSlaveByte(8'h33);
@@ -163,8 +165,13 @@ module SPI_Master_TB ();
     
    // initial begin
     always @(negedge r_Master_RX_DV) begin
-    	$display("Received 0x%X", r_Master_RX_Byte);
+    	$display("Received MISO 0x%X", r_Master_RX_Byte);
     end
+    
+    always @(negedge w_Slave_RX_DV) begin
+    	$display("Received MOSI 0x%X", w_Slave_RX_Byte);
+    end
+    
     	
     //end
 
