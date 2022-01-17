@@ -151,6 +151,7 @@ module SPI_Master_TB ();
     end // initial begin
     
     initial begin
+    	r_Slave_TX_Byte <= 8'h54; 
     	@(negedge r_SPI_CS);
     	//r_Slave_TX_DV <= 1'b0;
     	r_Slave_TX_Byte <= 8'h54;    	

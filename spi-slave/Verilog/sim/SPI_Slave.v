@@ -95,11 +95,10 @@
 		reg [7:0] Tx_Byte_temp;
 		wire load_tx_data;
 		
-		always @(negedge SPI_Clk_st or posedge CS_start or negedge resetn) begin
-			if (resetn == 1'b0) begin
-				Tx_Byte_temp <= 0;
-			end else
-			if (Rx_count == 3'b000 || CS_start) begin
+		assign load_tx_data = ( (Rx_count == 3'b000) & (~SPI_CS_st) ) ? 1'b1 : 1'b0;
+		
+		always @(negedge SPI_Clk_st or posedge load_tx_data) begin			
+			if (load_tx_data == 1'b1) begin			
 				Tx_Byte_temp <= Tx_Byte; // Note that Tx_Byte_temp[7] is MISO
 			end else begin
 				Tx_Byte_temp <= {Tx_Byte_temp[6:0],1'b0};
