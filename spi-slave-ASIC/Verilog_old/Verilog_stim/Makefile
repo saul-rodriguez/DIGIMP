@@ -1,7 +1,7 @@
 #NAME is the name of the top_module which should be inside the file top_module.v
 
 SRC = SPI_Slave.v
-SRC_TB = SPI_Master_TB_stim.sv
+SRC_TB = SPI_Slave_TB.v
 NAME= $(basename $(SRC))
 
 sim: $(NAME)
