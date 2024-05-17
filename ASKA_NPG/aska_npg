@@ -1,0 +1,190 @@
+#! /usr/local/bin/vvp
+:ivl_version "13.0 (devel)" "(s20221226-95-gda1cefe8e)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "/usr/local/lib/ivl/system.vpi";
+:vpi_module "/usr/local/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/local/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/local/lib/ivl/v2005_math.vpi";
+:vpi_module "/usr/local/lib/ivl/va_math.vpi";
+:vpi_module "/usr/local/lib/ivl/v2009.vpi";
+S_0x57bfe82f3d40 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_0x57bfe82f3ed0 .scope module, "aska_npg_stimulus" "aska_npg_stimulus" 3 5;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "clk";
+    .port_info 1 /OUTPUT 1 "resetn";
+    .port_info 2 /OUTPUT 12 "freq";
+    .port_info 3 /OUTPUT 3 "phaseDuration";
+    .port_info 4 /OUTPUT 6 "ramp";
+    .port_info 5 /OUTPUT 4 "up";
+    .port_info 6 /OUTPUT 4 "down";
+    .port_info 7 /OUTPUT 1 "enable";
+P_0x57bfe8335ec0 .param/l "CLK_DELAY" 0 3 16, +C4<00000000000000000110000110101000>;
+v0x57bfe8350170_0 .var "clk", 0 0;
+v0x57bfe8350230_0 .var "down", 3 0;
+v0x57bfe83502d0_0 .var "enable", 0 0;
+v0x57bfe83503a0_0 .var "freq", 11 0;
+v0x57bfe8350470_0 .var "phaseDuration", 2 0;
+v0x57bfe8350510_0 .var "ramp", 5 0;
+v0x57bfe83505e0_0 .var "resetn", 0 0;
+v0x57bfe83506b0_0 .var "up", 3 0;
+S_0x57bfe82f40b0 .scope module, "UUT" "aska_npg" 3 21, 4 8 0, S_0x57bfe82f3ed0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "clk";
+    .port_info 1 /INPUT 1 "resetn";
+    .port_info 2 /INPUT 12 "freq";
+    .port_info 3 /INPUT 3 "phaseDuration";
+    .port_info 4 /INPUT 6 "ramp";
+    .port_info 5 /INPUT 4 "up";
+    .port_info 6 /INPUT 4 "down";
+    .port_info 7 /INPUT 1 "enable";
+v0x57bfe831e7c0_0 .net *"_ivl_0", 11 0, L_0x57bfe8350850;  1 drivers
+v0x57bfe831e8c0_0 .net *"_ivl_12", 0 0, L_0x57bfe8350cd0;  1 drivers
+L_0x7430053b70f0 .functor BUFT 1, C4<1>, C4<0>, C4<0>, C4<0>;
+v0x57bfe834ef70_0 .net/2u *"_ivl_14", 0 0, L_0x7430053b70f0;  1 drivers
+L_0x7430053b7138 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v0x57bfe834f030_0 .net/2u *"_ivl_16", 0 0, L_0x7430053b7138;  1 drivers
+L_0x7430053b7018 .functor BUFT 1, C4<000000>, C4<0>, C4<0>, C4<0>;
+v0x57bfe834f110_0 .net *"_ivl_3", 5 0, L_0x7430053b7018;  1 drivers
+v0x57bfe834f240_0 .net *"_ivl_4", 0 0, L_0x57bfe83509a0;  1 drivers
+L_0x7430053b7060 .functor BUFT 1, C4<1>, C4<0>, C4<0>, C4<0>;
+v0x57bfe834f300_0 .net/2u *"_ivl_6", 0 0, L_0x7430053b7060;  1 drivers
+L_0x7430053b70a8 .functor BUFT 1, C4<0>, C4<0>, C4<0>, C4<0>;
+v0x57bfe834f3e0_0 .net/2u *"_ivl_8", 0 0, L_0x7430053b70a8;  1 drivers
+v0x57bfe834f4c0_0 .net "clk", 0 0, v0x57bfe8350170_0;  1 drivers
+v0x57bfe834f580_0 .net "down", 3 0, v0x57bfe8350230_0;  1 drivers
+v0x57bfe834f660_0 .net "enable", 0 0, v0x57bfe83502d0_0;  1 drivers
+v0x57bfe834f720_0 .net "freq", 11 0, v0x57bfe83503a0_0;  1 drivers
+v0x57bfe834f800_0 .var "freq_count", 5 0;
+v0x57bfe834f8e0_0 .net "freq_count_ready", 0 0, L_0x57bfe8350b10;  1 drivers
+v0x57bfe834f9a0_0 .net "phaseDuration", 2 0, v0x57bfe8350470_0;  1 drivers
+v0x57bfe834fa80_0 .var "phase_up_count", 2 0;
+v0x57bfe834fb60_0 .net "phase_up_count_ready", 0 0, L_0x57bfe8350e40;  1 drivers
+v0x57bfe834fd30_0 .var "phase_up_state", 0 0;
+v0x57bfe834fdf0_0 .net "ramp", 5 0, v0x57bfe8350510_0;  1 drivers
+v0x57bfe834fed0_0 .net "resetn", 0 0, v0x57bfe83505e0_0;  1 drivers
+v0x57bfe834ff90_0 .net "up", 3 0, v0x57bfe83506b0_0;  1 drivers
+E_0x57bfe832d700/0 .event negedge, v0x57bfe834fed0_0;
+E_0x57bfe832d700/1 .event posedge, v0x57bfe834f4c0_0;
+E_0x57bfe832d700 .event/or E_0x57bfe832d700/0, E_0x57bfe832d700/1;
+L_0x57bfe8350850 .concat [ 6 6 0 0], v0x57bfe834f800_0, L_0x7430053b7018;
+L_0x57bfe83509a0 .cmp/eq 12, L_0x57bfe8350850, v0x57bfe83503a0_0;
+L_0x57bfe8350b10 .functor MUXZ 1, L_0x7430053b70a8, L_0x7430053b7060, L_0x57bfe83509a0, C4<>;
+L_0x57bfe8350cd0 .cmp/eq 3, v0x57bfe834fa80_0, v0x57bfe8350470_0;
+L_0x57bfe8350e40 .functor MUXZ 1, L_0x7430053b7138, L_0x7430053b70f0, L_0x57bfe8350cd0, C4<>;
+    .scope S_0x57bfe82f40b0;
+T_0 ;
+    %wait E_0x57bfe832d700;
+    %load/vec4 v0x57bfe834fed0_0;
+    %cmpi/e 0, 0, 1;
+    %jmp/0xz  T_0.0, 4;
+    %pushi/vec4 0, 0, 6;
+    %assign/vec4 v0x57bfe834f800_0, 0;
+    %jmp T_0.1;
+T_0.0 ;
+    %load/vec4 v0x57bfe834f660_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_0.2, 8;
+    %load/vec4 v0x57bfe834f800_0;
+    %addi 1, 0, 6;
+    %assign/vec4 v0x57bfe834f800_0, 0;
+    %load/vec4 v0x57bfe834f800_0;
+    %pad/u 12;
+    %load/vec4 v0x57bfe834f720_0;
+    %cmp/e;
+    %jmp/0xz  T_0.4, 4;
+    %pushi/vec4 0, 0, 6;
+    %assign/vec4 v0x57bfe834f800_0, 0;
+T_0.4 ;
+T_0.2 ;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_0x57bfe82f40b0;
+T_1 ;
+    %wait E_0x57bfe832d700;
+    %load/vec4 v0x57bfe834fed0_0;
+    %cmpi/e 0, 0, 1;
+    %jmp/0xz  T_1.0, 4;
+    %pushi/vec4 0, 0, 3;
+    %assign/vec4 v0x57bfe834fa80_0, 0;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v0x57bfe834fd30_0, 0;
+    %jmp T_1.1;
+T_1.0 ;
+    %load/vec4 v0x57bfe834f8e0_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_1.2, 8;
+    %pushi/vec4 1, 0, 1;
+    %assign/vec4 v0x57bfe834fd30_0, 0;
+T_1.2 ;
+    %load/vec4 v0x57bfe834fd30_0;
+    %cmpi/e 1, 0, 1;
+    %jmp/0xz  T_1.4, 4;
+    %load/vec4 v0x57bfe834fa80_0;
+    %addi 1, 0, 3;
+    %assign/vec4 v0x57bfe834fa80_0, 0;
+    %load/vec4 v0x57bfe834fa80_0;
+    %load/vec4 v0x57bfe834f9a0_0;
+    %cmp/e;
+    %jmp/0xz  T_1.6, 4;
+    %pushi/vec4 0, 0, 3;
+    %assign/vec4 v0x57bfe834fa80_0, 0;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v0x57bfe834fd30_0, 0;
+T_1.6 ;
+T_1.4 ;
+T_1.1 ;
+    %jmp T_1;
+    .thread T_1;
+    .scope S_0x57bfe82f3ed0;
+T_2 ;
+    %delay 25000000, 0;
+    %load/vec4 v0x57bfe8350170_0;
+    %inv;
+    %store/vec4 v0x57bfe8350170_0, 0, 1;
+    %jmp T_2;
+    .thread T_2;
+    .scope S_0x57bfe82f3ed0;
+T_3 ;
+    %vpi_call/w 3 36 "$dumpfile", "dump.vcd" {0 0 0};
+    %vpi_call/w 3 37 "$dumpvars" {0 0 0};
+    %vpi_call/w 3 38 "$display", "************************************" {0 0 0};
+    %vpi_call/w 3 39 "$display", "Test ASKA NPG" {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x57bfe8350170_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x57bfe83505e0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x57bfe83502d0_0, 0, 1;
+    %pushi/vec4 50, 0, 12;
+    %store/vec4 v0x57bfe83503a0_0, 0, 12;
+    %pushi/vec4 3, 0, 3;
+    %store/vec4 v0x57bfe8350470_0, 0, 3;
+    %pushi/vec4 0, 0, 6;
+    %store/vec4 v0x57bfe8350510_0, 0, 6;
+    %pushi/vec4 0, 0, 4;
+    %store/vec4 v0x57bfe83506b0_0, 0, 4;
+    %pushi/vec4 0, 0, 4;
+    %store/vec4 v0x57bfe8350230_0, 0, 4;
+    %delay 125000000, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x57bfe83505e0_0, 0, 1;
+    %delay 125000000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x57bfe83505e0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x57bfe83502d0_0, 0, 1;
+    %delay 3910065408, 2;
+    %vpi_call/w 3 66 "$display", "************************************" {0 0 0};
+    %vpi_call/w 3 67 "$finish" {0 0 0};
+    %end;
+    .thread T_3;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "-";
+    "aska_npg_tb.v";
+    "./aska_npg.v";
