@@ -42,11 +42,11 @@ initial begin
     clk = 0;
     resetn = 1;
     enable = 0;
-    freq = 50; 
+    freq = 49; 
     phaseDuration = 3;
     ramp = 0;
-    up = 0;
-    down = 0;
+    up = 4;
+    down = 1;
 
     //reset async
     #(5*CLK_DELAY);
