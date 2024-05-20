@@ -2,6 +2,10 @@
 
 `timescale 1 ns/ 1ps
 
+`define AMPLITUDE 50
+`define RAMP  50
+`define RAMP_FACTOR (`AMPLITUDE*16)/`RAMP
+
 module aska_npg_stimulus(
     output reg clk,
     output reg resetn,
@@ -9,7 +13,7 @@ module aska_npg_stimulus(
     output reg [11:0] freq,
     output reg [2:0] phaseDuration,
     output reg [5:0] ramp,
-    output reg [7:0] ramp_factor,
+    output reg [9:0] ramp_factor,
     output reg [7:0] ON_time, // up to 4s (200 for 50 Hz)
     output reg [9:0] OFF_time, // up to 12s (600 for 50 Hz)
     output reg [3:0] electrode1,
@@ -30,6 +34,7 @@ aska_npg UUT (
     .freq(freq),
     .phaseDuration(phaseDuration),
     .ramp(ramp),
+    .ramp_factor(ramp_factor),
     .ON_time(ON_time),
     .OFF_time(OFF_time),
     .electrode1(electrode1),
@@ -54,10 +59,11 @@ initial begin
     enable = 0;
     freq = 49; 
     phaseDuration = 3;
-    ramp = 50;
+    ramp = `RAMP;
+    ramp_factor = `RAMP_FACTOR;
     electrode1 = 4;
     electrode2 = 1;
-    amplitude = 50;
+    amplitude = `AMPLITUDE;
 
 
     //reset async

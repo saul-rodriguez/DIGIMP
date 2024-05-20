@@ -12,7 +12,7 @@ module aska_npg (
     input [11:0] freq, // 4.88 Hz (4093) - 50 Hz (400) 
     input [2:0] phaseDuration, // 50 us (1) - 350 us (7) 
     input [5:0] ramp, // up to 1s (50 for 50 Hz) 
-    input [7:0] ramp_factor, //[1 - 256] (1/ramp*2^8)
+    input [9:0] ramp_factor, //[1 - 1024] (amplitude/ramp*2^4)
     input [7:0] ON_time, // up to 4s (200 for 50 Hz)
     input [9:0] OFF_time, // up to 12s (600 for 50 Hz)
     input [3:0] electrode1,
@@ -221,21 +221,24 @@ reg [5:0] UP_count;
 reg UP_count_state;
 //wire UP_ready;
 
-//TODO: Check and change counter code to <
+reg [9:0] accumulator_up;
+wire [5:0] up_amplitude;
+
 always @(posedge clk or negedge resetn) begin
     if (resetn == 1'b0) begin
-        UP_count <= 6'b000000;        
-        UP_count_state <= 1'b0;
-
+        UP_count <= 6'b00_0000;        
+        accumulator_up <= 10'b00_0000_0000;;
+        
     end else begin
-        if (on_off_ctrl == UP) begin
-            UP_count_state <= 1'b1;
-            if (freq_count_ready == 1'b1) UP_count <= UP_count + 1;
-
-        end else if (UP_count_state == 1'b1) begin                   
-            if (UP_count == ramp) begin
-                UP_count <= 3'b0;
-                UP_count_state <= 1'b0;
+        if (on_off_ctrl == UP) begin            
+            if (UP_count < ramp) begin
+                if (freq_count_ready == 1'b1) begin
+                    UP_count <= UP_count + 1;
+                    accumulator_up <= accumulator_up + ramp_factor;
+                end    
+            end else begin
+                UP_count <= 6'b00_0000;                
+                accumulator_up <= 10'b00_0000_0000;
             end
         end
     end
@@ -243,6 +246,7 @@ end
 
 assign UP_ready = (UP_count == ramp) ? 1'b1 : 1'b0;
 
+assign up_amplitude = accumulator_up[9:4];
 //ON counter
 
 //DOWN counter
