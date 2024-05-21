@@ -1,10 +1,15 @@
 `include "aska_npg.v"
 
-`timescale 1 ns/ 1ps
+//`timescale 1 ns/ 1ps
+`timescale 1 us/ 1ps
 
-`define AMPLITUDE 50
-`define RAMP  50
+`define AMPLITUDE 10
+`define FREQ 400
+`define RAMP  10
 `define RAMP_FACTOR (`AMPLITUDE*16)/`RAMP
+//`define RAMP_FACTOR 0
+`define ON_TIME  50
+`define OFF_TIME  50
 
 module aska_npg_stimulus(
     output reg clk,
@@ -20,10 +25,12 @@ module aska_npg_stimulus(
     output reg [3:0] electrode2,
     output reg enable,
     input [3:0] up_switches,
-    input [3:0] down_switches);
+    input [3:0] down_switches,
+    input [5:0] DAC);
 
 // Clock generation
-parameter CLK_DELAY = 25000;   // 20 kHz
+//parameter CLK_DELAY = 25000;   // 20 kHz
+parameter CLK_DELAY = 25;   // 20 kHz
 always #(CLK_DELAY) clk = ~clk;
 
 
@@ -31,6 +38,7 @@ always #(CLK_DELAY) clk = ~clk;
 aska_npg UUT (
     .clk(clk),
     .resetn(resetn),
+    .amplitude(amplitude),
     .freq(freq),
     .phaseDuration(phaseDuration),
     .ramp(ramp),
@@ -41,7 +49,8 @@ aska_npg UUT (
     .electrode2(electrode2),
     .enable(enable),
     .up_switches(up_switches),
-    .down_switches(down_switches)
+    .down_switches(down_switches),
+    .DAC(DAC)
 );
 
 // 
@@ -57,10 +66,12 @@ initial begin
     clk = 0;
     resetn = 1;
     enable = 0;
-    freq = 49; 
-    phaseDuration = 3;
+    freq = `FREQ; 
+    phaseDuration = 4;
     ramp = `RAMP;
     ramp_factor = `RAMP_FACTOR;
+    ON_time = `ON_TIME;
+    OFF_time = `OFF_TIME;
     electrode1 = 4;
     electrode2 = 1;
     amplitude = `AMPLITUDE;
@@ -75,7 +86,7 @@ initial begin
     //enable
     enable = 1;
 
-    #(10000*CLK_DELAY); 
+    #(400000*CLK_DELAY); 
     $display("************************************");
 	$finish;
 

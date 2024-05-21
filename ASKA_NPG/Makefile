@@ -36,4 +36,5 @@ upload: ulx3s.bit
 	fujprog ulx3s.bit
 clean: 
 	rm -rf $(NAME) *.bit *.config *.json *.vcd
+	
 
