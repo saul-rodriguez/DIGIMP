@@ -13,14 +13,15 @@ module aska_npg (
     input [2:0] phaseDuration, // 50 us (1) - 350 us (7) 
     input [5:0] ramp, // up to 1s (50 for 50 Hz) 
     input [9:0] ramp_factor, //[1 - 1024] (amplitude/ramp*2^4)
-    input [7:0] ON_time, // up to 4s (200 for 50 Hz)
-    input [9:0] OFF_time, // up to 12s (600 for 50 Hz)
+    input [7:0] ON_time, // up to 4s (in pulses, 200 for 50 Hz)
+    input [9:0] OFF_time, // up to 12s (in pulses 600 for 50 Hz)
     input [3:0] electrode1,
     input [3:0] electrode2,
     input enable,
     output reg [3:0] up_switches,  // Controls the P switches in the H bridge
     output reg [3:0] down_switches, // Controls the N switches in the H bridge
-    output reg [5:0] DAC); // Digital control for the DAC
+    output [5:0] DAC,
+    output pulse_active); // Digital control for the DAC
 
 
 /************************************/
@@ -51,6 +52,25 @@ assign freq_count_ready = (freq_count == freq) ? 1'b1 : 1'b0;
 /*  Pulse generator  */
 /*********************/
 
+//Start pulse (delayed 2 cycles)
+reg pulse_start;
+reg pulse_aux;
+
+always @(posedge clk or negedge resetn) begin
+    if (resetn == 1'b0) begin
+        pulse_start <= 1'b0;
+        pulse_aux   <= 1'b0;
+    end else begin
+        if (freq_count_ready == 1'b1) begin
+            pulse_aux <= 1'b1;           
+        end else begin
+            pulse_aux <= 1'b0;
+        end
+        pulse_start <= pulse_aux;
+    end
+end
+
+
 //Positive phase logic
 
 reg [2:0] phase_up_count;
@@ -63,7 +83,7 @@ always @(posedge clk or negedge resetn) begin
         phase_up_state <= 1'b0;
 
     end else begin
-        if (freq_count_ready) begin
+        if (pulse_start) begin
             phase_up_state <= 1'b1;
             phase_up_count <= phase_up_count + 1;
         end else if (phase_up_state == 1'b1) begin
@@ -138,6 +158,9 @@ always @(*) begin
     end  
 end
 
+//wire pulse_active;
+assign pulse_active = |up_switches;
+
 /*********************/
 /* Amplitude Control */
 /*********************/
@@ -161,17 +184,19 @@ wire OFF_ready;
 wire [5:0] UP_amplitude;
 wire [5:0] DOWN_amplitude;
 
+reg [5:0] DAC_cont;
+
 always @(posedge clk or negedge resetn) begin
     if (resetn == 1'b0) begin
         on_off_ctrl <= IDLE;        
-        DAC <= 6'b00_0000;
+        DAC_cont <= 6'b00_0000;
 
     end else begin
         case (on_off_ctrl)
 
             IDLE:   if (enable == 1'b0) begin
                         on_off_ctrl <= IDLE;
-                        DAC <= 6'b00_0000; 
+                        DAC_cont <= 6'b00_0000; 
                     end else begin
                         on_off_ctrl <= UP;
                     end
@@ -184,11 +209,9 @@ always @(posedge clk or negedge resetn) begin
                             on_off_ctrl <= ON;                            
                         end else begin
                             on_off_ctrl <= UP;
-                            DAC <= UP_amplitude; 
+                            DAC_cont <= UP_amplitude; 
                         end
                     end
-                    
-
 
             ON:     if (enable == 1'b0) begin
                         on_off_ctrl <= IDLE;
@@ -197,7 +220,7 @@ always @(posedge clk or negedge resetn) begin
                             on_off_ctrl <= DOWN;
                         end else begin
                             on_off_ctrl <= ON;
-                            DAC <= amplitude; 
+                            DAC_cont <= amplitude; 
                         end    
                     end
 
@@ -208,10 +231,9 @@ always @(posedge clk or negedge resetn) begin
                             on_off_ctrl <= OFF;
                         end else begin
                             on_off_ctrl <= DOWN;
-                            DAC <= DOWN_amplitude; 
+                            DAC_cont <= DOWN_amplitude; 
                         end    
-                    end   
-                    
+                    end             
             
             OFF:    if (enable == 1'b0) begin
                         on_off_ctrl <= IDLE;
@@ -220,7 +242,7 @@ always @(posedge clk or negedge resetn) begin
                             on_off_ctrl <= UP;
                         end else begin
                             on_off_ctrl <= OFF;
-                            DAC <= 6'b00_0000; 
+                            DAC_cont <= 6'b00_0000; 
                         end    
                     end   
 
@@ -229,6 +251,8 @@ always @(posedge clk or negedge resetn) begin
         endcase
     end
 end
+
+assign DAC = pulse_active ? DAC_cont : 6'b00_0000;
 
 //UP counter
 reg [5:0] UP_count;

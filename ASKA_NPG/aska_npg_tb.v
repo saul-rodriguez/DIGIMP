@@ -4,12 +4,12 @@
 `timescale 1 us/ 1ps
 
 `define AMPLITUDE 10
-`define FREQ 400
+`define FREQ 1000
 `define RAMP  10
 `define RAMP_FACTOR (`AMPLITUDE*16)/`RAMP
 //`define RAMP_FACTOR 0
-`define ON_TIME  50
-`define OFF_TIME  50
+`define ON_TIME  20
+`define OFF_TIME  60
 
 module aska_npg_stimulus(
     output reg clk,
@@ -26,7 +26,8 @@ module aska_npg_stimulus(
     output reg enable,
     input [3:0] up_switches,
     input [3:0] down_switches,
-    input [5:0] DAC);
+    input [5:0] DAC,
+    input pulse_active);
 
 // Clock generation
 //parameter CLK_DELAY = 25000;   // 20 kHz
@@ -50,7 +51,8 @@ aska_npg UUT (
     .enable(enable),
     .up_switches(up_switches),
     .down_switches(down_switches),
-    .DAC(DAC)
+    .DAC(DAC),
+    .pulse_active(pulse_active)
 );
 
 // 
@@ -86,7 +88,7 @@ initial begin
     //enable
     enable = 1;
 
-    #(400000*CLK_DELAY); 
+    #(1000000*CLK_DELAY); 
     $display("************************************");
 	$finish;
 
