@@ -15,11 +15,11 @@ module aska_npg (
     input [9:0] ramp_factor, //[1 - 1024] (amplitude/ramp*2^4)
     input [7:0] ON_time, // up to 4s (in pulses, 200 for 50 Hz)
     input [9:0] OFF_time, // up to 12s (in pulses 600 for 50 Hz)
-    input [3:0] electrode1,
-    input [3:0] electrode2,
+    input [2:0] electrode1,
+    input [2:0] electrode2,
     input enable,
-    output reg [3:0] up_switches,  // Controls the P switches in the H bridge
-    output reg [3:0] down_switches, // Controls the N switches in the H bridge
+    output reg [2:0] up_switches,  // Controls the P switches in the H bridge
+    output reg [2:0] down_switches, // Controls the N switches in the H bridge
     output [5:0] DAC,
     output pulse_active); // Digital control for the DAC
 

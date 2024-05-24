@@ -1,7 +1,7 @@
 #NAME is the name of the top_module which should be inside the file top_module.v
 
 SRC = top.v
-SRC_TB = aska_npg_tb.v
+SRC_TB = top_tb.v
 NAME= $(basename $(SRC))
 
 sim: $(NAME)
@@ -13,7 +13,7 @@ $(NAME): $(SRC_TB)
 plot: $(NAME) dump.vcd
 	gtkwave dump.vcd
 
-bit: 
+bit: $(SRC_TB)
 	@echo Synthetize	
 	#yosys -p 'synth_ice40 -top $(NAME) -blif $(NAME).blif' $(SRC)
 	yosys -p 'synth_ecp5 -top $(NAME) -json $(NAME).json' $(SRC)
