@@ -5,6 +5,8 @@
 /* Date: 2024-05-17             */
 /********************************/
 
+`define ELEC_NUM 31
+
 module aska_npg (
     input clk,
     input resetn,
@@ -15,11 +17,11 @@ module aska_npg (
     input [9:0] ramp_factor, //[1 - 1024] (amplitude/ramp*2^4)
     input [7:0] ON_time, // up to 4s (in pulses, 200 for 50 Hz)
     input [9:0] OFF_time, // up to 12s (in pulses 600 for 50 Hz)
-    input [2:0] electrode1,
-    input [2:0] electrode2,
+    input [`ELEC_NUM:0] electrode1,
+    input [`ELEC_NUM:0] electrode2,
     input enable,
-    output reg [2:0] up_switches,  // Controls the P switches in the H bridge
-    output reg [2:0] down_switches, // Controls the N switches in the H bridge
+    output reg [`ELEC_NUM:0] up_switches,  // Controls the P switches in the H bridge
+    output reg [`ELEC_NUM:0] down_switches, // Controls the N switches in the H bridge
     output [5:0] DAC,
     output pulse_active); // Digital control for the DAC
 
@@ -153,8 +155,10 @@ always @(*) begin
         up_switches = electrode2;
         down_switches = electrode1;    
     end else begin 
-        up_switches = 4'b0;        
-        down_switches = 4'b0;        
+        //up_switches = 4'b0;        
+        //down_switches = 4'b0;        
+        up_switches = 0;        
+        down_switches = 0;        
     end  
 end
 

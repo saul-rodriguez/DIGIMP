@@ -10,7 +10,7 @@
 /*  gn[0] = clk 20 kHz                       */
 /*  gn[3:1] = up_switches[2:0]               */
 /*  gn[6:4] = down_switches[2:0]             */
-/*  gn[12:8] = DAC[5:0]                     */
+/*  gn[12:7] = DAC[5:0]                     */
 /*                                           */
 /*********************************************/
 
@@ -19,12 +19,15 @@
 `define COUNT20K 625
 
 `define AMPLITUDE 50
-`define FREQ 400
+`define FREQ 2000
+`define PHASE 4
 `define RAMP  50
 `define RAMP_FACTOR (`AMPLITUDE*16)/`RAMP
 //`define RAMP_FACTOR 0
-`define ON_TIME  20
-`define OFF_TIME  60
+`define ON_TIME  50
+`define OFF_TIME  50
+`define ELE1  32'b0000_0000_0000_0000_1000_0000_0000_0000
+`define ELE2  32'b0000_0000_0000_0000_0100_0000_0000_0000
 
 
 module top (
@@ -88,18 +91,18 @@ module top (
 	wire resetn;
 	wire enable;
     wire [5:0] amplitude; //0 - 50 mA
-    wire [11:0] freq;
+    wire [11:0] freq; // 4.88 Hz (4095) - 50 Hz (400)
     wire [2:0] phaseDuration;
     wire [5:0] ramp;
     wire [9:0] ramp_factor;
     wire [7:0] ON_time; // up to 4s (200 for 50 Hz)ramp = `RAMP;    
     wire [9:0] OFF_time; // up to 12s (600 for 50 Hz)
-    wire [2:0] electrode1;
-    wire [2:0] electrode2;
+    wire [`ELEC_NUM:0] electrode1;
+    wire [`ELEC_NUM:0] electrode2;
 	    
 	//Outputs
-	wire [2:0] up_switches;
-    wire [2:0] down_switches;
+	wire [`ELEC_NUM:0] up_switches;
+    wire [`ELEC_NUM:0] down_switches;
     wire [5:0] DAC;
     wire pulse_active;
 
@@ -109,20 +112,25 @@ module top (
 
 	assign amplitude = `AMPLITUDE;
 	assign freq = `FREQ;
-	assign phaseDuration = 4;
+	assign phaseDuration = `PHASE;
 	assign ramp = `RAMP;
     assign ramp_factor = `RAMP_FACTOR;
     assign ON_time = `ON_TIME;
     assign OFF_time = `OFF_TIME;
-    assign electrode1 = 4;
-    assign electrode2 = 1;
+    assign electrode1 = `ELE1;
+    assign electrode2 = `ELE2;
 
-	assign gn[1] = up_switches[0];
-	assign gn[2] = up_switches[1];
-	assign gn[3] = up_switches[2];
-	assign gn[4] = down_switches[0];
-	assign gn[5] = down_switches[1];
-	assign gn[6] = down_switches[2];
+
+/*
+	assign gn[3:1] = up_switches[2:0];
+	assign gn[6:4] = down_switches[2:0];
+	
+	assign gn[3:1] = up_switches[31:29];
+	assign gn[6:4] = down_switches[31:29];
+*/
+	assign gn[3:1] = up_switches[15:13];
+	assign gn[6:4] = down_switches[15:13];
+
 	assign gn[7] = DAC[0];
 	assign gn[8] = DAC[1];
 	assign gn[9] = DAC[2];
