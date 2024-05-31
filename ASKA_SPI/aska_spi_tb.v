@@ -38,24 +38,14 @@ module SPI_stimulus(SPI_Clk,
 	assign #6 d_Clk = r_Clk;   //delayed clock
 
 	reg [7:0] TX_data; // Data to send through MOSI
-	reg [7:0] TX_data_old; // previous data sent through MOSI
+	//reg [7:0] TX_data_old; // previous data sent through MOSI
 	reg [7:0] RX_data; // Data received through MISO (circular buffer) 
 	reg [7:0] SPI_Master_RX; // Data received through MISO  
 
-	//Instantiation of UUT
-	/*	
-	wire [6:0] btn;
-	assign btn = {{(5){1'b0}}, reset_l };
-	
-	wire [5:0] gp;
-	assign gp = {1'b0,1'b0,1'b0,SPI_CS,SPI_MOSI,SPI_Clk};
-	
-	wire [5:0] gn;
-	assign SPI_MISO = gn[0];
-	assign SPI_Slave_DV = gn[1];
-	
-	wire [7:0] led;
-	*/
+	wire [`M-1:0] conf0;
+	wire [`M-1:0] conf1;
+	wire [`M-1:0] ele1;
+	wire [`M-1:0] ele2;
 	
 	aska_spi aska_spi_UUT
 		(
@@ -63,22 +53,13 @@ module SPI_stimulus(SPI_Clk,
 			.resetn(reset_l),
 			.SPI_CS(SPI_CS),
 			.SPI_Clk(SPI_Clk),
-			.SPI_MOSI(SPI_MOSI)
-			//.SPI_MISO(SPI_MISO),
-			//.Rx_DV(Rx_DV)
-			//.Rx_Data(RX_Data),
-			//.Tx_Byte(RX_Data) // 8 bit data to transmit  		  
+			.SPI_MOSI(SPI_MOSI),			 
+			.conf0(conf0),
+			.conf1(conf1),
+			.ele1(ele1),
+			.ele2(ele2)
 		);
-	
-	/*
-	top SPI_Slave_UUT
-		(	.gp(gp),
-			.gn(gn),
-			.led(led),
-			.btn(btn),
-			.clk_25mhz(d_Clk)			
-			);
-    */
+		
 
 	initial begin
 
@@ -103,12 +84,17 @@ module SPI_stimulus(SPI_Clk,
 		#(10*MAIN_CLK_DELAY);
  
 
-		send_ASKA(8'h02,32'haabbccdd);
+		send_ASKA(8'h00,32'haabbccdd);
 		#(20*MAIN_CLK_DELAY);
-		send_ASKA_error(8'h03,32'h554466aa);
+		send_ASKA_error(8'h03,32'h554466aa); // send incomplete command!
 		#(20*MAIN_CLK_DELAY);
 		send_ASKA(8'h01,32'h3377eeff);
+		#(20*MAIN_CLK_DELAY);
+		send_ASKA(8'h02,32'hbebecaca);
+		#(20*MAIN_CLK_DELAY);
+		send_ASKA(8'h03,32'hcafebaba);
 
+		/*
 			//Test send single byte MOSI
 			//send_byte_CS(8'hC1); 
  
@@ -116,8 +102,6 @@ module SPI_stimulus(SPI_Clk,
 			// Test send double byte MOSI
 			//send_byte_CS(8'hBE);
 			//send_byte_CS(8'hEF);
-  
-  /*
   
 			// Test Send single bytes MOSI and receive MISO 
 		send_and_receive_byte_CS(8'hC1, 8'hAA);
@@ -174,6 +158,17 @@ module SPI_stimulus(SPI_Clk,
 			
 			#(4*MAIN_CLK_DELAY); // models delay between CS and SPI master 
 			SPI_CS = 1'b1;	
+			
+			//Check values
+			#(4*MAIN_CLK_DELAY);
+
+			case (add)
+				8'h00: $display("sent conf0 0x%X, received 0x%X", data, conf0);						
+				8'h01: $display("sent conf1 0x%X, received 0x%X", data, conf1);
+				8'h02: $display("sent ele1 0x%X, received 0x%X", data, ele1);
+				8'h03: $display("sent ele2 0x%X, received 0x%X", data, ele2); 				
+			endcase
+			
 			
 		end
 	endtask
@@ -288,19 +283,7 @@ module SPI_stimulus(SPI_Clk,
 
 			#SPI_CLK_DELAY;
 			SPI_Clk = 1'b0;
-			
-			// Check 
-			if (TX_data_old == SPI_Master_RX) begin
-				$display("Sent MOSI 0x%X, Received MISO 0x%X OK", TX_data_old, SPI_Master_RX);
-			end else begin 
-				$display("Sent MOSI 0x%X, Received MISO 0x%X ERROR", TX_data_old, SPI_Master_RX);
-			end
-				
-			// keep a copy of old data to compare later MISO in next transaction
-			// during loop back test
-			TX_data_old = data; 
-			//	$display("Received MOSI 0x%X", SPI_Slave_RX);
-			//	$display("Received MISO 0x%X", SPI_Master_RX);
+						
 		end
 	endtask
 

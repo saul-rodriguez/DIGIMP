@@ -25,8 +25,13 @@
 			input SPI_MOSI, // Master output  Slave Input
 			//output SPI_MISO,
 			//output Rx_DV, // pulse high, one cycle, when 8 bits have been received 
-			output reg [`M-1:0] Rx_data [3:0]// N bit received data
-			//input [7:0] Tx_Byte // 8 bit data to transmit			
+			//output reg [`M-1:0] Rx_data [1:0]// N bit received data
+						//input [7:0] Tx_Byte // 8 bit data to transmit			
+			output reg [`M-1:0] conf0,
+			output reg [`M-1:0] conf1,
+			output reg [`M-1:0] ele1,
+			output reg [`M-1:0] ele2
+
 			);
 		
 	/******************************************************/
@@ -63,24 +68,26 @@
     /* Copy the temp data to the output registers */
     /*********************************************/
 
-        wire addr[1:0];
-        assign addr[0] = Rx_data_temp[32];
-        assign addr[1] = Rx_data_temp[33];
+        wire [1:0]addr;
+		assign addr = Rx_data_temp[33:32];
+        //assign addr[0] = Rx_data_temp[32];
+        //assign addr[1] = Rx_data_temp[33];
 
         always @(posedge SPI_CS or negedge resetn) begin
             if (resetn == 1'b0) begin
-                Rx_data[0] <= 0;
-                Rx_data[1] <= 0;
-                Rx_data[2] <= 0;
-                Rx_data[3] <= 0;
+				conf0 <= 0;
+				conf1 <= 0;
+				ele1 <= 0;
+				ele2 <= 0;                
             end else begin
-                // Copy data only if 5 bytes have been completely received
+                // Copy data only if 40 bits (5 bytes) have been completely received
                 if (Rx_count == `N) begin 
-                    if (addr == 2'b01) begin 
-                        Rx_data[0] <= Rx_data_temp[31:0];
-                    end
-                        //RX_data[address] <= Rx_data_temp[31:0];
-                                      
+					case (addr)
+						2'b00 : conf0 <= Rx_data_temp[31:0];
+						2'b01 : conf1 <= Rx_data_temp[31:0];
+						2'b10 : ele1 <= Rx_data_temp[31:0];
+						2'b11 : ele2 <= Rx_data_temp[31:0];  						
+					endcase                                                      
                 end                
             end
         end
