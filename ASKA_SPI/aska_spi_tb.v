@@ -5,41 +5,23 @@
 
 `include "aska_spi.v"
 
-`timescale 1 ns/ 1ps
+`timescale 1us/ 1ps
 
-module SPI_stimulus(SPI_Clk,
-		SPI_MOSI,
-		SPI_CS,
-		SPI_MISO,
-		reset_l,
-		d_Clk,
-		SPI_Slave_RX,
-		SPI_Slave_DV,
-		SPI_Slave_TX);
-
-	output reg SPI_Clk;
-	output reg SPI_MOSI;
-	output reg SPI_CS;
-	output reg reset_l;
-	output SPI_MISO;
-	output d_Clk;
-	output reg [7:0] SPI_Slave_RX;
-	output SPI_Slave_DV;
-	output reg [7:0] SPI_Slave_TX;
+module SPI_stimulus(	
+	output reg SPI_Clk,
+	output reg SPI_MOSI,
+	output reg SPI_CS,
+	output reg reset_l);
 	
-	reg r_Clk;
+	reg Clk20kHz;
 
-	parameter CLKS_PER_HALF_BIT = 4;  // 6.25 MHz (SPI_CLK = 3.125 MHz)
-	parameter MAIN_CLK_DELAY = 20;  // 25 MHz
-	parameter SPI_CLK_DELAY = MAIN_CLK_DELAY*MAIN_CLK_DELAY;
+	parameter MAIN_CLK_DELAY = 25;  // 20 kHz
+	parameter SPI_CLK_DELAY = 1; // 500 kHz
 
 	// Clock Generators:
-	always #(MAIN_CLK_DELAY) r_Clk = ~r_Clk;
-	assign #6 d_Clk = r_Clk;   //delayed clock
-
-	reg [7:0] TX_data; // Data to send through MOSI
-	//reg [7:0] TX_data_old; // previous data sent through MOSI
-	reg [7:0] RX_data; // Data received through MISO (circular buffer) 
+	always #(MAIN_CLK_DELAY) Clk20kHz = ~Clk20kHz;
+	
+	reg [7:0] TX_data; // Data to send through MOSI	
 	reg [7:0] SPI_Master_RX; // Data received through MISO  
 
 	wire [`M-1:0] conf0;
@@ -70,13 +52,13 @@ module SPI_stimulus(SPI_Clk,
 		$display("Test ASKA SPI Slave");
 
 		//Initial State
-		r_Clk = 0;
+		Clk20kHz = 0;
 		TX_data = 8'h00;
 		reset_l = 1'b1;
 		SPI_CS = 1'b1;
 		SPI_Clk = 1'b0;
 		SPI_MOSI = 1'b0;
-		SPI_Slave_TX = 8'h00;
+		//SPI_Slave_TX = 8'h00;
  
 		//Reset
 		#(10*MAIN_CLK_DELAY) reset_l = 1'b0;
@@ -93,36 +75,6 @@ module SPI_stimulus(SPI_Clk,
 		send_ASKA(8'h02,32'hbebecaca);
 		#(20*MAIN_CLK_DELAY);
 		send_ASKA(8'h03,32'hcafebaba);
-
-		/*
-			//Test send single byte MOSI
-			//send_byte_CS(8'hC1); 
- 
-			//#(10*MAIN_CLK_DELAY);
-			// Test send double byte MOSI
-			//send_byte_CS(8'hBE);
-			//send_byte_CS(8'hEF);
-  
-			// Test Send single bytes MOSI and receive MISO 
-		send_and_receive_byte_CS(8'hC1, 8'hAA);
-		#(10*MAIN_CLK_DELAY);
-  
-		send_and_receive_byte_CS(8'hBE, 8'h33);
-		#(10*MAIN_CLK_DELAY);
-  
-		send_and_receive_byte_CS(8'hEF, 8'h54);
-		#(10*MAIN_CLK_DELAY);
-  
-			// Test Send double bytes MOSI and receive MISO 
-		send_and_receive_byte_CS(8'hA1, 8'hEE);
-		send_and_receive_byte_CS(8'h5C, 8'h1D);  
-		#(10*MAIN_CLK_DELAY);
-   
-			// Test Send double bytes MOSI and receive MISO 
-		send_and_receive_byte_CS(8'h25, 8'h83);
-		send_and_receive_byte_CS(8'h38, 8'h41);
-
-		*/  
    
 		#(100*SPI_CLK_DELAY); 
 		$display("************************************");
@@ -144,6 +96,8 @@ module SPI_stimulus(SPI_Clk,
 		end
 	endtask
 
+	reg[8*6:1] str1;
+
 	task send_ASKA(input [7:0] add, input [31:0] data);
 		begin
 			SPI_CS = 1'b0;
@@ -161,12 +115,26 @@ module SPI_stimulus(SPI_Clk,
 			
 			//Check values
 			#(4*MAIN_CLK_DELAY);
-
+			
 			case (add)
-				8'h00: $display("sent conf0 0x%X, received 0x%X", data, conf0);						
-				8'h01: $display("sent conf1 0x%X, received 0x%X", data, conf1);
-				8'h02: $display("sent ele1 0x%X, received 0x%X", data, ele1);
-				8'h03: $display("sent ele2 0x%X, received 0x%X", data, ele2); 				
+				8'h00:  begin
+							str1 = (data == conf0)? "OK" : "ERROR";
+							$display("sent conf0 0x%X, received 0x%X, %s", data, conf0, str1);
+						end
+				8'h01: 	begin
+							str1 = (data == conf1)? "OK" : "ERROR";
+							$display("sent conf1 0x%X, received 0x%X, %s", data, conf1, str1);
+						end						
+				8'h02:  begin
+							str1 = (data == ele1)? "OK" : "ERROR";
+							$display("sent ele1 0x%X, received 0x%X, %s", data, ele1, str1);	
+						end
+				
+				8'h03: 	begin
+							str1 = (data == ele2)? "OK" : "ERROR";
+							$display("sent ele2 0x%X, received 0x%X, %s", data, ele2, str1); 				
+						end
+						
 			endcase
 			
 			
@@ -202,7 +170,7 @@ module SPI_stimulus(SPI_Clk,
 
 	task send_and_receive_byte_CS(input [7:0] data1, input [7:0] data2);
 		begin
-			SPI_Slave_TX = data2;
+			//SPI_Slave_TX = data2;
 			SPI_CS = 1'b0;
 			send_byte(data1);
 			//#SPI_CLK_DELAY;
@@ -217,70 +185,52 @@ module SPI_stimulus(SPI_Clk,
 			//#(4*MAIN_CLK_DELAY); // models delay between CS and SPI master 
 			SPI_Clk = 1'b0;
 			SPI_MOSI = TX_data[7];
-			RX_data = 8'h00;
-			
+						
 			#SPI_CLK_DELAY;		
 			SPI_Clk = 1'b1;
-			RX_data = RX_data << 1;
-			RX_data[0] = SPI_MISO;
 			#SPI_CLK_DELAY;
 			SPI_Clk = 1'b0;
 			SPI_MOSI = TX_data[6];
 		
 			#SPI_CLK_DELAY;
-			SPI_Clk = 1'b1;
-			RX_data = RX_data << 1;
-			RX_data[0] = SPI_MISO;
+			SPI_Clk = 1'b1;			
 			#SPI_CLK_DELAY;
 			SPI_Clk = 1'b0;
 			SPI_MOSI = TX_data[5];
 				
 			#SPI_CLK_DELAY;
 			SPI_Clk = 1'b1;
-			RX_data = RX_data << 1;
-			RX_data[0] = SPI_MISO;
 			#SPI_CLK_DELAY;
 			SPI_Clk = 1'b0;
 			SPI_MOSI = TX_data[4];
 
 			#SPI_CLK_DELAY;
 			SPI_Clk = 1'b1;
-			RX_data = RX_data << 1;
-			RX_data[0] = SPI_MISO;
 			#SPI_CLK_DELAY;
 			SPI_Clk = 1'b0;
 			SPI_MOSI = TX_data[3];
 		
 			#SPI_CLK_DELAY;
-			SPI_Clk = 1'b1;
-			RX_data = RX_data << 1;
-			RX_data[0] = SPI_MISO;
+			SPI_Clk = 1'b1;			
 			#SPI_CLK_DELAY;
 			SPI_Clk = 1'b0;
 			SPI_MOSI = TX_data[2];
 
 			#SPI_CLK_DELAY;
-			SPI_Clk = 1'b1;
-			RX_data = RX_data << 1;
-			RX_data[0] = SPI_MISO;
+			SPI_Clk = 1'b1;			
 			#SPI_CLK_DELAY;
 			SPI_Clk = 1'b0;
 			SPI_MOSI = TX_data[1];
 
 			#SPI_CLK_DELAY;
-			SPI_Clk = 1'b1;
-			RX_data = RX_data << 1;
-			RX_data[0] = SPI_MISO;
+			SPI_Clk = 1'b1;			
 			#SPI_CLK_DELAY;
 			SPI_Clk = 1'b0;
 			SPI_MOSI = TX_data[0];
 		
 			#SPI_CLK_DELAY;
 			SPI_Clk = 1'b1;
-			RX_data = RX_data << 1;
-			RX_data[0] = SPI_MISO;
-			SPI_Master_RX = RX_data;		
-
+			
 			#SPI_CLK_DELAY;
 			SPI_Clk = 1'b0;
 						
