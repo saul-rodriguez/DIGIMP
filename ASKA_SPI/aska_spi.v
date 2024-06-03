@@ -1,32 +1,33 @@
-`ifndef SPI_SLAVE_V
-	`define SPI_SLAVE_V
+`ifndef ASKA_SPI_V
+`define ASKA_SPI_V
 	
 	// MODE 0 SPI Slave V2.0
 	// Author: Saul Rodriguez
 	// Date: 2024-05-31
 
-	// NOTE: This version implements an asynchronous SPI slave block 
+	// NOTE: This version implements an asynchronous SPI slave block for the ASKA ASIC
 	// Usage:
 	
 	// Async resetn (L) will reset the module. Once SPI_CS goes (L) the module will receive and transmit bits through the SPI_MOSI and 
-	// SPI_MISO lines. Once N bytes have been received at the SPI_MOSI line, the Rx_DV output flag goes (H). The received byte 
-	// is available in the register Rx_Byte. 
-	// The transmit byte is copied from Ty_Byte input when SPI_CS goes (L) or in falling edge of 
-	// the 8th SPI_CLK.  
-
+	// SPI_MISO lines. The configuration word is composed of 40 bits (5 bytes):
+	// | 8 bits address | 32 bits data |
+	// Once 40 bits have been received at the SPI_MOSI line, the configuration registers (32 bits)
+	// conf0, conf1, ele1, and ele2 are updated after they are synchronized to clk (20 kHz).
+	// The MSB of the configuration word contains the address of the configuration register:
+	// X00 -> conf0
+	// X01 -> conf1
+	// X10 -> ele1
+	// X11 -> ele2 
+	
     `define N 40
     `define M 32
 
 	module aska_spi (
-			//input clk,
+			input clk,   // internal clock 20 kHz
 			input resetn, // Reset async. (L)
 			input SPI_CS, // chip select  (L)
 			input SPI_Clk, // Mode 0, data is sampled at the rising edge
-			input SPI_MOSI, // Master output  Slave Input
-			//output SPI_MISO,
-			//output Rx_DV, // pulse high, one cycle, when 8 bits have been received 
-			//output reg [`M-1:0] Rx_data [1:0]// N bit received data
-						//input [7:0] Tx_Byte // 8 bit data to transmit			
+			input SPI_MOSI, // Master output  Slave Input				
 			output reg [`M-1:0] conf0,
 			output reg [`M-1:0] conf1,
 			output reg [`M-1:0] ele1,
@@ -73,25 +74,63 @@
         //assign addr[0] = Rx_data_temp[32];
         //assign addr[1] = Rx_data_temp[33];
 
+		reg [`M-1:0] conf0_asyn;
+		reg [`M-1:0] conf1_asyn;
+		reg [`M-1:0] ele1_asyn;
+		reg [`M-1:0] ele2_asyn;
+
         always @(posedge SPI_CS or negedge resetn) begin
             if (resetn == 1'b0) begin
-				conf0 <= 0;
-				conf1 <= 0;
-				ele1 <= 0;
-				ele2 <= 0;                
+				conf0_asyn <= 0;
+				conf1_asyn <= 0;
+				ele1_asyn <= 0;
+				ele2_asyn <= 0;                
             end else begin
                 // Copy data only if 40 bits (5 bytes) have been completely received
                 if (Rx_count == `N) begin 
 					case (addr)
-						2'b00 : conf0 <= Rx_data_temp[31:0];
-						2'b01 : conf1 <= Rx_data_temp[31:0];
-						2'b10 : ele1 <= Rx_data_temp[31:0];
-						2'b11 : ele2 <= Rx_data_temp[31:0];  						
+						2'b00 : conf0_asyn <= Rx_data_temp[31:0];
+						2'b01 : conf1_asyn <= Rx_data_temp[31:0];
+						2'b10 : ele1_asyn <= Rx_data_temp[31:0];
+						2'b11 : ele2_asyn <= Rx_data_temp[31:0];  						
 					endcase                                                      
                 end                
             end
         end
 
+	/*************************************************/
+	/* Synchronize SPI config words to internal clk  */
+	/*************************************************/
+
+		reg [`M-1:0] conf0_meta;
+		reg [`M-1:0] conf1_meta;
+		reg [`M-1:0] ele1_meta;
+		reg [`M-1:0] ele2_meta;
+
+		always @(posedge clk or negedge resetn) begin
+			if (resetn == 1'b0) begin
+				conf0 <= 0;
+				conf0_meta <= 0;
+				conf1 <= 0;
+				conf1_meta <= 0;
+				ele1 <= 0;
+				ele1_meta <= 0;
+				ele2 <= 0;
+				ele2_meta <= 0;
+			end else begin
+				conf0_meta <= conf0_asyn;
+				conf0 <= conf0_meta;
+
+				conf1_meta <= conf1_asyn;
+				conf1 <= conf1_meta;
+
+				ele1_meta <= ele1_asyn;
+				ele1 <= ele1_meta;
+
+				ele2_meta <= ele2_asyn;
+				ele2 <= ele2_meta;
+			end
+		end
 
 	endmodule
 		

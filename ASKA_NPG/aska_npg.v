@@ -1,3 +1,6 @@
+`ifndef ASKA_NPG_V
+`define ASKA_NPG_V
+
 /********************************/
 /* aska_npg.v                   */
 /*                              */
@@ -359,3 +362,5 @@ end
 assign OFF_ready = (OFF_count == OFF_time) ? 1'b1 : 1'b0;
 
 endmodule
+
+`endif
