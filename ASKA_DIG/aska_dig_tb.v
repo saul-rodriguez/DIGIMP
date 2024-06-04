@@ -137,15 +137,24 @@ module DIG_stimulus(
 		#(20*MAIN_CLK_DELAY);
 		send_ASKA(8'h01,conf1);
 		
-		#(10000000*SPI_CLK_DELAY); 
+		#(7500000*SPI_CLK_DELAY); 
 
 		enable = 0;
 		#1;	send_ASKA(8'h01,conf1);
 
 		#(5000000*SPI_CLK_DELAY); 
-
+		ramp = 25;
+		amplitude = 25;
+		ramp_factor = (amplitude*16)/ramp;
 		enable = 1;
-		#1; send_ASKA(8'h01,conf1);
+		#1; send_ASKA(8'h00,conf0);		
+		send_ASKA(8'h01,conf1);
+
+		#(10000000*SPI_CLK_DELAY);
+
+		porborn = 0;
+		#(1000000*SPI_CLK_DELAY);
+		porborn = 1;
 
 		#(20000000*SPI_CLK_DELAY); 
 		$display("************************************");
@@ -176,7 +185,7 @@ module DIG_stimulus(
 			//Check values
 			#(4*MAIN_CLK_DELAY);
 
-			$display("sent 0x%X at time:", data,  $time);
+			$display("sent SPI add 0x%X, data 0x%X at time:",add, data,  $time);
 						
 			
             /*
