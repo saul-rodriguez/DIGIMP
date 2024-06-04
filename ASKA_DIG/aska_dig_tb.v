@@ -19,28 +19,29 @@
 `define ELE2  32'b0000_0000_0000_0000_0100_0000_0000_0000
 
 
-module SPI_stimulus(	
+module DIG_stimulus(	
 	output reg SPI_Clk,
 	output reg SPI_MOSI,
 	output reg SPI_CS,
-	output reg reset_l);
-	
-	reg Clk20kHz;
+	output reg reset_l,
+	output reg Clk20kHz);
+		
+	reg porborn;
 
 	parameter MAIN_CLK_DELAY = 25;  // 20 kHz
 	parameter SPI_CLK_DELAY = 1; // 500 kHz
 
     // Stimulation parameters
-    wire [5:0] amplitude; //0 - 50 mA
-    wire [11:0] freq; // 4.88 Hz (4095) - 50 Hz (400)
-    wire [2:0] phaseDuration;
-    wire [5:0] ramp;
-    wire [9:0] ramp_factor;
-    wire [7:0] ON_time; // up to 4s (200 for 50 Hz)ramp = `RAMP;    
-    wire [9:0] OFF_time; // up to 12s (600 for 50 Hz)
-    wire [`ELEC_NUM:0] electrode1;
-    wire [`ELEC_NUM:0] electrode2;
-    wire enable;
+    reg [5:0] amplitude; //0 - 50 mA
+    reg [11:0] freq; // 4.88 Hz (4095) - 50 Hz (400)
+    reg [2:0] phaseDuration;
+    reg [5:0] ramp;
+    reg [9:0] ramp_factor;
+    reg [7:0] ON_time; // up to 4s (200 for 50 Hz)ramp = `RAMP;    
+    reg [9:0] OFF_time; // up to 12s (600 for 50 Hz)
+    reg [`ELEC_NUM:0] electrode1;
+    reg [`ELEC_NUM:0] electrode2;
+    reg enable;
 	    
 	//Outputs
 	wire [`ELEC_NUM:0] up_switches;
@@ -48,6 +49,7 @@ module SPI_stimulus(
     wire [5:0] DAC;
     wire pulse_active;
 
+/*
 	assign amplitude = `AMPLITUDE;
 	assign freq = `FREQ;
 	assign phaseDuration = `PHASE;
@@ -57,19 +59,23 @@ module SPI_stimulus(
     assign OFF_time = `OFF_TIME;
     assign electrode1 = `ELE1;
     assign electrode2 = `ELE2;
-    assign enable = 1'b1;
-
-    wire [`M-1:0] conf0;
-	wire [`M-1:0] conf1;
-
-    assign conf0[17:12] = amplitude;
-    assign conf0[11:0] = freq;
-    assign conf1[23:21] = phaseDuration;
-    assign conf0[23:18] = ramp;
-    assign conf1[9:0] = ramp_factor;
-    assign conf0[32:24] = ON_time;
-    assign conf1[19:10] = OFF_time;
-    assign conf1[20] = enable;
+    //assign enable = 1'b1;
+*/
+    reg [`M-1:0] conf0;
+	reg [`M-1:0] conf1;
+	
+	always @(*) begin
+		conf0[17:12] = amplitude;
+    	conf0[11:0] = freq;
+    	conf1[23:21] = phaseDuration;
+    	conf0[23:18] = ramp;
+    	conf1[9:0] = ramp_factor;
+    	conf0[32:24] = ON_time;
+    	conf1[19:10] = OFF_time;
+    	conf1[20] = enable;
+		conf1[31:24] = 8'b0000_0000;	
+	end
+    
 
 	// Clock Generators:
 	always #(MAIN_CLK_DELAY) Clk20kHz = ~Clk20kHz;
@@ -77,33 +83,10 @@ module SPI_stimulus(
 	reg [7:0] TX_data; // Data to send through MOSI	
 	reg [7:0] SPI_Master_RX; // Data received through MISO  
 
-	
-   
-	/*
-    wire [`M-1:0] ele1;
-	wire [`M-1:0] ele2;
-	*/
-
-    /*
-	aska_spi aska_spi_UUT
-		(
-			.clk(Clk20kHz),
-			.resetn(reset_l),
-			.SPI_CS(SPI_CS),
-			.SPI_Clk(SPI_Clk),
-			.SPI_MOSI(SPI_MOSI),			 
-			.conf0(conf0),
-			.conf1(conf1),
-			.ele1(ele1),
-			.ele2(ele2)
-		);
-	*/
-       
-
     aska_dig aska_dig1 (
 			.clk(Clk20kHz),   // internal clock 20 kHz
 			.reset_l(reset_l), // Reset async. (L)
-            //.porborn(reset_l), //Power-on-Reset/Brown-out-Reset (L)
+            .porborn(porborn), //Power-on-Reset/Brown-out-Reset (L)
 			.SPI_CS(SPI_CS), // chip select  (L)
 			.SPI_Clk(SPI_Clk), // Mode 0, data is sampled at the rising edge
 			.SPI_MOSI(SPI_MOSI), // Master output  Slave Input				
@@ -124,9 +107,21 @@ module SPI_stimulus(
 		Clk20kHz = 0;
 		TX_data = 8'h00;
 		reset_l = 1'b1;
+		porborn = 1'b1;
 		SPI_CS = 1'b1;
 		SPI_Clk = 1'b0;
 		SPI_MOSI = 1'b0;
+
+		enable = 1'b1;
+		amplitude = `AMPLITUDE;
+		freq = `FREQ;
+		phaseDuration = `PHASE;
+		ramp = `RAMP;
+    	ramp_factor = `RAMP_FACTOR;
+    	ON_time = `ON_TIME;
+    	OFF_time = `OFF_TIME;
+    	electrode1 = `ELE1;
+    	electrode2 = `ELE2;
 		//SPI_Slave_TX = 8'h00;
  
 		//Reset
@@ -140,13 +135,19 @@ module SPI_stimulus(
         #(20*MAIN_CLK_DELAY);
 		send_ASKA(8'h00,conf0);
 		#(20*MAIN_CLK_DELAY);
-		//send_ASKA_error(8'h03,32'h554466aa); // send incomplete command!
-		//#(20*MAIN_CLK_DELAY);
 		send_ASKA(8'h01,conf1);
 		
-		
-   
 		#(10000000*SPI_CLK_DELAY); 
+
+		enable = 0;
+		#1;	send_ASKA(8'h01,conf1);
+
+		#(5000000*SPI_CLK_DELAY); 
+
+		enable = 1;
+		#1; send_ASKA(8'h01,conf1);
+
+		#(20000000*SPI_CLK_DELAY); 
 		$display("************************************");
 		$finish;
  
@@ -174,6 +175,9 @@ module SPI_stimulus(
 			
 			//Check values
 			#(4*MAIN_CLK_DELAY);
+
+			$display("sent 0x%X at time:", data,  $time);
+						
 			
             /*
 			case (add)

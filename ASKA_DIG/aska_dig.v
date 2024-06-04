@@ -49,13 +49,10 @@
     wire [5:0] ramp; // up to 1s (50 for 50 Hz) 
     wire [9:0] ramp_factor; //[1 - 1024] (amplitude/ramp*2^4)
     wire [7:0] ON_time; // up to 4s (in pulses, 200 for 50 Hz)
-    wire [9:0] OFF_time; // up to 12s (in pulses 600 for 50 Hz)
-    //wire [`ELEC_NUM:0] electrode1,
-    //wire [`ELEC_NUM:0] electrode2,
+    wire [9:0] OFF_time; // up to 12s (in pulses 600 for 50 Hz)   
     wire enable;
 
-
-    assign resetn = reset_l;
+    assign resetn = reset_l & porborn;
 
     assign amplitude = conf0[17:12];
     assign freq = conf0[11:0];
