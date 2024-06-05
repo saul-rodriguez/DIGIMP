@@ -92,8 +92,8 @@ module top (
 /******************************/
 		    
 	//Outputs
-	wire [`ELEC_NUM:0] up_switches;
-    wire [`ELEC_NUM:0] down_switches;
+	wire [31:0] up_switches;
+    wire [31:0] down_switches;
     wire [5:0] DAC;
     wire pulse_active;
 

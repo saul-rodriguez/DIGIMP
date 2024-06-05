@@ -30,12 +30,12 @@ module top_tb();
     reg [9:0] ramp_factor;
     reg [7:0] ON_time; // up to 4s (200 for 50 Hz)ramp = `RAMP;    
     reg [9:0] OFF_time; // up to 12s (600 for 50 Hz)
-    reg [`ELEC_NUM:0] electrode1;
-    reg [`ELEC_NUM:0] electrode2;
+    reg [31:0] electrode1;
+    reg [31:0] electrode2;
     reg enable;
 
-    reg [`M-1:0] conf0;
-	reg [`M-1:0] conf1;
+    reg [31:0] conf0;
+	reg [31:0] conf1;
 	
 	always @(*) begin
 		    conf0[17:12] = amplitude;

@@ -19,8 +19,8 @@
 	// X10 -> ele1
 	// X11 -> ele2 
 	
-    `define N 40
-    `define M 32
+    //`define N 40
+    //`define M 32
 
 	module aska_spi (
 			input clk,   // internal clock 20 kHz
@@ -28,10 +28,10 @@
 			input SPI_CS, // chip select  (L)
 			input SPI_Clk, // Mode 0, data is sampled at the rising edge
 			input SPI_MOSI, // Master output  Slave Input				
-			output reg [`M-1:0] conf0,
-			output reg [`M-1:0] conf1,
-			output reg [`M-1:0] ele1,
-			output reg [`M-1:0] ele2
+			output reg [31:0] conf0,
+			output reg [31:0] conf1,
+			output reg [31:0] ele1,
+			output reg [31:0] ele2
 
 			);
 		
@@ -39,7 +39,7 @@
     /* Recover the SPI_MOSI data only when SPI_CS is (L)  */
 	/******************************************************/
 		
-		reg [`N-1:0] Rx_data_temp;
+		reg [39:0] Rx_data_temp;
 				
 		always @(posedge SPI_Clk or negedge resetn) begin
 			if (resetn == 1'b0) begin
@@ -47,7 +47,7 @@
                 Rx_data_temp <= 0;				
 			end else begin
                 if (SPI_CS == 1'b0) begin                   
-                    Rx_data_temp <= {Rx_data_temp[`N-2:0],SPI_MOSI};	                                        
+                    Rx_data_temp <= {Rx_data_temp[38:0],SPI_MOSI};	                                        
                 end
 			end		
 		end
@@ -74,10 +74,10 @@
         //assign addr[0] = Rx_data_temp[32];
         //assign addr[1] = Rx_data_temp[33];
 
-		reg [`M-1:0] conf0_asyn;
-		reg [`M-1:0] conf1_asyn;
-		reg [`M-1:0] ele1_asyn;
-		reg [`M-1:0] ele2_asyn;
+		reg [31:0] conf0_asyn;
+		reg [31:0] conf1_asyn;
+		reg [31:0] ele1_asyn;
+		reg [31:0] ele2_asyn;
 
         always @(posedge SPI_CS or negedge resetn) begin
             if (resetn == 1'b0) begin
@@ -87,7 +87,7 @@
 				ele2_asyn <= 0;                
             end else begin
                 // Copy data only if 40 bits (5 bytes) have been completely received
-                if (Rx_count == `N) begin 
+                if (Rx_count == 40) begin 
 					case (addr)
 						2'b00 : conf0_asyn <= Rx_data_temp[31:0];
 						2'b01 : conf1_asyn <= Rx_data_temp[31:0];
@@ -102,10 +102,10 @@
 	/* Synchronize SPI config words to internal clk  */
 	/*************************************************/
 
-		reg [`M-1:0] conf0_meta;
-		reg [`M-1:0] conf1_meta;
-		reg [`M-1:0] ele1_meta;
-		reg [`M-1:0] ele2_meta;
+		reg [31:0] conf0_meta;
+		reg [31:0] conf1_meta;
+		reg [31:0] ele1_meta;
+		reg [31:0] ele2_meta;
 
 		always @(posedge clk or negedge resetn) begin
 			if (resetn == 1'b0) begin

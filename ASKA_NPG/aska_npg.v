@@ -8,7 +8,7 @@
 /* Date: 2024-05-17             */
 /********************************/
 
-`define ELEC_NUM 31
+//`define ELEC_NUM 31
 
 module aska_npg (
     input clk,
@@ -20,11 +20,11 @@ module aska_npg (
     input [9:0] ramp_factor, //[1 - 1024] (amplitude/ramp*2^4)
     input [7:0] ON_time, // up to 4s (in pulses, 200 for 50 Hz)
     input [9:0] OFF_time, // up to 12s (in pulses 600 for 50 Hz)
-    input [`ELEC_NUM:0] electrode1,
-    input [`ELEC_NUM:0] electrode2,
+    input [31:0] electrode1,
+    input [31:0] electrode2,
     input enable,
-    output reg [`ELEC_NUM:0] up_switches,  // Controls the P switches in the H bridge
-    output reg [`ELEC_NUM:0] down_switches, // Controls the N switches in the H bridge
+    output reg [31:0] up_switches,  // Controls the P switches in the H bridge
+    output reg [31:0] down_switches, // Controls the N switches in the H bridge
     output [5:0] DAC,
     output pulse_active); // Digital control for the DAC
 
@@ -269,12 +269,12 @@ reg [9:0] UP_accumulator;
 always @(posedge clk or negedge resetn) begin
     if (resetn == 1'b0) begin
         UP_count <= 6'b00_0000;        
-        UP_accumulator <= 10'b00_0000_0000;;
+        UP_accumulator <= 10'b00_0000_0000;
         
     end else begin
         if (enable == 1'b0) begin
             UP_count <= 6'b00_0000;        
-            UP_accumulator <= 10'b00_0000_0000;;
+            UP_accumulator <= 10'b00_0000_0000;
         end else if (on_off_ctrl == UP) begin            
             if (UP_count < ramp) begin
                 if (freq_count_ready == 1'b1) begin
@@ -324,7 +324,7 @@ reg [9:0] DOWN_accumulator;
 always @(posedge clk or negedge resetn) begin
     if (resetn == 1'b0) begin
         DOWN_count <= 6'b00_0000;        
-        DOWN_accumulator <= 10'b00_0000_0000;;
+        DOWN_accumulator <= 10'b00_0000_0000;
         
     end else begin
          if (enable == 1'b0) begin

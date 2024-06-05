@@ -11,8 +11,8 @@
 			input SPI_CS, // chip select  (L)
 			input SPI_Clk, // Mode 0, data is sampled at the rising edge
 			input SPI_MOSI, // Master output  Slave Input				
-			output [`ELEC_NUM:0] up_switches,  // Controls the P switches in the H bridge
-            output [`ELEC_NUM:0] down_switches, // Controls the N switches in the H bridge
+			output [31:0] up_switches,  // Controls the P switches in the H bridge
+            output [31:0] down_switches, // Controls the N switches in the H bridge
             output [5:0] DAC,
             output pulse_active);
  
@@ -38,10 +38,10 @@
 
     wire resetn;
 
-    wire [`M-1:0] conf0;
-	wire [`M-1:0] conf1;
-	wire [`M-1:0] ele1;
-	wire [`M-1:0] ele2;
+    wire [31:0] conf0;
+	wire [31:0] conf1;
+	wire [31:0] ele1;
+	wire [31:0] ele2;
 
     wire [5:0] amplitude; //0 - 50 mA
     wire [11:0] freq; // 4.88 Hz (4095) - 50 Hz (400) 
