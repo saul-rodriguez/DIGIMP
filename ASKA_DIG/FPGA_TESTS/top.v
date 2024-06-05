@@ -10,7 +10,8 @@
 /*  gn[0] = clk 20 kHz                       */
 /*  gn[3:1] = up_switches[2:0]               */
 /*  gn[6:4] = down_switches[2:0]             */
-/*  gn[12:7] = DAC[5:0]                     */
+/*  gn[12:7] = DAC[5:0]                      */
+/*  gn[13] = pulse_active					 */
 /*                                           */
 /*********************************************/
 
@@ -71,6 +72,7 @@ module top (
 	always @(posedge clk_25mhz or negedge resetn) begin
 		if (resetn == 1'b0) begin
 			clk_20khz <= 1'b0;
+			clk_counter <= 0;
 		end else if (clk_counter < `COUNT20K) begin
 			clk_counter <= clk_counter + 1;		
 		end else begin

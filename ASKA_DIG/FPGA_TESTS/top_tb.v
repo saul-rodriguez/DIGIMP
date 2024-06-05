@@ -3,14 +3,14 @@
 `timescale 1 ns/ 1ps
 //`timescale 1us/ 1ps
 
-`define AMPLITUDE 50
+`define AMPLITUDE 25
 `define FREQ 400
 `define PHASE 4
-`define RAMP  25
+`define RAMP  50
 `define RAMP_FACTOR (`AMPLITUDE*16)/`RAMP
 //`define RAMP_FACTOR 0
-`define ON_TIME  25
-`define OFF_TIME  25
+`define ON_TIME  50
+`define OFF_TIME  50
 `define ELE1  32'b0000_0000_0000_0000_1000_0000_0000_0000
 `define ELE2  32'b0000_0000_0000_0000_0100_0000_0000_0000
 
