@@ -1,8 +1,12 @@
 `ifndef ASKA_DIG_V
 `define ASKA_DIG_V
 
-    `include "aska_npg.v"
-    `include "aska_spi.v"
+    //`include "aska_npg.v"
+    //`include "aska_spi.v"
+
+    `include "/home/saul/projects/DIGIMP/ASKA_SPI/aska_spi.v"
+    `include "/home/saul/projects/DIGIMP/ASKA_NPG/aska_npg.v"
+
 
     module aska_dig (
 			input clk,   // internal clock 20 kHz
