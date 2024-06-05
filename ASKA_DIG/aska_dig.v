@@ -26,7 +26,7 @@
     /*                                            */
     /* conf0:                                     */
     /*                                            */
-    /* bits 32-24: [7:0] ON_time                  */
+    /* bits 31-24: [7:0] ON_time                  */
     /* bits 23-18: [5:0] ramp                     */
     /* bits 17-12: [5:0] amplitude                */
     /* bits 11-0:  [11:0] freq                    */
@@ -63,7 +63,7 @@
     assign phaseDuration = conf1[23:21];
     assign ramp = conf0[23:18];
     assign ramp_factor = conf1[9:0];
-    assign ON_time = conf0[32:24];
+    assign ON_time = conf0[31:24];
     assign OFF_time = conf1[19:10];
     assign enable = conf1[20];
 
