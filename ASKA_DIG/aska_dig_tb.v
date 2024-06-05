@@ -39,13 +39,13 @@ module DIG_stimulus(
     reg [9:0] ramp_factor;
     reg [7:0] ON_time; // up to 4s (200 for 50 Hz)ramp = `RAMP;    
     reg [9:0] OFF_time; // up to 12s (600 for 50 Hz)
-    reg [`ELEC_NUM:0] electrode1;
-    reg [`ELEC_NUM:0] electrode2;
+    reg [31:0] electrode1;
+    reg [31:0] electrode2;
     reg enable;
 	    
 	//Outputs
-	wire [`ELEC_NUM:0] up_switches;
-    wire [`ELEC_NUM:0] down_switches;
+	wire [31:0] up_switches;
+    wire [31:0] down_switches;
     wire [5:0] DAC;
     wire pulse_active;
 
@@ -61,8 +61,8 @@ module DIG_stimulus(
     assign electrode2 = `ELE2;
     //assign enable = 1'b1;
 */
-    reg [`M-1:0] conf0;
-	reg [`M-1:0] conf1;
+    reg [31:0] conf0;
+	reg [31:0] conf1;
 	
 	always @(*) begin
 		conf0[17:12] = amplitude;
