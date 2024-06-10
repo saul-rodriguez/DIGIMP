@@ -7,14 +7,14 @@
 
 `timescale 1us/ 1ps
 
-`define AMPLITUDE 50
-`define FREQ 400
-`define PHASE 4
-`define RAMP  50
-`define RAMP_FACTOR (`AMPLITUDE*16)/`RAMP
+//`define AMPLITUDE 50
+//`define FREQ 400
+//`define PHASE 4
+//`define RAMP  50
+//`define RAMP_FACTOR (`AMPLITUDE*16)/`RAMP
 //`define RAMP_FACTOR 0
-`define ON_TIME  50
-`define OFF_TIME  50
+//`define ON_TIME  50
+//`define OFF_TIME  50
 `define ELE1  32'b0000_0000_0000_0000_1000_0000_0000_0000
 `define ELE2  32'b0000_0000_0000_0000_0100_0000_0000_0000
 
@@ -24,9 +24,10 @@ module DIG_stimulus(
 	output reg SPI_MOSI,
 	output reg SPI_CS,
 	output reg reset_l,
-	output reg Clk20kHz);
+	output reg Clk20kHz,
+	output reg porborn);
 		
-	reg porborn;
+	
 
 	parameter MAIN_CLK_DELAY = 25;  // 20 kHz
 	parameter SPI_CLK_DELAY = 1; // 500 kHz
@@ -48,35 +49,11 @@ module DIG_stimulus(
     wire [31:0] down_switches;
     wire [5:0] DAC;
     wire pulse_active;
+	wire enable_out;
 
-/*
-	assign amplitude = `AMPLITUDE;
-	assign freq = `FREQ;
-	assign phaseDuration = `PHASE;
-	assign ramp = `RAMP;
-    assign ramp_factor = `RAMP_FACTOR;
-    assign ON_time = `ON_TIME;
-    assign OFF_time = `OFF_TIME;
-    assign electrode1 = `ELE1;
-    assign electrode2 = `ELE2;
-    //assign enable = 1'b1;
-*/
     reg [31:0] conf0;
 	reg [31:0] conf1;
 	
-	always @(*) begin
-		conf0[17:12] = amplitude;
-    	conf0[11:0] = freq;
-    	conf1[23:21] = phaseDuration;
-    	conf0[23:18] = ramp;
-    	conf1[9:0] = ramp_factor;
-    	conf0[32:24] = ON_time;
-    	conf1[19:10] = OFF_time;
-    	conf1[20] = enable;
-		conf1[31:24] = 8'b0000_0000;	
-	end
-    
-
 	// Clock Generators:
 	always #(MAIN_CLK_DELAY) Clk20kHz = ~Clk20kHz;
 	
@@ -93,7 +70,8 @@ module DIG_stimulus(
 			.up_switches(up_switches),  // Controls the P switches in the H bridge
             .down_switches(down_switches), // Controls the N switches in the H bridge
             .DAC(DAC),
-            .pulse_active(pulse_active));
+            .pulse_active(pulse_active),
+			.enable(enable_out));
 
 	initial begin
 
@@ -112,46 +90,58 @@ module DIG_stimulus(
 		SPI_Clk = 1'b0;
 		SPI_MOSI = 1'b0;
 
+
+	//initial conf 50mA, pd = 4, 50Hz, rampup/dn 1s, ON/OFF 1s
 		enable = 1'b1;
-		amplitude = `AMPLITUDE;
-		freq = `FREQ;
-		phaseDuration = `PHASE;
-		ramp = `RAMP;
-    	ramp_factor = `RAMP_FACTOR;
-    	ON_time = `ON_TIME;
-    	OFF_time = `OFF_TIME;
-    	electrode1 = `ELE1;
+		amplitude = 50;
+		freq = 400;
+		phaseDuration = 4;
+		ramp = 50;
+		ramp_factor = (amplitude*16)/ramp;
+ 	   	ON_time = 50;
+  	  	OFF_time = 50;
+   	 	electrode1 = `ELE1;
     	electrode2 = `ELE2;
-		//SPI_Slave_TX = 8'h00;
+		update_config;
+		
  
 		//Reset
 		#(10*MAIN_CLK_DELAY) reset_l = 1'b0;
 		#(10*MAIN_CLK_DELAY) reset_l = 1'b1;
 		#(10*MAIN_CLK_DELAY);
- 
+
+		// SPI config
         send_ASKA(8'h02,electrode1);
 		#(20*MAIN_CLK_DELAY);
 		send_ASKA(8'h03,electrode2);
-        #(20*MAIN_CLK_DELAY);
+        #(20*MAIN_CLK_DELAY);	
 		send_ASKA(8'h00,conf0);
 		#(20*MAIN_CLK_DELAY);
 		send_ASKA(8'h01,conf1);
+         
 		
 		#(7500000*SPI_CLK_DELAY); 
 
+		// Disable NPG
 		enable = 0;
+	    update_config;	
 		#1;	send_ASKA(8'h01,conf1);
 
 		#(5000000*SPI_CLK_DELAY); 
+			// amp 25 mA, rampup/dwn 0.5s freq 50Hz
 		ramp = 25;
 		amplitude = 25;
 		ramp_factor = (amplitude*16)/ramp;
 		enable = 1;
+		update_config;
 		#1; send_ASKA(8'h00,conf0);		
 		send_ASKA(8'h01,conf1);
 
 		#(10000000*SPI_CLK_DELAY);
 
+		
+
+		// POR
 		porborn = 0;
 		#(1000000*SPI_CLK_DELAY);
 		porborn = 1;
@@ -186,30 +176,6 @@ module DIG_stimulus(
 			#(4*MAIN_CLK_DELAY);
 
 			$display("sent SPI add 0x%X, data 0x%X at time:",add, data,  $time);
-						
-			
-            /*
-			case (add)
-				8'h00:  begin
-							str1 = (data == conf0)? "OK" : "ERROR";
-							$display("sent conf0 0x%X, received 0x%X, %s", data, conf0, str1);
-						end
-				8'h01: 	begin
-							str1 = (data == conf1)? "OK" : "ERROR";
-							$display("sent conf1 0x%X, received 0x%X, %s", data, conf1, str1);
-						end						
-				8'h02:  begin
-							str1 = (data == ele1)? "OK" : "ERROR";
-							$display("sent ele1 0x%X, received 0x%X, %s", data, ele1, str1);	
-						end
-				
-				8'h03: 	begin
-							str1 = (data == ele2)? "OK" : "ERROR";
-							$display("sent ele2 0x%X, received 0x%X, %s", data, ele2, str1); 				
-						end
-						
-			endcase
-			*/
 			
 		end
 	endtask
@@ -228,6 +194,21 @@ module DIG_stimulus(
 			#(4*MAIN_CLK_DELAY); // models delay between CS and SPI master 
 			SPI_CS = 1'b1;	
 			
+		end
+	endtask
+
+	task update_config;
+ 		begin
+			conf0[11:0] = freq;
+			conf0[17:12] = amplitude;   
+ 			conf0[23:18] = ramp;
+    			conf0[31:24] = ON_time;
+		
+    			conf1[9:0] = ramp_factor;
+    			conf1[19:10] = OFF_time;
+    			conf1[20] = enable;
+    			conf1[23:21] = phaseDuration;
+			conf1[31:24] = 8'b0000_0000;	
 		end
 	endtask
 

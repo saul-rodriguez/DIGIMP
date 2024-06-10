@@ -18,7 +18,8 @@
 			output [31:0] up_switches,  // Controls the P switches in the H bridge
             output [31:0] down_switches, // Controls the N switches in the H bridge
             output [5:0] DAC,
-            output pulse_active);
+            output pulse_active,
+            output enable);
  
 
     /**********************************************/
@@ -54,7 +55,7 @@
     wire [9:0] ramp_factor; //[1 - 1024] (amplitude/ramp*2^4)
     wire [7:0] ON_time; // up to 4s (in pulses, 200 for 50 Hz)
     wire [9:0] OFF_time; // up to 12s (in pulses 600 for 50 Hz)   
-    wire enable;
+    //wire enable;
 
     assign resetn = reset_l & porborn;
 
