@@ -14,7 +14,8 @@
             input porborn, //Power-on-Reset/Brown-out-Reset (L)
 			input SPI_CS, // chip select  (L)
 			input SPI_Clk, // Mode 0, data is sampled at the rising edge
-			input SPI_MOSI, // Master output  Slave Input				
+			input SPI_MOSI, // Master output  Slave Input	
+            input [1:0] IC_addr,			
 			output [31:0] up_switches,  // Controls the P switches in the H bridge
             output [31:0] down_switches, // Controls the N switches in the H bridge
             output [5:0] DAC,
@@ -73,7 +74,8 @@
 			.resetn(resetn),
 			.SPI_CS(SPI_CS),
 			.SPI_Clk(SPI_Clk),
-			.SPI_MOSI(SPI_MOSI),			 
+			.SPI_MOSI(SPI_MOSI),		
+            .IC_addr(IC_addr),	 
 			.conf0(conf0),
 			.conf1(conf1),
 			.ele1(ele1),

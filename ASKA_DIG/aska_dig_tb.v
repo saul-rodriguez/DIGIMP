@@ -32,6 +32,9 @@ module DIG_stimulus(
 	parameter MAIN_CLK_DELAY = 25;  // 20 kHz
 	parameter SPI_CLK_DELAY = 1; // 500 kHz
 
+	// IC address
+	reg [1:0] IC_addr;
+
     // Stimulation parameters
     reg [5:0] amplitude; //0 - 50 mA
     reg [11:0] freq; // 4.88 Hz (4095) - 50 Hz (400)
@@ -66,12 +69,15 @@ module DIG_stimulus(
             .porborn(porborn), //Power-on-Reset/Brown-out-Reset (L)
 			.SPI_CS(SPI_CS), // chip select  (L)
 			.SPI_Clk(SPI_Clk), // Mode 0, data is sampled at the rising edge
-			.SPI_MOSI(SPI_MOSI), // Master output  Slave Input				
+			.SPI_MOSI(SPI_MOSI), // Master output  Slave Input	
+			.IC_addr(IC_addr), // address of IC			
 			.up_switches(up_switches),  // Controls the P switches in the H bridge
             .down_switches(down_switches), // Controls the N switches in the H bridge
             .DAC(DAC),
             .pulse_active(pulse_active),
 			.enable(enable_out));
+
+	reg [7:0] send_address;
 
 	initial begin
 
@@ -89,6 +95,9 @@ module DIG_stimulus(
 		SPI_CS = 1'b1;
 		SPI_Clk = 1'b0;
 		SPI_MOSI = 1'b0;
+
+		IC_addr = 2'b00;
+		send_address = 8'h00; //only the 2 msb need to be changed!
 
 
 	//initial conf 50mA, pd = 4, 50Hz, rampup/dn 1s, ON/OFF 1s
@@ -111,13 +120,13 @@ module DIG_stimulus(
 		#(10*MAIN_CLK_DELAY);
 
 		// SPI config
-        send_ASKA(8'h02,electrode1);
+        send_ASKA((8'h02 | send_address),electrode1);
 		#(20*MAIN_CLK_DELAY);
-		send_ASKA(8'h03,electrode2);
+		send_ASKA((8'h03 | send_address),electrode2);
         #(20*MAIN_CLK_DELAY);	
-		send_ASKA(8'h00,conf0);
+		send_ASKA((8'h00 | send_address),conf0);
 		#(20*MAIN_CLK_DELAY);
-		send_ASKA(8'h01,conf1);
+		send_ASKA((8'h01 | send_address),conf1);
          
 		
 		#(7500000*SPI_CLK_DELAY); 
@@ -125,7 +134,7 @@ module DIG_stimulus(
 		// Disable NPG
 		enable = 0;
 	    update_config;	
-		#1;	send_ASKA(8'h01,conf1);
+		#1;	send_ASKA((8'h01 | send_address),conf1);
 
 		#(5000000*SPI_CLK_DELAY); 
 			// amp 25 mA, rampup/dwn 0.5s freq 50Hz
@@ -134,8 +143,8 @@ module DIG_stimulus(
 		ramp_factor = (amplitude*16)/ramp;
 		enable = 1;
 		update_config;
-		#1; send_ASKA(8'h00,conf0);		
-		send_ASKA(8'h01,conf1);
+		#1; send_ASKA((8'h00 | send_address),conf0);		
+		send_ASKA((8'h01 | send_address),conf1);
 
 		#(10000000*SPI_CLK_DELAY);
 
