@@ -15,8 +15,6 @@ module SPI_stimulus(
 	
 	reg Clk20kHz;
 
-	reg [1:0] IC_addr;
-
 	parameter MAIN_CLK_DELAY = 25;  // 20 kHz
 	parameter SPI_CLK_DELAY = 1; // 500 kHz
 
@@ -26,10 +24,10 @@ module SPI_stimulus(
 	reg [7:0] TX_data; // Data to send through MOSI	
 	reg [7:0] SPI_Master_RX; // Data received through MISO  
 
-	wire [31:0] conf0;
-	wire [31:0] conf1;
-	wire [31:0] ele1;
-	wire [31:0] ele2;
+	wire [`M-1:0] conf0;
+	wire [`M-1:0] conf1;
+	wire [`M-1:0] ele1;
+	wire [`M-1:0] ele2;
 	
 	aska_spi aska_spi_UUT
 		(
@@ -37,8 +35,7 @@ module SPI_stimulus(
 			.resetn(reset_l),
 			.SPI_CS(SPI_CS),
 			.SPI_Clk(SPI_Clk),
-			.SPI_MOSI(SPI_MOSI),	
-			.IC_addr(IC_addr),		 
+			.SPI_MOSI(SPI_MOSI),			 
 			.conf0(conf0),
 			.conf1(conf1),
 			.ele1(ele1),
@@ -61,7 +58,6 @@ module SPI_stimulus(
 		SPI_CS = 1'b1;
 		SPI_Clk = 1'b0;
 		SPI_MOSI = 1'b0;
-		IC_addr =2'b11;
 		//SPI_Slave_TX = 8'h00;
  
 		//Reset
@@ -70,15 +66,15 @@ module SPI_stimulus(
 		#(10*MAIN_CLK_DELAY);
  
 
-		send_ASKA(8'hc0,32'haabbccdd);
+		send_ASKA(8'h00,32'haabbccdd);
 		#(20*MAIN_CLK_DELAY);
 		send_ASKA_error(8'h03,32'h554466aa); // send incomplete command!
 		#(20*MAIN_CLK_DELAY);
-		send_ASKA(8'hc1,32'h3377eeff);
+		send_ASKA(8'h01,32'h3377eeff);
 		#(20*MAIN_CLK_DELAY);
-		send_ASKA(8'hc2,32'hbebecaca);
+		send_ASKA(8'h02,32'hbebecaca);
 		#(20*MAIN_CLK_DELAY);
-		send_ASKA(8'hc3,32'hcafebaba);
+		send_ASKA(8'h03,32'hcafebaba);
    
 		#(100*SPI_CLK_DELAY); 
 		$display("************************************");
@@ -119,7 +115,7 @@ module SPI_stimulus(
 			//Check values
 			#(4*MAIN_CLK_DELAY);
 			
-			case (add & 8'b0011_1111)
+			case (add)
 				8'h00:  begin
 							str1 = (data == conf0)? "OK" : "ERROR";
 							$display("sent conf0 0x%X, received 0x%X, %s", data, conf0, str1);

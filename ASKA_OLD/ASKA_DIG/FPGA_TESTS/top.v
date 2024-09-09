@@ -6,11 +6,6 @@
 /* 											 */
 /*  gp[0] = resetn							 */
 /*  gp[1] = enable							 */
-/*  gp[2] = SPI_Clk							 */
-/*	gp[3] = SPI_MOSI						 */
-/*	gp[4] = SPI_CS							 */
-/* 	gp[5] = IC_addr[0]						 */
-/*  gp[6] = IC_addr[1]						 */
 /*                                           */
 /*  gn[0] = clk 20 kHz                       */
 /*  gn[3:1] = up_switches[2:0]               */
@@ -26,7 +21,7 @@
 
 module top (
 	//input [3:0] sw, 	
-	input [6:0] gp,
+	input [5:0] gp,
 	output [13:0] gn,
 	output [7:0] led,	
 	input [6:0] btn, // [3:1] are active high, [0] is active low	
@@ -73,8 +68,6 @@ module top (
 	wire SPI_MOSI;
 	wire SPI_CS;
 	wire porborn;
-	
-	wire [1:0] IC_addr; 	
 
 	always @(posedge clk_25mhz or negedge resetn) begin
 		if (resetn == 1'b0) begin
@@ -104,29 +97,22 @@ module top (
     wire [5:0] DAC;
     wire pulse_active;
 
-
-
 	assign resetn = gp[0];
 	assign porborn = gp[1];
 	assign SPI_Clk = gp[2];
 	assign SPI_MOSI = gp[3];
 	assign SPI_CS = gp[4];
-	assign IC_addr[0] = gp[5];
-	assign IC_addr[1] = gp[6];
-	
-	
-	
 
 //Change outputs to test different electrodes
-
+/*
 	assign gn[3:1] = up_switches[2:0];
 	assign gn[6:4] = down_switches[2:0];
 	
-//	assign gn[3:1] = up_switches[31:29];
-//	assign gn[6:4] = down_switches[31:29];
-
-//	assign gn[3:1] = up_switches[15:13];
-//	assign gn[6:4] = down_switches[15:13];
+	assign gn[3:1] = up_switches[31:29];
+	assign gn[6:4] = down_switches[31:29];
+*/
+	assign gn[3:1] = up_switches[15:13];
+	assign gn[6:4] = down_switches[15:13];
 
 	assign gn[7] = DAC[0];
 	assign gn[8] = DAC[1];
@@ -142,8 +128,7 @@ aska_dig aska_dig1 (
             .porborn(porborn), //Power-on-Reset/Brown-out-Reset (L)
 			.SPI_CS(SPI_CS), // chip select  (L)
 			.SPI_Clk(SPI_Clk), // Mode 0, data is sampled at the rising edge
-			.SPI_MOSI(SPI_MOSI), // Master output  Slave Input		
-			.IC_addr(IC_addr),		
+			.SPI_MOSI(SPI_MOSI), // Master output  Slave Input				
 			.up_switches(up_switches),  // Controls the P switches in the H bridge
             .down_switches(down_switches), // Controls the N switches in the H bridge
             .DAC(DAC),

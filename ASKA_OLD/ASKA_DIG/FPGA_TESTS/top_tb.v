@@ -1,13 +1,9 @@
-//Verilog HDL for "SPI_SLAVE_STIMULUS", "SPI_stimulus" "functional"
+`include "top.v"
 
-//`include "constants.vams"
-//`include "disciplines.vams"
+`timescale 1 ns/ 1ps
+//`timescale 1us/ 1ps
 
-`include "aska_dig.v"
-
-`timescale 1us/ 1ps
-
-`define AMPLITUDE 50
+`define AMPLITUDE 25
 `define FREQ 400
 `define PHASE 4
 `define RAMP  50
@@ -18,18 +14,13 @@
 `define ELE1  32'b0000_0000_0000_0000_1000_0000_0000_0000
 `define ELE2  32'b0000_0000_0000_0000_0100_0000_0000_0000
 
+module top_tb();
 
-module DIG_stimulus(	
-	output reg SPI_Clk,
-	output reg SPI_MOSI,
-	output reg SPI_CS,
-	output reg reset_l,
-	output reg Clk20kHz);
-		
-	reg porborn;
-
-	parameter MAIN_CLK_DELAY = 25;  // 20 kHz
-	parameter SPI_CLK_DELAY = 1; // 500 kHz
+    reg resetn;
+    reg porborn;    
+    reg SPI_Clk;
+	reg SPI_MOSI;
+	reg SPI_CS;
 
     // Stimulation parameters
     reg [5:0] amplitude; //0 - 50 mA
@@ -39,80 +30,97 @@ module DIG_stimulus(
     reg [9:0] ramp_factor;
     reg [7:0] ON_time; // up to 4s (200 for 50 Hz)ramp = `RAMP;    
     reg [9:0] OFF_time; // up to 12s (600 for 50 Hz)
-    reg [`ELEC_NUM:0] electrode1;
-    reg [`ELEC_NUM:0] electrode2;
+    reg [31:0] electrode1;
+    reg [31:0] electrode2;
     reg enable;
-	    
-	//Outputs
-	wire [`ELEC_NUM:0] up_switches;
-    wire [`ELEC_NUM:0] down_switches;
-    wire [5:0] DAC;
-    wire pulse_active;
 
-/*
-	assign amplitude = `AMPLITUDE;
-	assign freq = `FREQ;
-	assign phaseDuration = `PHASE;
-	assign ramp = `RAMP;
-    assign ramp_factor = `RAMP_FACTOR;
-    assign ON_time = `ON_TIME;
-    assign OFF_time = `OFF_TIME;
-    assign electrode1 = `ELE1;
-    assign electrode2 = `ELE2;
-    //assign enable = 1'b1;
-*/
-    reg [`M-1:0] conf0;
-	reg [`M-1:0] conf1;
+    reg [31:0] conf0;
+	reg [31:0] conf1;
 	
 	always @(*) begin
-		conf0[17:12] = amplitude;
-    	conf0[11:0] = freq;
-    	conf1[23:21] = phaseDuration;
-    	conf0[23:18] = ramp;
-    	conf1[9:0] = ramp_factor;
-    	conf0[32:24] = ON_time;
-    	conf1[19:10] = OFF_time;
-    	conf1[20] = enable;
-		conf1[31:24] = 8'b0000_0000;	
+		    conf0[17:12] = amplitude;
+    	    conf0[11:0] = freq;
+    	    conf1[23:21] = phaseDuration;
+    	    conf0[23:18] = ramp;
+    	    conf1[9:0] = ramp_factor;
+    	    conf0[32:24] = ON_time;
+    	    conf1[19:10] = OFF_time;
+    	    conf1[20] = enable;
+		    conf1[31:24] = 8'b0000_0000;	
 	end
-    
 
-	// Clock Generators:
-	always #(MAIN_CLK_DELAY) Clk20kHz = ~Clk20kHz;
+// Main Clk ULX
+    parameter CLK_DELAY = 20;  // 25 MHz
+
+// Clock Generators:
+    reg clk25;
+	always #(CLK_DELAY) clk25 = ~clk25;
+
+    parameter MAIN_CLK_DELAY = 25000;  // 20 kHz
+	parameter SPI_CLK_DELAY = 2; // 500 kHz
+
+//Instantiation of UUT
+		
+	wire [6:0] btn;
+	//assign btn = {{(5){1'b0}}, reset_l };
 	
-	reg [7:0] TX_data; // Data to send through MOSI	
+	reg [5:0] gp; //inputs
+	//assign gp = {1'b0,1'b0,1'b0,SPI_CS,SPI_MOSI,SPI_Clk};
+	
+	wire [13:0] gn;	//outputs	
+	wire [7:0] led;
+
+    always @(*) begin
+        gp[0] = resetn;
+        gp[1] = porborn;
+        gp[2] = SPI_Clk;
+        gp[3] = SPI_MOSI;
+        gp[4] = SPI_CS;
+    end
+
+    wire [2:0] up_switches;
+    wire [2:0] down_switches;
+    wire pulse_active;
+    wire [5:0] DAC;
+    wire clk_20khz;
+
+    assign clk_20khz = gn[0];
+    assign up_switches = gn[3:1];
+    assign down_switches = gn[6:4];    
+    assign DAC = gn[12:7];
+    assign pulse_active = gn[13];
+    
+	
+	top top1
+		(	.gp(gp),
+			.gn(gn),
+			.led(led),
+			.btn(btn),
+			.clk_25mhz(clk25)			
+			);
+   
+
+    reg [7:0] TX_data; // Data to send through MOSI	
 	reg [7:0] SPI_Master_RX; // Data received through MISO  
 
-    aska_dig aska_dig1 (
-			.clk(Clk20kHz),   // internal clock 20 kHz
-			.reset_l(reset_l), // Reset async. (L)
-            .porborn(porborn), //Power-on-Reset/Brown-out-Reset (L)
-			.SPI_CS(SPI_CS), // chip select  (L)
-			.SPI_Clk(SPI_Clk), // Mode 0, data is sampled at the rising edge
-			.SPI_MOSI(SPI_MOSI), // Master output  Slave Input				
-			.up_switches(up_switches),  // Controls the P switches in the H bridge
-            .down_switches(down_switches), // Controls the N switches in the H bridge
-            .DAC(DAC),
-            .pulse_active(pulse_active));
+initial begin
+    // Required for EDA Playground
+	$dumpfile("dump.vcd"); 
+	//$dumpvars;
+    $dumpvars(1,top_tb);
+	$display("************************************");
+	$display("Test ASKA DIG");
 
-	initial begin
-
-		// Required for EDA Playground
-		$dumpfile("dump.vcd"); 
-		$dumpvars;
-		$display("************************************");
-		$display("Test ASKA SPI Slave");
-
-		//Initial State
-		Clk20kHz = 0;
+    //Initial State
+		clk25 = 0;
 		TX_data = 8'h00;
-		reset_l = 1'b1;
+		resetn = 1'b1;
 		porborn = 1'b1;
 		SPI_CS = 1'b1;
 		SPI_Clk = 1'b0;
 		SPI_MOSI = 1'b0;
-
-		enable = 1'b1;
+        
+        enable = 1'b1;
 		amplitude = `AMPLITUDE;
 		freq = `FREQ;
 		phaseDuration = `PHASE;
@@ -122,11 +130,10 @@ module DIG_stimulus(
     	OFF_time = `OFF_TIME;
     	electrode1 = `ELE1;
     	electrode2 = `ELE2;
-		//SPI_Slave_TX = 8'h00;
  
 		//Reset
-		#(10*MAIN_CLK_DELAY) reset_l = 1'b0;
-		#(10*MAIN_CLK_DELAY) reset_l = 1'b1;
+		#(10*MAIN_CLK_DELAY) resetn = 1'b0;
+		#(10*MAIN_CLK_DELAY) resetn = 1'b1;
 		#(10*MAIN_CLK_DELAY);
  
         send_ASKA(8'h02,electrode1);
@@ -139,6 +146,7 @@ module DIG_stimulus(
 		
 		#(7500000*SPI_CLK_DELAY); 
 
+/*
 		enable = 0;
 		#1;	send_ASKA(8'h01,conf1);
 
@@ -157,21 +165,18 @@ module DIG_stimulus(
 		porborn = 1;
 
 		#(20000000*SPI_CLK_DELAY); 
-		$display("************************************");
-		$finish;
- 
-	end
+   
+*/
+    #(64000000*CLK_DELAY); 
+    $display("************************************");
+	$finish;
+end
 
-	initial begin
-		//    $sdf_annotate ("/home/saul/projects/TEST_LIB2/innovus/output/typ_functional_1_8V_25C.sdf",I3,, "sdf.log", "MAXIMUM");
-	end
-
-	reg[8*6:1] str1;
 
 	task send_ASKA(input [7:0] add, input [31:0] data);
 		begin
 			SPI_CS = 1'b0;
-			#(4*MAIN_CLK_DELAY); // models delay between CS and SPI master 
+			#(4*SPI_CLK_DELAY); // models delay between CS and SPI master 
 			
 			send_byte(add);
 			send_byte(data[31:24]);
@@ -179,11 +184,11 @@ module DIG_stimulus(
 			send_byte(data[15:8]);
 			send_byte(data[7:0]);
 			
-			#(4*MAIN_CLK_DELAY); // models delay between CS and SPI master 
+			#(4*SPI_CLK_DELAY); // models delay between CS and SPI master 
 			SPI_CS = 1'b1;	
 			
 			//Check values
-			#(4*MAIN_CLK_DELAY);
+			#(4*SPI_CLK_DELAY);
 
 			$display("sent SPI add 0x%X, data 0x%X at time:",add, data,  $time);
 						
@@ -289,5 +294,5 @@ module DIG_stimulus(
 		end
 	endtask
 
-endmodule 
 
+endmodule

@@ -1,11 +1,12 @@
 `ifndef ASKA_DIG_V
 `define ASKA_DIG_V
 
-   // `include "aska_npg.v"
-   // `include "aska_spi.v"
-   
+    //`include "aska_npg.v"
+    //`include "aska_spi.v"
+
     `include "/home/saul/projects/DIGIMP/ASKA_SPI/aska_spi.v"
     `include "/home/saul/projects/DIGIMP/ASKA_NPG/aska_npg.v"
+
 
     module aska_dig (
 			input clk,   // internal clock 20 kHz
@@ -13,13 +14,13 @@
             input porborn, //Power-on-Reset/Brown-out-Reset (L)
 			input SPI_CS, // chip select  (L)
 			input SPI_Clk, // Mode 0, data is sampled at the rising edge
-			input SPI_MOSI, // Master output  Slave Input		
-			input [1:0] IC_addr,			
+			input SPI_MOSI, // Master output  Slave Input	
+            input [1:0] IC_addr,			
 			output [31:0] up_switches,  // Controls the P switches in the H bridge
             output [31:0] down_switches, // Controls the N switches in the H bridge
             output [5:0] DAC,
             output pulse_active,
-            output enable); 
+            output enable);
  
 
     /**********************************************/
@@ -53,7 +54,7 @@
     wire [2:0] phaseDuration; // 50 us (1) - 350 us (7) 
     wire [5:0] ramp; // up to 1s (50 for 50 Hz) 
     wire [9:0] ramp_factor; //[1 - 1024] (amplitude/ramp*2^4)
-    wire [7:0] ON_time; // up to 4s (in pulses, 200 for 50 Hz) 
+    wire [7:0] ON_time; // up to 4s (in pulses, 200 for 50 Hz)
     wire [9:0] OFF_time; // up to 12s (in pulses 600 for 50 Hz)   
     //wire enable;
 
@@ -73,8 +74,8 @@
 			.resetn(resetn),
 			.SPI_CS(SPI_CS),
 			.SPI_Clk(SPI_Clk),
-			.SPI_MOSI(SPI_MOSI),	
-			.IC_addr(IC_addr),
+			.SPI_MOSI(SPI_MOSI),		
+            .IC_addr(IC_addr),	 
 			.conf0(conf0),
 			.conf1(conf1),
 			.ele1(ele1),

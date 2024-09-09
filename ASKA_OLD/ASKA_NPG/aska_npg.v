@@ -51,7 +51,7 @@ always @(posedge clk or negedge resetn) begin
     end
 end
 
-assign freq_count_ready = (freq_count == freq) ? 1'b1 : 1'b0;
+assign freq_count_ready = (freq_count == freq && enable) ? 1'b1 : 1'b0;
 
 /*********************/
 /*  Pulse generator  */
@@ -112,7 +112,7 @@ always @(posedge clk or negedge resetn) begin
         phase_pause_ready <= 1'b0;
 
     end else begin
-        if (phase_up_count_ready == 1'b1) begin
+        if (phase_up_count_ready == 1'b1 && enable == 1'b1) begin
             phase_pause_ready <= 1'b1;    
         end else if (phase_pause_ready == 1'b1) begin
             phase_pause_ready <= 1'b0;
